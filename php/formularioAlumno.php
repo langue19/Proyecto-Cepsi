@@ -128,10 +128,7 @@ $mesesEnEspanol = array(
                 </p>
               </a>
                 </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
+                <li class="nav-item">
                 <a href="formularioUsuario.php" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>
@@ -143,7 +140,39 @@ $mesesEnEspanol = array(
             </li>
 
 
-          
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Gestionar Alumnos
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Agregar datos personales</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Agregar datos pedagogicos</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Agregar datos internacion/domiciliario</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
