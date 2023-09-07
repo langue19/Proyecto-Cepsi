@@ -54,19 +54,48 @@ $mesesEnEspanol = array(
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
-        <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
-      </a>
+    <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <?php 
+    session_start();
+    // Verificar si el usuario ha iniciado sesión
+    if (isset($_SESSION['usuario'])) {
+        $usuario = $_SESSION['usuario'];
 
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="#" class="img-circle elevation-2" alt="User Image">
-          </div>
-          <div class="info">
-            <a style="text-decoration: none;" href="#" class="d-block"><?php echo ?></a>
+        include 'conexion.php';
+        include 'crearBD.php';
+        include 'crearTabla.php';
+
+        $conn->exec("USE $dbname");
+
+        $stmt = $conn->prepare("SELECT Nombre, Apellido FROM datos_usuarios WHERE usuario=:usuario");
+
+        // Asignar valor a los parámetros
+        $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+          // Obtener los resultados de la consulta
+          $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+      
+          // Verificar si se obtuvieron resultados
+          if ($resultado) {
+              // Acceder a los valores del resultado
+              $nombre = $resultado['Nombre'];
+              $apellido = $resultado['Apellido'];
+      
+              // Imprimir el nombre y apellido dentro del enlace
+              echo '<span class="brand-text font-weight-light">' . $nombre . ' ' . $apellido . '</span>';
+          } else {
+              // No se encontraron resultados en la base de datos
+              echo "No se encontraron resultados para el usuario.";
+          }
+      } else {
+          // Error al ejecutar la consulta
+          echo "Error al ejecutar la consulta.";
+      }
+    }
+    ?>
+</a>
           </div>
         </div>
 
@@ -994,5 +1023,5 @@ $mesesEnEspanol = array(
   <script src="dist/js/demo.js"></script>
 
 </body>
-
+                
 </html>
