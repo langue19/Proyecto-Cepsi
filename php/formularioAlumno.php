@@ -131,12 +131,19 @@ $mesesEnEspanol = array(
               </ul>
             </li>
 
+            <li class="nav-item">
+                <a href="formularioUsuario.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>
+                  Profesor
+                </p>
+              </a>
+                </li>
+              </ul>
+            </li>
 
 
-
-
-
-
+          
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
@@ -171,9 +178,6 @@ $mesesEnEspanol = array(
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
-                <p>
-                  ##
-                </p>
               </a>
 
             </li>
@@ -273,8 +277,7 @@ $mesesEnEspanol = array(
                                                                                     <tr>
                                                                                         <th>Fecha</th>
                                                                                         <th>Observaciones</th>
-                                                                                        <th>Contenido</th>
-                                                                                        <th>Area Gabinete</th>
+                                                                                        <th>Contenido</th>                                                                                       
                                                                                         <th>Profesor</th>
                                                                                         <th><a href='Observaciones.php?id=" . $row['Dni'] . "'>
                                                                                         <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>

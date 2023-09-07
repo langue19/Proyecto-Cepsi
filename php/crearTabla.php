@@ -94,6 +94,14 @@ try {
     PRIMARY KEY (ID, Dni),
     FOREIGN KEY (Dni) REFERENCES Datos_personales(Dni)
 );
+      CREATE TABLE Datos_Profesor(
+    Dni INT,
+    Nombre VARCHAR(45),
+    Apellido VARCHAR(45),
+    Estado BOOLEAN, 
+    PRIMARY KEY (DNI),
+);
+
 ";
   $conn->exec($sqlCrearTabla);
 
