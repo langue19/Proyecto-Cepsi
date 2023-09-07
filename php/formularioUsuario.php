@@ -298,7 +298,7 @@ if ($posicion == 'Usuario') {
                                                                 <input style="color:black;" type="hidden" name="id" value="<?php echo isset($idviejo) ? $idviejo : ''; ?>">
                                                             </div>
                                                         </div>
-                                                        <input type="submit" name="next" class="next action-button" style="color:white;width: 100%; background-color:green; gap-top:30px" value="Guardar y salir!" />
+                                                        <input type="submit" name="next" class="next action-button" style="color:white;width: 100%; background-color:green; gap:30px" value="Guardar y salir!" />
                                                     </fieldset>
                                                 </form>
 
@@ -392,8 +392,6 @@ if ($posicion == 'Usuario') {
 
 <!-- OPTIONAL SCRIPTS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
 
 </body>
 
