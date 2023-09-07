@@ -4,7 +4,7 @@
 
 
 
-    <title>Agregar Profesores</title>
+    <title>Agregar Profesor</title>
     <meta charset="UTF-8">
     <!-- CSS only -->
     <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -49,7 +49,7 @@
             <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card  mb-3">
 
-                    <form id="msform" action="agregarAlumno.php" method="post">
+                    <form id="msform" action="agregarProf.php" method="post">
                         <!-- progressbar -->
                         <ul id="progressbar" style=" display: flex;
     justify-content: center;
@@ -73,11 +73,11 @@
                                     <input name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre">
                                     <label for="dni">Dni</label>
                                     <input name="documento" type="text" class="fieldlabels" id="dni" placeholder="Documento">
-                                    <label for="sexo">Estado:</label>
-                                    <select name="genero" id="genero">
+                                    <label for="estado">Estado:</label>
+                                    <select name="estado" id="estado">
                                         <option value="Sin especificar">Seleccionar</option>
-                                        <option value="Femenino">Activo</option>
-                                        <option value="Masculino">Inactivo</option>
+                                        <option value="Activi">Activo</option>
+                                        <option value="Inactivo">Inactivo</option>
                                     </select>
                                 </div>
                             </div> <input type="button" name="next" class="next action-button" value="Siguiente" />

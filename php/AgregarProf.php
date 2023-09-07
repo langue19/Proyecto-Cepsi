@@ -16,7 +16,7 @@ if (empty($dni) || empty($nomb) || empty($ape) || empty($estado)) {
 ?>
     <script>
         alert("Por favor, completa todos los campos.");
-        window.location.href = "agregarProf.php";
+        window.location.href = "AgregarProf.php";
     </script>
 <?php
 } else {
@@ -30,7 +30,7 @@ if (empty($dni) || empty($nomb) || empty($ape) || empty($estado)) {
     ?>
         <script>
             alert("El DNI ingresado ya existe.");
-            window.location.href = "agregarProf.php";
+            window.location.href = "AgregarProf.php";
         </script>
     <?php
     } else {
