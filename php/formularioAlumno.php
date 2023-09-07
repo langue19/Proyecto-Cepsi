@@ -4,8 +4,8 @@
 <?php
 
 $mesesEnEspanol = array(
-    1 => 'enero', 2 => 'febrero', 3 => 'marzo', 4 => 'abril', 5 => 'mayo', 6 => 'junio',
-    7 => 'julio', 8 => 'agosto', 9 => 'septiembre', 10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre'
+  1 => 'enero', 2 => 'febrero', 3 => 'marzo', 4 => 'abril', 5 => 'mayo', 6 => 'junio',
+  7 => 'julio', 8 => 'agosto', 9 => 'septiembre', 10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre'
 );
 
 ?>
@@ -49,53 +49,46 @@ $mesesEnEspanol = array(
     <!-- /.navbar -->
 
 
-    
+
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
-    <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <?php 
-    session_start();
-    // Verificar si el usuario ha iniciado sesión
-    if (isset($_SESSION['usuario'])) {
-        $usuario = $_SESSION['usuario'];
+        <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
+      </a>
 
-        include 'conexion.php';
-        include 'crearBD.php';
-        include 'crearTabla.php';
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <?php
+            session_start();
+            error_reporting(0);
 
-        $conn->exec("USE $dbname");
+            $posicion = $_SESSION['Posicion'];
+            if ($posicion == 'Administrador') {
+              echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
+            }elseif ($posicion == 'Usuario') {
+              echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
+            }elseif ($posicion == 'Psicopedagoga') {
+              echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
+            }
+            ?>
+          </div>
+          <div class="info">
+            <a style="text-decoration: none;" href="#" class="d-block">
+              <?php
+              session_start();
 
-        $stmt = $conn->prepare("SELECT Nombre, Apellido FROM datos_usuarios WHERE usuario=:usuario");
+              if (isset($_SESSION["usuario"])) {
 
-        // Asignar valor a los parámetros
-        $stmt->bindParam(':usuario', $usuario, PDO::PARAM_STR);
-
-        // Ejecutar la consulta
-        if ($stmt->execute()) {
-          // Obtener los resultados de la consulta
-          $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-      
-          // Verificar si se obtuvieron resultados
-          if ($resultado) {
-              // Acceder a los valores del resultado
-              $nombre = $resultado['Nombre'];
-              $apellido = $resultado['Apellido'];
-      
-              // Imprimir el nombre y apellido dentro del enlace
-              echo '<span class="brand-text font-weight-light">' . $nombre . ' ' . $apellido . '</span>';
-          } else {
-              // No se encontraron resultados en la base de datos
-              echo "No se encontraron resultados para el usuario.";
-          }
-      } else {
-          // Error al ejecutar la consulta
-          echo "Error al ejecutar la consulta.";
-      }
-    }
-    ?>
-</a>
+                $apellido = $_SESSION["Apellido"];
+              }
+              echo "Bienvenido " . $apellido;
+              ?>
+            </a>
           </div>
         </div>
 
@@ -108,24 +101,39 @@ $mesesEnEspanol = array(
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
+
             <li class="nav-item">
-              <a href="formularioAlumno.php" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
                 <p>
-                  Formulario
+                Formulario
+                  <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
-            </li>
-
-
-            <li class="nav-item">
-              <a href="formularioUsuario.php" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                <a href="formularioAlumno.php" class="nav-link active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>
+                  Alumnos
+                </p>
+              </a>
+                </li>
+                
+                <li class="nav-item">
+                <a href="formularioUsuario.php" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
                 <p>
                   Usuarios
                 </p>
               </a>
+                </li>
+              </ul>
             </li>
+
+
+
+
 
 
 
@@ -194,12 +202,6 @@ $mesesEnEspanol = array(
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-
-
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
 
@@ -1019,9 +1021,7 @@ $mesesEnEspanol = array(
 
   <!-- OPTIONAL SCRIPTS -->
   <script src="plugins/chart.js/Chart.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
 
 </body>
-                
+
 </html>

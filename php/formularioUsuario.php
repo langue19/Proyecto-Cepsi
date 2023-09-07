@@ -74,15 +74,37 @@ if ($posicion == 'Usuario') {
         <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
       </a>
 
-      <!-- Sidebar -->
-      <div class="sidebar">
+     <!-- Sidebar -->
+     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="#" class="img-circle elevation-2" alt="User Image">
+            <?php
+            session_start();
+            error_reporting(0);
+
+            $posicion = $_SESSION['Posicion'];
+            if ($posicion == 'Administrador') {
+              echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
+            }elseif ($posicion == 'Usuario') {
+              echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
+            }elseif ($posicion == 'Psicopedagoga') {
+              echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
+            }
+            ?>
           </div>
           <div class="info">
-            <a style="text-decoration: none;" href="#" class="d-block">#</a>
+            <a style="text-decoration: none;" href="#" class="d-block">
+              <?php
+              session_start();
+
+              if (isset($_SESSION["usuario"])) {
+
+                $apellido = $_SESSION["Apellido"];
+              }
+              echo "Bienvenido " . $apellido;
+              ?>
+            </a>
           </div>
         </div>
 
@@ -181,12 +203,6 @@ if ($posicion == 'Usuario') {
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-
-
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
 
@@ -293,7 +309,9 @@ if ($posicion == 'Usuario') {
                                                                 <select style="color:black;" name="Posicion" id="Posicion">
                                                                     <option style="color:black;" value="Administrador" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Administrador' ? 'selected' : ''; ?>>Administrador</option>
                                                                     <option style="color:black;" value="Usuario" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Usuario' ? 'selected' : ''; ?>>Usuario</option>
-                                                                </select>
+                                                                    <option style="color:black;" value="Psicopedagoga" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Psicopedagoga' ? 'selected' : ''; ?>>Psicopedagoga</option>
+
+                                                                  </select>
                                                                 <!-- Asegúrate de que este campo esté oculto y tenga el valor del ID del registro que se está editando -->
                                                                 <input style="color:black;" type="hidden" name="id" value="<?php echo isset($idviejo) ? $idviejo : ''; ?>">
                                                             </div>

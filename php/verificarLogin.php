@@ -30,6 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     session_start();
                     $_SESSION["usuario"] = $user;
                     $_SESSION["Posicion"] = $posicion;
+                    
+                    // Guardar el nombre y el apellido del usuario en la sesión
+                    $_SESSION["Apellido"] = $row["Apellido"];
+                                    
 
                     // Marcar como encontrada una coincidencia válida
                     $found = true;
@@ -45,6 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("Location: cards.php");
                 } elseif ($posicion == "Usuario") {
                     header("Location: formularioAlumno.php");
+                }else{
+                    header("Location: ./login.php");
                 }
                 exit;
             } else {
@@ -60,12 +66,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $e->getMessage();
     }
 }
-?>
-    // Recuperar los datos enviados desde el formulario
-    
-
-    // Aquí debes realizar la validación de las credenciales con la base de datos
-    // Si el usuario y la contraseña son válidos, puedes crear una sesión
-
-    // Ejemplo básico de validación (No utilices esta implementación en producción)
-    // Aquí, simplemente verificamos si el usuario es "admin" y la contraseña es "password"

@@ -106,6 +106,7 @@ if ($posicion == 'Usuario') {
                                         <option value="Sin especificar">Seleccionar</option>
                                         <option value="Administrador">Administrador</option>
                                         <option value="Usuario">Usuario</option>
+                                        <option value="Psicopedagoga">Psicopedagoga</option>
                                     </select>
                                 </div>
                             </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
