@@ -7,7 +7,7 @@ error_reporting(0);
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['usuario'])) {
     // Si no ha iniciado sesión, redirigirlo a la página de inicio de sesión
-    header("Location: /Proyecto-master/login.html");
+    header("Location: /Proyecto-master/Proyecto-master/login.html");
     exit;
 }
 
@@ -17,7 +17,7 @@ $posicion = $_SESSION['Posicion'];
 // Verificar si el usuario tiene la posición de "Usuario"
 // Si es así, redirigirlo a la página "formularioAlumno.php"
 if ($posicion == 'Usuario') {
-    header("Location: /Proyecto-master/php/formularioAlumno.php");
+    header("Location: /Proyecto-master/Proyecto-master/php/formularioAlumno.php");
     exit;
 }
 ?>
@@ -28,23 +28,23 @@ if ($posicion == 'Usuario') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="\Proyecto-master\css\font.css">
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\font.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
-    <link rel="stylesheet" href="\Proyecto-master\css\code.ionic.css">
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <title>FJV | Escuela CEPSI</title>
     <meta charset="UTF-8">
     <!-- CSS only -->
-    <link rel="stylesheet" type="text/css" href="/Proyecto-master/css/FormCSS.css">
-    <link rel="stylesheet" href="\Proyecto-master\css\w3.css">
-    <link href="\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/FormCSS.css">
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="/Proyecto-master/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
-    <script src="/Proyecto-master/js/FormUsuario.js"></script>
+    <script src="/Proyecto-master/Proyecto-master/js/FormUsuario.js"></script>
 
 
 </head>
@@ -70,7 +70,7 @@ if ($posicion == 'Usuario') {
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
-        <img src="\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
       </a>
 
@@ -214,7 +214,7 @@ if ($posicion == 'Usuario') {
                                         <th>Estado</th>
                                         <th>Posicion</th>
                                         <th>Acciones</th>
-                                        <th><a href='AgregarU.php'><img src='/Proyecto-master/img/mas.png' style="max-width: 30px;"></a></th>
+                                        <th><a href='AgregarU.php'><img src='/Proyecto-master/Proyecto-master/img/mas.png' style="max-width: 30px;"></a></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -242,8 +242,8 @@ if ($posicion == 'Usuario') {
 
                                             echo "<td>" . $row['Posicion'] . "</td>";
                                             echo "<td class='acciones'>
-                            <a href='#' onclick=\"document.getElementById('id-" . $row['ID'] . "').style.display='block'\"><img src='/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
-                            <a onclick='return confirmDelete();' href='eliminarU.php?id= " . $row['ID'] . "'><img src='/Proyecto-master/img/boton-eliminar.png'></a>
+                            <a href='#' onclick=\"document.getElementById('id-" . $row['ID'] . "').style.display='block'\"><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
+                            <a onclick='return confirmDelete();' href='eliminarU.php?id= " . $row['ID'] . "'><img src='/Proyecto-master/Proyecto-master/img/boton-eliminar.png'></a>
                             </td>";
 
 

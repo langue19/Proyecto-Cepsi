@@ -48,11 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 exit;
             } else {
-                header("Location: /Proyecto-master/login.html?error=1");
+                header("Location: /Proyecto-master/Proyecto-master/login.html?error=1");
                 exit;
             }
         } else {
-            header("Location: /Proyecto-master/login.html?error=1");
+            header("Location: /Proyecto-master/Proyecto-master/login.html?error=1");
             exit;
         }
     } catch (PDOException $e) {

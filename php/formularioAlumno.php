@@ -16,20 +16,20 @@ $mesesEnEspanol = array(
   <title>FJV | Inicio</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="\Proyecto-master\css\font.css">
+  <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\font.css">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- IonIcons -->
-  <link rel="stylesheet" href="\Proyecto-master\css\code.ionic.css">
+  <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="/Proyecto-master/css/sidebar.css">
-  <link rel="stylesheet" href="\Proyecto-master\css\w3.css">
-  <link href="\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/sidebar.css">
+  <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
+  <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-  <script src="/Proyecto-master/js/FormAlumno.js"></script>
-  <link rel="shortcut icon" href="/Proyecto-master/favicon/favicon-32x32.png">
+  <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
+  <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
 
 </head>
 
@@ -54,7 +54,7 @@ $mesesEnEspanol = array(
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
-        <img src="\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
       </a>
 
@@ -197,7 +197,7 @@ $mesesEnEspanol = array(
                     <th>PDF</th>
                     <th>Acciones</th>
                     <th><a href='AgregarA.php'>
-                        <img src="/Proyecto-master/img/mas.png" style="max-width: 30px;">
+                        <img src="/Proyecto-master/Proyecto-master/img/mas.png" style="max-width: 30px;">
                       </a>
                     </th>
                   </tr>
@@ -221,7 +221,7 @@ $mesesEnEspanol = array(
                     while ($row = $consulta->fetch()) {
                       echo "<tr>";
                       echo "<td><a href='#' onclick=\"openModal1('" . $row['Dni'] . "')\">
-                                    <img src='/Proyecto-master/img/observar.png'>
+                                    <img src='/Proyecto-master/Proyecto-master/img/observar.png'>
                                 </a>
                                     <div class='w3-container'>
                                         <div id='id-modal1-" . $row['Dni'] . "' class='w3-modal'>
@@ -247,7 +247,7 @@ $mesesEnEspanol = array(
                                                                                         <th>Area Gabinete</th>
                                                                                         <th>Profesor</th>
                                                                                         <th><a href='Observaciones.php?id=" . $row['Dni'] . "'>
-                                                                                        <img src='/Proyecto-master/img/mas.png' class='imagen-espaciada'>
+                                                                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
                                                                                     </a>
                                                                                     </th>
                                                                                     </tr>
@@ -330,7 +330,7 @@ $mesesEnEspanol = array(
                       echo "<td>
             <div class='w3-container'>
                 <a href='#' onclick=\"openModal2('" . $row['Dni'] . "')\">
-                    <img src='/Proyecto-master/img/datos.png'>
+                    <img src='/Proyecto-master/Proyecto-master/img/datos.png'>
                 </a>
                 
                 <div id='id-modal2-" . $row['Dni'] . "' class='w3-modal'>
@@ -430,7 +430,7 @@ $mesesEnEspanol = array(
                             font-size: 15px;'>
                                 <tr>
                                 <th><a href='AgregarDP.php?id=" . $row['Dni'] . "'>
-                                        <img src='/Proyecto-master/img/mas.png' style='max-width: 30px;'>
+                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
                                     </a>
                                 </th>
                                     <th>Fecha de ingreso</th>
@@ -497,7 +497,7 @@ $mesesEnEspanol = array(
                         <thead>
                             <tr>
                             <th><a href='agregarDI.php?id=" . $row['Dni'] . "'>
-                                        <img src='/Proyecto-master/img/mas.png' style='max-width: 30px;'>
+                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
                                     </a>
                                 </th>
                                 <th>Fecha de ingreso</th>
@@ -555,7 +555,7 @@ $mesesEnEspanol = array(
                       background: none;
                       border: none;
                       outline:none ;
-                      ' src='/Proyecto-master/img/ver.png' id='img-mostrar-$fechaIngresoFila'>
+                      ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar-$fechaIngresoFila'>
                     </button>
                   </td>";
                           $fechaOriginal1 = $row2['Fecha_alta'];
@@ -578,11 +578,11 @@ $mesesEnEspanol = array(
                       background: none;
                       border: none;
                       outline:none ;
-                      ' src='/Proyecto-master/img/ver.png' id='img-mostrar1-$fechaIngresoFila1'>
+                      ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar1-$fechaIngresoFila1'>
                     </button>
                   </td>";
                           echo "<td><a href='#' onclick=\"openModal3('" . $row2['Fecha_ingreso'] . "')\">
-                    <img src='/Proyecto-master/img/alta.png' alt='Dar de Alta'>
+                    <img src='/Proyecto-master/Proyecto-master/img/alta.png' alt='Dar de Alta'>
                 </a>
         
                                             <div class='w3-container'>
@@ -633,7 +633,7 @@ $mesesEnEspanol = array(
                         <thead>
                             <tr>
                             <th><a href='agregarDI.php?id=" . $row['Dni'] . "'>
-                                        <img src='/Proyecto-master/img/mas.png' style='max-width: 30px;'>
+                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
                                     </a>
                                 </th>
                                 <th>Fecha de ingreso</th>
@@ -685,7 +685,7 @@ $mesesEnEspanol = array(
                       background: none;
                       border: none;
                       outline:none ;
-                      ' src='/Proyecto-master/img/ver.png' id='img-mostrar2-$fechaIngresoFila3'>
+                      ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar2-$fechaIngresoFila3'>
                     </button>
                   </td>";
                           $fechaOriginal1 = $row2['Fecha_alta'];
@@ -707,11 +707,11 @@ $mesesEnEspanol = array(
                       background: none;
                       border: none;
                       outline:none ;
-                      ' src='/Proyecto-master/img/ver.png' id='img-mostrar3-$fechaIngresoFila4'>
+                      ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar3-$fechaIngresoFila4'>
                     </button>
                   </td>";
                           echo "<td><a href='#' onclick=\"openModal4('" . $row2['Fecha_ingreso'] . "')\">
-                    <img src='/Proyecto-master/img/alta.png' alt='Dar de Alta'>
+                    <img src='/Proyecto-master/Proyecto-master/img/alta.png' alt='Dar de Alta'>
                 </a>
         
                                             <div class='w3-container'>
@@ -757,7 +757,7 @@ $mesesEnEspanol = array(
             </td>";
                       echo "<td>
             <a href='#' onclick=\"openModal5('" . $row['Dni'] . "')\">
-                <img src='/Proyecto-master/img/pdf.png' alt='Descargar PDF'>
+                <img src='/Proyecto-master/Proyecto-master/img/pdf.png' alt='Descargar PDF'>
             </a>
             <div class='w3-container'>
                 <div id='id-modal5-" . $row['Dni'] . "' class='w3-modal'>
@@ -898,7 +898,7 @@ $mesesEnEspanol = array(
         </td>";
 
                       echo "<td class='acciones'>
-          <a href='EditarA.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
+          <a href='EditarA.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
           </td>";
                       echo "<td></td>";
 

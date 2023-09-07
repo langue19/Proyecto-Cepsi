@@ -8,7 +8,7 @@ error_reporting(0);
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['usuario'])) {
     // Si no ha iniciado sesión, redirigirlo a la página de inicio de sesión
-    header("Location: /Proyecto-master/login.html");
+    header("Location: /Proyecto-master/Proyecto-master/login.html");
     exit;
 }
 
@@ -18,7 +18,7 @@ $posicion = $_SESSION['Posicion'];
 // Verificar si el usuario tiene la posición de "Usuario"
 // Si es así, redirigirlo a la página "formularioAlumno.php"
 if ($posicion == 'Usuario') {
-    header("Location: /Proyecto-master/php/formularioAlumno.php");
+    header("Location: /Proyecto-master/Proyecto-master/php/formularioAlumno.php");
     exit;
 }
 ?>
@@ -28,18 +28,18 @@ if ($posicion == 'Usuario') {
     <title>Agregar Usuario</title>
     <meta charset="UTF-8">
     <!-- CSS only -->
-    <link rel="stylesheet" href="\Proyecto-master\css\w3.css">
-    <link href="\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="/Proyecto-master/css/AgregarU.css">
-    <link rel="shortcut icon" href="/Proyecto-master/favicon/favicon-32x32.png">
+    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/AgregarU.css">
+    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
 
     <!-- Aquí incluye el enlace a la biblioteca jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Aquí incluye el enlace a tu archivo JavaScript -->
-    <script src="/Proyecto-master/js/AgregarU.js"></script>
+    <script src="/Proyecto-master/Proyecto-master/js/AgregarU.js"></script>
 </head>
 
 <body>
@@ -49,7 +49,7 @@ if ($posicion == 'Usuario') {
         <div class="container-fluid">
             <!-- Logo a la izquierda -->
             <a class="navbar-brand" href="#">
-                <img src="\Proyecto-master\img\conte1.png" style="width: 40px;" class="rounded-pill" alt="Logo" height="40">
+                <img src="\Proyecto-master\Proyecto-master\img\conte1.png" style="width: 40px;" class="rounded-pill" alt="Logo" height="40">
             </a>
             <!-- Título en el centro -->
             <h1 class="navbar-title">FRANCISCO JOSÉ VIANO</h1>
@@ -57,7 +57,7 @@ if ($posicion == 'Usuario') {
             <!-- Avatar desplegable a la derecha -->
             <div class="avatar-dropdown">
                 <div style="display: flex; align-items:center;" class="navbar-toggle" onclick="toggleMenu()">
-                    <img src="\Proyecto-master\img\director.png" alt="☰" height="40" id="avatarImg">
+                    <img src="\Proyecto-master\Proyecto-master\img\director.png" alt="☰" height="40" id="avatarImg">
                     <a>☰</a>
                 </div>
                 <ul class="navbar-menu" id="navbarMenu">
@@ -116,7 +116,7 @@ if ($posicion == 'Usuario') {
                                 <div class="row">
                                     <h2 class="purple-text text-center"><strong>Finalizado!</strong></h2> <br>
                                     <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="\Proyecto-master\img\listo.png" class="fit-image">
+                                        <div class="col-3"> <img src="\Proyecto-master\Proyecto-master\img\listo.png" class="fit-image">
                                         </div>
                                     </div> <br><br>
                                 </div>

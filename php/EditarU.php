@@ -4,17 +4,17 @@
     <title>Agregar Alumno</title>
     <meta charset="UTF-8">
     <!-- CSS only -->
-    <link rel="stylesheet" href="\Proyecto-master\css\w3.css">
-    <link href="\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="/Proyecto-master/css/AgregarU.css">
-    <link rel="shortcut icon" href="/Proyecto-master/favicon/favicon-32x32.png">
+    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/AgregarU.css">
+    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
 
     <!-- Aquí incluye el enlace a la biblioteca jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Aquí incluye el enlace a tu archivo JavaScript -->
-    <script src="/Proyecto-master/js/AgregarU.js"></script>
+    <script src="/Proyecto-master/Proyecto-master/js/AgregarU.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <!-- Logo a la izquierda -->
             <a class="navbar-brand" href="#">
-                <img src="\Proyecto-master\img\conte1.png" style="width: 40px;" class="rounded-pill" alt="Logo" height="40">
+                <img src="\Proyecto-master\Proyecto-master\img\conte1.png" style="width: 40px;" class="rounded-pill" alt="Logo" height="40">
             </a>
             <!-- Título en el centro -->
             <h1 class="navbar-title">FRANCISCO JOSÉ VIANO</h1>
@@ -31,7 +31,7 @@
             <!-- Avatar desplegable a la derecha -->
             <div class="avatar-dropdown">
                 <div style="display: flex; align-items:center;" class="navbar-toggle" onclick="toggleMenu()">
-                    <img src="\Proyecto-master\img\director.png" alt="☰" height="40" id="avatarImg">
+                    <img src="\Proyecto-master\Proyecto-master\img\director.png" alt="☰" height="40" id="avatarImg">
                     <a>☰</a>
                 </div>
                 <ul class="navbar-menu" id="navbarMenu">

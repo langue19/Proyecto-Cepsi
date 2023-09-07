@@ -3,11 +3,11 @@
 <head>
     <title>Observaciones</title>
     <meta charset="UTF-8">
-    <link href="\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/Proyecto-master/css/AgregarU.css">
-    <link rel="shortcut icon" href="/Proyecto-master/favicon/favicon-32x32.png">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/AgregarU.css">
+    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/Proyecto-master/js/AgregarA.js"></script>
+    <script src="/Proyecto-master/Proyecto-master/js/AgregarA.js"></script>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <!-- Logo a la izquierda -->
             <a class="navbar-brand" href="#">
-                <img src="\Proyecto-master\img\conte1.png" style="width: 40px;" class="rounded-pill" alt="Logo" height="40">
+                <img src="\Proyecto-master\Proyecto-master\img\conte1.png" style="width: 40px;" class="rounded-pill" alt="Logo" height="40">
             </a>
             <!-- Título en el centro -->
             <h1 class="navbar-title">FRANCISCO JOSÉ VIANO</h1>
@@ -25,7 +25,7 @@
             <!-- Avatar desplegable a la derecha -->
             <div class="avatar-dropdown">
                 <div style="display: flex; align-items:center;" class="navbar-toggle" onclick="toggleMenu()">
-                    <img src="\Proyecto-master\img\director.png" alt="☰" height="40" id="avatarImg">
+                    <img src="\Proyecto-master\Proyecto-master\img\director.png" alt="☰" height="40" id="avatarImg">
                     <a>☰</a>
                 </div>
                 <ul class="navbar-menu" id="navbarMenu">
@@ -98,7 +98,7 @@
                                 <div class="row">
                                     <h2 class="purple-text text-center"><strong>Finalizado!</strong></h2> <br>
                                     <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="\Proyecto-master\img\listo.png" class="fit-image">
+                                        <div class="col-3"> <img src="\Proyecto-master\Proyecto-master\img\listo.png" class="fit-image">
                                         </div>
                                     </div> <br><br>
                                 </div>

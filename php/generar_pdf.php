@@ -107,7 +107,7 @@ $html = '
 </style>
 <body>
 
-<img src="./Proyecto-master/img/conte1.png" style="max-width: 40px;">
+<img src="./Proyecto-master/Proyecto-master/img/conte1.png" style="max-width: 40px;">
 
 <div class="top-corner">
 <p style="font-size: 14px; margin-bottom: 4px;">Escuela Hospitalaria-Domiciliaria "DR. FCO J. VIANO" N° 1</p>
