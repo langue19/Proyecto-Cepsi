@@ -84,6 +84,7 @@ try {
       
       
         CREATE TABLE Datos_academ (
+<<<<<<< HEAD
     ID INT AUTO_INCREMENT,
     Dni INT,
     Fecha DATE,
@@ -101,6 +102,29 @@ try {
     Apellido VARCHAR(45),
     Estado BOOLEAN
     PRIMARY KEY (dni));
+=======
+        ID INT AUTO_INCREMENT,
+        Dni INT,
+        Fecha DATE,
+        Observación VARCHAR(100),
+        Contenido VARCHAR(100),
+        Área_gabinete VARCHAR(50),
+        Nombre_Profesor VARCHAR(50),
+        PRIMARY KEY (ID, Dni),
+        FOREIGN KEY (Dni) REFERENCES Datos_personales(Dni));
+
+        CREATE TABLE Datos_Profesor(
+        Dni INT,
+        Nombre VARCHAR(45),
+        Apellido VARCHAR(45),
+        Estado BOOLEAN, 
+        PRIMARY KEY (DNI));
+
+        
+
+
+
+>>>>>>> e88f5860850779ef382aa101f42e7abe6e48d8aa
 ";
   $conn->exec($sqlCrearTabla);
 
