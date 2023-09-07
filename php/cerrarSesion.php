@@ -2,6 +2,6 @@
 
 session_start();
 session_destroy();
-header("Location: \Proyecto-master\login.html")
+header("Location: \Proyecto-master\Proyecto-master\login.html")
 
 ?>
