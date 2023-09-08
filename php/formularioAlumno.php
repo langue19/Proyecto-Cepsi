@@ -37,7 +37,7 @@ $mesesEnEspanol = array(
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-dark">
+    <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -70,9 +70,9 @@ $mesesEnEspanol = array(
             $posicion = $_SESSION['Posicion'];
             if ($posicion == 'Administrador') {
               echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
-            }elseif ($posicion == 'Usuario') {
+            } elseif ($posicion == 'Usuario') {
               echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
-            }elseif ($posicion == 'Psicopedagoga') {
+            } elseif ($posicion == 'Psicopedagoga') {
               echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
             }
             ?>
@@ -106,35 +106,35 @@ $mesesEnEspanol = array(
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
                 <p>
-                Formulario
+                  Formulario
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="formularioAlumno.php" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>
-                  Alumnos
-                </p>
-              </a>
+                  <a href="formularioAlumno.php" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Alumnos
+                    </p>
+                  </a>
                 </li>
-                
+
                 <li class="nav-item">
-                <a href="formularioUsuario.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>
-                  Usuarios
-                </p>
-              </a>
+                  <a href="formularioUsuario.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Usuarios
+                    </p>
+                  </a>
                 </li>
                 <li class="nav-item">
-                <a href="formularioProfesor.php" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>
-                  Profesor
-                </p>
-              </a>
+                  <a href="formularioProfesor.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Profesor
+                    </p>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -169,40 +169,6 @@ $mesesEnEspanol = array(
                 </li>
               </ul>
             </li>
-
-
-
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Gestionar Alumnos
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos personales</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos pedagogicos</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos internacion/domiciliario</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
 
             <li class="nav-item">
               <a href="#" class="nav-link">
@@ -1037,7 +1003,7 @@ $mesesEnEspanol = array(
 
     <!-- /.col-md-6 -->
   </div>
-  </div>
+
 
 
 

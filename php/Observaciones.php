@@ -56,64 +56,84 @@
     ?>
 
 
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
-                <div class="card  mb-3">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                        <div class="card  mb-3">
 
-                    <form id="msform" action="agregarObservacion.php" method="post">
-                        <!-- progressbar -->
-                        <ul id="progressbar">
-                            <li class="active" id="account"><strong>Observaciones</strong></li>
-                            <li id="confirm"><strong>Finalizar</strong></li>
-                        </ul>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div> <br> <!-- fieldsets -->
-                        <fieldset>
-                            <div class="form-card">
+                            <form id="msform" action="agregarObservacion.php" method="post">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Observaciones</strong></li>
+                                    <li id="confirm"><strong>Finalizar</strong></li>
+                                </ul>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div> <br> <!-- fieldsets -->
+                                <fieldset>
+                                    <div class="form-card">
 
-                                <div class="row">
-                                    <label for="dni">DNI</label>
-                                    <input style="background-color:antiquewhite; text-align: center;" name="dni" type="text" class="fieldlabels" id="dni" placeholder="DNI" value="<?php echo $dni; ?>" readonly> 
-                                    <label for="nomb">Apellido y Nombre</label>
-                                    <input style="background-color:antiquewhite; text-align: center;" name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Observaciones" value="<?php echo $row['Apellido'] ." ". $row['Nombre']; ?>" readonly>
-                                    
-                                    
-                                    <label for="fecha">Fecha</label>
-                                    <input name="fecha" type="date" class="fieldlabels" id="fecha">
-                                    <label for="Observaciones">Observaciones</label>
-                                    <input name="Observaciones" type="text" class="fieldlabels" id="Observaciones" placeholder="Observaciones">
-                                    <label for="Contenido">Contenido</label>
-                                    <input name="Contenido" type="text" class="fieldlabels" id="Contenido" placeholder="Contenido">
-                                    <label for="Area_gabinete">Area Gabinete</label>
-                                    <input name="Area_gabinete" type="text" class="fieldlabels" id="Area_gabinete" placeholder="Area de gabinete">
-                                    <label for="Profesor">Profesor</label>
-                                    <input name="Profesor" type="text" class="fieldlabels" id="Profesor" placeholder="Profesor">
-                                </div>
-                            </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
-                        </fieldset>
-                        <fieldset>
-                            <div class="form-card">
-                                <div class="row">
-                                    <h2 class="purple-text text-center"><strong>Finalizado!</strong></h2> <br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="\Proyecto-master\Proyecto-master\img\listo.png" class="fit-image">
+                                        <div class="row">
+                                            <label for="dni">DNI</label>
+                                            <input style="background-color:antiquewhite; text-align: center;" name="dni" type="text" class="fieldlabels" id="dni" placeholder="DNI" value="<?php echo $dni; ?>" readonly>
+                                            <label for="nomb">Apellido y Nombre</label>
+                                            <input style="background-color:antiquewhite; text-align: center;" name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Observaciones" value="<?php echo $row['Apellido'] . " " . $row['Nombre']; ?>" readonly>
+
+
+                                            <label for="fecha">Fecha</label>
+                                            <input name="fecha" type="date" class="fieldlabels" id="fecha">
+                                            <label for="Observaciones">Observaciones</label>
+                                            <input name="Observaciones" type="text" class="fieldlabels" id="Observaciones" placeholder="Observaciones">
+                                            <label for="Contenido">Contenido</label>
+                                            <input name="Contenido" type="text" class="fieldlabels" id="Contenido" placeholder="Contenido">
+                                            <label for="Area_gabinete">Area Gabinete</label>
+                                            <input name="Area_gabinete" type="text" class="fieldlabels" id="Area_gabinete" placeholder="Area de gabinete">
+                                            <label for="Profesor">Profesor</label>
+                                            <select name="Profesor" id="Profesor" class="form-control" style="background-color:whitesmoke;
+                                        
+                                        color: black;">
+                                                <?php
+                                                // Conecta a la base de datos y ejecuta una consulta para obtener los profesores
+                                                include 'conexion.php';
+                                                include 'crearBD.php';
+                                                include 'crearTabla.php';
+                                                $conn->exec("USE $dbname");
+                                                $stmt = $conn->query("SELECT Nombre, Apellido FROM Datos_Profesor WHERE Estado = true"); // Ajusta la consulta según tus necesidades
+                                                echo "<option value=''>Seleccionar</option>";
+                                                // Itera a través de los resultados y crea una opción para cada profesor
+                                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                    $nombre = $row['Nombre'];
+                                                    $apellido = $row['Apellido'];
+                                                    echo "<option value=\"$nombre $apellido\">$nombre $apellido</option>";
+                                                }
+                                                ?>
+                                            </select>
+
                                         </div>
-                                    </div> <br><br>
-                                </div>
-                            </div> <input type="submit" name="next" class="next action-button" style="width: 160px;" value="Guardar y salir!" />
-                            <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                                    </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <div class="row">
+                                            <h2 class="purple-text text-center"><strong>Finalizado!</strong></h2> <br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-3"> <img src="\Proyecto-master\Proyecto-master\img\listo.png" class="fit-image">
+                                                </div>
+                                            </div> <br><br>
+                                        </div>
+                                    </div> <input type="submit" name="next" class="next action-button" style="width: 160px;" value="Guardar y salir!" />
+                                    <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
 
-                        </fieldset>
-                    </form>
+                                </fieldset>
+                            </form>
 
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-<?php }}?>
+    <?php }
+    } ?>
 
 </body>
 

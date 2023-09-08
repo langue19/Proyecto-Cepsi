@@ -51,18 +51,18 @@ if ($posicion == 'Usuario') {
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-dark">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-dark">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
 
-            </ul>
-        </nav>
-        <!-- /.navbar -->
+      </ul>
+    </nav>
+    <!-- /.navbar -->
 
 
 
@@ -74,8 +74,8 @@ if ($posicion == 'Usuario') {
         <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
       </a>
 
-     <!-- Sidebar -->
-     <div class="sidebar">
+      <!-- Sidebar -->
+      <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
@@ -86,9 +86,9 @@ if ($posicion == 'Usuario') {
             $posicion = $_SESSION['Posicion'];
             if ($posicion == 'Administrador') {
               echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
-            }elseif ($posicion == 'Usuario') {
+            } elseif ($posicion == 'Usuario') {
               echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
-            }elseif ($posicion == 'Psicopedagoga') {
+            } elseif ($posicion == 'Psicopedagoga') {
               echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
             }
             ?>
@@ -117,25 +117,43 @@ if ($posicion == 'Usuario') {
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
+
             <li class="nav-item">
-              <a href="formularioAlumno.php" class="nav-link active">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
                 <p>
                   Formulario
+                  <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="formularioAlumno.php" class="nav-link active">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Alumnos
+                    </p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="formularioUsuario.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Usuarios
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="formularioProfesor.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Profesor
+                    </p>
+                  </a>
+                </li>
+              </ul>
             </li>
-
-
-            <li class="nav-item">
-              <a href="formularioUsuario.php" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  Usuarios
-                </p>
-              </a>
-            </li>
-
 
 
             <li class="nav-item">
@@ -172,10 +190,6 @@ if ($posicion == 'Usuario') {
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
-                <p>
-                  #
-
-                </p>
               </a>
 
             </li>
@@ -197,7 +211,6 @@ if ($posicion == 'Usuario') {
       </div>
       <!-- /.sidebar -->
     </aside>
-
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
