@@ -299,8 +299,8 @@
                                     </select>
                                     <label for="escr">N° de convivientes</label>
                                     <input name="escRef" type="text" class="form-control" id="escr" placeholder="N° de convivientes">
-                                    <label for="escr">N° de habitacioens</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="N° de habitacioens">
+                                    <label for="escr">N° de habitaciones</label>
+                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="N° de habitacioness">
                                     <label for="escr">Construccion</label>
                                     <select name="Tipo">
                                         <option value="Sin especificar">Seleccionar</option>
@@ -377,7 +377,7 @@
                                     <label for="escr">Medicacion Indicada</label>
                                     <input name="escRef" type="text" class="form-control" id="escr" placeholder="Medicacion">
 
-                                    <label for="escr">Requirio Internacion?</label>
+                                    <label for="escr">¿Requirio Internacion?</label>
                                     <select name="Requirio Internacion?">
                                         <option value="Sin especificar">Seleccionar</option>
                                         <option value="Si">Si</option>
@@ -408,7 +408,7 @@
                             <div class="form-card">
                                 <div class="row">
 
-                                    <label for="internacion">En que Nivel se encuentra?</label>
+                                    <label for="internacion">¿En que Nivel se encuentra?</label>
                                     <select name="estado" id="estado" onchange="showForm(this.value)">
                                         <option value="">Selecciona una opción</option>
                                         <option value="Internado">Nivel inicial</option>
