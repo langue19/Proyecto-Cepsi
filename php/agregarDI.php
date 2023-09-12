@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <!-- CSS only -->
     <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/Proyecto-master/css/AgregarA.css">
+    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/AgregarA.css">
     <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
 
     <!-- Aquí incluye el enlace a la biblioteca jQuery -->

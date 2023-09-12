@@ -36,7 +36,7 @@ if (empty($dni) || empty($nomb) || empty($ape) || empty($estado)) {
     } else {
     $stmt = $conn->prepare("INSERT INTO Datos_Profesor(Dni, Nombre, Apellido, Estado) VALUES (?, ?, ?, ?)");
     $stmt->execute([$dni, $nomb, $ape, $estado]);
-    header("location: formularioAlumno.php");
+    header("location: formularioProfesor.php");
 }
 }
 ?>
