@@ -124,3 +124,22 @@ function toggleMotivo2(fechaIngresoFila4) {
     imgMostrar3.src = '/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const checkbox = document.getElementById("toggle-checkbox");
+  const table = document.getElementById("table-id");
+
+  checkbox.addEventListener("change", function() {
+    if (checkbox.checked) {
+      table.classList.remove("table-white");
+      table.classList.add("table-dark");
+    } else {
+      table.classList.remove("table-dark");
+      table.classList.add("table-white");
+    }
+  });
+});
+
+
+
+

@@ -12,58 +12,60 @@ $mesesEnEspanol = array(
 
 <head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FJV | Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FJV | Inicio</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\font.css">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/sidebar.css">
-  <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
-  <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\font.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/sidebar.css">
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
 
-  <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
-  <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
+    <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
+    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
 
 </head>
 
 
 <body class="hold-transition sidebar-mini">
-  <div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
 
-      </ul>
-    </nav>
-    <!-- /.navbar -->
+            </ul>
+        </nav>
+        <!-- /.navbar -->
 
 
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
-        <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
-      </a>
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
+                <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
+            </a>
 
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <?php
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <?php
             session_start();
             error_reporting(0);
 
@@ -76,163 +78,203 @@ $mesesEnEspanol = array(
               echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
             }
             ?>
-          </div>
-          <div class="info">
-            <a style="text-decoration: none;" href="#" class="d-block">
-              <?php
-              session_start();
-
+                    </div>
+                    <div class="info">
+                        <a style="text-decoration: none;" href="#" class="d-block">
+                            <?php
               if (isset($_SESSION["usuario"])) {
 
                 $apellido = $_SESSION["Apellido"];
               }
               echo "Bienvenido " . $apellido;
               ?>
-            </a>
-          </div>
-        </div>
+                        </a>
+                    </div>
+                </div>
 
 
 
 
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
 
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Formulario
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="formularioAlumno.php" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Alumnos
-                    </p>
-                  </a>
-                </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Formulario
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="formularioAlumno.php" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Alumnos
+                                        </p>
+                                    </a>
+                                </li>
 
-                <li class="nav-item">
-                  <a href="formularioUsuario.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Usuarios
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="formularioProfesor.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Profesor
-                    </p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
-                <p>
-                  Gestionar Alumnos
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos personales</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos pedagogicos</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos internacion/domiciliario</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-              </a>
-
-            </li>
-
-            <li class="nav-header">Login</li>
-            <li class="nav-item">
-              <a href="cerrarSesion.php" class="nav-link">
-                <i class="nav-icon fas fa-ellipsis-h"></i>
-                <p>Cerrar Sesion</p>
-              </a>
-            </li>
+                                <li class="nav-item">
+                                    <a href="formularioUsuario.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Usuarios
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="formularioProfesor.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Profesor
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
 
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Gestionar Alumnos
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Agregar datos personales</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Agregar datos pedagogicos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Agregar datos internacion/domiciliario</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-header">Login</li>
+                        <li class="nav-item">
+                            <a href="cerrarSesion.php" class="nav-link">
+                                <i class="nav-icon fas fa-ellipsis-h"></i>
+                                <p>Cerrar Sesion</p>
+                            </a>
+                        </li>
 
 
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
 
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-      </div>
-      <!-- /.content-header -->
-
-      <!-- Main content -->
-      <div class="content">
-        <div class="container-fluid">
-
-          <div class="form-content">
-            <div class="form-contro">
-              <label for="search"><i class="icon-search"></i></label>
-              <input class="table-filter" type="search" data-table="advanced-web-table" placeholder="Buscar..." id="search-input">
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
             </div>
-            <!-- Table -->
-            <div class="table-responsive">
-              <table id="table-id" class="table table-striped table-dark">
-                <thead>
-                  <tr>
-                    <th>Obs</th>
-                    <th>DNI</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Edad</th>
-                    <th>Datos</th>
-                    <th>PDF</th>
-                    <th>Acciones</th>
-                    <th><a href='AgregarA.php'>
-                        <img src="/Proyecto-master/Proyecto-master/img/mas.png" style="max-width: 30px;">
-                      </a>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
+            <!-- /.sidebar -->
+        </aside>
+
+
+
+
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section>
+                <div class="row mb-1">
+                    <label>
+                        <input class="toggle-checkbox" type="checkbox" id="toggle-checkbox">
+                        <div class="toggle-slot">
+                            <div class="sun-icon-wrapper">
+                                <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
+                            </div>
+                            <div class="toggle-button"></div>
+                            <div class="moon-icon-wrapper">
+                                <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
+                            </div>
+                        </div>
+                    </label>
+
+                </div><!-- /.container-fluid -->
+            </section>
+
+
+
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+
+                    <div class="form-content">
+                        <div class="form-contro">
+                            <label for="search"><i class="icon-search"></i></label>
+                            <input class="table-filter" type="search" data-table="advanced-web-table"
+                                placeholder="Buscar..." id="search-input">
+                        </div>
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table id="table-id" class="table table-striped table-white">
+                                <thead>
+                                    <tr>
+
+                                        <?php
+session_start();
+$posicion = $_SESSION['Posicion'];
+// Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
+if ($posicion == 'Administrador') {
+    $mostrarColumnaAccion = true;
+} else {
+    $mostrarColumnaAccion = false;
+}
+
+?> <?php if ($mostrarColumnaAccion): ?>
+                                        <th>Obs</th>
+                                        <?php endif; ?>
+                                        <th>DNI</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Edad</th>
+                                        <?php if ($mostrarColumnaAccion): ?>
+                                        <th>Datos</th>
+                                        <th>PDF</th>
+                                        <th>Acciones</th>
+                                        <?php endif; ?>
+                                        <th><a href='AgregarA.php'>
+                                                <img src="/Proyecto-master/Proyecto-master/img/mas.png"
+                                                    style="max-width: 30px;">
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
                   include 'crearTabla.php';
 
                   $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
@@ -249,6 +291,7 @@ $mesesEnEspanol = array(
                   if ($consulta->execute()) {
                     while ($row = $consulta->fetch()) {
                       echo "<tr>";
+                      if ($mostrarColumnaAccion):
                       echo "<td><a href='#' onclick=\"openModal1('" . $row['Dni'] . "')\">
                                     <img src='/Proyecto-master/Proyecto-master/img/observar.png'>
                                 </a>
@@ -328,10 +371,11 @@ $mesesEnEspanol = array(
                                         </div>
                                         </div>
                                         </td>";
+                                      endif; 
 
 
                   ?>
-                      <?php
+                                    <?php
 
                       echo "<td>" . $row['Dni'] . "</td>";
                       echo "<td>" . $row['Nombre'] . "</td>";
@@ -354,7 +398,7 @@ $mesesEnEspanol = array(
                       echo "<td>" . $resultadoEdad2['edadAnios'] . " años " . $resultadoEdad2['edadMeses'] . " meses</td>";
                       // CALCULO DE EDAD--------------------------------
 
-
+                      if ($mostrarColumnaAccion):
                       echo "<td>
             <div class='w3-container'>
                 <a href='#' onclick=\"openModal2('" . $row['Dni'] . "')\">
@@ -868,9 +912,9 @@ $mesesEnEspanol = array(
                       }
                       echo "</select>";
                       ?><label for='datosD'>Datos Domiciliario:</label>
-                      <select name='datosD' id='datosD'>
-                        <option style='text-align:center;' value=''>Selecciona una opción</option>";
-                        <?php
+                                    <select name='datosD' id='datosD'>
+                                        <option style='text-align:center;' value=''>Selecciona una opción</option>";
+                                        <?php
                         $sql2 = "SELECT Fecha_ingreso FROM datos_domiciliario WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
                         $consulta2 = $conn->prepare($sql2);
                         if ($consulta2->execute()) {
@@ -890,9 +934,9 @@ $mesesEnEspanol = array(
                         echo "</select>";
                         echo "</select>";
                         ?><label for='datosA'>Datos Academicos:</label>
-                        <select name='datosA' id='datosA'>
-                          <option style='text-align:center;' value=''>Selecciona una opción</option>";
-                      <?php
+                                        <select name='datosA' id='datosA'>
+                                            <option style='text-align:center;' value=''>Selecciona una opción</option>";
+                                            <?php
                       $sql2 = "SELECT Fecha FROM datos_academ WHERE Dni = '$dni_1' ORDER BY Fecha DESC";
                       $consulta2 = $conn->prepare($sql2);
                       if ($consulta2->execute()) {
@@ -928,7 +972,7 @@ $mesesEnEspanol = array(
                       echo "<td class='acciones'>
           <a href='EditarA.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
           </td>";
-                      echo "<td></td>";
+                      echo "<td></td>";endif; 
 
 
 
@@ -939,9 +983,9 @@ $mesesEnEspanol = array(
                   }
                       ?>
 
-                </tbody>
-              </table>
-              <?php
+                                </tbody>
+                            </table>
+                            <?php
               $totalFilas = 500; // Cambiar al total real de filas en la tabla
               $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
               $totalPaginas = ceil($totalFilas / $itemsPorPagina);
@@ -953,71 +997,74 @@ $mesesEnEspanol = array(
               $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
               ?>
 
-              <div class="pagination">
-                <?php if ($paginaActual > 1) : ?>
-                  <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
-                <?php endif; ?>
+                            <div class="pagination">
+                                <?php if ($paginaActual > 1) : ?>
+                                <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
+                                <?php endif; ?>
 
-                <?php if ($inicioRango > 1) : ?>
-                  <a href='formularioAlumno.php?pagina=1'>1</a>
-                  <?php if ($inicioRango > 2) : ?>
-                    <a class="pagination-dots">...</a>
-                  <?php endif; ?>
-                <?php endif; ?>
+                                <?php if ($inicioRango > 1) : ?>
+                                <a href='formularioAlumno.php?pagina=1'>1</a>
+                                <?php if ($inicioRango > 2) : ?>
+                                <a class="pagination-dots">...</a>
+                                <?php endif; ?>
+                                <?php endif; ?>
 
-                <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
-                  <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
-                  <a class='<?php echo $active; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
-                <?php endfor; ?>
+                                <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
+                                <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
+                                <a class='<?php echo $active; ?>'
+                                    href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
+                                <?php endfor; ?>
 
-                <?php if ($finRango < $totalPaginas) : ?>
-                  <?php if ($finRango < $totalPaginas - 1) : ?>
-                    <a class="pagination-dots">...</a>
-                  <?php endif; ?>
-                  <a href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
-                <?php endif; ?>
+                                <?php if ($finRango < $totalPaginas) : ?>
+                                <?php if ($finRango < $totalPaginas - 1) : ?>
+                                <a class="pagination-dots">...</a>
+                                <?php endif; ?>
+                                <a
+                                    href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
+                                <?php endif; ?>
 
-                <?php if ($paginaActual < $totalPaginas) : ?>
-                  <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente &gt;</a>
-                <?php endif; ?>
-              </div>
+                                <?php if ($paginaActual < $totalPaginas) : ?>
+                                <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
+                                    &gt;</a>
+                                <?php endif; ?>
+                            </div>
 
 
 
-              <?php
+                            <?php
 
               echo "</div>";
               ?>
 
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
+
+
+
+
+            <!-- /.d-flex -->
         </div>
 
-      </div>
-
-
-
-
-      <!-- /.d-flex -->
+        <!-- /.col-md-6 -->
     </div>
 
-    <!-- /.col-md-6 -->
-  </div>
 
 
 
+    <!-- REQUIRED SCRIPTS -->
 
-  <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
 
-  <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE -->
-  <script src="dist/js/adminlte.js"></script>
-
-  <!-- OPTIONAL SCRIPTS -->
-  <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
 
 </body>
 
