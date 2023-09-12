@@ -4,8 +4,8 @@
 <?php
 
 $mesesEnEspanol = array(
-  1 => 'enero', 2 => 'febrero', 3 => 'marzo', 4 => 'abril', 5 => 'mayo', 6 => 'junio',
-  7 => 'julio', 8 => 'agosto', 9 => 'septiembre', 10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre'
+    1 => 'enero', 2 => 'febrero', 3 => 'marzo', 4 => 'abril', 5 => 'mayo', 6 => 'junio',
+    7 => 'julio', 8 => 'agosto', 9 => 'septiembre', 10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre'
 );
 
 ?>
@@ -26,8 +26,7 @@ $mesesEnEspanol = array(
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/sidebar.css">
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
-    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
     <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
@@ -55,8 +54,7 @@ $mesesEnEspanol = array(
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
-                <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
             </a>
 
@@ -66,28 +64,28 @@ $mesesEnEspanol = array(
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <?php
-            session_start();
-            error_reporting(0);
+                        session_start();
+                        error_reporting(0);
 
-            $posicion = $_SESSION['Posicion'];
-            if ($posicion == 'Administrador') {
-              echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
-            } elseif ($posicion == 'Usuario') {
-              echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
-            } elseif ($posicion == 'Psicopedagoga') {
-              echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
-            }
-            ?>
+                        $posicion = $_SESSION['Posicion'];
+                        if ($posicion == 'Administrador') {
+                            echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
+                        } elseif ($posicion == 'Usuario') {
+                            echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
+                        } elseif ($posicion == 'Psicopedagoga') {
+                            echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
+                        }
+                        ?>
                     </div>
                     <div class="info">
                         <a style="text-decoration: none;" href="#" class="d-block">
                             <?php
-              if (isset($_SESSION["usuario"])) {
+                            if (isset($_SESSION["usuario"])) {
 
-                $apellido = $_SESSION["Apellido"];
-              }
-              echo "Bienvenido " . $apellido;
-              ?>
+                                $apellido = $_SESSION["Apellido"];
+                            }
+                            echo "Bienvenido " . $apellido;
+                            ?>
                         </a>
                     </div>
                 </div>
@@ -97,15 +95,14 @@ $mesesEnEspanol = array(
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
+                            <img src="/Proyecto-master/Proyecto-master/img/formulario.png" style="max-height:20px;">
                                 <p>
                                     Formulario
                                     <i class="fas fa-angle-left right"></i>
@@ -142,49 +139,26 @@ $mesesEnEspanol = array(
 
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
+                            <a href="agregarA.php" class="nav-link">
+                            <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
                                 <p>
                                     Gestionar Alumnos
-                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Agregar datos personales</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Agregar datos pedagogicos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Agregar datos internacion/domiciliario</p>
-                                    </a>
-                                </li>
-                            </ul>
+
                         </li>
+
+                    
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-header">Login</li>
-                        <li class="nav-item">
-                            <a href="cerrarSesion.php" class="nav-link">
-                                <i class="nav-icon fas fa-ellipsis-h"></i>
-                                <p>Cerrar Sesion</p>
+                            <a href="agregarA.php" class="nav-link">
+                                <img src="/Proyecto-master/Proyecto-master/img/cerrar-sesion.png" style="max-height:20px;">
+                                <p>
+                                    Cerrar Sesión
+                                </p>
                             </a>
                         </li>
+
 
 
 
@@ -235,8 +209,7 @@ $mesesEnEspanol = array(
                     <div class="form-content">
                         <div class="form-contro">
                             <label for="search"><i class="icon-search"></i></label>
-                            <input class="table-filter" type="search" data-table="advanced-web-table"
-                                placeholder="Buscar..." id="search-input">
+                            <input class="table-filter" type="search" data-table="advanced-web-table" placeholder="Buscar..." id="search-input">
                         </div>
                         <!-- Table -->
                         <div class="table-responsive">
@@ -245,54 +218,63 @@ $mesesEnEspanol = array(
                                     <tr>
 
                                         <?php
-session_start();
-$posicion = $_SESSION['Posicion'];
-// Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
-if ($posicion == 'Administrador') {
-    $mostrarColumnaAccion = true;
-} else {
-    $mostrarColumnaAccion = false;
-}
+                                        session_start();
+                                        $posicion = $_SESSION['Posicion'];
+                                        // Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
+                                        if ($posicion == 'Administrador') {
+                                            $mostrarColumnaAccion = true;
+                                        } else {
+                                            $mostrarColumnaAccion = false;
+                                        }
+                                        if ($posicion == 'Usuario') {
+                                            $mostrarColumnaAccion1 = true;
+                                        } else {
+                                            $mostrarColumnaAccion1 = false;
+                                        }
+                                        if ($posicion == 'Psicopedagoga') {
+                                            $mostrarColumnaAccion2 = true;
+                                        } else {
+                                            $mostrarColumnaAccion2 = false;
+                                        }
 
-?> <?php if ($mostrarColumnaAccion): ?>
-                                        <th>Obs</th>
+                                        ?> <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1) : ?>
+                                            <th>Obs</th>
                                         <?php endif; ?>
                                         <th>DNI</th>
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Edad</th>
-                                        <?php if ($mostrarColumnaAccion): ?>
-                                        <th>Datos</th>
-                                        <th>PDF</th>
-                                        <th>Acciones</th>
+                                        <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1) : ?>
+                                            <th>Datos</th>
+                                            <th>PDF</th>
+                                            <th>Acciones</th>
                                         <?php endif; ?>
                                         <th><a href='AgregarA.php'>
-                                                <img src="/Proyecto-master/Proyecto-master/img/mas.png"
-                                                    style="max-width: 30px;">
+                                                <img src="/Proyecto-master/Proyecto-master/img/mas.png" style="max-width: 30px;">
                                             </a>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                  include 'crearTabla.php';
+                                    include 'crearTabla.php';
 
-                  $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
-                  $paginaActual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
-                  $inicio = ($paginaActual - 1) * $itemsPorPagina;
+                                    $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
+                                    $paginaActual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
+                                    $inicio = ($paginaActual - 1) * $itemsPorPagina;
 
-                  $sql1 = "SELECT *
+                                    $sql1 = "SELECT *
             FROM Datos_personales
             ORDER BY fecha_act DESC
             LIMIT $inicio, $itemsPorPagina;
         ";
-                  $consulta = $conn->prepare($sql1);
+                                    $consulta = $conn->prepare($sql1);
 
-                  if ($consulta->execute()) {
-                    while ($row = $consulta->fetch()) {
-                      echo "<tr>";
-                      if ($mostrarColumnaAccion):
-                      echo "<td><a href='#' onclick=\"openModal1('" . $row['Dni'] . "')\">
+                                    if ($consulta->execute()) {
+                                        while ($row = $consulta->fetch()) {
+                                            echo "<tr>";
+                                            if ($mostrarColumnaAccion || $mostrarColumnaAccion1) :
+                                                echo "<td><a href='#' onclick=\"openModal1('" . $row['Dni'] . "')\">
                                     <img src='/Proyecto-master/Proyecto-master/img/observar.png'>
                                 </a>
                                     <div class='w3-container'>
@@ -325,45 +307,45 @@ if ($posicion == 'Administrador') {
                                                                                 <tbody>";
 
 
-                      $idviejo = $row['Dni'];
-                      $sql2 = "SELECT *
+                                                $idviejo = $row['Dni'];
+                                                $sql2 = "SELECT *
                  FROM datos_academ
                  WHERE DNI = :idviejo
                  ORDER BY Fecha ASC;
         ";
 
 
-                      // Usamos parámetros con consultas preparadas
-                      $consulta2 = $conn->prepare($sql2);
-                      $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
-                      if ($consulta2->execute()) {
-                        // Obtenemos el primer resultado del SELECT (si es que existe)
-                        $row2 = $consulta2->fetch();
-                      }
+                                                // Usamos parámetros con consultas preparadas
+                                                $consulta2 = $conn->prepare($sql2);
+                                                $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
+                                                if ($consulta2->execute()) {
+                                                    // Obtenemos el primer resultado del SELECT (si es que existe)
+                                                    $row2 = $consulta2->fetch();
+                                                }
 
 
 
-                      if ($consulta2->execute()) {
-                        while ($row2 = $consulta2->fetch()) {
-                          echo "<tr>";
-                          $fechaOriginal = $row2['Fecha'];
-                          $parts = explode('-', $fechaOriginal);
-                          $dia = intval($parts[2]);
-                          $mes = intval($parts[1]);
-                          $anio = intval($parts[0]);
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        echo "<tr>";
+                                                        $fechaOriginal = $row2['Fecha'];
+                                                        $parts = explode('-', $fechaOriginal);
+                                                        $dia = intval($parts[2]);
+                                                        $mes = intval($parts[1]);
+                                                        $anio = intval($parts[0]);
 
-                          $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
 
-                          echo "<td>" . $fechaFormateada . "</td>";
-                          echo "<td>" . $row2['Observación'] . "</td>";
-                          echo "<td>" . $row2['Contenido'] . "</td>";
-                          echo "<td>" . $row2['Área_gabinete'] . "</td>";
-                          echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
-                          echo "<td></td>";
-                          echo "</tr>";
-                        }
-                      }
-                      echo "</tbody>
+                                                        echo "<td>" . $fechaFormateada . "</td>";
+                                                        echo "<td>" . $row2['Observación'] . "</td>";
+                                                        echo "<td>" . $row2['Contenido'] . "</td>";
+                                                        echo "<td>" . $row2['Área_gabinete'] . "</td>";
+                                                        echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
+                                                        echo "<td></td>";
+                                                        echo "</tr>";
+                                                    }
+                                                }
+                                                echo "</tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -371,35 +353,35 @@ if ($posicion == 'Administrador') {
                                         </div>
                                         </div>
                                         </td>";
-                                      endif; 
+                                            endif;
 
 
-                  ?>
-                                    <?php
+                                    ?>
+                                            <?php
 
-                      echo "<td>" . $row['Dni'] . "</td>";
-                      echo "<td>" . $row['Nombre'] . "</td>";
-                      echo "<td>" . $row['Apellido'] . "</td>";
-                      // CALCULO DE EDAD-----------------------------
-                      $consultaEdad2 = "SELECT TIMESTAMPDIFF(YEAR, Fecha_nacimiento, CURDATE()) AS edadAnios,
+                                            echo "<td>" . $row['Dni'] . "</td>";
+                                            echo "<td>" . $row['Nombre'] . "</td>";
+                                            echo "<td>" . $row['Apellido'] . "</td>";
+                                            // CALCULO DE EDAD-----------------------------
+                                            $consultaEdad2 = "SELECT TIMESTAMPDIFF(YEAR, Fecha_nacimiento, CURDATE()) AS edadAnios,
         TIMESTAMPDIFF(MONTH, Fecha_nacimiento, CURDATE()) % 12 AS edadMeses
         FROM datos_personales WHERE Dni = :dni";
-                      $stmtEdad2 = $conn->prepare($consultaEdad2);
-                      $stmtEdad2->bindParam(':dni', $row['Dni']);
-                      $stmtEdad2->execute();
+                                            $stmtEdad2 = $conn->prepare($consultaEdad2);
+                                            $stmtEdad2->bindParam(':dni', $row['Dni']);
+                                            $stmtEdad2->execute();
 
-                      // Verificar si se obtuvieron resultados
-                      if ($stmtEdad2) {
-                        // Obtener el resultado de la consulta
-                        $resultadoEdad2 = $stmtEdad2->fetch(PDO::FETCH_ASSOC);
-                      }
+                                            // Verificar si se obtuvieron resultados
+                                            if ($stmtEdad2) {
+                                                // Obtener el resultado de la consulta
+                                                $resultadoEdad2 = $stmtEdad2->fetch(PDO::FETCH_ASSOC);
+                                            }
 
-                      // Mostrar la edad en años y meses
-                      echo "<td>" . $resultadoEdad2['edadAnios'] . " años " . $resultadoEdad2['edadMeses'] . " meses</td>";
-                      // CALCULO DE EDAD--------------------------------
+                                            // Mostrar la edad en años y meses
+                                            echo "<td>" . $resultadoEdad2['edadAnios'] . " años " . $resultadoEdad2['edadMeses'] . " meses</td>";
+                                            // CALCULO DE EDAD--------------------------------
 
-                      if ($mostrarColumnaAccion):
-                      echo "<td>
+                                            if ($mostrarColumnaAccion || $mostrarColumnaAccion1) :
+                                                echo "<td>
             <div class='w3-container'>
                 <a href='#' onclick=\"openModal2('" . $row['Dni'] . "')\">
                     <img src='/Proyecto-master/Proyecto-master/img/datos.png'>
@@ -439,55 +421,55 @@ if ($posicion == 'Administrador') {
                                                     </thead>
                                                     <tbody>";
 
-                      $dniviejo = $row['Dni'];
+                                                $dniviejo = $row['Dni'];
 
-                      $sql2 = "SELECT *
+                                                $sql2 = "SELECT *
                         FROM datos_personales WHERE $dniviejo = Dni;";
 
-                      $consulta2 = $conn->prepare($sql2);
+                                                $consulta2 = $conn->prepare($sql2);
 
-                      if ($consulta2->execute()) {
-                        while ($row2 = $consulta2->fetch()) {
-                          echo "<tr>";
-                          echo "<td>" . $row2['Dni'] . "</td>";
-                          echo "<td>" . $row2['Apellido'] . "</td>";
-                          echo "<td>" . $row2['Nombre'] . "</td>";
-                          echo "<td>" . $row2['Sexo'] . "</td>";
-                          echo "<td>" . $row2['Domicilio'] . "</td>";
-                          $fechaOriginal1 = $row2['Fecha_nacimiento'];
-                          $parts = explode('-', $fechaOriginal1);
-                          if (count($parts) === 3) {
-                            $dia = intval($parts[2]);
-                            $mes = intval($parts[1]);
-                            $anio = intval($parts[0]);
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        echo "<tr>";
+                                                        echo "<td>" . $row2['Dni'] . "</td>";
+                                                        echo "<td>" . $row2['Apellido'] . "</td>";
+                                                        echo "<td>" . $row2['Nombre'] . "</td>";
+                                                        echo "<td>" . $row2['Sexo'] . "</td>";
+                                                        echo "<td>" . $row2['Domicilio'] . "</td>";
+                                                        $fechaOriginal1 = $row2['Fecha_nacimiento'];
+                                                        $parts = explode('-', $fechaOriginal1);
+                                                        if (count($parts) === 3) {
+                                                            $dia = intval($parts[2]);
+                                                            $mes = intval($parts[1]);
+                                                            $anio = intval($parts[0]);
 
-                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-                          }
-                          echo "<td>" . $fechaOriginal1 . "</td>";
-                          echo "<td>" . $row2['Nombre_del_tutor'] . "</td>";
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+                                                        echo "<td>" . $fechaOriginal1 . "</td>";
+                                                        echo "<td>" . $row2['Nombre_del_tutor'] . "</td>";
 
-                          // CALCULO DE EDAD-----------------------------
-                          $consultaEdad2 = "SELECT TIMESTAMPDIFF(YEAR, Fecha_nacimiento, CURDATE()) AS edadAnios,
+                                                        // CALCULO DE EDAD-----------------------------
+                                                        $consultaEdad2 = "SELECT TIMESTAMPDIFF(YEAR, Fecha_nacimiento, CURDATE()) AS edadAnios,
         TIMESTAMPDIFF(MONTH, Fecha_nacimiento, CURDATE()) % 12 AS edadMeses
         FROM datos_personales WHERE Dni = :dni";
-                          $stmtEdad2 = $conn->prepare($consultaEdad2);
-                          $stmtEdad2->bindParam(':dni', $row['Dni']);
-                          $stmtEdad2->execute();
+                                                        $stmtEdad2 = $conn->prepare($consultaEdad2);
+                                                        $stmtEdad2->bindParam(':dni', $row['Dni']);
+                                                        $stmtEdad2->execute();
 
-                          // Verificar si se obtuvieron resultados
-                          if ($stmtEdad2) {
-                            // Obtener el resultado de la consulta
-                            $resultadoEdad2 = $stmtEdad2->fetch(PDO::FETCH_ASSOC);
-                          }
+                                                        // Verificar si se obtuvieron resultados
+                                                        if ($stmtEdad2) {
+                                                            // Obtener el resultado de la consulta
+                                                            $resultadoEdad2 = $stmtEdad2->fetch(PDO::FETCH_ASSOC);
+                                                        }
 
-                          // Mostrar la edad en años y meses
-                          echo "<td>" . $resultadoEdad2['edadAnios'] . " años " . $resultadoEdad2['edadMeses'] . " meses</td>";
-                          // CALCULO DE EDAD--------------------------------
-                          echo "</tr>";
-                        }
-                      }
+                                                        // Mostrar la edad en años y meses
+                                                        echo "<td>" . $resultadoEdad2['edadAnios'] . " años " . $resultadoEdad2['edadMeses'] . " meses</td>";
+                                                        // CALCULO DE EDAD--------------------------------
+                                                        echo "</tr>";
+                                                    }
+                                                }
 
-                      echo "</tbody>
+                                                echo "</tbody>
                         </table>
                     </div>
                 </div>
@@ -521,42 +503,42 @@ if ($posicion == 'Administrador') {
                             </thead>
                             <tbody>";
 
-                      $dniviejo = $row['Dni'];
+                                                $dniviejo = $row['Dni'];
 
-                      $sql2 = "SELECT *
+                                                $sql2 = "SELECT *
                         FROM Datos_pedagogicos WHERE $dniviejo = Dni;";
 
-                      $consulta2 = $conn->prepare($sql2);
+                                                $consulta2 = $conn->prepare($sql2);
 
-                      if ($consulta2->execute()) {
-                        while ($row2 = $consulta2->fetch()) {
-                          echo "<tr>";
-                          echo "<td></td>";
-                          $fechaOriginal1 = $row2['Fecha_ingreso'];
-                          $parts = explode('-', $fechaOriginal1);
-                          if (count($parts) === 3 && $parts[0] > 0 && $parts[1] > 0 && $parts[2] > 0) {
-                            $dia = intval($parts[2]);
-                            $mes = intval($parts[1]);
-                            $anio = intval($parts[0]);
-                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-                          }
-                          echo "<td>" . $fechaOriginal1 . "</td>";
-                          echo "<td>" . $row2['escRef'] . "</td>";
-                          echo "<td>" . $row2['Grado'] . "</td>";
-                          echo "<td>" . $row2['poseeEsc'] . "</td>";
-                          echo "<td>" . $row2['escComun'] . "</td>";
-                          echo "<td>" . $row2['escEspecial'] . "</td>";
-                          echo "<td>" . $row2['lectContinua'] . "</td>";
-                          echo "<td>" . $row2['interpTextos'] . "</td>";
-                          echo "<td>" . $row2['reconoceSAV'] . "</td>";
-                          echo "<td>" . $row2['elabOrac'] . "</td>";
-                          echo "<td>" . $row2['lectyescri'] . "</td>";
-                          echo "<td>" . $row2['resuelvOpBas'] . "</td>";
-                          echo "</tr>";
-                        }
-                      }
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        echo "<tr>";
+                                                        echo "<td></td>";
+                                                        $fechaOriginal1 = $row2['Fecha_ingreso'];
+                                                        $parts = explode('-', $fechaOriginal1);
+                                                        if (count($parts) === 3 && $parts[0] > 0 && $parts[1] > 0 && $parts[2] > 0) {
+                                                            $dia = intval($parts[2]);
+                                                            $mes = intval($parts[1]);
+                                                            $anio = intval($parts[0]);
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+                                                        echo "<td>" . $fechaOriginal1 . "</td>";
+                                                        echo "<td>" . $row2['escRef'] . "</td>";
+                                                        echo "<td>" . $row2['Grado'] . "</td>";
+                                                        echo "<td>" . $row2['poseeEsc'] . "</td>";
+                                                        echo "<td>" . $row2['escComun'] . "</td>";
+                                                        echo "<td>" . $row2['escEspecial'] . "</td>";
+                                                        echo "<td>" . $row2['lectContinua'] . "</td>";
+                                                        echo "<td>" . $row2['interpTextos'] . "</td>";
+                                                        echo "<td>" . $row2['reconoceSAV'] . "</td>";
+                                                        echo "<td>" . $row2['elabOrac'] . "</td>";
+                                                        echo "<td>" . $row2['lectyescri'] . "</td>";
+                                                        echo "<td>" . $row2['resuelvOpBas'] . "</td>";
+                                                        echo "</tr>";
+                                                    }
+                                                }
 
-                      echo "</tbody>
+                                                echo "</tbody>
                         </table>
                     </div>
                 </div>
@@ -588,39 +570,39 @@ if ($posicion == 'Administrador') {
                         </thead>
                         <tbody>";
 
-                      $dniviejo = $row['Dni'];
+                                                $dniviejo = $row['Dni'];
 
 
 
 
-                      $sql2 = "SELECT *
+                                                $sql2 = "SELECT *
                                     FROM Datos_internacion
                                     WHERE Dni = $dniviejo
                                     ORDER BY Fecha_ingreso DESC";
 
-                      $consulta2 = $conn->prepare($sql2);
+                                                $consulta2 = $conn->prepare($sql2);
 
-                      if ($consulta2->execute()) {
-                        while ($row2 = $consulta2->fetch()) {
-                          echo "<tr>";
-                          echo "<td></td>";
-                          $fechaOriginal = $row2['Fecha_ingreso'];
-                          $parts = explode('-', $fechaOriginal);
-                          $dia = intval($parts[2]);
-                          $mes = intval($parts[1]);
-                          $anio = intval($parts[0]);
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        echo "<tr>";
+                                                        echo "<td></td>";
+                                                        $fechaOriginal = $row2['Fecha_ingreso'];
+                                                        $parts = explode('-', $fechaOriginal);
+                                                        $dia = intval($parts[2]);
+                                                        $mes = intval($parts[1]);
+                                                        $anio = intval($parts[0]);
 
-                          $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
 
-                          echo "<td>" . $fechaFormateada . "</td>";
-                          echo "<td>" . $row2['Sala'] . "</td>";
-                          echo "<td>" . $row2['Habitación'] . "</td>";
-                          echo "<td>" . $row2['Cama'] . "</td>";
-                          echo "<td>" . $row2['Discapacidad'] . "</td>";
-                          echo "<td>" . $row2['Observacion'] . "</td>";
-                          $fechaIngresoFila = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
+                                                        echo "<td>" . $fechaFormateada . "</td>";
+                                                        echo "<td>" . $row2['Sala'] . "</td>";
+                                                        echo "<td>" . $row2['Habitación'] . "</td>";
+                                                        echo "<td>" . $row2['Cama'] . "</td>";
+                                                        echo "<td>" . $row2['Discapacidad'] . "</td>";
+                                                        echo "<td>" . $row2['Observacion'] . "</td>";
+                                                        $fechaIngresoFila = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
 
-                          echo "<td>
+                                                        echo "<td>
                     <span id='diagnosticoSpan-$fechaIngresoFila' style='display: none;'>" . $row2['Diagnostico'] . "</span>
                     <button style='border: none; background: none;' onclick='toggleDiagnostico1(\"$fechaIngresoFila\")'>
                       <img style='width: 100%;
@@ -630,20 +612,20 @@ if ($posicion == 'Administrador') {
                       ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar-$fechaIngresoFila'>
                     </button>
                   </td>";
-                          $fechaOriginal1 = $row2['Fecha_alta'];
-                          $parts = explode('-', $fechaOriginal1);
-                          if (count($parts) === 3) {
-                            $dia = intval($parts[2]);
-                            $mes = intval($parts[1]);
-                            $anio = intval($parts[0]);
+                                                        $fechaOriginal1 = $row2['Fecha_alta'];
+                                                        $parts = explode('-', $fechaOriginal1);
+                                                        if (count($parts) === 3) {
+                                                            $dia = intval($parts[2]);
+                                                            $mes = intval($parts[1]);
+                                                            $anio = intval($parts[0]);
 
-                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-                          }
-                          echo "<td>" . $fechaOriginal1 . "</td>";
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+                                                        echo "<td>" . $fechaOriginal1 . "</td>";
 
-                          $fechaIngresoFila1 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
+                                                        $fechaIngresoFila1 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
 
-                          echo "<td>
+                                                        echo "<td>
                     <span id='motivoSpan-$fechaIngresoFila1' style='display: none;'>" . $row2['Motivo'] . "</span>
                     <button style='border: none; background: none;' onclick='toggleMotivo1(\"$fechaIngresoFila1\")'>
                       <img style='width: 100%;
@@ -653,7 +635,7 @@ if ($posicion == 'Administrador') {
                       ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar1-$fechaIngresoFila1'>
                     </button>
                   </td>";
-                          echo "<td><a href='#' onclick=\"openModal3('" . $row2['Fecha_ingreso'] . "')\">
+                                                        echo "<td><a href='#' onclick=\"openModal3('" . $row2['Fecha_ingreso'] . "')\">
                     <img src='/Proyecto-master/Proyecto-master/img/alta.png' alt='Dar de Alta'>
                 </a>
         
@@ -688,11 +670,11 @@ if ($posicion == 'Administrador') {
                                                 </div></td>";
 
 
-                          echo "</tr>";
-                        }
-                      }
+                                                        echo "</tr>";
+                                                    }
+                                                }
 
-                      echo "</tbody>
+                                                echo "</tbody>
                     </table>
                 </div>
             </div>
@@ -721,36 +703,36 @@ if ($posicion == 'Administrador') {
                         </thead>
                         <tbody>";
 
-                      $dniviejo = $row['Dni'];
+                                                $dniviejo = $row['Dni'];
 
 
 
-                      $sql2 = "SELECT *
+                                                $sql2 = "SELECT *
                                     FROM datos_domiciliario WHERE $dniviejo = Dni 
                                     ORDER BY Fecha_ingreso DESC";
 
-                      $consulta2 = $conn->prepare($sql2);
+                                                $consulta2 = $conn->prepare($sql2);
 
-                      if ($consulta2->execute()) {
+                                                if ($consulta2->execute()) {
 
-                        while ($row2 = $consulta2->fetch()) {
-                          echo "<tr>";
-                          echo "<td></td>";
-                          $fechaOriginal = $row2['Fecha_ingreso'];
-                          $parts = explode('-', $fechaOriginal);
-                          $dia = intval($parts[2]);
-                          $mes = intval($parts[1]);
-                          $anio = intval($parts[0]);
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        echo "<tr>";
+                                                        echo "<td></td>";
+                                                        $fechaOriginal = $row2['Fecha_ingreso'];
+                                                        $parts = explode('-', $fechaOriginal);
+                                                        $dia = intval($parts[2]);
+                                                        $mes = intval($parts[1]);
+                                                        $anio = intval($parts[0]);
 
-                          $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
 
-                          echo "<td>" . $fechaFormateada . "</td>";
-                          echo "<td>" . $row2['Direccion'] . "</td>";
-                          echo "<td>" . $row2['Discapacidad'] . "</td>";
-                          echo "<td>" . $row2['Observacion'] . "</td>";
-                          $fechaIngresoFila3 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
+                                                        echo "<td>" . $fechaFormateada . "</td>";
+                                                        echo "<td>" . $row2['Direccion'] . "</td>";
+                                                        echo "<td>" . $row2['Discapacidad'] . "</td>";
+                                                        echo "<td>" . $row2['Observacion'] . "</td>";
+                                                        $fechaIngresoFila3 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
 
-                          echo "<td>
+                                                        echo "<td>
                     <span id='diagnosticoSpan2-$fechaIngresoFila3' style='display: none;'>" . $row2['Diagnostico'] . "</span>
                     <button style='border: none; background: none;' onclick='toggleDiagnostico2(\"$fechaIngresoFila3\")'>
                       <img style='width: 100%;
@@ -760,19 +742,19 @@ if ($posicion == 'Administrador') {
                       ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar2-$fechaIngresoFila3'>
                     </button>
                   </td>";
-                          $fechaOriginal1 = $row2['Fecha_alta'];
-                          $parts = explode('-', $fechaOriginal1);
-                          if (count($parts) === 3 && $parts[0] > 0 && $parts[1] > 0 && $parts[2] > 0) {
-                            $dia = intval($parts[2]);
-                            $mes = intval($parts[1]);
-                            $anio = intval($parts[0]);
-                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-                          }
-                          echo "<td>" . $fechaOriginal1 . "</td>";
+                                                        $fechaOriginal1 = $row2['Fecha_alta'];
+                                                        $parts = explode('-', $fechaOriginal1);
+                                                        if (count($parts) === 3 && $parts[0] > 0 && $parts[1] > 0 && $parts[2] > 0) {
+                                                            $dia = intval($parts[2]);
+                                                            $mes = intval($parts[1]);
+                                                            $anio = intval($parts[0]);
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+                                                        echo "<td>" . $fechaOriginal1 . "</td>";
 
-                          $fechaIngresoFila4 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
+                                                        $fechaIngresoFila4 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
 
-                          echo "<td>
+                                                        echo "<td>
                     <span id='motivoSpan2-$fechaIngresoFila4' style='display: none;'>" . $row2['Motivo'] . "</span>
                     <button style='border: none; background: none;' onclick='toggleMotivo2(\"$fechaIngresoFila4\")'>
                       <img style='width: 100%;
@@ -782,7 +764,7 @@ if ($posicion == 'Administrador') {
                       ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar3-$fechaIngresoFila4'>
                     </button>
                   </td>";
-                          echo "<td><a href='#' onclick=\"openModal4('" . $row2['Fecha_ingreso'] . "')\">
+                                                        echo "<td><a href='#' onclick=\"openModal4('" . $row2['Fecha_ingreso'] . "')\">
                     <img src='/Proyecto-master/Proyecto-master/img/alta.png' alt='Dar de Alta'>
                 </a>
         
@@ -815,11 +797,11 @@ if ($posicion == 'Administrador') {
                                                 </div>
                                                 </div>
                                                 </div></td>";
-                          echo "</tr>";
-                        }
-                      }
+                                                        echo "</tr>";
+                                                    }
+                                                }
 
-                      echo "</tbody>
+                                                echo "</tbody>
                     </table>
                 </div>
             </div>
@@ -827,7 +809,7 @@ if ($posicion == 'Administrador') {
         </div>
             </div>
             </td>";
-                      echo "<td>
+                                                echo "<td>
             <a href='#' onclick=\"openModal5('" . $row['Dni'] . "')\">
                 <img src='/Proyecto-master/Proyecto-master/img/pdf.png' alt='Descargar PDF'>
             </a>
@@ -868,94 +850,94 @@ if ($posicion == 'Administrador') {
                                             <select name='datosP' id='datosP'>
                                                 <option style='text-align:center;' value=''>Selecciona una opción</option>";
 
-                      $dni_1 = $row['Dni'];
-                      $sql2 = "SELECT Fecha_ingreso FROM datos_pedagogicos WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
-                      $consulta2 = $conn->prepare($sql2);
+                                                $dni_1 = $row['Dni'];
+                                                $sql2 = "SELECT Fecha_ingreso FROM datos_pedagogicos WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
+                                                $consulta2 = $conn->prepare($sql2);
 
-                      if ($consulta2->execute()) {
-                        while ($row2 = $consulta2->fetch()) {
-                          $fechaOriginal1 = $row2['Fecha_ingreso'];
-                          $parts = explode('-', $fechaOriginal1);
-                          if (count($parts) === 3) {
-                            $dia = intval($parts[2]);
-                            $mes = intval($parts[1]);
-                            $anio = intval($parts[0]);
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        $fechaOriginal1 = $row2['Fecha_ingreso'];
+                                                        $parts = explode('-', $fechaOriginal1);
+                                                        if (count($parts) === 3) {
+                                                            $dia = intval($parts[2]);
+                                                            $mes = intval($parts[1]);
+                                                            $anio = intval($parts[0]);
 
-                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-                          }
-                          echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
-                        }
-                      }
-                      echo "</select>";
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+                                                        echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
+                                                    }
+                                                }
+                                                echo "</select>";
 
-                      echo "<label for='datosI'>Datos Internacion:</label>
+                                                echo "<label for='datosI'>Datos Internacion:</label>
                                     <select name='datosI' id='datosI'>
                                         <option style='text-align:center;' value=''>Selecciona una opción</option>";
 
-                      $dni_1 = $row['Dni'];
+                                                $dni_1 = $row['Dni'];
 
-                      $sql2 = "SELECT Fecha_ingreso FROM datos_internacion WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
-                      $consulta2 = $conn->prepare($sql2);
-                      if ($consulta2->execute()) {
-                        while ($row2 = $consulta2->fetch()) {
-                          $fechaOriginal1 = $row2['Fecha_ingreso'];
-                          $parts = explode('-', $fechaOriginal1);
-                          if (count($parts) === 3) {
-                            $dia = intval($parts[2]);
-                            $mes = intval($parts[1]);
-                            $anio = intval($parts[0]);
+                                                $sql2 = "SELECT Fecha_ingreso FROM datos_internacion WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
+                                                $consulta2 = $conn->prepare($sql2);
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        $fechaOriginal1 = $row2['Fecha_ingreso'];
+                                                        $parts = explode('-', $fechaOriginal1);
+                                                        if (count($parts) === 3) {
+                                                            $dia = intval($parts[2]);
+                                                            $mes = intval($parts[1]);
+                                                            $anio = intval($parts[0]);
 
-                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-                          }
-                          echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
-                        }
-                      }
-                      echo "</select>";
-                      ?><label for='datosD'>Datos Domiciliario:</label>
-                                    <select name='datosD' id='datosD'>
-                                        <option style='text-align:center;' value=''>Selecciona una opción</option>";
-                                        <?php
-                        $sql2 = "SELECT Fecha_ingreso FROM datos_domiciliario WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
-                        $consulta2 = $conn->prepare($sql2);
-                        if ($consulta2->execute()) {
-                          while ($row2 = $consulta2->fetch()) {
-                            $fechaOriginal1 = $row2['Fecha_ingreso'];
-                            $parts = explode('-', $fechaOriginal1);
-                            if (count($parts) === 3) {
-                              $dia = intval($parts[2]);
-                              $mes = intval($parts[1]);
-                              $anio = intval($parts[0]);
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+                                                        echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
+                                                    }
+                                                }
+                                                echo "</select>";
+                                            ?><label for='datosD'>Datos Domiciliario:</label>
+                                                <select name='datosD' id='datosD'>
+                                                    <option style='text-align:center;' value=''>Selecciona una opción</option>";
+                                                    <?php
+                                                    $sql2 = "SELECT Fecha_ingreso FROM datos_domiciliario WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
+                                                    $consulta2 = $conn->prepare($sql2);
+                                                    if ($consulta2->execute()) {
+                                                        while ($row2 = $consulta2->fetch()) {
+                                                            $fechaOriginal1 = $row2['Fecha_ingreso'];
+                                                            $parts = explode('-', $fechaOriginal1);
+                                                            if (count($parts) === 3) {
+                                                                $dia = intval($parts[2]);
+                                                                $mes = intval($parts[1]);
+                                                                $anio = intval($parts[0]);
 
-                              $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-                            }
-                            echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
-                          }
-                        }
-                        echo "</select>";
-                        echo "</select>";
-                        ?><label for='datosA'>Datos Academicos:</label>
-                                        <select name='datosA' id='datosA'>
-                                            <option style='text-align:center;' value=''>Selecciona una opción</option>";
+                                                                $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                            }
+                                                            echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
+                                                        }
+                                                    }
+                                                    echo "</select>";
+                                                    echo "</select>";
+                                                    ?><label for='datosA'>Datos Academicos:</label>
+                                                    <select name='datosA' id='datosA'>
+                                                        <option style='text-align:center;' value=''>Selecciona una opción</option>";
                                             <?php
-                      $sql2 = "SELECT Fecha FROM datos_academ WHERE Dni = '$dni_1' ORDER BY Fecha DESC";
-                      $consulta2 = $conn->prepare($sql2);
-                      if ($consulta2->execute()) {
-                        while ($row2 = $consulta2->fetch()) {
-                          $fechaOriginal1 = $row2['Fecha'];
-                          $parts = explode('-', $fechaOriginal1);
-                          if (count($parts) === 3) {
-                            $dia = intval($parts[2]);
-                            $mes = intval($parts[1]);
-                            $anio = intval($parts[0]);
+                                                $sql2 = "SELECT Fecha FROM datos_academ WHERE Dni = '$dni_1' ORDER BY Fecha DESC";
+                                                $consulta2 = $conn->prepare($sql2);
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        $fechaOriginal1 = $row2['Fecha'];
+                                                        $parts = explode('-', $fechaOriginal1);
+                                                        if (count($parts) === 3) {
+                                                            $dia = intval($parts[2]);
+                                                            $mes = intval($parts[1]);
+                                                            $anio = intval($parts[0]);
 
-                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-                          }
-                          echo "<option style='text-align:center;' value='" . $row2['Fecha'] . "'>" . $fechaOriginal1 . "</option>";
-                        }
-                      }
-                      echo "</select>";
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+                                                        echo "<option style='text-align:center;' value='" . $row2['Fecha'] . "'>" . $fechaOriginal1 . "</option>";
+                                                    }
+                                                }
+                                                echo "</select>";
 
-                      echo "
+                                                echo "
                                                             
                                     </div>
                                     </div> 
@@ -969,63 +951,62 @@ if ($posicion == 'Administrador') {
             </div>
         </td>";
 
-                      echo "<td class='acciones'>
+                                                echo "<td class='acciones'>
           <a href='EditarA.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
           </td>";
-                      echo "<td></td>";endif; 
+                                                echo "<td></td>";
+                                            endif;
 
 
 
 
 
-                      echo "</tr>";
-                    }
-                  }
-                      ?>
+                                            echo "</tr>";
+                                        }
+                                    }
+                                            ?>
 
                                 </tbody>
                             </table>
                             <?php
-              $totalFilas = 500; // Cambiar al total real de filas en la tabla
-              $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
-              $totalPaginas = ceil($totalFilas / $itemsPorPagina);
+                            $totalFilas = 500; // Cambiar al total real de filas en la tabla
+                            $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
+                            $totalPaginas = ceil($totalFilas / $itemsPorPagina);
 
-              $enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la paginación
+                            $enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la paginación
 
-              $mitadEnlaces = floor($enlacesMostrados / 2);
-              $inicioRango = max(1, $paginaActual - $mitadEnlaces);
-              $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
-              ?>
+                            $mitadEnlaces = floor($enlacesMostrados / 2);
+                            $inicioRango = max(1, $paginaActual - $mitadEnlaces);
+                            $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
+                            ?>
 
                             <div class="pagination">
                                 <?php if ($paginaActual > 1) : ?>
-                                <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
+                                    <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
                                 <?php endif; ?>
 
                                 <?php if ($inicioRango > 1) : ?>
-                                <a href='formularioAlumno.php?pagina=1'>1</a>
-                                <?php if ($inicioRango > 2) : ?>
-                                <a class="pagination-dots">...</a>
-                                <?php endif; ?>
+                                    <a href='formularioAlumno.php?pagina=1'>1</a>
+                                    <?php if ($inicioRango > 2) : ?>
+                                        <a class="pagination-dots">...</a>
+                                    <?php endif; ?>
                                 <?php endif; ?>
 
                                 <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
-                                <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
-                                <a class='<?php echo $active; ?>'
-                                    href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
+                                    <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
+                                    <a class='<?php echo $active; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
                                 <?php endfor; ?>
 
                                 <?php if ($finRango < $totalPaginas) : ?>
-                                <?php if ($finRango < $totalPaginas - 1) : ?>
-                                <a class="pagination-dots">...</a>
-                                <?php endif; ?>
-                                <a
-                                    href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
+                                    <?php if ($finRango < $totalPaginas - 1) : ?>
+                                        <a class="pagination-dots">...</a>
+                                    <?php endif; ?>
+                                    <a href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
                                 <?php endif; ?>
 
                                 <?php if ($paginaActual < $totalPaginas) : ?>
-                                <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
-                                    &gt;</a>
+                                    <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
+                                        &gt;</a>
                                 <?php endif; ?>
                             </div>
 
@@ -1033,8 +1014,8 @@ if ($posicion == 'Administrador') {
 
                             <?php
 
-              echo "</div>";
-              ?>
+                            echo "</div>";
+                            ?>
 
                         </div>
                     </div>

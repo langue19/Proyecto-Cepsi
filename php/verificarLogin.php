@@ -30,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     session_start();
                     $_SESSION["usuario"] = $user;
                     $_SESSION["Posicion"] = $posicion;
-                    
+
                     // Guardar el nombre y el apellido del usuario en la sesión
                     $_SESSION["Apellido"] = $row["Apellido"];
-                                    
+
 
                     // Marcar como encontrada una coincidencia válida
                     $found = true;
@@ -49,8 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     header("Location: cards.php");
                 } elseif ($posicion == "Usuario") {
                     header("Location: formularioAlumno.php");
-                }else{
-                    header("Location: ./login.php");
+                } elseif ($posicion == "Psicopedagoga") {
+                    header("Location: formularioAlumno.php");
+                } else {
+                    header("Location: /Proyecto-master/Proyecto-master/login.html?error=1");
+                    exit;
                 }
                 exit;
             } else {

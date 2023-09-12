@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
 
     <!-- Aquí incluye el enlace a la biblioteca jQuery -->
-    <script src="\Proyecto-master\Proyecto-master\js\jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Aquí incluye el enlace a tu archivo JavaScript -->
     <script src="/Proyecto-master/Proyecto-master/js/AgregarA.js"></script>
 
@@ -27,12 +27,7 @@
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE -->
-    <script src="dist/js/adminlte.js"></script>
+
 
     <!-- OPTIONAL SCRIPTS -->
     <script src="plugins/chart.js/Chart.min.js"></script>
@@ -261,16 +256,16 @@
                                     <label for="dni">DNI</label>
                                     <input value="<?php echo isset($registro['Dni']) ? $registro['Dni'] : ''; ?>" name="dni" type="text" class="fieldlabels" id="dni" style="text-align:center;background-color: antiquewhite;" readonly>
 
-                                    <label for="fechaing">Fecha ingreso</label>
-                                    <input name="fecha_ingreso" type="date" class="fieldlabels" id="fechaing">
+                                    <label for="fechaing">Fecha</label>
+                                    <input name="fecha_ingreso" type="date" class="fieldlabels" id="fecha">
                                     <label for="escr">Nombre del Familiar</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="Nombre del Familiar">
+                                    <input name="escRef" type="text" class="form-control" id="Nombref" placeholder="Nombre del Familiar">
                                     <label for="escr">Apelido del Familiar</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="Apellido del Familiar">
+                                    <input name="escRef" type="text" class="form-control" id="Apellidof" placeholder="Apellido del Familiar">
                                     <label for="escr">Ocupacion</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="Ocupacion">
+                                    <input name="escRef" type="text" class="form-control" id="Ocupacion" placeholder="Ocupacion">
                                     <label for="escr">Escolaridad Alcanzada</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="Escolaridad Alcanzada">
+                                    <input name="escRef" type="text" class="form-control" id="escAlcanzada" placeholder="Escolaridad Alcanzada">
                                     <label for="escr">Posee Salario/Asignacion/Pension</label>
                                     <select name="Posee Salario/Asignacion/Pension">
                                         <option value="Sin especificar">Seleccionar</option>
@@ -279,9 +274,9 @@
                                         <option value="Pension">Pension</option>
                                     </select>
                                     <label for="escr">Asistente Sanitario</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="Asistente Sanitario">
+                                    <input name="escRef" type="text" class="form-control" id="Asistsani" placeholder="Asistente Sanitario">
                                     <label for="escr">Observaciones</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="Observaciones">
+                                    <input name="escRef" type="text" class="form-control" id="Observ" placeholder="Observaciones">
                                 </div>
                             </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
                             <a href="formularioAlumno.php" class="previous action-button-previous" style="text-decoration: none;">Cancelar</a>
@@ -298,60 +293,60 @@
                                         <option value="Compartida">Compartida</option>
                                     </select>
                                     <label for="escr">N° de convivientes</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="N° de convivientes">
+                                    <input name="escRef" type="text" class="form-control" id="conviviente" placeholder="N° de convivientes">
                                     <label for="escr">N° de habitaciones</label>
-                                    <input name="escRef" type="text" class="form-control" id="escr" placeholder="N° de habitacioness">
+                                    <input name="escRef" type="text" class="form-control" id="numerohab" placeholder="N° de habitacioness">
                                     <label for="escr">Construccion</label>
-                                    <select name="Tipo">
+                                    <select name="construccion">
                                         <option value="Sin especificar">Seleccionar</option>
                                         <option value="Materia">Materia</option>
                                         <option value="Rancho">Rancho</option>
                                         <option value="Otros">Otros</option>
-
+                                        </select>
                                         <label for="escr">Tenencia</label>
-                                        <select name="Tenencia">
+                                        <select name="tenencia">
                                             <option value="Sin especificar">Seleccionar</option>
                                             <option value="Propia">Propia</option>
                                             <option value="Prestada">Prestada</option>
                                             <option value="Alquilada">Alquilada</option>
                                             <option value="Cedida">Cedida</option>
-
+                                            </select>
                                             <label for="escr">¿Posee Servicio de Agua?</label>
                                             <select name="¿Posee Servicio de Agua?">
                                                 <option value="Sin especificar">Seleccionar</option>
                                                 <option value="Si">Si</option>
                                                 <option value="No">No</option>
-
+                                                </select>
                                                 <label for="escr">¿Posee Servicio de Luz?</label>
                                                 <select name="¿Posee Servicio de Luz?">
                                                     <option value="Sin especificar">Seleccionar</option>
                                                     <option value="Si">Si</option>
                                                     <option value="No">No</option>
-
+                                                    </select>
                                                     <label for="escr">¿Posee Servicio de Gas?</label>
                                                     <select name="¿Posee Servicio de Gas?">
                                                         <option value="Sin especificar">Seleccionar</option>
                                                         <option value="Si">Si</option>
                                                         <option value="No">No</option>
-
+                                                        </select>
                                                         <label for="escr">¿Posee Servicio de Cloacas?</label>
                                                         <select name="¿Posee Servicio de Cloacas?">
                                                             <option value="Sin especificar">Seleccionar</option>
                                                             <option value="Si">Si</option>
                                                             <option value="No">No</option>
-
+                                                            </select>
                                                             <label for="escr">¿Posee Servicio de Cable?</label>
                                                             <select name="¿Posee Servicio de Cable?">
                                                                 <option value="Sin especificar">Seleccionar</option>
                                                                 <option value="Si">Si</option>
                                                                 <option value="No">No</option>
-
+                                                                </select>
                                                                 <label for="escr">¿Posee Servicio de Internet?</label>
                                                                 <select name="¿Posee Servicio de Internet?">
                                                                     <option value="Sin especificar">Seleccionar</option>
                                                                     <option value="Si">Si</option>
                                                                     <option value="No">No</option>
-
+                                                                    </select>
                                                                     <label for="escr">Observaciones Generales</label>
                                                                     <input name="escRef" type="text" class="form-control" id="escr" placeholder="Obs Generales">
 
@@ -361,7 +356,7 @@
                                                                 </select>
                                 </div>
                             </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
-                            <a href="formularioAlumno.php" class="previous action-button-previous" style="text-decoration: none;">Cancelar</a>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
                         </fieldset>
 
                         <fieldset>
@@ -523,12 +518,7 @@
                                         <label for="obs">Caracter</label>
                                         <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Caracter">
 
-                                        <label for="disc">Cracter</label>
-                                        <select name="caracter">
-                                            <option value="Sin especificar">Seleccionar</option>
-                                            <option value="Anterior">Anterior</option>
-                                            <option value="Actual">Actual</option>
-                                        </select>
+                                    
 
                                         <label for="obs">Nombre</label>
                                         <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Nombre">
@@ -598,10 +588,11 @@
                                     <div class="row justify-content-center">
                                         <div class="col-3"> <img src="\Proyecto-master\Proyecto-master\img\listo.png" class="fit-image">
                                         </div>
+                                        <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
                                     </div> <br><br>
                                 </div>
                             </div> <input type="submit" name="next" class="next action-button" style="width: 160px;" value="Guardar y salir!" />
-                            <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                            
 
                         </fieldset>
                     </form>
