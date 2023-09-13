@@ -259,13 +259,13 @@
                                         <label for="fechaing">Fecha</label>
                                         <input name="fecha_ingreso" type="date" class="fieldlabels" id="fecha">
                                         <label for="escr">Nombre del Familiar</label>
-                                        <input name="escRef" type="text" class="form-control" id="Nombref" placeholder="Nombre del Familiar">
+                                        <input name="Nombref" type="text" class="form-control" id="Nombref" placeholder="Nombre del Familiar">
                                         <label for="escr">Apellido del Familiar</label>
-                                        <input name="escRef" type="text" class="form-control" id="Apellidof" placeholder="Apellido del Familiar">
+                                        <input name="apellido" type="text" class="form-control" id="Apellidof" placeholder="Apellido del Familiar">
                                         <label for="escr">Ocupacion</label>
-                                        <input name="escRef" type="text" class="form-control" id="Ocupacion" placeholder="Ocupacion">
+                                        <input name="ocupacion" type="text" class="form-control" id="Ocupacion" placeholder="Ocupacion">
                                         <label for="escr">Escolaridad Alcanzada</label>
-                                        <input name="escRef" type="text" class="form-control" id="escAlcanzada" placeholder="Escolaridad Alcanzada">
+                                        <input name="escAlcanzada" type="text" class="form-control" id="escAlcanzada" placeholder="Escolaridad Alcanzada">
                                         <label for="escr">Posee Salario/Asignacion/Pension</label>
                                         <select name="Posee Salario/Asignacion/Pension">
                                             <option value="Sin especificar">Seleccionar</option>
@@ -274,9 +274,9 @@
                                             <option value="Pension">Pension</option>
                                         </select>
                                         <label for="escr">Asistente Sanitario</label>
-                                        <input name="escRef" type="text" class="form-control" id="Asistsani" placeholder="Asistente Sanitario">
+                                        <input name="Asistsani" type="text" class="form-control" id="Asistsani" placeholder="Asistente Sanitario">
                                         <label for="escr">Observaciones</label>
-                                        <input name="escRef" type="text" class="form-control" id="Observ" placeholder="Observaciones">
+                                        <input name="Obsrv" type="text" class="form-control" id="Observ" placeholder="Observaciones">
                                     </div>
                                 </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
                                 <a href="formularioAlumno.php" class="previous action-button-previous" style="text-decoration: none;">Cancelar</a>
@@ -293,9 +293,9 @@
                                             <option value="Compartida">Compartida</option>
                                         </select>
                                         <label for="escr">N° de convivientes</label>
-                                        <input name="escRef" type="text" class="form-control" id="conviviente" placeholder="N° de convivientes">
+                                        <input name="conviviente" type="text" class="form-control" id="conviviente" placeholder="N° de convivientes">
                                         <label for="escr">N° de habitaciones</label>
-                                        <input name="escRef" type="text" class="form-control" id="numerohab" placeholder="N° de habitaciones">
+                                        <input name="numerohab" type="text" class="form-control" id="numerohab" placeholder="N° de habitaciones">
                                         <label for="escr">Construccion</label>
                                         <select name="construccion">
                                             <option value="Sin especificar">Seleccionar</option>
@@ -364,7 +364,7 @@
                                     <div class="row">
 
                                         <label for="escr">Diagnostico</label>
-                                        <input name="escRef" type="text" class="form-control" id="diag" placeholder="Diagnostico">
+                                        <input name="diag" type="text" class="form-control" id="diag" placeholder="Diagnostico">
                                         <label for="escr">Medico de Cabecera</label>
                                         <input name="medicor" type="text" class="form-control" id="medicoc" placeholder="Medico">
                                         <label for="escr">Tratamiento</label>
