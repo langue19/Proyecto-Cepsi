@@ -14,6 +14,23 @@ function showForm(selectedValue) {
 	}
   }
 
+  function showForm(selectedValue) {
+    var nivelInicialForm = document.getElementById("nivelInicialForm");
+    var nivelPrimarioForm = document.getElementById("nivelPrimarioForm");
+    
+    if (selectedValue === "NivelInicial") {
+        nivelInicialForm.style.display = "block";
+        nivelPrimarioForm.style.display = "none";
+    } else if (selectedValue === "NivelPrimario") {
+        nivelInicialForm.style.display = "none";
+        nivelPrimarioForm.style.display = "block";
+    } else {
+        nivelInicialForm.style.display = "none";
+        nivelPrimarioForm.style.display = "none";
+    }
+}
+
+
 $(document).ready(function () {
 	var current_fs, next_fs, previous_fs; //fieldsets
 	var opacity;
