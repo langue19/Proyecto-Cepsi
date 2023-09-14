@@ -111,6 +111,7 @@
 
                                         </div>
                                     </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                                    <a href="formularioAlumno.php" class="previous action-button-previous" style="text-decoration: none;">Cancelar</a>
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">

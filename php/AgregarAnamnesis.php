@@ -257,7 +257,7 @@
                                         <input value="<?php echo isset($registro['Dni']) ? $registro['Dni'] : ''; ?>" name="dni" type="text" class="fieldlabels" id="dni" style="text-align:center;background-color: antiquewhite;" readonly>
 
                                         <label for="fechaing">Fecha</label>
-                                        <input name="fecha_ingreso" type="date" class="fieldlabels" id="fecha">
+                                        <input name="fecha" type="date" class="fieldlabels" id="fecha">
                                         <label for="escr">Nombre del Familiar</label>
                                         <input name="Nombref" type="text" class="form-control" id="Nombref" placeholder="Nombre del Familiar">
                                         <label for="escr">Apellido del Familiar</label>

@@ -5,7 +5,7 @@ include 'crearBD.php';
 include 'crearTabla.php';
 
     $dni = $_POST['dni'];
-    $fechaIngreso = $_POST['fecha_ingreso'];
+    $fecha = $_POST['fecha'];
     $nombreFamiliar = $_POST['Nombref'];
     $apellidoFamiliar = $_POST['apellido'];
     $ocupacion = $_POST['ocupacion'];
