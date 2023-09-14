@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Alumno</title>
+    <title>FJV | Escuela CEPSI</title>
     <meta charset="UTF-8">
     <!-- CSS only -->
     <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -13,11 +13,8 @@
     <!-- Aquí incluye el enlace a tu archivo JavaScript -->
     <script src="/Proyecto-master/Proyecto-master/js/AgregarA.js"></script>
 
-    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
     <!-- REQUIRED SCRIPTS -->
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\font.css">
@@ -27,7 +24,12 @@
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
 
     <!-- OPTIONAL SCRIPTS -->
     <script src="plugins/chart.js/Chart.min.js"></script>
@@ -51,7 +53,7 @@
 
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed;">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
                 <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -195,6 +197,7 @@
             </div>
             <!-- /.sidebar -->
         </aside>
+
 
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -359,6 +362,7 @@
                                 <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
                             </fieldset>
 
+
                             <fieldset>
                                 <div class="form-card">
                                     <div class="row">
@@ -385,7 +389,8 @@
                                         <input name="pronostico" type="text" class="form-control" id="pronostico" placeholder="Pronostico">
                                         <label for="escr">Otras observaciones (Cuidados)</label>
                                         <input name="Otrasobs" type="text" class="form-control" id="Otrasobs" placeholder=" Otras observaciones">
-                                        <label for="escr">Manifestaciones Afectivo-Emocionales Asociadas a la Situacion de Enfermedad</label>
+                                        <label for="escr">Manifestaciones Afectivo-Emocionales Asociadas a la Situacion
+                                            de Enfermedad</label>
                                         <input name="manisfetacion" type="text" class="form-control" id="manifestacion" placeholder="Manifestaciones">
                                         <label for="escr">Enfermedades Previas Importante o Cronicas/Accidentes</label>
                                         <input name="enfermedadesp" type="text" class="form-control" id="enfermedadesp" placeholder="Enfermedades">
@@ -530,32 +535,176 @@
                                     <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
                             </fieldset>
 
+
                             <fieldset>
                                 <div class="form-card">
                                     <div class="row">
 
-                                        <label for="internacion">¿Recibio con Anterioridad Educacion Hospitalaria/Domiciliaria?</label>
-                                        <select name="educacion" id="educacion" onchange="showForm(this.value)">
-                                            <option value="">Selecciona una opción</option>
+                                        <label for="escr">Diagnostico</label>
+                                        <input name="diag" type="text" class="form-control" id="diag" placeholder="Diagnostico">
+                                        <label for="escr">Medico de Cabecera</label>
+                                        <input name="medicor" type="text" class="form-control" id="medicoc" placeholder="Medico">
+                                        <label for="escr">Tratamiento</label>
+                                        <input name="tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Tratamiento">
+                                        <label for="escr">Medicacion Indicada</label>
+                                        <input name="medindicada" type="text" class="form-control" id="medindicada" placeholder="Medicacion">
+
+                                        <label for="escr">¿Requirio Internacion?</label>
+                                        <select name="Requirio Internacion?">
+                                            <option value="Sin especificar">Seleccionar</option>
                                             <option value="Si">Si</option>
                                             <option value="No">No</option>
                                         </select>
 
-                                        <div id="form1" style="display: none;">
-                                            <h2 style="text-align: center;">Si</h2>
-                                            <label for="nombt">Institucion</label>
-                                            <input name="instituacion" type="text" class="fieldlabels" id="institucion" placeholder="Institucion">
-                                            <label for="nombt">Grado</label>
-                                            <input name="grado" type="text" class="fieldlabels" id="grado" placeholder="Grado">
-                                            <label for="nombt">Docente a cargo</label>
-                                            <input name="docente" type="text" class="fieldlabels" id="docente" placeholder="docente">
-                                            <label for="nombt">Tiempo de intervencion de escuela Hosp/Domic</label>
-                                            <input name="Tintervencion" type="text" class="fieldlabels" id="Tintervencion" placeholder="tiempo">
-                                        </div>
+                                        <label for="escr">Tiempo</label>
+                                        <input name="tiempo" type="text" class="form-control" id="tiempo" placeholder="Tiempo">
+                                        <label for="escr">Pronostico</label>
+                                        <input name="pronostico" type="text" class="form-control" id="pronostico" placeholder="Pronostico">
+                                        <label for="escr">Otras observaciones (Cuidados)</label>
+                                        <input name="Otrasobs" type="text" class="form-control" id="Otrasobs" placeholder=" Otras observaciones">
+                                        <label for="escr">Manifestaciones Afectivo-Emocionales Asociadas a la Situacion
+                                            de Enfermedad</label>
+                                        <input name="manisfetacion" type="text" class="form-control" id="manifestacion" placeholder="Manifestaciones">
+                                        <label for="escr">Enfermedades Previas Importante o Cronicas/Accidentes</label>
+                                        <input name="enfermedadesp" type="text" class="form-control" id="enfermedadesp" placeholder="Enfermedades">
+                                        <label for="escr">Medicacion que pudiera inferir en el desempeño escolar</label>
+                                        <input name="medicacion" type="text" class="form-control" id="medicacion" placeholder="Medicacion">
+                                        <label for="escr">Tratamiento o terapeutica que reciba el niño</label>
+                                        <input name="tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Tratamiento">
 
                                     </div>
                                 </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
                                 <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                            </fieldset>
+
+                            <fieldset>
+                                <div class="form-card">
+                                    <div class="row">
+                                        <label for="internacion">¿En que Nivel se encuentra?</label>
+                                        <select name="estado" id="nivelSelect" onchange="showForm(this.value)">
+                                            <option value="">Selecciona una opción</option>
+                                            <option value="NivelInicial">Nivel inicial</option>
+                                            <option value="NivelPrimario">Nivel Primario</option>
+                                        </select>
+
+                                        <div id="nivelInicialForm" style="display: none;">
+                                            <h2 style="text-align: center;">Nivel Inicial</h2>
+                                            <label for="escr">Sala</label>
+                                            <select name="Sala">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Sala de 3"> Sala de 3</option>
+                                                <option value="Sala de 4"> Sala de 4</option>
+                                                <option value="Sala de 5"> Sala de 5</option>
+                                            </select>
+                                            <label for="escr">¿Asistio?</label>
+                                            <select name="¿Asistio?">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+
+                                            <label for="nombt">Institucion</label>
+                                            <input name="institucion" type="text" class="fieldlabels" id="institucion" placeholder="Institucion">
+                                            <label for="nombt">Observaciones</label>
+                                            <input name="Obs" type="text" class="fieldlabels" id="Obs" placeholder="Observ">
+
+                                        </div>
+
+                                        <div id="nivelPrimarioForm" style="display: none;">
+                                            <h2 style="text-align: center;">Nivel Primario</h2>
+
+                                            <label for="">Grado que Cursa</label>
+                                            <select name="grado que cursa">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="1° grado">1° grado</option>
+                                                <option value="2° grado">2° grado</option>
+                                                <option value="3° grado">3° grado</option>
+                                                <option value="4° grado">4° grado</option>
+                                                <option value="5° grado">5° grado</option>
+                                                <option value="6° grado">6° grado</option>
+                                                <option value="7° grado">7° grado</option>
+                                            </select>
+                                            <label for="dire">Docente Tutor</label>
+                                            <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Docente">
+
+                                            <label for="disc">¿Promocion Automatica en el primer ciclo?</label>
+                                            <select name="¿Promocion Automatica en el primer ciclo?">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                            <label for="obs">Observaciones</label>
+                                            <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
+
+                                            <label for="internacion">¿Cambio de Escela?</label>
+                                            <select name="estado" id="cambio" onchange="showForm(this.value)">
+                                                <option value="">Selecciona una opción</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+
+                                            <div id="form1" style="display: none;">
+                                                <h2 style="text-align: center;">Si</h2>
+                                                <label for="nombt">Institucion</label>
+                                                <input name="sala" type="text" class="fieldlabels" id="nombt" placeholder="Sala">
+                                            </div>
+
+                                            <label for="internacion">¿Repitencia?</label>
+                                            <select name="estado" id="repitencia" onchange="showForm(this.value)">
+                                                <option value="">Selecciona una opción</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+
+                                            <div id="form1" style="display: none;">
+                                                <h2 style="text-align: center;">Si</h2>
+                                                <label for="nombt">Grado</label>
+                                                <input name="grado" type="text" class="fieldlabels" id="grado" placeholder="Grado">
+                                                <label for="nombt">¿Cuantas veces?</label>
+                                                <input name="cveces" type="text" class="fieldlabels" id="cveces" placeholder="veces">
+                                            </div>
+
+                                            <label for="internacion">¿Ausentismo?</label>
+                                            <select name="ausentismo" id="ausentismo" onchange="showForm(this.value)">
+                                                <option value="">Selecciona una opción</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+
+                                            <div id="form1" style="display: none;">
+                                                <h2 style="text-align: center;">Si</h2>
+                                                <label for="nombt">Observaciones</label>
+                                                <input name="obsv" type="text" class="fieldlabels" id="obsv" placeholder="Obs">
+                                            </div>
+
+                                            <label for="disc">Derivacion</label>
+                                            <select name="Derivacion">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                            <label for="disc">Intervencion equipo tecnico de apoyo</label>
+                                            <select name="¿Promocion Automatica en el primer ciclo?">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+
+                                            <label for="obs">Caracter</label>
+                                            <input name="caracter" type="text" class="fieldlabels" id="caracter" placeholder="Caracter">
+
+                                            <label for="obs">Nombre</label>
+                                            <input name="nombre" type="text" class="fieldlabels" id="nombre" placeholder="Nombre">
+                                            <label for="disc">PPI</label>
+                                            <select name="ppi">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
+
+                                        </div>
+                                    </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                                    <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
                             </fieldset>
 
 
@@ -563,7 +712,8 @@
                                 <div class="form-card">
                                     <div class="row">
 
-                                        <label for="escr">Observaciones generales (Disponibilidad de tiempo, espacio)</label>
+                                        <label for="escr">Observaciones generales (Disponibilidad de tiempo,
+                                            espacio)</label>
                                         <input name="obsg" type="text" class="form-control" id="obsg" placeholder="Obs">
 
                                     </div>
@@ -579,7 +729,7 @@
                                         <div class="row justify-content-center">
                                             <div class="col-3"> <img src="\Proyecto-master\Proyecto-master\img\listo.png" class="fit-image">
                                             </div>
-                                            
+
                                         </div> <br><br>
                                     </div>
                                 </div> <input type="submit" name="next" class="next action-button" style="width: 160px;" value="Guardar y salir!" />
@@ -587,11 +737,15 @@
 
 
                             </fieldset>
+
+
+
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 </body>
 
