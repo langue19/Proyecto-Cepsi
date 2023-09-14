@@ -36,6 +36,11 @@ function openModal5(dni) {
   
 }
 
+function openModal6(dni) {
+  var modal = document.getElementById('id-modal6-' + dni);
+  modal.style.display = 'block';
+  
+}
 
 function closeModal(modalId) {
   var modal = document.getElementById(modalId);
@@ -52,6 +57,12 @@ function closeModal2(modalId) {
   var modal = document.getElementById(modalId);
   modal.style.display = 'none';
   openModal1(dni);
+}
+
+function closeModal3(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.style.display = 'none';
+  openModal6(dni);
 }
 
 function openCity(evt, cityName, dni) {

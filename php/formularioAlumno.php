@@ -23,12 +23,11 @@ $mesesEnEspanol = array(
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    
+
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/sidebar.css">
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
-    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
     <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
@@ -53,11 +52,10 @@ $mesesEnEspanol = array(
 
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:absolute;">
             <!-- Brand Logo -->
             <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
-                <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">F. JOSÉ VIANO</span>
             </a>
 
@@ -91,23 +89,23 @@ $mesesEnEspanol = array(
 
 
                             session_start();
-                                        $posicion = $_SESSION['Posicion'];
-                                        // Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
-                                        if ($posicion == 'Administrador') {
-                                            $mostrarColumnaAccion = true;
-                                        } else {
-                                            $mostrarColumnaAccion = false;
-                                        }
-                                        if ($posicion == 'Usuario') {
-                                            $mostrarColumnaAccion1 = true;
-                                        } else {
-                                            $mostrarColumnaAccion1 = false;
-                                        }
-                                        if ($posicion == 'Psicopedagoga') {
-                                            $mostrarColumnaAccion2 = true;
-                                        } else {
-                                            $mostrarColumnaAccion2 = false;
-                                        }
+                            $posicion = $_SESSION['Posicion'];
+                            // Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
+                            if ($posicion == 'Administrador') {
+                                $mostrarColumnaAccion = true;
+                            } else {
+                                $mostrarColumnaAccion = false;
+                            }
+                            if ($posicion == 'Usuario') {
+                                $mostrarColumnaAccion1 = true;
+                            } else {
+                                $mostrarColumnaAccion1 = false;
+                            }
+                            if ($posicion == 'Psicopedagoga') {
+                                $mostrarColumnaAccion2 = true;
+                            } else {
+                                $mostrarColumnaAccion2 = false;
+                            }
 
                             ?>
                         </a>
@@ -119,8 +117,7 @@ $mesesEnEspanol = array(
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -142,25 +139,26 @@ $mesesEnEspanol = array(
                                         </p>
                                     </a>
                                 </li>
-                                <?php if($mostrarColumnaAccion):?>
-                                <li class="nav-item">
-                                    <a href="formularioUsuario.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Usuarios
-                                        </p>
-                                    </a>
-                                </li>
+                                <?php if ($mostrarColumnaAccion) : ?>
+                                    <li class="nav-item">
+                                        <a href="formularioUsuario.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Usuarios
+                                            </p>
+                                        </a>
+                                    </li>
 
-                                <li class="nav-item">
-                                    <a href="formularioProfesor.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Profesor
-                                        </p>
-                                    </a>
-                                </li>
-                                <?php endif;?>
+                                    <li class="nav-item">
+                                        <a href="formularioProfesor.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Profesor
+                                            </p>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+
                             </ul>
                         </li>
 
@@ -174,24 +172,23 @@ $mesesEnEspanol = array(
                             </a>
 
                         </li>
-                        <?php if($mostrarColumnaAccion):?>
-                        <li class="nav-item">
-                            <a href="agregarU.php" class="nav-link">
-                                <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
-                                <p>
-                                    Agregar Usuarios
-                                </p>
-                            </a>
+                        <?php if ($mostrarColumnaAccion) : ?>
+                            <li class="nav-item">
+                                <a href="agregarU.php" class="nav-link">
+                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
+                                    <p>
+                                        Agregar Usuarios
+                                    </p>
+                                </a>
 
-                        </li>
-                        <?php endif;?>
+                            </li>
+                        <?php endif; ?>
 
 
 
                         <li class="nav-item">
                             <a href="cerrarSesion.php" class="nav-link">
-                                <img src="/Proyecto-master/Proyecto-master/img/cerrar-sesion.png"
-                                    style="max-height:20px;">
+                                <img src="/Proyecto-master/Proyecto-master/img/cerrar-sesion.png" style="max-height:20px;">
                                 <p>
                                     Cerrar Sesión
                                 </p>
@@ -248,8 +245,7 @@ $mesesEnEspanol = array(
                     <div class="form-content">
                         <div class="form-contro">
                             <label for="search"><i class="icon-search"></i></label>
-                            <input class="table-filter" type="search" data-table="advanced-web-table"
-                                placeholder="Buscar..." id="search-input">
+                            <input class="table-filter" type="search" data-table="advanced-web-table" placeholder="Buscar..." id="search-input">
                         </div>
                         <!-- Table -->
                         <div class="table-responsive">
@@ -257,27 +253,33 @@ $mesesEnEspanol = array(
                                 <thead>
                                     <tr>
                                         <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1) : ?>
-                                        <th>Obs</th>
+                                            <th style="text-align: center; vertical-align: middle;">Obs</th>
                                         <?php endif; ?>
-                                        <th>DNI</th>
-                                        <th>Nombre</th>
-                                        <th>Apellido</th>
-                                        <th>Edad</th>
+                                        <th style="text-align: center; vertical-align: middle;">DNI</th>
+                                        <th style="text-align: center; vertical-align: middle;">Nombre</th>
+                                        <th style="text-align: center; vertical-align: middle;">Apellido</th>
+                                        <th style="text-align: center; vertical-align: middle;">Edad</th>
                                         <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1) : ?>
-                                        <th>Datos</th>
-                                        <th>PDF</th>
-                                        <th>Acciones</th>
+                                            <th style="text-align: center; vertical-align: middle;">Datos</th>
+                                            <th style="text-align: center; vertical-align: middle;">PDF</th>
+                                            <th style="text-align: center; vertical-align: middle;">Acciones</th>
                                         <?php endif; ?>
                                         <?php if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) : ?>
-                                        <th>Area Gabinete</th>
+                                            <th style="text-align: center; vertical-align: middle;">Anamnesis</th>
+                                            <th style="text-align: center; vertical-align: middle;">Mostrar</th>
+                                        <?php endif;
+                                        if (!$mostrarColumnaAccion2) :  ?>
+                                            <th style="text-align: center; vertical-align: middle;">
+                                                <a href='AgregarA.php'>
+
+                                                    <img src="/Proyecto-master/Proyecto-master/img/mas.png" style="max-width: 30px;">
+                                                </a>
+                                            </th>
                                         <?php endif; ?>
-                                        <th><a href='AgregarA.php'>
-                                                <img src="/Proyecto-master/Proyecto-master/img/mas.png"
-                                                    style="max-width: 30px;">
-                                            </a>
-                                        </th>
+
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     <?php
                                     include 'crearTabla.php';
@@ -380,7 +382,7 @@ $mesesEnEspanol = array(
 
 
                                     ?>
-                                    <?php
+                                            <?php
 
                                             echo "<td>" . $row['Dni'] . "</td>";
                                             echo "<td>" . $row['Nombre'] . "</td>";
@@ -917,9 +919,9 @@ $mesesEnEspanol = array(
                                                 }
                                                 echo "</select>";
                                             ?><label for='datosD'>Datos Domiciliario:</label>
-                                    <select name='datosD' id='datosD'>
-                                        <option style='text-align:center;' value=''>Selecciona una opción</option>";
-                                        <?php
+                                                <select name='datosD' id='datosD'>
+                                                    <option style='text-align:center;' value=''>Selecciona una opción</option>";
+                                                    <?php
                                                     $sql2 = "SELECT Fecha_ingreso FROM datos_domiciliario WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
                                                     $consulta2 = $conn->prepare($sql2);
                                                     if ($consulta2->execute()) {
@@ -939,8 +941,8 @@ $mesesEnEspanol = array(
                                                     echo "</select>";
                                                     echo "</select>";
                                                     ?><label for='datosA'>Datos Academicos:</label>
-                                        <select name='datosA' id='datosA'>
-                                            <option style='text-align:center;' value=''>Selecciona una opción</option>";
+                                                    <select name='datosA' id='datosA'>
+                                                        <option style='text-align:center;' value=''>Selecciona una opción</option>";
                                             <?php
                                                 $sql2 = "SELECT Fecha FROM datos_academ WHERE Dni = '$dni_1' ORDER BY Fecha DESC";
                                                 $consulta2 = $conn->prepare($sql2);
@@ -977,16 +979,46 @@ $mesesEnEspanol = array(
                                                 echo "<td class='acciones'>
           <a href='EditarA.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
           </td>";
-        endif;
-          if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) : 
-            echo "<td class='acciones'>
+                                            endif;
+                                            if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) :
+                                                echo "<td class='acciones'>
           <a href='AgregarAnamnesis.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/area.png' class='imagen-espaciada'></a>
           </td>";
+          echo "<td><a href='#' onclick=\"openModal6('" . $row['Dni'] . "')\">
+          <img src='/Proyecto-master/Proyecto-master/img/carpeta.png' alt='Anamnesis'>
+      </a>
 
-            endif;
+                                  <div class='w3-container'>
+                                      <div id='id-modal6-" . $row['Dni'] . "' class='w3-modal'>
+                                          <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:500px'>
+                                              <header class='w3-container w3-white'> 
+                                              <span onclick=\"closeModal3('id-modal6-" . $row['Dni'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                                              <h2>Anamnesis</h2>
+                                              </header>
+                                              <div class='w3-container'>
+                                              <div class='container'>
+                                              <form id='msform' action='.php' method='post'>
+                                              
+                                              
+                                                  <div class='form-card'>
+                                                      <div class='row'>
+                                                          <label for='dni'>DNI</label>
+                                                          <input name='dni' type='text' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                                                          </div>
+                                                  </div> 
+                                                  <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            </form>    
+                                          </div>
+                                      </div>
+                                      </div>
+                                      </div></td>";
+
+
+
+                                            endif;
+                                            if (!$mostrarColumnaAccion2) :
                                                 echo "<td></td>";
-                                            
- 
+                                            endif;
+
 
 
 
@@ -1012,33 +1044,31 @@ $mesesEnEspanol = array(
 
                             <div class="pagination">
                                 <?php if ($paginaActual > 1) : ?>
-                                <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
+                                    <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
                                 <?php endif; ?>
 
                                 <?php if ($inicioRango > 1) : ?>
-                                <a href='formularioAlumno.php?pagina=1'>1</a>
-                                <?php if ($inicioRango > 2) : ?>
-                                <a class="pagination-dots">...</a>
-                                <?php endif; ?>
+                                    <a href='formularioAlumno.php?pagina=1'>1</a>
+                                    <?php if ($inicioRango > 2) : ?>
+                                        <a class="pagination-dots">...</a>
+                                    <?php endif; ?>
                                 <?php endif; ?>
 
                                 <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
-                                <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
-                                <a class='<?php echo $active; ?>'
-                                    href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
+                                    <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
+                                    <a class='<?php echo $active; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
                                 <?php endfor; ?>
 
                                 <?php if ($finRango < $totalPaginas) : ?>
-                                <?php if ($finRango < $totalPaginas - 1) : ?>
-                                <a class="pagination-dots">...</a>
-                                <?php endif; ?>
-                                <a
-                                    href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
+                                    <?php if ($finRango < $totalPaginas - 1) : ?>
+                                        <a class="pagination-dots">...</a>
+                                    <?php endif; ?>
+                                    <a href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
                                 <?php endif; ?>
 
                                 <?php if ($paginaActual < $totalPaginas) : ?>
-                                <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
-                                    &gt;</a>
+                                    <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
+                                        &gt;</a>
                                 <?php endif; ?>
                             </div>
 
