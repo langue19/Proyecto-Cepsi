@@ -364,7 +364,6 @@ $mesesEnEspanol = array(
                                                         echo "<td>" . $fechaFormateada . "</td>";
                                                         echo "<td>" . $row2['Observación'] . "</td>";
                                                         echo "<td>" . $row2['Contenido'] . "</td>";
-                                                        echo "<td>" . $row2['Área_gabinete'] . "</td>";
                                                         echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
                                                         echo "<td></td>";
                                                         echo "</tr>";
@@ -505,24 +504,22 @@ $mesesEnEspanol = array(
                     <!--  Table  -->
                     <div class='table-responsive'>
                         <table id='table-id' class='table table-striped table-class'>
-                            <thead style='font-family: Arial, sans-serif;
-                            font-size: 15px;'>
+                            <thead>
                                 <tr>
                                 <th><a href='AgregarDP.php?id=" . $row['Dni'] . "'>
                                         <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
                                     </a>
                                 </th>
-                                    <th>Fecha de ingreso</th>
-                                    <th>Escuela de referencia</th>
+                                    <th>Fecha ingreso</th>
+                                    <th>Escuela</th>
                                     <th>Grado</th>
-                                    <th>Posee Escolaridad?</th>
-                                    <th>Escuela comun?</th>
-                                    <th>Escuela especial?</th>
+                                    <th>Escolaridad?</th>
+                                    <th>Esc. comun/especial?</th>
                                     <th>Lectura continua?</th>
                                     <th>Interpreta textos?</th>
-                                    <th>Reconoce sustantivos, adjetivos y/o verbos?</th>
-                                    <th>Elabora oraciones?</th>
+
                                     <th>Lectura y escritura?</th>
+
                                     <th>Resuelve operaciones basicas?</th>
                                 </tr>
                             </thead>
@@ -551,12 +548,13 @@ $mesesEnEspanol = array(
                                                         echo "<td>" . $row2['escRef'] . "</td>";
                                                         echo "<td>" . $row2['Grado'] . "</td>";
                                                         echo "<td>" . $row2['poseeEsc'] . "</td>";
-                                                        echo "<td>" . $row2['escComun'] . "</td>";
-                                                        echo "<td>" . $row2['escEspecial'] . "</td>";
+                                                        if($row2['escComun'] == "Si"){
+                                                            echo "<td> Comun </td>";
+                                                        }else{
+                                                            echo "<td> Especial </td>";
+                                                        }
                                                         echo "<td>" . $row2['lectContinua'] . "</td>";
                                                         echo "<td>" . $row2['interpTextos'] . "</td>";
-                                                        echo "<td>" . $row2['reconoceSAV'] . "</td>";
-                                                        echo "<td>" . $row2['elabOrac'] . "</td>";
                                                         echo "<td>" . $row2['lectyescri'] . "</td>";
                                                         echo "<td>" . $row2['resuelvOpBas'] . "</td>";
                                                         echo "</tr>";
@@ -984,33 +982,36 @@ $mesesEnEspanol = array(
                                                 echo "<td class='acciones'>
           <a href='AgregarAnamnesis.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/area.png' class='imagen-espaciada'></a>
           </td>";
-          echo "<td><a href='#' onclick=\"openModal6('" . $row['Dni'] . "')\">
-          <img src='/Proyecto-master/Proyecto-master/img/carpeta.png' alt='Anamnesis'>
-      </a>
 
-                                  <div class='w3-container'>
-                                      <div id='id-modal6-" . $row['Dni'] . "' class='w3-modal'>
-                                          <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:500px'>
-                                              <header class='w3-container w3-white'> 
-                                              <span onclick=\"closeModal3('id-modal6-" . $row['Dni'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
-                                              <h2>Anamnesis</h2>
-                                              </header>
-                                              <div class='w3-container'>
-                                              <div class='container'>
-                                              <form id='msform' action='.php' method='post'>
-                                              
-                                              
-                                                  <div class='form-card'>
-                                                      <div class='row'>
-                                                          <label for='dni'>DNI</label>
-                                                          <input name='dni' type='text' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
-                                                          </div>
-                                                  </div> 
-                                                  <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            </form>    
-                                          </div>
-                                      </div>
-                                      </div>
-                                      </div></td>";
+
+                                                echo "<td>
+                                                <a href='#?id=" . $row['Dni'] . "' class='imagen-espaciada' data-toggle='modal' data-target='#modal-sm'>
+                                                    <img src='/Proyecto-master/Proyecto-master/img/carpeta.png' alt='Anamnesis'>
+                                                </a>
+                                            </td>
+                                            
+                                            <div class='modal fade' id='modal-sm'>
+                                                <div class='modal-dialog modal-sm'>
+                                                    <div class='modal-content'>
+                                                        <div class='modal-header'>
+                                                            <h4 class='modal-title'>ANAMNESIS</h4>
+                                                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                                <span aria-hidden='true'>&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class='modal-body'>
+                                                        <p>hola hola " . $row['Dni'] . "</p>
+
+                                                        </div>
+                                                        <div class='modal-footer justify-content-between'>
+                                                            <button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>
+                                                            <button type='button' class='btn btn-primary'>Guardar y Generar</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.modal-content -->
+                                                </div>
+                                                <!-- /.modal-dialog -->
+                                            </div>";
 
 
 

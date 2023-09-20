@@ -458,9 +458,11 @@ caption {
 }
 
 th {
-    text-align: inherit;
+    text-align:center;
     text-align: -webkit-match-parent
 }
+
+
 
 tbody,
 td,
@@ -472,6 +474,18 @@ tr {
     border-style: solid;
     border-width: 0
 }
+
+
+/* CSS personalizado para centrar horizontal y verticalmente los elementos <th> */
+/* CSS personalizado para los elementos <th> */
+.table-class th {
+    padding: 7px;
+    text-align: center; /* Centrar horizontalmente */
+    vertical-align: middle !important; /* Centrar verticalmente *//* Ajustar el espaciado interno (padding) */ /* Hacer el texto en negrita */
+    font-size: 15px; /* Tamaño de fuente */
+}
+
+
 
 label {
     display: inline-block
@@ -2166,7 +2180,7 @@ progress {
 }
 
 .table>:not(caption)>*>* {
-    padding: .5rem .5rem;
+    padding: 7px;
     color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
     background-color: var(--bs-table-bg);
     border-bottom-width: var(--bs-border-width);
@@ -2343,7 +2357,7 @@ progress {
 
 .table-responsive {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch
+    -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width:575.98px) {

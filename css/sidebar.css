@@ -12,23 +12,11 @@ html {
 
 
 td img{
+ 
   max-width: 30px;
   max-height: 30px;
 }
 
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  margin-bottom: 1rem;
-  color: #212529;
-}
-
-thead th, tbody td {
-  text-align: center;
-  padding: 10px; /* Puedes ajustar este valor según tus preferencias */
-}
 
 
 .form-contro {
@@ -122,6 +110,7 @@ label[for="search"] {
 }
 
 .imagen-espaciada {
+  border: none;
   /* Agrega margen horizontal entre las imágenes */
   margin: 0 5px;
 }
