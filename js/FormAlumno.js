@@ -39,7 +39,6 @@ function openModal5(dni) {
 function openModal6(dni) {
   var modal = document.getElementById('id-modal6-' + dni);
   modal.style.display = 'block';
-  
 }
 
 function closeModal(modalId) {

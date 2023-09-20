@@ -35,7 +35,7 @@ $mesesEnEspanol = array(
 </head>
 
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
@@ -52,7 +52,7 @@ $mesesEnEspanol = array(
 
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:absolute;">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed;">
             <!-- Brand Logo -->
             <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
                 <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -846,7 +846,7 @@ $mesesEnEspanol = array(
                         <div id='-" . $row['Dni'] . "' class='w3-container'>
                             <div class='container'>
                                 <form id='msform' action='generar_pdf.php' method='post'>
-                                    <div class='form-card'>
+                                    <div class='form-card bg-white'>
                                         <div class='row'>
                                             
                                             <h1>Datos</h1>
@@ -984,34 +984,84 @@ $mesesEnEspanol = array(
           </td>";
 
 
-                                                echo "<td>
-                                                <a href='#?id=" . $row['Dni'] . "' class='imagen-espaciada' data-toggle='modal' data-target='#modal-sm'>
-                                                    <img src='/Proyecto-master/Proyecto-master/img/carpeta.png' alt='Anamnesis'>
-                                                </a>
-                                            </td>
-                                            
-                                            <div class='modal fade' id='modal-sm'>
-                                                <div class='modal-dialog modal-sm'>
-                                                    <div class='modal-content'>
-                                                        <div class='modal-header'>
-                                                            <h4 class='modal-title'>ANAMNESIS</h4>
-                                                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                                                <span aria-hidden='true'>&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class='modal-body'>
-                                                        <p>hola hola " . $row['Dni'] . "</p>
+          echo "<td><a href='#' onclick=\"openModal6('" . $row['Dni'] . "')\">
+          <img src='/Proyecto-master/Proyecto-master/img/carpeta.png'>
+      </a>
+          <div class='w3-container'>
+              <div id='id-modal6-" . $row['Dni'] . "' class='w3-modal'>
+                  <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
+                      <header class='w3-container w3-white'> 
+                      <span onclick=\"closeModal3('id-modal6-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                      <h2>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
+                      </header>
+                      <div id='-" . $row['Dni'] . "' class='w3-container'>
+                      <div class='container'>
+                          <div class='form-control'>
+                              <label for='search'><i class='icon-search'></i></label>
+                                  <input class='table-filter' type='search' data-table='advanced-web-table' placeholder='Buscar...'>
+                              </div>
+                                              <!--  Table  -->
+                                              <div class='table-responsive'>
+                                                  <table id='table-id' class='table table-striped table-class'>
+                                                      <thead>
+                                                          <tr>
+                                                              <th>Fecha</th>
+                                                              <th>Observaciones</th>
+                                                              <th>Contenido</th>                                                                                       
+                                                              <th>Profesor</th>
+                                                              <th><a href='Observaciones.php?id=" . $row['Dni'] . "'>
+                                                              <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
+                                                          </a>
+                                                          </th>
+                                                          </tr>
+                                                      <tbody>";
 
-                                                        </div>
-                                                        <div class='modal-footer justify-content-between'>
-                                                            <button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>
-                                                            <button type='button' class='btn btn-primary'>Guardar y Generar</button>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.modal-content -->
-                                                </div>
-                                                <!-- /.modal-dialog -->
-                                            </div>";
+
+                      $idviejo = $row['Dni'];
+                      $sql2 = "SELECT *
+FROM datos_academ
+WHERE DNI = :idviejo
+ORDER BY Fecha ASC;
+";
+
+
+                      // Usamos parámetros con consultas preparadas
+                      $consulta2 = $conn->prepare($sql2);
+                      $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
+                      if ($consulta2->execute()) {
+                          // Obtenemos el primer resultado del SELECT (si es que existe)
+                          $row2 = $consulta2->fetch();
+                      }
+
+
+
+                      if ($consulta2->execute()) {
+                          while ($row2 = $consulta2->fetch()) {
+                              echo "<tr>";
+                              $fechaOriginal = $row2['Fecha'];
+                              $parts = explode('-', $fechaOriginal);
+                              $dia = intval($parts[2]);
+                              $mes = intval($parts[1]);
+                              $anio = intval($parts[0]);
+
+                              $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+
+                              echo "<td>" . $fechaFormateada . "</td>";
+                              echo "<td>" . $row2['Observación'] . "</td>";
+                              echo "<td>" . $row2['Contenido'] . "</td>";
+                              echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
+                              echo "<td></td>";
+                              echo "</tr>";
+                          }
+                      }
+                      echo "</tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+              </div>
+              </div>
+              </td>";
 
 
 

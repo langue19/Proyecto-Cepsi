@@ -1,0 +1,998 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card  mb-3">
+
+                <form id="msform" action="agregarDatosP.php" method="post">
+                    <!-- progressbar -->
+                    <ul id="progressbar" style=" display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 20px;
+overflow: hidden;
+color: lightgrey;">
+                        <li class="active" id="account"><strong>Familia</strong></li>
+                        <li class="active" id="account"><strong>Vivienda</strong></li>
+                        <li class="active" id="account"><strong>Historial</strong></li>
+                        <li class="active" id="account"><strong>Eduaccion</strong></li>
+                        <li class="active" id="account"><strong>Escolaridad</strong></li>
+                        <li class="active" id="account"><strong>Observaciones</strong></li>
+                        <li id="confirm"><strong>Finalizar</strong></li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div> <br> <!-- fieldsets -->
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <?php
+
+                                if (isset($_GET['id'])) {
+                                    // Obtener el ID del registro desde la URL
+                                    $id = $_GET['id'];
+
+                                    // Realizar una consulta a la base de datos para obtener los datos del registro
+                                    // Asegúrate de reemplazar los valores en 'nombre_usuario', 'contraseña_usuario', 'estado_usuario', 'posicion_usuario'
+                                    // con los nombres de las columnas en tu tabla de datos_usuarios
+                                    // y 'nombre_tabla' con el nombre real de la tabla.
+                                    // Además, ajusta la conexión a tu base de datos.
+                                    include 'crearTabla.php';
+                                    $id = $_GET['id'];
+
+                                    $sql = "SELECT *
+FROM Datos_personales 
+WHERE Dni = :id";
+
+                                    $consulta = $conn->prepare($sql);
+                                    $consulta->bindParam(':id', $id, PDO::PARAM_INT);
+
+                                    if ($consulta->execute()) {
+                                        $registro = $consulta->fetch(PDO::FETCH_ASSOC);
+                                    } else {
+                                        // Manejo de error si la consulta falla
+                                        echo "Error al obtener los datos del registro.";
+                                        exit;
+                                    }
+                                }
+                                ?>
+                                <label for="dni">DNI</label>
+                                <input value="<?php echo isset($registro['Dni']) ? $registro['Dni'] : ''; ?>" name="dni" type="text" class="fieldlabels" id="dni" style="text-align:center;background-color: antiquewhite;" readonly>
+
+                                <label for="fechaing">Fecha</label>
+                                <input name="fecha" type="date" class="fieldlabels" id="fecha">
+                                <label for="escr">Nombre del Familiar</label>
+                                <input name="Nombref" type="text" class="form-control" id="Nombref" placeholder="Nombre del Familiar">
+                                <label for="escr">Apellido del Familiar</label>
+                                <input name="apellido" type="text" class="form-control" id="Apellidof" placeholder="Apellido del Familiar">
+                                <label for="escr">Ocupacion</label>
+                                <input name="ocupacion" type="text" class="form-control" id="Ocupacion" placeholder="Ocupacion">
+                                <label for="escr">Escolaridad Alcanzada</label>
+                                <input name="escAlcanzada" type="text" class="form-control" id="escAlcanzada" placeholder="Escolaridad Alcanzada">
+                                <label for="escr">Posee Salario/Asignacion/Pension</label>
+                                <select name="Posee Salario/Asignacion/Pension">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Salario">Salario</option>
+                                    <option value="Asignacion">Asignacion</option>
+                                    <option value="Pension">Pension</option>
+                                </select>
+                                <label for="escr">Asistente Sanitario</label>
+                                <input name="Asistsani" type="text" class="form-control" id="Asistsani" placeholder="Asistente Sanitario">
+                                <label for="escr">Observaciones</label>
+                                <input name="Obsrv" type="text" class="form-control" id="Observ" placeholder="Observaciones">
+                            </div>
+                        </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                        <a href="formularioAlumno.php" class="previous action-button-previous" style="text-decoration: none;">Cancelar</a>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+
+                                <label for="escr">Tipo</label>
+                                <select name="Tipo">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Individual">Individual</option>
+                                    <option value="Compartida">Compartida</option>
+                                </select>
+                                <label for="escr">N° de convivientes</label>
+                                <input name="conviviente" type="text" class="form-control" id="conviviente" placeholder="N° de convivientes">
+                                <label for="escr">N° de habitaciones</label>
+                                <input name="numerohab" type="text" class="form-control" id="numerohab" placeholder="N° de habitaciones">
+                                <label for="escr">Construccion</label>
+                                <select name="construccion">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Materia">Material</option>
+                                    <option value="Rancho">Rancho</option>
+                                    <option value="Otros">Otros</option>
+                                </select>
+                                <label for="escr">Tenencia</label>
+                                <select name="tenencia">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Propia">Propia</option>
+                                    <option value="Prestada">Prestada</option>
+                                    <option value="Alquilada">Alquilada</option>
+                                    <option value="Cedida">Cedida</option>
+                                </select>
+                                <label for="escr">¿Posee Servicio de Agua?</label>
+                                <select name="¿Posee Servicio de Agua?">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+                                <label for="escr">¿Posee Servicio de Luz?</label>
+                                <select name="¿Posee Servicio de Luz?">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+                                <label for="escr">¿Posee Servicio de Gas?</label>
+                                <select name="¿Posee Servicio de Gas?">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+                                <label for="escr">¿Posee Servicio de Cloacas?</label>
+                                <select name="¿Posee Servicio de Cloacas?">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+                                <label for="escr">¿Posee Servicio de Cable?</label>
+                                <select name="¿Posee Servicio de Cable?">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+                                <label for="escr">¿Posee Servicio de Internet?</label>
+                                <select name="¿Posee Servicio de Internet?">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+                                <label for="escr">Observaciones Generales</label>
+                                <input name="ObserGen" type="text" class="form-control" id="ObserGen" placeholder="Observaciones Generales">
+
+                                <label for="escr">Accesibilidad (Medio de Transporte)</label>
+                                <input name="accesibilidad" type="text" class="form-control" id="accesibilidad" placeholder="Accesibilidad">
+
+                                </select>
+                            </div>
+                        </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+
+                                <label for="escr">Diagnostico</label>
+                                <input name="diag" type="text" class="form-control" id="diag" placeholder="Diagnostico">
+                                <label for="escr">Medico de Cabecera</label>
+                                <input name="medicor" type="text" class="form-control" id="medicoc" placeholder="Medico">
+                                <label for="escr">Tratamiento</label>
+                                <input name="tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Tratamiento">
+                                <label for="escr">Medicacion Indicada</label>
+                                <input name="medindicada" type="text" class="form-control" id="medindicada" placeholder="Medicacion">
+
+                                <label for="escr">¿Requirio Internacion?</label>
+                                <select name="Requirio Internacion?">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+
+                                <label for="escr">Tiempo</label>
+                                <input name="tiempo" type="text" class="form-control" id="tiempo" placeholder="Tiempo">
+                                <label for="escr">Pronostico</label>
+                                <input name="pronostico" type="text" class="form-control" id="pronostico" placeholder="Pronostico">
+                                <label for="escr">Otras observaciones (Cuidados)</label>
+                                <input name="Otrasobs" type="text" class="form-control" id="Otrasobs" placeholder=" Otras observaciones">
+                                <label for="escr">Manifestaciones Afectivo-Emocionales Asociadas a la Situacion
+                                    de Enfermedad</label>
+                                <input name="manisfetacion" type="text" class="form-control" id="manifestacion" placeholder="Manifestaciones">
+                                <label for="escr">Enfermedades Previas Importante o Cronicas/Accidentes</label>
+                                <input name="enfermedadesp" type="text" class="form-control" id="enfermedadesp" placeholder="Enfermedades">
+                                <label for="escr">Medicacion que pudiera inferir en el desempeño escolar</label>
+                                <input name="medicacion" type="text" class="form-control" id="medicacion" placeholder="Medicacion">
+                                <label for="escr">Tratamiento o terapeutica que reciba el niño</label>
+                                <input name="tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Tratamiento">
+
+                            </div>
+                        </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+
+                                <label for="internacion">¿En que Nivel se encuentra?</label>
+                                <select name="estado" id="nivel" onchange="showForm(this.value)">
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="Nivel inicial">Nivel inicial</option>
+                                    <option value="Nivel primario">Nivel Primario</option>
+                                </select>
+
+                                <div id="form1" style="display: none;">
+                                    <h2 style="text-align: center;">Nivel Inicial</h2>
+                                    <label for="escr">Sala</label>
+                                    <select name="Sala">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Sala de 3"> Sala de 3</option>
+                                        <option value="Sala de 4"> Sala de 4</option>
+                                        <option value="Sala de 5"> Sala de 5</option>
+                                    </select>
+                                    <label for="escr">¿Asistio?</label>
+                                    <select name="¿Asistio?">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <label for="nombt">Institucion</label>
+                                    <input name="institucion" type="text" class="fieldlabels" id="institucion" placeholder="Institucion">
+                                    <label for="nombt">Observaciones</label>
+                                    <input name="Obs" type="text" class="fieldlabels" id="Obs" placeholder="Observ">
+
+                                </div>
+
+                                <div id="form2" style="display: none;">
+                                    <h2 style="text-align: center;">Nivel Primario</h2>
+
+                                    <label for="">Grado que Cursa</label>
+                                    <select name="grado que cursa">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="1° grado">1° grado</option>
+                                        <option value="2° grado">2° grado</option>
+                                        <option value="3° grado">3° grado</option>
+                                        <option value="4° grado">4° grado</option>
+                                        <option value="5° grado">5° grado</option>
+                                        <option value="6° grado">6° grado</option>
+                                        <option value="7° grado">7° grado</option>
+                                    </select>
+                                    <label for="dire">Docente Tutor</label>
+                                    <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Docente">
+
+                                    <label for="disc">¿Promocion Automatica en el primer ciclo?</label>
+                                    <select name="¿Promocion Automatica en el primer ciclo?">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <label for="obs">Observaciones</label>
+                                    <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
+
+                                    <label for="internacion">¿Cambio de Escela?</label>
+                                    <select name="estado" id="cambio" onchange="showForm(this.value)">
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <div id="form1" style="display: none;">
+                                        <h2 style="text-align: center;">Si</h2>
+                                        <label for="nombt">Institucion</label>
+                                        <input name="sala" type="text" class="fieldlabels" id="nombt" placeholder="Sala">
+                                    </div>
+
+                                    <label for="internacion">¿Repitencia?</label>
+                                    <select name="estado" id="repitencia" onchange="showForm(this.value)">
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <div id="form1" style="display: none;">
+                                        <h2 style="text-align: center;">Si</h2>
+                                        <label for="nombt">Grado</label>
+                                        <input name="grado" type="text" class="fieldlabels" id="grado" placeholder="Grado">
+                                        <label for="nombt">¿Cuantas veces?</label>
+                                        <input name="cveces" type="text" class="fieldlabels" id="cveces" placeholder="veces">
+                                    </div>
+
+                                    <label for="internacion">¿Ausentismo?</label>
+                                    <select name="ausentismo" id="ausentismo" onchange="showForm(this.value)">
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <div id="form1" style="display: none;">
+                                        <h2 style="text-align: center;">Si</h2>
+                                        <label for="nombt">Observaciones</label>
+                                        <input name="obsv" type="text" class="fieldlabels" id="obsv" placeholder="Obs">
+                                    </div>
+
+                                    <label for="disc">Derivacion</label>
+                                    <select name="Derivacion">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <label for="disc">Intervencion equipo tecnico de apoyo</label>
+                                    <select name="¿Promocion Automatica en el primer ciclo?">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <label for="obs">Caracter</label>
+                                    <input name="caracter" type="text" class="fieldlabels" id="caracter" placeholder="Caracter">
+
+                                    <label for="obs">Nombre</label>
+                                    <input name="nombre" type="text" class="fieldlabels" id="nombre" placeholder="Nombre">
+                                    <label for="disc">PPI</label>
+                                    <select name="ppi">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                </div>
+                            </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+
+                                <label for="escr">Diagnostico</label>
+                                <input name="diag" type="text" class="form-control" id="diag" placeholder="Diagnostico">
+                                <label for="escr">Medico de Cabecera</label>
+                                <input name="medicor" type="text" class="form-control" id="medicoc" placeholder="Medico">
+                                <label for="escr">Tratamiento</label>
+                                <input name="tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Tratamiento">
+                                <label for="escr">Medicacion Indicada</label>
+                                <input name="medindicada" type="text" class="form-control" id="medindicada" placeholder="Medicacion">
+
+                                <label for="escr">¿Requirio Internacion?</label>
+                                <select name="Requirio Internacion?">
+                                    <option value="Sin especificar">Seleccionar</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+
+                                <label for="escr">Tiempo</label>
+                                <input name="tiempo" type="text" class="form-control" id="tiempo" placeholder="Tiempo">
+                                <label for="escr">Pronostico</label>
+                                <input name="pronostico" type="text" class="form-control" id="pronostico" placeholder="Pronostico">
+                                <label for="escr">Otras observaciones (Cuidados)</label>
+                                <input name="Otrasobs" type="text" class="form-control" id="Otrasobs" placeholder=" Otras observaciones">
+                                <label for="escr">Manifestaciones Afectivo-Emocionales Asociadas a la Situacion
+                                    de Enfermedad</label>
+                                <input name="manisfetacion" type="text" class="form-control" id="manifestacion" placeholder="Manifestaciones">
+                                <label for="escr">Enfermedades Previas Importante o Cronicas/Accidentes</label>
+                                <input name="enfermedadesp" type="text" class="form-control" id="enfermedadesp" placeholder="Enfermedades">
+                                <label for="escr">Medicacion que pudiera inferir en el desempeño escolar</label>
+                                <input name="medicacion" type="text" class="form-control" id="medicacion" placeholder="Medicacion">
+                                <label for="escr">Tratamiento o terapeutica que reciba el niño</label>
+                                <input name="tratamiento" type="text" class="form-control" id="tratamiento" placeholder="Tratamiento">
+
+                            </div>
+                        </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <label for="internacion">¿En que Nivel se encuentra?</label>
+                                <select name="estado" id="nivelSelect" onchange="showForm(this.value)">
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="NivelInicial">Nivel inicial</option>
+                                    <option value="NivelPrimario">Nivel Primario</option>
+                                </select>
+
+                                <div id="nivelInicialForm" style="display: none;">
+                                    <h2 style="text-align: center;">Nivel Inicial</h2>
+                                    <label for="escr">Sala</label>
+                                    <select name="Sala">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Sala de 3"> Sala de 3</option>
+                                        <option value="Sala de 4"> Sala de 4</option>
+                                        <option value="Sala de 5"> Sala de 5</option>
+                                    </select>
+                                    <label for="escr">¿Asistio?</label>
+                                    <select name="¿Asistio?">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <label for="nombt">Institucion</label>
+                                    <input name="institucion" type="text" class="fieldlabels" id="institucion" placeholder="Institucion">
+                                    <label for="nombt">Observaciones</label>
+                                    <input name="Obs" type="text" class="fieldlabels" id="Obs" placeholder="Observ">
+
+                                </div>
+
+                                <div id="nivelPrimarioForm" style="display: none;">
+                                    <h2 style="text-align: center;">Nivel Primario</h2>
+
+                                    <label for="">Grado que Cursa</label>
+                                    <select name="grado que cursa">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="1° grado">1° grado</option>
+                                        <option value="2° grado">2° grado</option>
+                                        <option value="3° grado">3° grado</option>
+                                        <option value="4° grado">4° grado</option>
+                                        <option value="5° grado">5° grado</option>
+                                        <option value="6° grado">6° grado</option>
+                                        <option value="7° grado">7° grado</option>
+                                    </select>
+                                    <label for="dire">Docente Tutor</label>
+                                    <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Docente">
+
+                                    <label for="disc">¿Promocion Automatica en el primer ciclo?</label>
+                                    <select name="¿Promocion Automatica en el primer ciclo?">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <label for="obs">Observaciones</label>
+                                    <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
+
+                                    <label for="internacion">¿Cambio de Escela?</label>
+                                    <select name="estado" id="cambio" onchange="showForm(this.value)">
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <div id="form1" style="display: none;">
+                                        <h2 style="text-align: center;">Si</h2>
+                                        <label for="nombt">Institucion</label>
+                                        <input name="sala" type="text" class="fieldlabels" id="nombt" placeholder="Sala">
+                                    </div>
+
+                                    <label for="internacion">¿Repitencia?</label>
+                                    <select name="estado" id="repitencia" onchange="showForm(this.value)">
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <div id="form1" style="display: none;">
+                                        <h2 style="text-align: center;">Si</h2>
+                                        <label for="nombt">Grado</label>
+                                        <input name="grado" type="text" class="fieldlabels" id="grado" placeholder="Grado">
+                                        <label for="nombt">¿Cuantas veces?</label>
+                                        <input name="cveces" type="text" class="fieldlabels" id="cveces" placeholder="veces">
+                                    </div>
+
+                                    <label for="internacion">¿Ausentismo?</label>
+                                    <select name="ausentismo" id="ausentismo" onchange="showForm(this.value)">
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <div id="form1" style="display: none;">
+                                        <h2 style="text-align: center;">Si</h2>
+                                        <label for="nombt">Observaciones</label>
+                                        <input name="obsv" type="text" class="fieldlabels" id="obsv" placeholder="Obs">
+                                    </div>
+
+                                    <label for="disc">Derivacion</label>
+                                    <select name="Derivacion">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <label for="disc">Intervencion equipo tecnico de apoyo</label>
+                                    <select name="¿Promocion Automatica en el primer ciclo?">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <label for="obs">Caracter</label>
+                                    <input name="caracter" type="text" class="fieldlabels" id="caracter" placeholder="Caracter">
+
+                                    <label for="obs">Nombre</label>
+                                    <input name="nombre" type="text" class="fieldlabels" id="nombre" placeholder="Nombre">
+                                    <label for="disc">PPI</label>
+                                    <select name="ppi">
+                                        <option value="Sin especificar">Seleccionar</option>
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                </div>
+                            </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                            <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+
+                                <label for="escr">Observaciones generales (Disponibilidad de tiempo,
+                                    espacio)</label>
+                                <input name="obsg" type="text" class="form-control" id="obsg" placeholder="Obs">
+
+                            </div>
+                        </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <h2 class="purple-text text-center"><strong>Finalizado!</strong></h2> <br>
+                                <div class="row justify-content-center">
+                                    <div class="col-3"> <img src="\Proyecto-master\Proyecto-master\img\listo.png" class="fit-image">
+                                    </div>
+
+                                </div> <br><br>
+                            </div>
+                        </div> <input type="submit" name="next" class="next action-button" style="width: 160px;" value="Guardar y salir!" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+
+
+                    </fieldset>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="row">
+        <section class="col-md-12">
+            <section class="row">
+                <div class="col-md-4">
+                    <label for="tipoAtencion">Tipo de Atención: *</label>
+                    <select class="form-control" id="tipoAtencion">
+                        <option value="ce">Consulta Externa</option>
+                        <option value="farm">Farmacia</option>
+                        <option value="fisi">Fisioterapia</option>
+                        <option value="fo">Fo</option>
+                        <option value="hosp">Hospitalizació</option>
+                        <option value="odon">Odontologia</option>
+                        <option value="pyp">Promoción y Prevención</option>
+                        <option value="rx">Rayos X</option>
+                        <option value="urge">Urgencias</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="fechaActual">Fecha Actual: *</label>
+                        <input type="date" class="form-control" id="fechaActual" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="fechaActencion">Fecha Atención: *</label>
+                        <input type="date" class="form-control" id="fechaAtencion" required>
+                    </div>
+                </div>
+            </section>
+            <section class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="nombreCompleto">Nombre Compelto: *</label>
+                        <input type="text" class="form-control" id="nombreCompleto" maxlength="128" placeholder="Nombre Compelto" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form_group">
+                        <label for="edadEncuestado">Edad: *</label>
+                        <input type="number" class="form-control" id="edadEncuestado" placeholder="Edad" maxlength="3" required />
+                    </div>
+                </div>
+            </section>
+            <section class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="idIdentificacion">Identificación: *</label>
+                        <input type="number" id="idIdentificacion" class="form-control" placeholder="Numero de Identificación" maxlength="15" required />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="telefono">Telefono: *</label>
+                    <input type="text" class="form-control" id="telefono" placeholder="Numero Telefonico" maxlength="12" required />
+                </div>
+                <div class="col-md-4">
+                    <label for="epsPaciente">EPS: *</label>
+                    <input type="text" class="form-control" id="epsPaciente" placeholder "EPS del Paciente" required />
+                </div>
+            </section>
+        </section>
+    </section>
+    <hr />
+
+    <!--  Servicios  -->
+    <section class="row">
+        <div class="col-md-12">
+            <h3>Servicio.</h3>
+            <p></p>
+        </div>
+    </section>
+    <!--  PREGUNTA 1  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>1- ¿"Sabe usted que tiene derechos y deberes en salud?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 2  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>2- ¿A su llegada al hospital los tramites de ingreso y atención fueron claros? </p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 3  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>3- ¿Al ingreso al hospital encontró información visible que le indique el sitio donde va a ser atendido? </p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 4  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>4- ¿Sabe usted en que horario solicitar una cita y cuál es el número telefónico?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section><br>
+    <hr>
+    <!--  Durante la Atención  -->
+    <section class="row">
+        <div class="col-md-12">
+            <h3>Durante la Atención.</h3>
+            <p></p>
+        </div>
+    </section>
+    <!--  PREGUNTA 5  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>5- ¿Está satisfecho con el tiempo que tuvo que esperar para ser atendido?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 6  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>6- ¿El profesional le pregunto el motivo de la consulta, sus enfermedades anteriores y familiares?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 7  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>7- ¿Considera que lo atendieron en condiciones de privacidad?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 8  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>8- ¿El profesional que lo atendió se presentó por el nombre? </p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 9  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>9- ¿Piensa que fue atendido amablemente en este hospital?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section><br />
+    <hr />
+    <!--  Durante la Atención  -->
+    <section class="row">
+        <div class="col-md-12">
+            <h3>Salida del usuario.</h3>
+            <p></p>
+        </div>
+    </section>
+    <!--  PREGUNTA 10  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>10- ¿A usted y/o a su familia le dieron las recomendaciones sobre cómo cuidar su salud en casa?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 11  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>11- ¿Las áreas del servicio donde fue atendido, se encontraban limpias, comodas y agradables?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+    <!--  PREGUNTA 12  -->
+    <section class="row">
+        <div class="col-md-6">
+            <p>12- ¿Si se requiere volveria a utilizar nuestros servicios?</p>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="pregunta1a" value="SI"> Si
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntab" value="NO"> No
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label class="radio">
+                <input type="radio" name="pregunta1" id="preguntac" value="NA"> N/A
+            </label>
+        </div>
+    </section>
+
+
+
+
+
+    <br />
+    <hr />
+    <!--  Satisfacción General  -->
+    <section class="row">
+        <div class="col-md-12">
+            <h3>Satisfacción General.</h3>
+            <p></p>
+        </div>
+    </section>
+    <!--  PREGUNTA 13  -->
+    <section class="row">
+        <div class="col-md-12">
+            <section class="row">
+                <div class="col-md-8">
+                    <p>13- ¿Cómo calificaría su experiencia global respecto a los servicios de salud que ha recibido a través del Hospital?</p>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-control" id="pregunta13">
+                        <option value="5">Muy Buena</option>
+                        <option value="4">Buena</option>
+                        <option value="3">Regular</option>
+                        <option value="2">Mala</option>
+                        <option value="1">Muy Mala</option>
+                        <option value="0">No Responde</option>
+                    </select>
+                </div>
+            </section>
+        </div>
+    </section><br />
+    <!--  PREGUNTA 14  -->
+    <section class="row">
+        <div class="col-md-12">
+            <section class="row">
+                <div class="col-md-8">
+                    <p>14- ¿Recomendaria a sus familiares y amigos este Hospital?</p>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-control" id="pregunta14">
+                        <option value="5">Muy Buena</option>
+                        <option value="4">Buena</option>
+                        <option value="3">Regular</option>
+                        <option value="2">Mala</option>
+                        <option value="1">Muy Mala</option>
+                        <option value="0">No Responde</option>
+                    </select>
+                </div>
+            </section>
+        </div>
+    </section><br />
+    <hr />
+
+    <!--  Comentarios  -->
+    <section class="row">
+        <div class="col-md-12">
+            <h3>Comentarios.</h3>
+            <p></p>
+        </div>
+    </section>
+    <section class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="comment">Comentarios:</label>
+                <textarea class="form-control" rows="6" id="comentarios"></textarea>
+            </div>
+        </div>
+    </section>
+    <section class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-info" id="saveForm" onclick="saveForm">Guardar Encuesta</button>
+            <button type="button" class="btn btn-danger" id="clearForm">Limpiar formulario</button>
+        </div>
+    </section>

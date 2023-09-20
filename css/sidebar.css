@@ -8,6 +8,7 @@ html {
   -webkit-tap-highlight-color: rgba(24, 21, 21, 0);
 }
 
+
 .city {display:none}
 
 
@@ -16,8 +17,6 @@ td img{
   max-width: 30px;
   max-height: 30px;
 }
-
-
 
 .form-contro {
   display: flex;
