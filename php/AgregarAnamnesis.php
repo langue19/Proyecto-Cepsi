@@ -37,7 +37,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
-    <div class="wrapper" >
+    <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
             <!-- Left navbar links -->
@@ -233,7 +233,6 @@
             </section>
 
 
-
             <div class="container">
                 <section class="row">
                     <div class="col-md-12">
@@ -244,12 +243,20 @@
                 </section>
                 <hr><br />
                 <section class="row">
-                    <section class="col-md-12">
-                        <h3>Datos Familia</h3>
-                        <p></p>
+                    <section class="col-md-12" style="padding: 0px 0px 0px 25px;">
+                        <div style="display: flex; justify-content: center;">
+                            <h3>Datos Familia</h3>
+                            <button style="margin-left:50px;" id="agregarFamilia" class="btn btn-success">Agregar Familia</button>
+                            <!-- Contenido de tu página aquí -->
+                        </div>
+
+                        <div id="contenedorFamilia">
+                            <!-- Aquí se agregarán los campos de familia -->
+                        </div>
+
                     </section>
                 </section>
-                
+
             </div>
 
 

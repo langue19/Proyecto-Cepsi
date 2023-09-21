@@ -30,86 +30,6 @@ function showForm(selectedValue) {
     }
 }
 
-
-$(document).ready(function () {
-	var current_fs, next_fs, previous_fs; //fieldsets
-	var opacity;
-	var current = 1;
-	var steps = $("fieldset").length;
-  
-	setProgressBar(current);
-  
-	$(".next").click(function () {
-	  current_fs = $(this).parent();
-	  next_fs = $(this).parent().next();
-  
-	  //Add Class Active
-	  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-  
-	  //show the next fieldset
-	  next_fs.show();
-	  //hide the current fieldset with style
-	  current_fs.animate(
-		{ opacity: 0 },
-		{
-		  step: function (now) {
-			// for making fielset appear animation
-			opacity = 1 - now;
-  
-			current_fs.css({
-			  display: "none",
-			  position: "relative"
-			});
-			next_fs.css({ opacity: opacity });
-		  },
-		  duration: 500
-		}
-	  );
-	  setProgressBar(++current);
-	});
-  
-	$(".previous").click(function () {
-	  current_fs = $(this).parent();
-	  previous_fs = $(this).parent().prev();
-  
-	  //Remove class active
-	  $("#progressbar li")
-		.eq($("fieldset").index(current_fs))
-		.removeClass("active");
-  
-	  //show the previous fieldset
-	  previous_fs.show();
-  
-	  //hide the current fieldset with style
-	  current_fs.animate(
-		{ opacity: 0 },
-		{
-		  step: function (now) {
-			// for making fielset appear animation
-			opacity = 1 - now;
-  
-			current_fs.css({
-			  display: "none",
-			  position: "relative"
-			});
-			previous_fs.css({ opacity: opacity });
-		  },
-		  duration: 500
-		}
-	  );
-	  setProgressBar(--current);
-	});
-  
-	function setProgressBar(curStep) {
-	  var percent = parseFloat(100 / steps) * curStep;
-	  percent = percent.toFixed();
-	  $(".progress-bar").css("width", percent + "%");
-	}
-  
-	$(".submit").click(function () {
-	  return false;
-	});
-  });
   
   function toggleMenu() {
 	const navbarMenu = document.getElementById("navbarMenu");
@@ -117,5 +37,132 @@ $(document).ready(function () {
   }
   
 
+  document.addEventListener("DOMContentLoaded", function() {
+	const botonAgregarFamilia = document.getElementById("agregarFamilia");
+	const contenedorFamilia = document.getElementById("contenedorFamilia");
+	let contadorFamilia = 0;
+
+	botonAgregarFamilia.addEventListener("click", function() {
+		if (contadorFamilia < 10) { // Limitar a 10 familiares
+			contadorFamilia++;
+
+			// Ocultar el formulario del familiar anterior si existe
+			const formularioAnterior = contenedorFamilia.querySelector(".campo-familia.visible");
+			if (formularioAnterior) {
+				formularioAnterior.classList.remove("visible");
+				formularioAnterior.style.height = "auto"; // Restaurar la altura
+			}
+
+			const nuevoCampoFamilia = document.createElement("div");
+			nuevoCampoFamilia.classList.add("campo-familia");
+			nuevoCampoFamilia.classList.add("visible"); // Mostrar el nuevo formulario
+			nuevoCampoFamilia.innerHTML = `
+				<h4>Familiar ${contadorFamilia}</h4>
+				<div class="fila">
+					<input type="text" placeholder="Nombre" name="nombre${contadorFamilia}">
+					<input type="text" placeholder="Apellido" name="apellido${contadorFamilia}">
+				</div>
+				<div class="fila">
+					<input type="text" placeholder="Edad" name="edad${contadorFamilia}">
+				</div>
+				<div class="fila">
+					<input type="text" placeholder="Rol familiar" name="rol${contadorFamilia}">
+					<input type="text" placeholder="Ocupacion" name="ocupacion${contadorFamilia}">
+					<input type="text" placeholder="Escolaridad alcanzada" name="escolaridad${contadorFamilia}">
+				</div>
+				<div class="fila">
+					<input type="text" placeholder="Salario/Asignacion/Pension" name="salario/asignacion/pension${contadorFamilia}">
+					<input type="text" placeholder="Asist. sanit." name="asist${contadorFamilia}">
+				</div>
+				<div class="fila">
+					<input type="text" placeholder="Observaciones" name="observaciones${contadorFamilia}">
+					<button class="guardarFamilia">Guardar</button>
+					<button class="eliminarFamilia">Eliminar</button>
+				</div>
+				<style>/* Estilos para las filas */
+				.fila {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+					margin-bottom: 10px;
+				}
+				
+				/* Estilo para los campos de entrada */
+				.fila input[type="text"] {
+					flex: 1;
+					margin-right: 10px;
+					padding: 5px;
+					border: 1px solid #ccc;
+					border-radius: 3px;
+				}
+				
+				/* Estilo para el botón "Eliminar" */
+				.fila .eliminarFamilia {
+					background-color: #ff0000;
+					color: #fff;
+					border: none;
+					padding: 5px 10px;
+					cursor: pointer;
+					border-radius: 3px;
+				}
+				
+				.fila .guardarFamilia {
+					background-color: green;
+					color: #fff;
+					border: none;
+					padding: 5px 10px;
+					cursor: pointer;
+					border-radius: 3px;
+				}
+
+				/* Estilo para el botón "Eliminar" al pasar el mouse sobre él */
+				.fila .eliminarFamilia:hover {
+					background-color: #cc0000;
+				}
+
+				.fila .guardarFamilia:hover {
+					background-color: #075200;
+				}
+				
+				/* Estilo para el botón "Eliminar" al pasar el mouse sobre él */
+				.fila .eliminarFamilia:hover {
+					background-color: #cc0000;
+				}
+				/* Estilos para los contenedores de familiares */
+				/* Estilos para los contenedores de familiares */
+				.campo-familia {
+					border: 1px solid #ccc;
+					padding: 15px;
+					margin: 20px 0;
+					background-color: #f5f5f5;
+					overflow: hidden; /* Ocultar contenido que exceda la altura */
+					transition: height 0.3s; /* Agregar transición para suavizar el cambio de altura */
+				}
+				
+				.campo-familia.visible {
+					height: auto; /* Restaurar la altura automáticamente */
+				}
+				
+
+				</style>
+			`;
+
+			contenedorFamilia.appendChild(nuevoCampoFamilia);
+
+			// Agregar evento para eliminar el familiar
+			const botonesEliminar = contenedorFamilia.querySelectorAll(".eliminarFamilia");
+			botonesEliminar.forEach(function(boton) {
+				boton.addEventListener("click", function() {
+					this.parentElement.parentElement.remove();
+					if(contadorFamilia==0){
+						contadorFamilia=0;
+					}else{contadorFamilia--;}
+				});
+			});
+		} else {
+			alert("No se pueden agregar más de 10 familiares.");
+		}
+	});
+});
  
 
