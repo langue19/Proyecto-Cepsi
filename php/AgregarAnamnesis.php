@@ -11,7 +11,7 @@
     <!-- Aquí incluye el enlace a la biblioteca jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Aquí incluye el enlace a tu archivo JavaScript -->
-    <script src="/Proyecto-master/Proyecto-master/js/AgregarA.js"></script>
+
 
 
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
@@ -243,17 +243,127 @@
                 </section>
                 <hr><br />
                 <section class="row">
-                    <section class="col-md-12" style="padding: 0px 0px 0px 25px;">
-                        <div style="display: flex; justify-content: center;">
-                            <h3>Datos Familia</h3>
-                            <button style="margin-left:50px;" id="agregarFamilia" class="btn btn-success">Agregar Familia</button>
-                            <!-- Contenido de tu página aquí -->
+                    <h2>Familia</h2>
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">Familiar 1</button>
+                        <div class="content">
+                            <div class="fila">
+                                <input type="text" placeholder="Nombre" name="nombre1">
+                                <input type="text" placeholder="Apellido" name="apellido1">
+                            </div>
+                            <div class="fila">
+                                <input type="text" placeholder="Edad" name="edad1">
+                            </div>
+                            <div class="fila">
+                                <input type="text" placeholder="Rol familiar" name="rol1">
+                                <input type="text" placeholder="Ocupacion" name="ocupacion1">
+                                <input type="text" placeholder="Escolaridad alcanzada" name="escolaridad1">
+                            </div>
+                            <div class="fila">
+                                <input type="text" placeholder="Salario/Asignacion/Pension" name="salario/asignacion/pension1">
+                                <input type="text" placeholder="Asist. sanit." name="asist1">
+                            </div>
+                            <div class="fila">
+                                <input type="text" placeholder="Observaciones" name="observaciones1">
+                                <button class="guardarFamilia">Guardar</button>
+                            </div>
                         </div>
-
-                        <div id="contenedorFamilia">
-                            <!-- Aquí se agregarán los campos de familia -->
+                    </section>
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">Familiar 2</button>
+                        <div class="content">
+                            <div class="fila">
+                                <input type="text" placeholder="Nombre" name="nombre2">
+                                <input type="text" placeholder="Apellido" name="apellido2">
+                            </div>
+                            <div class="fila">
+                                <input type="text" placeholder="Edad" name="edad2">
+                            </div>
+                            <div class="fila">
+                                <input type="text" placeholder="Rol familiar" name="rol2">
+                                <input type="text" placeholder="Ocupacion" name="ocupacion2">
+                                <input type="text" placeholder="Escolaridad alcanzada" name="escolaridad2">
+                            </div>
+                            <div class="fila">
+                                <input type="text" placeholder="Salario/Asignacion/Pension" name="salario/asignacion/pension2">
+                                <input type="text" placeholder="Asist. sanit." name="asist2">
+                            </div>
+                            <div class="fila">
+                                <input type="text" placeholder="Observaciones" name="observaciones2">
+                                <button class="guardarFamilia">Guardar</button>
+                            </div>
                         </div>
+                    </section>
+                    <h2>Observaciones sobre la historia y dinámica familiar</h2>
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
+                        <div class="fila">
+                            <input type="text" placeholder="obs" name="obs">
+                        </div>
+                    </section>
+                    <h2>Vivienda</h2>
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">Vivienda</button>
+                        <div class="content">
+                            <div class="nuevo" style="display:flex; justify-content: stretch;">
+                                <div class="fila">
+                                    <label for="tipo">TIPO:</label>
+                                    <input type="radio" name="tipo" value="individual"> INDIVIDUAL
+                                    <input type="radio" name="tipo" value="compartida"> COMPARTIDA
+                                </div>
+                                <!-- Construcción -->
+                                <div class="fila">
+                                    <label for="construccion">CONSTRUCCION:</label>
+                                    <input type="checkbox" name="construccion" value="material"> MATERIAL
+                                    <input type="checkbox" name="construccion" value="rancho"> RANCHO
+                                    <input type="checkbox" name="construccion" value="otros"> OTROS
+                                </div>
+
+                                <!-- Tenencia -->
+                                <div class="fila">
+                                    <label for="tenencia">TENENCIA:</label>
+                                    <input type="checkbox" name="tenencia" value="propia"> PROPIA
+                                    <input type="checkbox" name="tenencia" value="prestada"> PRESTADA
+                                    <input type="checkbox" name="tenencia" value="alquilada"> ALQUILADA
+                                    <input type="checkbox" name="tenencia" value="cedida"> CEDIDA
+                                </div>
+
+                                <!-- Servicios -->
+                                <div class="fila">
+                                    <label for="servicios">SERVICIOS:</label>
+                                    <input type="checkbox" name="servicios" value="agua"> AGUA
+                                    <input type="checkbox" name="servicios" value="luz"> LUZ
+                                    <input type="checkbox" name="servicios" value="gas"> GAS
+                                    <input type="checkbox" name="servicios" value="cloacas"> CLOACAS
+                                    <input type="checkbox" name="servicios" value="cable"> CABLE
+                                    <input type="checkbox" name="servicios" value="internet"> INTERNET
+                                </div>
+
+
+                            </div>
+                            <div class="fila">
+                                <label for="num_convivientes">N° DE CONVIVIENTES:</label>
+                                <input type="text" name="num_convivientes">
+                                <label for="num_habitaciones">N° DE HABITACIONES:</label>
+                                <input type="text" name="num_habitaciones">
+                            </div>
+                            <!-- Observaciones Generales -->
+                            <div class="fila">
+                                <label for="observaciones_generales">OBSERVACIONES GENERALES:</label>
+                                <textarea name="observaciones_generales"></textarea>
+                            </div>
+
+                            <!-- Accesibilidad (Medios de Transporte) -->
+                            <div class="fila">
+                                <label for="accesibilidad">ACCESIBILIDAD (MEDIOS DE TRANSPORTE):</label>
+                                <textarea name="accesibilidad"></textarea>
+                            </div>
+
+                            <!-- Botón de Enviar -->
+                            <div class="fila">
+                                <button class="guardarFamilia" style="width: 100%;">Guardar</button>
+                            </div>
+                        </div>
                     </section>
                 </section>
 
@@ -262,6 +372,7 @@
 
         </div>
     </div>
+    <script src="/Proyecto-master/Proyecto-master/js/AgregarA.js"></script>
 </body>
 
 </html>
