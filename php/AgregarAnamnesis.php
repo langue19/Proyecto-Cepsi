@@ -294,69 +294,118 @@
                             </div>
                         </div>
                     </section>
-                    <h2>Observaciones sobre la historia y dinámica familiar</h2>
-                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
-                        <div class="fila">
-                            <input type="text" placeholder="obs" name="obs">
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">Observaciones sobre la historia y dinámica familiar</button>
+                        <div class="content">
+                            <div class="fila">
+                                <input type="text" placeholder="Observaciones" name="obs">
+                            </div>
                         </div>
                     </section>
-                    <h2>Vivienda</h2>
+
+
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
                         <button class="collapsible">Vivienda</button>
                         <div class="content">
-                            <div class="nuevo" style="display:flex; justify-content: stretch;">
-                                <div class="fila">
-                                    <label for="tipo">TIPO:</label>
-                                    <input type="radio" name="tipo" value="individual"> INDIVIDUAL
-                                    <input type="radio" name="tipo" value="compartida"> COMPARTIDA
+                            <div class="nuevo" style="display:flex;">
+                                <label for="tipo">TIPO</label>
+                                <div class="fila1">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="individualCheck" name="construccion" value="individual">
+                                        <label class="form-check-label" for="individualCheck">INDIVIDUAL</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="compartidaCheck" name="construccion" value="compartida">
+                                        <label class="form-check-label" for="compartidaCheck">COMPARTIDA</label>
+                                    </div>
                                 </div>
+
                                 <!-- Construcción -->
-                                <div class="fila">
-                                    <label for="construccion">CONSTRUCCION:</label>
-                                    <input type="checkbox" name="construccion" value="material"> MATERIAL
-                                    <input type="checkbox" name="construccion" value="rancho"> RANCHO
-                                    <input type="checkbox" name="construccion" value="otros"> OTROS
+                                <label for="construccion">CONSTRUCCION</label>
+                                <div class="fila1">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="materialCheck" name="construccion" value="material">
+                                        <label class="form-check-label" for="materialCheck">MATERIAL</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="ranchoCheck" name="construccion" value="rancho">
+                                        <label class="form-check-label" for="ranchoCheck">RANCHO</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="otrosCheck" name="construccion" value="otros">
+                                        <label class="form-check-label" for="otrosCheck">OTROS</label>
+                                    </div>
                                 </div>
 
                                 <!-- Tenencia -->
-                                <div class="fila">
-                                    <label for="tenencia">TENENCIA:</label>
-                                    <input type="checkbox" name="tenencia" value="propia"> PROPIA
-                                    <input type="checkbox" name="tenencia" value="prestada"> PRESTADA
-                                    <input type="checkbox" name="tenencia" value="alquilada"> ALQUILADA
-                                    <input type="checkbox" name="tenencia" value="cedida"> CEDIDA
+                                <label for="tenencia">TENENCIA</label>
+                                <div class="fila1">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="propiaCheck" name="tenencia" value="propia">
+                                        <label class="form-check-label" for="propiaCheck">PROPIA</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="prestadaCheck" name="tenencia" value="prestada">
+                                        <label class="form-check-label" for="prestadaCheck">PRESTADA</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="alquiladaCheck" name="tenencia" value="alquilada">
+                                        <label class="form-check-label" for="alquiladaCheck">ALQUILADA</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cedidaCheck" name="tenencia" value="cedida">
+                                        <label class="form-check-label" for="cedidaCheck">CEDIDA</label>
+                                    </div>
                                 </div>
 
                                 <!-- Servicios -->
-                                <div class="fila">
-                                    <label for="servicios">SERVICIOS:</label>
-                                    <input type="checkbox" name="servicios" value="agua"> AGUA
-                                    <input type="checkbox" name="servicios" value="luz"> LUZ
-                                    <input type="checkbox" name="servicios" value="gas"> GAS
-                                    <input type="checkbox" name="servicios" value="cloacas"> CLOACAS
-                                    <input type="checkbox" name="servicios" value="cable"> CABLE
-                                    <input type="checkbox" name="servicios" value="internet"> INTERNET
+                                <label for="servicios">SERVICIOS</label>
+                                <div class="fila1">
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="aguaCheck" name="servicios" value="agua">
+                                        <label class="form-check-label" for="aguaCheck">AGUA</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="luzCheck" name="servicios" value="luz">
+                                        <label class="form-check-label" for="luzCheck">LUZ</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gasCheck" name="servicios" value="gas">
+                                        <label class="form-check-label" for="gasCheck">GAS</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cloacasCheck" name="servicios" value="cloacas">
+                                        <label class="form-check-label" for="cloacasCheck">CLOACAS</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cableCheck" name="servicios" value="cable">
+                                        <label class="form-check-label" for="cableCheck">CABLE</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="internetCheck" name="servicios" value="internet">
+                                        <label class="form-check-label" for="internetCheck">INTERNET</label>
+                                    </div>
                                 </div>
 
 
+
                             </div>
                             <div class="fila">
-                                <label for="num_convivientes">N° DE CONVIVIENTES:</label>
-                                <input type="text" name="num_convivientes">
-                                <label for="num_habitaciones">N° DE HABITACIONES:</label>
-                                <input type="text" name="num_habitaciones">
+                                <input type="text" placeholder="Numero de convivientes" name="obs">
+                                <input type="text" placeholder="Numero de habitaciones" name="obs">
                             </div>
                             <!-- Observaciones Generales -->
                             <div class="fila">
-                                <label for="observaciones_generales">OBSERVACIONES GENERALES:</label>
-                                <textarea name="observaciones_generales"></textarea>
+                                <input type="text" placeholder="Observaciones generales" name="obs">
                             </div>
 
                             <!-- Accesibilidad (Medios de Transporte) -->
                             <div class="fila">
-                                <label for="accesibilidad">ACCESIBILIDAD (MEDIOS DE TRANSPORTE):</label>
-                                <textarea name="accesibilidad"></textarea>
+                                <input type="text" placeholder="Medios de transporte)" name="obs">
                             </div>
 
                             <!-- Botón de Enviar -->
@@ -364,6 +413,26 @@
                                 <button class="guardarFamilia" style="width: 100%;">Guardar</button>
                             </div>
                         </div>
+                    </section>
+
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">HISTORIAL EVOLUCIÓN DE ENFERMEDAD</button>
+                    </section>
+
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">EDUCACION</button>
+                    </section>
+
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">HISTORIA ESCOLAR</button>
+                    </section>
+
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">ESCOLARIDAD HOSPITALARIA-DOMCILIARIA</button>
+                    </section>
+
+                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                        <button class="collapsible">OBSERVACIONES GENERALES</button>
                     </section>
                 </section>
 

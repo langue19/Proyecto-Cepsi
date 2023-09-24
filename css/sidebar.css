@@ -436,8 +436,17 @@ transform: translate(2em, 2em) rotate(-15deg);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
+
+.fila1{
+  display: grid;
+  justify-content: center;
+width: 100%;
+  align-items: center;
+  margin: 10px 50px 10px 10px;
+}
+
 
 /* Estilo para los campos de entrada */
 .fila input[type="text"] {
