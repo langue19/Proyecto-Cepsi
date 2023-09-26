@@ -213,7 +213,7 @@
 
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="height: 600px;">
             <section>
                 <div class="row mb-1">
                     <label>

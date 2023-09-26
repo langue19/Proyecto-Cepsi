@@ -181,6 +181,15 @@ $mesesEnEspanol = array(
                                 </a>
 
                             </li>
+                            <li class="nav-item">
+                                <a href="AgregarProfesor.php" class="nav-link">
+                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
+                                    <p>
+                                        Agregar Profesores
+                                    </p>
+                                </a>
+
+                            </li>
                         <?php endif; ?>
 
 
