@@ -133,7 +133,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="formularioAlumno.php" class="nav-link active">
+                                    <a href="formularioAlumno.php" class="nav-link active1">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>
                                             Alumnos
@@ -243,9 +243,8 @@
                 </section>
                 <hr><br />
                 <section class="row">
-                    <h2>Familia</h2>
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">Familiar 1</button>
+                        <button class="collapsible">FAMILIAR 1</button>
                         <div class="content">
                             <div class="fila">
                                 <input type="text" placeholder="Nombre" name="nombre1">
@@ -270,7 +269,7 @@
                         </div>
                     </section>
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">Familiar 2</button>
+                        <button class="collapsible">FAMILIAR 2</button>
                         <div class="content">
                             <div class="fila">
                                 <input type="text" placeholder="Nombre" name="nombre2">
@@ -296,7 +295,7 @@
                     </section>
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">Observaciones sobre la historia y dinámica familiar</button>
+                        <button class="collapsible">OBSERVACIONES SOBRE LA HISTORIA Y DINÁMICA FAMILIAR</button>
                         <div class="content">
                             <div class="fila">
                                 <input type="text" placeholder="Observaciones" name="obs">
@@ -306,7 +305,7 @@
 
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">Vivienda</button>
+                        <button class="collapsible">VIVIENDA</button>
                         <div class="content">
                             <div class="nuevo" style="display:flex;">
                                 <label for="tipo">TIPO</label>

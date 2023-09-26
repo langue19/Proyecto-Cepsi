@@ -167,12 +167,11 @@ label[for="search"] {
   background-color: #6c757d;
 }
 
-.navbar-menu.active {
+.navbar-menu.active1 {
   display: grid;
   justify-content: center;
   align-items: end;
 }
-
 
 .avatar-dropdown {
   position: relative;
@@ -198,7 +197,7 @@ label[for="search"] {
   background-color: white;
 }
 
-.pagination a.active {
+.pagination a.active1 {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
@@ -388,8 +387,8 @@ transform: translate(2em, 2em) rotate(-15deg);
 }
 
 .collapsible {
-  background-color: #777;
-  color: white;
+  background-color: #343a40;
+  color: #c2c7d0;
   cursor: pointer;
   padding: 10px 18px;
   margin-bottom: 10px;
@@ -415,6 +414,7 @@ transform: translate(2em, 2em) rotate(-15deg);
 .active:after {
   content: "\2212";
 }
+
 
 .content {
   padding: 0px 18px;

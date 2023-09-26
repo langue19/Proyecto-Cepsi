@@ -132,7 +132,7 @@ $mesesEnEspanol = array(
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="formularioAlumno.php" class="nav-link active">
+                                    <a href="formularioAlumno.php" class="nav-link active1">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>
                                             Alumnos
@@ -148,7 +148,6 @@ $mesesEnEspanol = array(
                                             </p>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a href="formularioProfesor.php" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -239,7 +238,7 @@ $mesesEnEspanol = array(
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <div class="content">
+            <div class="">
                 <div class="container-fluid">
 
                     <div class="form-content">
@@ -548,9 +547,9 @@ $mesesEnEspanol = array(
                                                         echo "<td>" . $row2['escRef'] . "</td>";
                                                         echo "<td>" . $row2['Grado'] . "</td>";
                                                         echo "<td>" . $row2['poseeEsc'] . "</td>";
-                                                        if($row2['escComun'] == "Si"){
+                                                        if ($row2['escComun'] == "Si") {
                                                             echo "<td> Comun </td>";
-                                                        }else{
+                                                        } else {
                                                             echo "<td> Especial </td>";
                                                         }
                                                         echo "<td>" . $row2['lectContinua'] . "</td>";
@@ -984,7 +983,7 @@ $mesesEnEspanol = array(
           </td>";
 
 
-          echo "<td><a href='#' onclick=\"openModal6('" . $row['Dni'] . "')\">
+                                                echo "<td><a href='#' onclick=\"openModal6('" . $row['Dni'] . "')\">
           <img src='/Proyecto-master/Proyecto-master/img/carpeta.png'>
       </a>
           <div class='w3-container'>
@@ -1017,44 +1016,44 @@ $mesesEnEspanol = array(
                                                       <tbody>";
 
 
-                      $idviejo = $row['Dni'];
-                      $sql2 = "SELECT *
+                                                $idviejo = $row['Dni'];
+                                                $sql2 = "SELECT *
 FROM datos_academ
 WHERE DNI = :idviejo
 ORDER BY Fecha ASC;
 ";
 
 
-                      // Usamos parámetros con consultas preparadas
-                      $consulta2 = $conn->prepare($sql2);
-                      $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
-                      if ($consulta2->execute()) {
-                          // Obtenemos el primer resultado del SELECT (si es que existe)
-                          $row2 = $consulta2->fetch();
-                      }
+                                                // Usamos parámetros con consultas preparadas
+                                                $consulta2 = $conn->prepare($sql2);
+                                                $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
+                                                if ($consulta2->execute()) {
+                                                    // Obtenemos el primer resultado del SELECT (si es que existe)
+                                                    $row2 = $consulta2->fetch();
+                                                }
 
 
 
-                      if ($consulta2->execute()) {
-                          while ($row2 = $consulta2->fetch()) {
-                              echo "<tr>";
-                              $fechaOriginal = $row2['Fecha'];
-                              $parts = explode('-', $fechaOriginal);
-                              $dia = intval($parts[2]);
-                              $mes = intval($parts[1]);
-                              $anio = intval($parts[0]);
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        echo "<tr>";
+                                                        $fechaOriginal = $row2['Fecha'];
+                                                        $parts = explode('-', $fechaOriginal);
+                                                        $dia = intval($parts[2]);
+                                                        $mes = intval($parts[1]);
+                                                        $anio = intval($parts[0]);
 
-                              $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
 
-                              echo "<td>" . $fechaFormateada . "</td>";
-                              echo "<td>" . $row2['Observación'] . "</td>";
-                              echo "<td>" . $row2['Contenido'] . "</td>";
-                              echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
-                              echo "<td></td>";
-                              echo "</tr>";
-                          }
-                      }
-                      echo "</tbody>
+                                                        echo "<td>" . $fechaFormateada . "</td>";
+                                                        echo "<td>" . $row2['Observación'] . "</td>";
+                                                        echo "<td>" . $row2['Contenido'] . "</td>";
+                                                        echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
+                                                        echo "<td></td>";
+                                                        echo "</tr>";
+                                                    }
+                                                }
+                                                echo "</tbody>
                           </table>
                       </div>
                   </div>
@@ -1106,8 +1105,8 @@ ORDER BY Fecha ASC;
                                 <?php endif; ?>
 
                                 <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
-                                    <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
-                                    <a class='<?php echo $active; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
+                                    <?php $active1 = ($i == $paginaActual) ? 'active1' : ''; ?>
+                                    <a class='<?php echo $active1; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
                                 <?php endfor; ?>
 
                                 <?php if ($finRango < $totalPaginas) : ?>
