@@ -1,26 +1,9 @@
 <html>
 
 <head>
-
-
-
-    <title>Agregar Profesor</title>
-    <meta charset="UTF-8">
-    <!-- CSS only -->
-    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/AgregarA.css">
-    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
-
-    <!-- Aquí incluye el enlace a la biblioteca jQuery -->
-    <script src="\Proyecto-master\Proyecto-master\js\jquery-3.6.0.js"></script>
-    <!-- Aquí incluye el enlace a tu archivo JavaScript -->
-    <script src="/Proyecto-master/Proyecto-master/js/AgregarA.js"></script>
-
-    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
-    <!-- REQUIRED SCRIPTS -->
+    <title>FJV | Inicio</title>
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\font.css">
     <!-- Font Awesome Icons -->
@@ -29,18 +12,18 @@
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE -->
-    <script src="dist/js/adminlte.js"></script>
 
-    <!-- OPTIONAL SCRIPTS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/AgregarA.css">
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
+    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
+
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
@@ -57,7 +40,7 @@
 
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed;">
             <!-- Brand Logo -->
             <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
                 <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -86,13 +69,32 @@
                     <div class="info">
                         <a style="text-decoration: none;" href="#" class="d-block">
                             <?php
-                            session_start();
-
                             if (isset($_SESSION["usuario"])) {
 
                                 $apellido = $_SESSION["Apellido"];
                             }
                             echo "Bienvenido " . $apellido;
+
+
+                            session_start();
+                            $posicion = $_SESSION['Posicion'];
+                            // Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
+                            if ($posicion == 'Administrador') {
+                                $mostrarColumnaAccion = true;
+                            } else {
+                                $mostrarColumnaAccion = false;
+                            }
+                            if ($posicion == 'Usuario') {
+                                $mostrarColumnaAccion1 = true;
+                            } else {
+                                $mostrarColumnaAccion1 = false;
+                            }
+                            if ($posicion == 'Psicopedagoga') {
+                                $mostrarColumnaAccion2 = true;
+                            } else {
+                                $mostrarColumnaAccion2 = false;
+                            }
+
                             ?>
                         </a>
                     </div>
@@ -110,7 +112,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
+                                <img src="/Proyecto-master/Proyecto-master/img/formulario.png" style="max-height:20px;">
                                 <p>
                                     Formulario
                                     <i class="fas fa-angle-left right"></i>
@@ -118,79 +120,77 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="formularioAlumno.php" class="nav-link active">
+                                    <a href="formularioAlumno.php" class="nav-link active1">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>
                                             Alumnos
                                         </p>
                                     </a>
                                 </li>
+                                <?php if ($mostrarColumnaAccion) : ?>
+                                    <li class="nav-item">
+                                        <a href="formularioUsuario.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Usuarios
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="formularioProfesor.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Profesor
+                                            </p>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
 
-                                <li class="nav-item">
-                                    <a href="formularioUsuario.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Usuarios
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="formularioProfesor.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Profesor
-                                        </p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
 
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
+                            <a href="agregarA.php" class="nav-link">
+                                <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
                                 <p>
-                                    Gestionar Alumnos
-                                    <i class="fas fa-angle-left right"></i>
+                                    Agregar Alumnos
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Agregar datos personales</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Agregar datos pedagogicos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Agregar datos internacion/domiciliario</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                            </a>
 
                         </li>
+                        <?php if ($mostrarColumnaAccion) : ?>
+                            <li class="nav-item">
+                                <a href="agregarU.php" class="nav-link">
+                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
+                                    <p>
+                                        Agregar Usuarios
+                                    </p>
+                                </a>
 
-                        <li class="nav-header">Login</li>
+                            </li>
+                            <li class="nav-item">
+                                <a href="AgregarProfesor.php" class="nav-link">
+                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
+                                    <p>
+                                        Agregar Profesores
+                                    </p>
+                                </a>
+
+                            </li>
+                        <?php endif; ?>
+
+
+
                         <li class="nav-item">
                             <a href="cerrarSesion.php" class="nav-link">
-                                <i class="nav-icon fas fa-ellipsis-h"></i>
-                                <p>Cerrar Sesion</p>
+                                <img src="/Proyecto-master/Proyecto-master/img/cerrar-sesion.png" style="max-height:20px;">
+                                <p>
+                                    Cerrar Sesión
+                                </p>
                             </a>
                         </li>
+
 
 
 
@@ -201,55 +201,52 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
-                    <div class="card border-0">
-                        <div class="card-body">
-                            <form id="msform" action="agregarProf.php" method="post">
-                                <!-- progressbar -->
-                                <ul id="progressbar" class="list-unstyled d-flex justify-content-center align-items-center mb-4">
-                                    <li class="active" id="account"><strong>Datos</strong></li>
-                                </ul>
-
-                                <div class="form-group">
-                                    <label for="ape">Apellido</label>
-                                    <input name="apellido" type="text" class="form-control" id="ape" placeholder="Apellido" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nomb">Nombre</label>
-                                    <input name="nombre" type="text" class="form-control" id="nomb" placeholder="Nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="dni">Dni</label>
-                                    <input name="documento" type="text" class="form-control" id="dni" placeholder="Documento" required>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="estado">Estado:</label>
-                                    <select name="estado" id="estado" class="form-control" style="background-color:whitesmoke;
+        <div class="content-wrapper" style="height: 400px;">
+            <div class="container">
+                <h2 style="text-align: center;">Agregar Profesor</h2>
+                <form id="msform" action="agregarProf.php" method="post">
+                    <div class="form-card">
+                        <div class="row">
+                            <label for="ape">Apellido:</label>
+                            <input name="apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido" required>
+                            <label for="nomb">Nombre:</label>
+                            <input name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre" required>
+                        </div>
+                        <div class="row">
+                            <label for="dni">Dni:</label>
+                            <input name="documento" type="text" class="fieldlabels" id="dni" placeholder="Documento" required>
+                            <label for="estado">Estado:</label>
+                            <select name="estado" id="estado" class="form-control" style="background-color:whitesmoke;
                                         
                                         color: black;" required>
-                                        <option value="Sin especificar">Seleccionar</option>
-                                        <option value="Activo">Activo</option>
-                                        <option value="Inactivo">Inactivo</option>
-                                    </select>
-                                </div>
-
-                                <div class="text-center">
-                                    <button type="submit" name="next" class="btn btn-success" style="width: 160px;">Guardar y salir</button>
-                                    <a href="formularioProfesor.php" class="btn btn-secondary" style="text-decoration: none;">Cancelar</a>
-                                </div>
-                            </form>
+                                <option value="Sin especificar">Seleccionar</option>
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="botones-gs">
+                            <input type="submit" name="next" class="action-button green-button" value="Guardar y salir">
+                            <a href="formularioAlumno.php" class="action-button red-button">Cancelar</a>
                         </div>
                     </div>
-                </div>
+
+                </form>
             </div>
+
         </div>
 
+    </div>
+    <!-- REQUIRED SCRIPTS -->
 
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
 </body>
 
 </html>
