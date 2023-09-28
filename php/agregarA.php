@@ -44,8 +44,8 @@
 
 
 
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed;">
+         <!-- Main Sidebar Container -->
+         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed;">
             <!-- Brand Logo -->
             <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
                 <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -156,34 +156,54 @@
 
 
                         <li class="nav-item">
-                            <a href="agregarA.php" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
                                 <p>
-                                    Agregar Alumnos
+                                    Agregar
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="agregarA.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Alumnos
+                                        </p>
+                                    </a>
+
+                                </li>
+                                <?php if ($mostrarColumnaAccion) : ?>
+                                    <li class="nav-item">
+                                        <a href="agregarU.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Usuarios
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="AgregarProfesor.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Profesores
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="estadistica.php" class="nav-link">
+                                <img src="/Proyecto-master/Proyecto-master/img/grafico.png" style="max-height:20px;">
+                                <p>
+                                    Estadistica
                                 </p>
                             </a>
 
-                        </li>
-                        <?php if ($mostrarColumnaAccion) : ?>
-                            <li class="nav-item">
-                                <a href="agregarU.php" class="nav-link">
-                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
-                                    <p>
-                                        Agregar Usuarios
-                                    </p>
-                                </a>
-
-                            </li>
-                            <li class="nav-item">
-                                <a href="AgregarProfesor.php" class="nav-link">
-                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
-                                    <p>
-                                        Agregar Profesores
-                                    </p>
-                                </a>
-
-                            </li>
-                        <?php endif; ?>
 
 
 

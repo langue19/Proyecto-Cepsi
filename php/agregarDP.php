@@ -21,6 +21,7 @@
     <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
     <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
 
+
 </head>
 
 <body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
@@ -151,34 +152,54 @@
 
 
                         <li class="nav-item">
-                            <a href="agregarA.php" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
                                 <p>
-                                    Agregar Alumnos
+                                    Agregar
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="agregarA.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Alumnos
+                                        </p>
+                                    </a>
+
+                                </li>
+                                <?php if ($mostrarColumnaAccion) : ?>
+                                    <li class="nav-item">
+                                        <a href="agregarU.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Usuarios
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="AgregarProfesor.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Profesores
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="estadistica.php" class="nav-link">
+                                <img src="/Proyecto-master/Proyecto-master/img/grafico.png" style="max-height:20px;">
+                                <p>
+                                    Estadistica
                                 </p>
                             </a>
 
-                        </li>
-                        <?php if ($mostrarColumnaAccion) : ?>
-                            <li class="nav-item">
-                                <a href="agregarU.php" class="nav-link">
-                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
-                                    <p>
-                                        Agregar Usuarios
-                                    </p>
-                                </a>
-
-                            </li>
-                            <li class="nav-item">
-                                <a href="AgregarProfesor.php" class="nav-link">
-                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
-                                    <p>
-                                        Agregar Profesores
-                                    </p>
-                                </a>
-
-                            </li>
-                        <?php endif; ?>
 
 
 
@@ -234,9 +255,9 @@ WHERE Dni = :id";
         }
         ?>
         <!-- /.sidebar-menu -->
-    </div>
+    
     <!-- /.sidebar -->
-    </aside>
+ 
     <div class="content-wrapper" style="height: 400px;">
         <div class="container">
             <h2 style="text-align: center;">Agregar Datos Pedagogicos</h2>

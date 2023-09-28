@@ -38,7 +38,6 @@
         <!-- /.navbar -->
 
 
-
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed;">
             <!-- Brand Logo -->
@@ -273,7 +272,7 @@
                             <input name="Observaciones" type="text" class="fieldlabels" id="Observaciones" placeholder="Observaciones">
                             <label for="Contenido">Contenido</label>
                             <input name="Contenido" type="text" class="fieldlabels" id="Contenido" placeholder="Contenido">
-                            
+
                             <?php
                             session_start();
                             $posicion = $_SESSION['Posicion'];
@@ -308,17 +307,17 @@
                             echo "</select>";
                         }
                         ?>
-                    
-                    <div class="botones-gs">
-                        <input type="submit" name="next" class="action-button green-button" value="Guardar y salir">
-                        <a href="formularioAlumno.php" class="action-button red-button">Cancelar</a>
+
+                        <div class="botones-gs">
+                            <input type="submit" name="next" class="action-button green-button" value="Guardar y salir">
+                            <a href="formularioAlumno.php" class="action-button red-button">Cancelar</a>
+                        </div>
                     </div>
+
+                </form>
             </div>
 
-            </form>
         </div>
-
-    </div>
 
     </div>
     <!-- REQUIRED SCRIPTS -->
