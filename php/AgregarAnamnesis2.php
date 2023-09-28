@@ -43,7 +43,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="label"><i class="fas fa-bars"></i></a>
                 </li>
 
             </ul>
@@ -222,7 +222,7 @@
                             <div class="sun-icon-wrapper">
                                 <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
                             </div>
-                            <div class="toggle-button"></div>
+                            <div class="toggle-label"></div>
                             <div class="moon-icon-wrapper">
                                 <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
                             </div>
@@ -244,32 +244,32 @@
                 <hr><br />
                 <section class="row">
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">FAMILIAR 1</button>
-                        <div class="content">
-                            <div class="fila">
-                                <input type="text" placeholder="Nombre" name="nombre1">
-                                <input type="text" placeholder="Apellido" name="apellido1">
-                            </div>
-                            <div class="fila">
-                                <input type="text" placeholder="Edad" name="edad1">
-                            </div>
-                            <div class="fila">
-                                <input type="text" placeholder="Rol familiar" name="rol1">
-                                <input type="text" placeholder="Ocupacion" name="ocupacion1">
-                                <input type="text" placeholder="Escolaridad alcanzada" name="escolaridad1">
-                            </div>
-                            <div class="fila">
-                                <input type="text" placeholder="Salario/Asignacion/Pension" name="salario/asignacion/pension1">
-                                <input type="text" placeholder="Asist. sanit." name="asist1">
-                            </div>
-                            <div class="fila">
-                                <input type="text" placeholder="Observaciones" name="observaciones1">
-                            </div>
+                        <label>FAMILIAR 1</label>
+
+                        <div class="fila">
+                            <input type="text" placeholder="Nombre" name="nombre1">
+                            <input type="text" placeholder="Apellido" name="apellido1">
                         </div>
+                        <div class="fila">
+                            <input type="text" placeholder="Edad" name="edad1">
+                        </div>
+                        <div class="fila">
+                            <input type="text" placeholder="Rol familiar" name="rol1">
+                            <input type="text" placeholder="Ocupacion" name="ocupacion1">
+                            <input type="text" placeholder="Escolaridad alcanzada" name="escolaridad1">
+                        </div>
+                        <div class="fila">
+                            <input type="text" placeholder="Salario/Asignacion/Pension" name="salario/asignacion/pension1">
+                            <input type="text" placeholder="Asist. sanit." name="asist1">
+                        </div>
+                        <div class="fila">
+                            <input type="text" placeholder="Observaciones" name="observaciones1">
+                        </div>
+
                     </section>
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">FAMILIAR 2</button>
-                        <div class="content">
+                        <label>FAMILIAR 2</label>
+                        
                             <div class="fila">
                                 <input type="text" placeholder="Nombre" name="nombre2">
                                 <input type="text" placeholder="Apellido" name="apellido2">
@@ -289,22 +289,22 @@
                             <div class="fila">
                                 <input type="text" placeholder="Observaciones" name="observaciones2">
                             </div>
-                        </div>
+                        
                     </section>
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">OBSERVACIONES SOBRE LA HISTORIA Y DINÁMICA FAMILIAR</button>
-                        <div class="content">
+                        <label>OBSERVACIONES SOBRE LA HISTORIA Y DINÁMICA FAMILIAR</label>
+                        
                             <div class="fila">
                                 <input type="text" placeholder="Observaciones" name="obs">
                             </div>
-                        </div>
+                        
                     </section>
 
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">VIVIENDA</button>
-                        <div class="content">
+                        <label>VIVIENDA</label>
+                        
                             <div class="nuevo" style="display:flex;">
                                 <label for="tipo">TIPO</label>
                                 <div class="fila1">
@@ -404,12 +404,12 @@
                             <div class="fila">
                                 <input type="text" placeholder="Medios de transporte" name="mediosT">
                             </div>
-                        </div>
+                        
                     </section>
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">HISTORIAL EVOLUCIÓN DE ENFERMEDAD</button>
-                        <div class="content">
+                        <label>HISTORIAL EVOLUCIÓN DE ENFERMEDAD</label>
+                        
                             <div class="fila">
                                 <input type="text" placeholder="DIAGNOSTICO:" name="diagnostico">
                             </div>
@@ -444,13 +444,13 @@
                             <div class="fila">
                                 <input type="text" placeholder="TRATAMIENTOS O TERAPEUTICA QUE RECIBA EL NIÑO:" name="tratamientos_terapeutica">
                             </div>
-                        </div>
+                        
                     </section>
 
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">EDUCACIÓN</button>
-                        <div class="content">
+                        <label>EDUCACIÓN</label>
+                        
                             <label style="display: flex; justify-content:center;">NIVEL INICIAL</label>
                             <div class="fila">
 
@@ -466,13 +466,13 @@
                                 <input type="text" placeholder="GRADO QUE CURSA:" name="nivel_primario_grado">
                                 <input type="text" placeholder="DOCENTE TUTOR:" name="nivel_primario_tutor">
                             </div>
-                        </div>
+                        
                     </section>
 
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">HISTORIA ESCOLAR</button>
-                        <div class="content">
+                        <label>HISTORIA ESCOLAR</label>
+                        
                             <div class="fila">
                                 <input type="text" placeholder="PROMOCIÓN AUTOMÁTICA EN EL PRIMER CICLO? SI _____ NO ________" name="promocion_automatica">
                                 <input type="text" placeholder="OBSERVACIONES" name="observaciones_promocion">
@@ -506,12 +506,12 @@
                                 <input type="text" placeholder="CARÁCTER ACTUAL" name="caracter_actual">
                                 <input type="text" placeholder="NOMBRE" name="nombre_caracter">
                             </div>
-                        </div>
+                        
                     </section>
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">ESCOLARIDAD HOSPITALARIA-DOMICILIARIA</button>
-                        <div class="content">
+                        <label>ESCOLARIDAD HOSPITALARIA-DOMICILIARIA</label>
+                        
                             <div class="fila">
                                 <input type="text" placeholder="RECIBIÓ CON ANTERIORIDAD EDUCACIÓN HOSPITALARIA/DOMICILIARIA? SI _____ NO ________" name="educacion_anterior">
                                 <input type="text" name="institucion_educacion" placeholder="INSTITUCIÓN">
@@ -522,16 +522,16 @@
                                 <input type="text" name="tiempo_intervencion" placeholder="TIEMPO DE INTERVENCIÓN ESC, HOSP-DOMIC">
                             </div>
 
-                        </div>
+                        
                     </section>
 
                     <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
-                        <button class="collapsible">OBSERVACIONES GENERALES</button>
-                        <div class="content">
+                        <label>OBSERVACIONES GENERALES</label>
+                        
                             <div class="fila">
                                 <input name="observaciones_generales" placeholder="OBSERVACIONES GENERALES (DISPONIBILIDAD DE TIEMPOS, ESPACIOS, ETC)">
                             </div>
-                        </div>
+                        
                     </section>
                 </section>
 

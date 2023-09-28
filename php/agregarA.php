@@ -21,6 +21,11 @@
     <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
     <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
@@ -202,44 +207,102 @@
             <!-- /.sidebar -->
         </aside>
         <div class="content-wrapper" style="height: 400px;">
-            <div class="container">
-                <h2 style="text-align: center;">Agregar alumno</h2>
-                <form id="msform" action="agregarAlumno.php" method="post">
-                    <div class="form-card">
-                        <div class="row">
-                            <label for="ape">Apellido:</label>
-                            <input name="apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido" required>
-                            <label for="nomb">Nombre:</label>
-                            <input name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre" required>
-                        </div>
-                        <div class="row">
-                            <label for="dni">Dni:</label>
-                            <input name="documento" type="text" class="fieldlabels" id="dni" placeholder="Documento" required>
-                            <label for="sexo">Género:</label>
-                            <select name="genero" id="genero" required>
-                                <option value="Sin especificar">Seleccionar</option>
-                                <option value="Femenino">Femenino</option>
-                                <option value="Masculino">Masculino</option>
-                            </select>
-                        </div>
-                        <div class="row">
-                            <label for="domc">Domicilio:</label>
-                            <input name="domicilio" type="text" class="fieldlabels" id="domc" placeholder="Domicilio" required>
-                            <label for="fechanac">Fecha de nacimiento:</label>
-                            <input name="fecha_nacimiento" type="date" class="fieldlabels" id="fechanac" required>
-                        </div>
-                        <div class="row">
-                            <label for="nombt">Nombre del Tutor:</label>
-                            <input name="nombre_tutor" type="text" class="fieldlabels" id="nombt" placeholder="Nombre del tutor" required>
-                        </div>
-                        <div class="botones-gs">
-                            <input type="submit" name="next" class="action-button green-button" value="Guardar y salir">
-                            <a href="formularioAlumno.php" class="action-button red-button">Cancelar</a>
-                        </div>
-                    </div>
 
-                </form>
+            <div class="container mt-5">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-md-8">
+                        <form id="regForm">
+                            <h2 style="text-align: center;">Agregar alumno</h2>
+                            <div class="all-steps" id="all-steps">
+                                <span class="step"><i class="fa fa-user"></i></span>
+                                <span class="step"><i class="fa fa-map-marker"></i></span>
+                                <span class="step"><i class="fa fa-shopping-bag"></i></span>
+                                <span class="step"><i class="fa fa-car"></i></span>
+                                <span class="step"><i class="fa fa-spotify"></i></span>
+                                <span class="step"><i class="fa fa-mobile-phone"></i></span>
+                            </div>
+
+                            <div class="tab">
+                                <div class="container">
+
+                                    <form id="msform" action="agregarAlumno.php" method="post">
+
+                                        <div class="row">
+                                            <label for="ape">Apellido:</label>
+                                            <input name="apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido" required>
+                                            <label for="nomb">Nombre:</label>
+                                            <input name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre" required>
+                                        </div>
+                                        <div class="row">
+                                            <label for="dni">Dni:</label>
+                                            <input name="documento" type="text" class="fieldlabels" id="dni" placeholder="Documento" required>
+                                            <label for="sexo">Género:</label>
+                                            <select name="genero" id="genero" required>
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Femenino">Femenino</option>
+                                                <option value="Masculino">Masculino</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <label for="domc">Domicilio:</label>
+                                            <input name="domicilio" type="text" class="fieldlabels" id="domc" placeholder="Domicilio" required>
+                                            <label for="fechanac">Fecha de nacimiento:</label>
+                                            <input name="fecha_nacimiento" type="date" class="fieldlabels" id="fechanac" required>
+                                        </div>
+                                        <div class="row">
+                                            <label for="nombt">Nombre del Tutor:</label>
+                                            <input name="nombre_tutor" type="text" class="fieldlabels" id="nombt" placeholder="Nombre del tutor" required>
+                                        </div>
+
+
+
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div class="tab">
+                                <h6>What's your city?</h6>
+                                <p><input placeholder="City" oninput="this.className = ''" name="dd"></p>
+
+                            </div>
+                            <div class="tab">
+                                <h6>What's your Favourite Shopping site?</h6>
+                                <p><input placeholder="Favourite Shopping site" oninput="this.className = ''" name="email"></p>
+
+                            </div>
+                            <div class="tab">
+                                <h6>What's your Favourite car?</h6>
+                                <p><input placeholder="Favourite car" oninput="this.className = ''" name="uname"></p>
+                            </div>
+
+                            <div class="tab">
+                                <h6>What's your Favourite Song?</h6>
+                                <p><input placeholder="Favourite Song" oninput="this.className = ''" name="uname"></p>
+                            </div>
+
+
+                            <div class="tab">
+                                <h6>What's your Favourite Mobile brand?</h6>
+                                <p><input placeholder="Favourite Mobile Brand" oninput="this.className = ''" name="uname"></p>
+                            </div>
+                            <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
+                                <h3>Thankyou for your feedback!</h3> <span>Thanks for your valuable information. It helps us to improve our services!</span>
+                            </div>
+                            <div style="overflow:auto;" id="nextprevious">
+                                <div style="float:right;">
+                                    <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button>
+                                    <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+
+
+
+
+
 
         </div>
 
