@@ -211,89 +211,204 @@
             <div class="container mt-5">
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="col-md-8">
-                        <form id="regForm">
+                        <form action="agregarTodo.php" method="post" id="regForm">
                             <h2 style="text-align: center;">Agregar alumno</h2>
                             <div class="all-steps" id="all-steps">
                                 <span class="step"><i class="fa fa-user"></i></span>
                                 <span class="step"><i class="fa fa-map-marker"></i></span>
                                 <span class="step"><i class="fa fa-shopping-bag"></i></span>
-                                <span class="step"><i class="fa fa-car"></i></span>
-                                <span class="step"><i class="fa fa-spotify"></i></span>
-                                <span class="step"><i class="fa fa-mobile-phone"></i></span>
                             </div>
 
                             <div class="tab">
                                 <div class="container">
+                                <input type="hidden" id="currentTab" value="0">
+                                    <div class="row">
+                                        <label for="ape">Apellido:</label>
+                                        <input name="apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido" required>
+                                        <label for="nomb">Nombre:</label>
+                                        <input name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="dni">Dni:</label>
+                                        <input name="documento" type="text" class="fieldlabels" id="dni" placeholder="Documento" required>
+                                        <label for="sexo">Género:</label>
+                                        <select name="genero" id="genero" required>
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Femenino">Femenino</option>
+                                            <option value="Masculino">Masculino</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <label for="domc">Domicilio:</label>
+                                        <input name="domicilio" type="text" class="fieldlabels" id="domc" placeholder="Domicilio" required>
+                                        <label for="fechanac">Fecha de nacimiento:</label>
+                                        <input name="fecha_nacimiento" type="date" class="fieldlabels" id="fechanac" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="nombt">Nombre del Tutor:</label>
+                                        <input name="nombre_tutor" type="text" class="fieldlabels" id="nombt" placeholder="Nombre del tutor" required>
+                                    </div>
 
-                                    <form id="msform" action="agregarAlumno.php" method="post">
+                                </div>
+                            </div>
+                            <div class="tab">
+                                <div class="container">
+                                <input type="hidden" id="currentTab" value="1">
 
+
+                                    <div class="row">
+                                        <label for="fechaing">Fecha de Ingreso:</label>
+                                        <input name="fecha_ingreso" type="date" class="fieldlabels" id="fechaing" placeholder="Fecha de Ingreso" required>
+                                    </div>
+                                    <div class="row">
+                                        <label for="escr">Escuela de referencia</label>
+                                        <input name="escRef" type="text" class="form-control" id="escr" placeholder="Escuela referencia">
+                                        <label for="">Grado</label>
+                                        <select name="grado">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Sala 3">Sala 3</option>
+                                            <option value="Sala 4">Sala 4</option>
+                                            <option value="Sala 5">Sala 5</option>
+                                            <option value="1° grado">1° grado</option>
+                                            <option value="2° grado">2° grado</option>
+                                            <option value="3° grado">3° grado</option>
+                                            <option value="4° grado">4° grado</option>
+                                            <option value="5° grado">5° grado</option>
+                                            <option value="6° grado">6° grado</option>
+                                            <option value="7° grado">7° grado</option>
+                                            <option value="Sin escolaridad">Sin escolaridad</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <label for="">Posee Escolaridad?</label>
+                                        <select name="posE">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                        <label for="">Escuela comun?</label>
+                                        <select name="escC">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                        <label for="">Escuelas especiales?</label>
+                                        <select name="escE">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                        <label for="">Lectura continua?</label>
+                                        <select name="lectC">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <label for="">Interpreta textos?</label>
+                                        <select name="interpT">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                        <label for="">Reconoce sustantivos/adjetivos/verbos?</label><br>
+                                        <select name="reconcSAV">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                        <label for="">Elabora oraciones?</label>
+                                        <select name="elabO">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                        <label for="">Lectura y escritura?</label>
+                                        <select name="LectyEsc">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                        <label for="">Resuelve operaciones basicas?</label>
+                                        <select name="resOpBasc">
+                                            <option value="Sin especificar">Seleccionar</option>
+                                            <option value="Si">Si</option>
+                                            <option value="No">No</option>
+                                            <option value="N/S">N/S</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="tab">
+                                <div class="container">
+                                <input type="hidden" id="currentTab" value="2">
+
+                                    <div class="form-card">
                                         <div class="row">
-                                            <label for="ape">Apellido:</label>
-                                            <input name="apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido" required>
-                                            <label for="nomb">Nombre:</label>
-                                            <input name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre" required>
+                                            <label for="fecha">Fecha</label>
+                                            <input name="fecha" type="date" class="fieldlabels" id="fecha">
                                         </div>
                                         <div class="row">
-                                            <label for="dni">Dni:</label>
-                                            <input name="documento" type="text" class="fieldlabels" id="dni" placeholder="Documento" required>
-                                            <label for="sexo">Género:</label>
-                                            <select name="genero" id="genero" required>
-                                                <option value="Sin especificar">Seleccionar</option>
-                                                <option value="Femenino">Femenino</option>
-                                                <option value="Masculino">Masculino</option>
+                                            <label for="internacion">En que estado se encuentra?</label>
+                                            <select name="estado" id="estado" onchange="showForm(this.value)">
+                                                <option value="">Selecciona una opción</option>
+                                                <option value="Internado">Internado</option>
+                                                <option value="Domiciliario">Domiciliario</option>
                                             </select>
                                         </div>
-                                        <div class="row">
-                                            <label for="domc">Domicilio:</label>
-                                            <input name="domicilio" type="text" class="fieldlabels" id="domc" placeholder="Domicilio" required>
-                                            <label for="fechanac">Fecha de nacimiento:</label>
-                                            <input name="fecha_nacimiento" type="date" class="fieldlabels" id="fechanac" required>
+
+                                        <div id="form1" style="display: none;">
+                                            <h2 style="text-align: center;">Internacion</h2>
+                                            <label for="nombt">Sala</label>
+                                            <input name="sala" type="text" class="fieldlabels" id="nombt" placeholder="Sala">
+                                            <label for="nombt">Habitacion</label>
+                                            <input name="habitacion" type="text" class="fieldlabels" id="nombt" placeholder="Habitacion">
+                                            <label for="nombt">Cama</label>
+                                            <input name="cama" type="text" class="fieldlabels" id="nombt" placeholder="Cama">
+                                            <label for="disc1">Discapacidad</label>
+                                            <input name="disc1" type="text" class="fieldlabels" id="disc1" placeholder="Discapacidad">
+                                            <label for="obs1">Observacion</label>
+                                            <input name="obs1" type="text" class="fieldlabels" id="obs1" placeholder="Observacion">
+                                            <label for="diag1">Diagnostico</label>
+                                            <input name="diag1" type="text" class="fieldlabels" id="diag1" placeholder="Diagnostico">
+
                                         </div>
-                                        <div class="row">
-                                            <label for="nombt">Nombre del Tutor:</label>
-                                            <input name="nombre_tutor" type="text" class="fieldlabels" id="nombt" placeholder="Nombre del tutor" required>
+                                        <div id="form2" style="display: none;">
+                                            <h2 style="text-align: center;">Domiciliario</h2>
+                                            <label for="dire">Direccion</label>
+                                            <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Direccion">
+                                            <label for="disc">Discapacidad</label>
+                                            <input name="disc" type="text" class="fieldlabels" id="disc" placeholder="Discapacidad">
+                                            <label for="obs">Observacion</label>
+                                            <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
+                                            <label for="diag">Diagnostico</label>
+                                            <input name="diag" type="text" class="fieldlabels" id="diag" placeholder="Diagnostico">
+
                                         </div>
+                                    </div>
+                                    <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
+                                        <h3>Alumno guardado!</h3>
+                                    </div>
 
-
-
-                                    </form>
                                 </div>
-
-                            </div>
-                            <div class="tab">
-                                <h6>What's your city?</h6>
-                                <p><input placeholder="City" oninput="this.className = ''" name="dd"></p>
-
-                            </div>
-                            <div class="tab">
-                                <h6>What's your Favourite Shopping site?</h6>
-                                <p><input placeholder="Favourite Shopping site" oninput="this.className = ''" name="email"></p>
-
-                            </div>
-                            <div class="tab">
-                                <h6>What's your Favourite car?</h6>
-                                <p><input placeholder="Favourite car" oninput="this.className = ''" name="uname"></p>
-                            </div>
-
-                            <div class="tab">
-                                <h6>What's your Favourite Song?</h6>
-                                <p><input placeholder="Favourite Song" oninput="this.className = ''" name="uname"></p>
-                            </div>
-
-
-                            <div class="tab">
-                                <h6>What's your Favourite Mobile brand?</h6>
-                                <p><input placeholder="Favourite Mobile Brand" oninput="this.className = ''" name="uname"></p>
-                            </div>
-                            <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
-                                <h3>Thankyou for your feedback!</h3> <span>Thanks for your valuable information. It helps us to improve our services!</span>
                             </div>
                             <div style="overflow:auto;" id="nextprevious">
                                 <div style="float:right;">
-                                    <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button>
-                                    <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button>
+                                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>

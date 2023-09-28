@@ -35,7 +35,7 @@
   <script src="plugins/chart.js/Chart.min.js"></script>
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
   <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
@@ -52,7 +52,7 @@
 
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed;">
       <!-- Brand Logo -->
       <a href="formularioAlumno.php" class="brand-link" style="text-decoration: none;">
         <img src="\Proyecto-master\Proyecto-master\img\conte1.png" alt="FJV Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -81,13 +81,32 @@
           <div class="info">
             <a style="text-decoration: none;" href="#" class="d-block">
               <?php
-              session_start();
-
               if (isset($_SESSION["usuario"])) {
 
                 $apellido = $_SESSION["Apellido"];
               }
               echo "Bienvenido " . $apellido;
+
+
+              session_start();
+              $posicion = $_SESSION['Posicion'];
+              // Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
+              if ($posicion == 'Administrador') {
+                $mostrarColumnaAccion = true;
+              } else {
+                $mostrarColumnaAccion = false;
+              }
+              if ($posicion == 'Usuario') {
+                $mostrarColumnaAccion1 = true;
+              } else {
+                $mostrarColumnaAccion1 = false;
+              }
+              if ($posicion == 'Psicopedagoga') {
+                $mostrarColumnaAccion2 = true;
+              } else {
+                $mostrarColumnaAccion2 = false;
+              }
+
               ?>
             </a>
           </div>
@@ -105,7 +124,7 @@
 
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
+                <img src="/Proyecto-master/Proyecto-master/img/formulario.png" style="max-height:20px;">
                 <p>
                   Formulario
                   <i class="fas fa-angle-left right"></i>
@@ -113,79 +132,97 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="formularioAlumno.php" class="nav-link active">
+                  <a href="formularioAlumno.php" class="nav-link active1">
                     <i class="far fa-circle nav-icon"></i>
                     <p>
                       Alumnos
                     </p>
                   </a>
                 </li>
+                <?php if ($mostrarColumnaAccion) : ?>
+                  <li class="nav-item">
+                    <a href="formularioUsuario.php" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        Usuarios
+                      </p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="formularioProfesor.php" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        Profesor
+                      </p>
+                    </a>
+                  </li>
+                <?php endif; ?>
 
-                <li class="nav-item">
-                  <a href="formularioUsuario.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Usuarios
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="formularioProfesor.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>
-                      Profesor
-                    </p>
-                  </a>
-                </li>
               </ul>
             </li>
 
 
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-edit"></i>
+                <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
                 <p>
-                  Gestionar Alumnos
+                  Agregar
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="agregarA.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos personales</p>
+                    <p>
+                      Alumnos
+                    </p>
                   </a>
+
                 </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos pedagogicos</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Agregar datos internacion/domiciliario</p>
-                  </a>
-                </li>
+                <?php if ($mostrarColumnaAccion) : ?>
+                  <li class="nav-item">
+                    <a href="agregarU.php" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        Usuarios
+                      </p>
+                    </a>
+
+                  </li>
+                  <li class="nav-item">
+                    <a href="AgregarProfesor.php" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        Profesores
+                      </p>
+                    </a>
+
+                  </li>
+                <?php endif; ?>
               </ul>
             </li>
 
-
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
+              <a href="estadistica.php" class="nav-link">
+                <img src="/Proyecto-master/Proyecto-master/img/grafico.png" style="max-height:20px;">
+                <p>
+                  Estadistica
+                </p>
               </a>
 
-            </li>
 
-            <li class="nav-header">Login</li>
+
+
             <li class="nav-item">
               <a href="cerrarSesion.php" class="nav-link">
-                <i class="nav-icon fas fa-ellipsis-h"></i>
-                <p>Cerrar Sesion</p>
+                <img src="/Proyecto-master/Proyecto-master/img/cerrar-sesion.png" style="max-height:20px;">
+                <p>
+                  Cerrar Sesión
+                </p>
               </a>
             </li>
+
 
 
 

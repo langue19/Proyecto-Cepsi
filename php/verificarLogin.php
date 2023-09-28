@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     // Guardar el nombre y el apellido del usuario en la sesión
                     $_SESSION["Apellido"] = $row["Apellido"];
-
+                    $_SESSION["Nombre"] = $row["Nombre"];
 
                     // Marcar como encontrada una coincidencia válida
                     $found = true;
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Verificar si se encontró una coincidencia válida
             if ($found) {
                 if ($posicion == "Administrador") {
-                    header("Location: cards.php");
+                    header("Location: formularioAlumno.php");
                 } elseif ($posicion == "Usuario") {
                     header("Location: formularioAlumno.php");
                 } elseif ($posicion == "Psicopedagoga") {

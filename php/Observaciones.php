@@ -151,34 +151,54 @@
 
 
                         <li class="nav-item">
-                            <a href="agregarA.php" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
                                 <p>
-                                    Agregar Alumnos
+                                    Agregar
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="agregarA.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Alumnos
+                                        </p>
+                                    </a>
+
+                                </li>
+                                <?php if ($mostrarColumnaAccion) : ?>
+                                    <li class="nav-item">
+                                        <a href="agregarU.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Usuarios
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="AgregarProfesor.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                Profesores
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="estadistica.php" class="nav-link">
+                                <img src="/Proyecto-master/Proyecto-master/img/grafico.png" style="max-height:20px;">
+                                <p>
+                                    Estadistica
                                 </p>
                             </a>
 
-                        </li>
-                        <?php if ($mostrarColumnaAccion) : ?>
-                            <li class="nav-item">
-                                <a href="agregarU.php" class="nav-link">
-                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
-                                    <p>
-                                        Agregar Usuarios
-                                    </p>
-                                </a>
-
-                            </li>
-                            <li class="nav-item">
-                                <a href="AgregarProfesor.php" class="nav-link">
-                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
-                                    <p>
-                                        Agregar Profesores
-                                    </p>
-                                </a>
-
-                            </li>
-                        <?php endif; ?>
 
 
 
@@ -197,42 +217,43 @@
 
                     </ul>
                 </nav>
-
-                <?php
-                if (isset($_GET['id'])) {
-                    $dni = $_GET['id'];
-                }
-
-                include 'crearTabla.php';
-                $sql1 = "SELECT *
-    FROM Datos_personales WHERE Dni = $dni;
-    ";
-
-                $consulta = $conn->prepare($sql1);
-
-                if ($consulta->execute()) {
-                }
-                while ($row = $consulta->fetch()) {
-                }
-                $sql1 = "SELECT Dni, Nombre, Apellido
-                FROM Datos_personales WHERE Dni = $dni;
-            ";
-            
-            $consulta = $conn->prepare($sql1);
-            
-            if ($consulta->execute()) {
-                // Recupera los datos de la consulta
-                $row = $consulta->fetch();
-            
-                // Utiliza los datos en tu formulario
-                $nombre = $row['Nombre'];
-                $apellido = $row['Apellido'];
-            }
-                ?>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
+
+        <?php
+        if (isset($_GET['id'])) {
+            $dni = $_GET['id'];
+        }
+
+        include 'crearTabla.php';
+        $sql1 = "SELECT *
+    FROM Datos_personales WHERE Dni = $dni;
+    ";
+
+        $consulta = $conn->prepare($sql1);
+
+        if ($consulta->execute()) {
+        }
+        while ($row = $consulta->fetch()) {
+        }
+        $sql1 = "SELECT Dni, Nombre, Apellido
+                FROM Datos_personales WHERE Dni = $dni;
+            ";
+
+        $consulta = $conn->prepare($sql1);
+
+        if ($consulta->execute()) {
+            // Recupera los datos de la consulta
+            $row = $consulta->fetch();
+
+            // Utiliza los datos en tu formulario
+            $nombre = $row['Nombre'];
+            $apellido = $row['Apellido'];
+        }
+        ?>
+
         <div class="content-wrapper" style="height: 400px;">
             <div class="container">
                 <h2 style="text-align: center;">Agregar Observaciones</h2>
@@ -252,29 +273,42 @@
                             <input name="Observaciones" type="text" class="fieldlabels" id="Observaciones" placeholder="Observaciones">
                             <label for="Contenido">Contenido</label>
                             <input name="Contenido" type="text" class="fieldlabels" id="Contenido" placeholder="Contenido">
-                            <label for="Profesor">Profesor</label>
-                            <select name="Profesor" id="Profesor" class="form-control" style="background-color:whitesmoke;
-                                        
-                                        color: black;">
+                            
+                            <?php
+                            session_start();
+                            $posicion = $_SESSION['Posicion'];
+                            // Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
+                            if ($posicion == 'Usuario') {
+                                $ape = $_SESSION["Apellido"];
+                                $nomb = $_SESSION["Nombre"];
+                                echo " <label for='Profesor'>Profesor</label><input style='background-color:antiquewhite; text-align: center;' name='Contenido' type='text' class='fieldlabels' id='Contenido' value='$ape $nomb' readonly>";
+                            } else {
+                                echo "<label for='Profesor'>Profesor</label>
+                            <select name='Profesor' id='Profesor' class='form-control' style='background-color:whitesmoke;color: black;'>";
+                            }
+                            ?>
+
+
                         </div>
                         <?php
                         // Conecta a la base de datos y ejecuta una consulta para obtener los profesores
                         include 'conexion.php';
                         include 'crearBD.php';
                         include 'crearTabla.php';
-                        $conn->exec("USE $dbname");
-                        $stmt = $conn->query("SELECT Nombre, Apellido FROM Datos_Profesor WHERE Estado = true"); // Ajusta la consulta según tus necesidades
-                        echo "<option value=''>Seleccionar</option>";
-                        // Itera a través de los resultados y crea una opción para cada profesor
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            $nombre = $row['Nombre'];
-                            $apellido = $row['Apellido'];
-                            echo "<option value=\"$nombre $apellido\">$nombre $apellido</option>";
+                        if ($posicion == 'Administrador') {
+                            $conn->exec("USE $dbname");
+                            $stmt = $conn->query("SELECT Nombre, Apellido FROM Datos_Profesor WHERE Estado = true"); // Ajusta la consulta según tus necesidades
+                            echo "<option value=''>Seleccionar</option>";
+                            // Itera a través de los resultados y crea una opción para cada profesor
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                $nombre = $row['Nombre'];
+                                $apellido = $row['Apellido'];
+                                echo "<option value=\"$nombre $apellido\">$nombre $apellido</option>";
+                            }
+                            echo "</select>";
                         }
                         ?>
-                        </select>
-
-                    </div>
+                    
                     <div class="botones-gs">
                         <input type="submit" name="next" class="action-button green-button" value="Guardar y salir">
                         <a href="formularioAlumno.php" class="action-button red-button">Cancelar</a>

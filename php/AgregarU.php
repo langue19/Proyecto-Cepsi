@@ -207,27 +207,27 @@
                 <form id="msform" action="agregarUsuario.php" method="post">
                     <div class="form-card">
                         <div class="row">
-                        <label for="Nombre">Nombre</label>
-                                    <input name="Nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre">
-                                    <label for="Apellido">Apellido</label>
-                                    <input name="Apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido">
-                                    <label for="Usuario">Usuario</label>
-                                    <input name="Usuario" type="text" class="fieldlabels" id="user" placeholder="Usuario">
-                                    <label for="nomb">Contraseña</label>
-                                    <input name="Contraseña" type="text" class="fieldlabels" id="contra" placeholder="Contraseña">
-                                    <label for="Contraseña">Estado:</label>
-                                    <select name="Estado" id="Estado">
-                                        <option value="Sin especificar">Seleccionar</option>
-                                        <option value="1">Activo</option>
-                                        <option value="0">Inactivo</option>
-                                    </select>
-                                    <label for="Posicion">Posicion:</label>
-                                    <select name="Posicion" id="Posicion">
-                                        <option value="Sin especificar">Seleccionar</option>
-                                        <option value="Administrador">Administrador</option>
-                                        <option value="Usuario">Usuario</option>
-                                        <option value="Psicopedagoga">Psicopedagoga</option>
-                                    </select>
+                            <label for="Nombre">Nombre</label>
+                            <input name="Nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre">
+                            <label for="Apellido">Apellido</label>
+                            <input name="Apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido">
+                            <label for="Usuario">Usuario</label>
+                            <input name="Usuario" type="text" class="fieldlabels" id="user" placeholder="Usuario">
+                            <label for="nomb">Contraseña</label>
+                            <input name="Contraseña" type="text" class="fieldlabels" id="contra" placeholder="Contraseña">
+                            <label for="Contraseña">Estado:</label>
+                            <select name="Estado" id="Estado">
+                                <option value="Sin especificar">Seleccionar</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                            <label for="Posicion">Posicion:</label>
+                            <select name="Posicion" id="Posicion">
+                                <option value="Sin especificar">Seleccionar</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Usuario">Usuario</option>
+                                <option value="Psicopedagoga">Psicopedagoga</option>
+                            </select>
                         </div>
                         <div class="botones-gs">
                             <input type="submit" name="next" class="action-button green-button" value="Guardar y salir">

@@ -37,7 +37,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
-    <div class="wrapper">
+<div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-black navbar-dark">
             <!-- Left navbar links -->
@@ -149,7 +149,6 @@
                                             </p>
                                         </a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a href="formularioProfesor.php" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
@@ -179,6 +178,15 @@
                                     <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
                                     <p>
                                         Agregar Usuarios
+                                    </p>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="AgregarProfesor.php" class="nav-link">
+                                    <img src="/Proyecto-master/Proyecto-master/img/gestion.png" style="max-height:20px;">
+                                    <p>
+                                        Agregar Profesores
                                     </p>
                                 </a>
 

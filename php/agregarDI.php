@@ -20,7 +20,7 @@
 
     <script src="/Proyecto-master/Proyecto-master/js/FormAlumno.js"></script>
     <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
-    
+
 
 </head>
 
@@ -198,100 +198,104 @@
 
                     </ul>
                 </nav>
-
-
-                <?php
-
-                if (isset($_GET['id'])) {
-                    // Obtener el ID del registro desde la URL
-                    $id = $_GET['id'];
-
-                    // Realizar una consulta a la base de datos para obtener los datos del registro
-                    // Asegúrate de reemplazar los valores en 'nombre_usuario', 'contraseña_usuario', 'estado_usuario', 'posicion_usuario'
-                    // con los nombres de las columnas en tu tabla de datos_usuarios
-                    // y 'nombre_tabla' con el nombre real de la tabla.
-                    // Además, ajusta la conexión a tu base de datos.
-                    include 'crearTabla.php';
-                    $id = $_GET['id'];
-
-                    $sql = "SELECT *
-FROM Datos_personales 
-WHERE Dni = :id";
-
-                    $consulta = $conn->prepare($sql);
-                    $consulta->bindParam(':id', $id, PDO::PARAM_INT);
-
-                    if ($consulta->execute()) {
-                        $registro = $consulta->fetch(PDO::FETCH_ASSOC);
-                    } else {
-                        // Manejo de error si la consulta falla
-                        echo "Error al obtener los datos del registro.";
-                        exit;
-                    }
-                }
-                ?>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
-        <div class="content-wrapper" style="height: 400px;">
-            <div class="container">
-                <h2 style="text-align: center;">Agregar Datos De Internación</h2>
-                <form id="msform" action="agregarDatosI.php" method="post">
-                    <div class="form-card">
-                        <div class="row">
-                            <label for="dni">DNI:</label>
-                            <input value="<?php echo isset($registro['Dni']) ? $registro['Dni'] : ''; ?>" name="dni" type="text" class="fieldlabels" id="dni" style="text-align:center;background-color: antiquewhite;" readonly>
-                            <label for="fecha">Fecha</label>
-                            <input name="fecha" type="date" class="fieldlabels" id="fecha">
-                        </div>
-                        <div class="row">
-                            <label for="internacion">En que estado se encuentra?</label>
-                            <select name="estado" id="estado" onchange="showForm(this.value)">
-                                <option value="">Selecciona una opción</option>
-                                <option value="Internado">Internado</option>
-                                <option value="Domiciliario">Domiciliario</option>
-                            </select>
-                        </div>
 
-                        <div id="form1" style="display: none;">
-                                        <h2 style="text-align: center;">Internacion</h2>
-                                        <label for="nombt">Sala</label>
-                                        <input name="sala" type="text" class="fieldlabels" id="nombt" placeholder="Sala">
-                                        <label for="nombt">Habitacion</label>
-                                        <input name="habitacion" type="text" class="fieldlabels" id="nombt" placeholder="Habitacion">
-                                        <label for="nombt">Cama</label>
-                                        <input name="cama" type="text" class="fieldlabels" id="nombt" placeholder="Cama">
-                                        <label for="disc1">Discapacidad</label>
-                                        <input name="disc1" type="text" class="fieldlabels" id="disc1" placeholder="Discapacidad">
-                                        <label for="obs1">Observacion</label>
-                                        <input name="obs1" type="text" class="fieldlabels" id="obs1" placeholder="Observacion">
-                                        <label for="diag1">Diagnostico</label>
-                                        <input name="diag1" type="text" class="fieldlabels" id="diag1" placeholder="Diagnostico">
-                                        
-                                    </div>
-                                    <div id="form2" style="display: none;">
-                                        <h2 style="text-align: center;">Domiciliario</h2>
-                                        <label for="dire">Direccion</label>
-                                        <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Direccion">
-                                        <label for="disc">Discapacidad</label>
-                                        <input name="disc" type="text" class="fieldlabels" id="disc" placeholder="Discapacidad">
-                                        <label for="obs">Observacion</label>
-                                        <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
-                                        <label for="diag">Diagnostico</label>
-                                        <input name="diag" type="text" class="fieldlabels" id="diag" placeholder="Diagnostico">
-                                        
-                                    </div>
-                        <div class="botones-gs">
-                            <input type="submit" name="next" class="action-button green-button" value="Guardar y salir">
-                            <a href="formularioAlumno.php" class="action-button red-button">Cancelar</a>
-                        </div>
+
+        <?php
+
+        if (isset($_GET['id'])) {
+            // Obtener el ID del registro desde la URL
+            $id = $_GET['id'];
+
+            // Realizar una consulta a la base de datos para obtener los datos del registro
+            // Asegúrate de reemplazar los valores en 'nombre_usuario', 'contraseña_usuario', 'estado_usuario', 'posicion_usuario'
+            // con los nombres de las columnas en tu tabla de datos_usuarios
+            // y 'nombre_tabla' con el nombre real de la tabla.
+            // Además, ajusta la conexión a tu base de datos.
+            include 'crearTabla.php';
+            $id = $_GET['id'];
+
+            $sql = "SELECT *
+FROM Datos_personales 
+WHERE Dni = :id";
+
+            $consulta = $conn->prepare($sql);
+            $consulta->bindParam(':id', $id, PDO::PARAM_INT);
+
+            if ($consulta->execute()) {
+                $registro = $consulta->fetch(PDO::FETCH_ASSOC);
+            } else {
+                // Manejo de error si la consulta falla
+                echo "Error al obtener los datos del registro.";
+                exit;
+            }
+        }
+        ?>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+    </aside>
+    <div class="content-wrapper" style="height: 400px;">
+        <div class="container">
+            <h2 style="text-align: center;">Agregar Datos De Internación</h2>
+            <form id="msform" action="agregarDatosI.php" method="post">
+                <div class="form-card">
+                    <div class="row">
+                        <label for="dni">DNI:</label>
+                        <input value="<?php echo isset($registro['Dni']) ? $registro['Dni'] : ''; ?>" name="dni" type="text" class="fieldlabels" id="dni" style="text-align:center;background-color: antiquewhite;" readonly>
+                        <label for="fecha">Fecha</label>
+                        <input name="fecha" type="date" class="fieldlabels" id="fecha">
+                    </div>
+                    <div class="row">
+                        <label for="internacion">En que estado se encuentra?</label>
+                        <select name="estado" id="estado" onchange="showForm(this.value)">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Internado">Internado</option>
+                            <option value="Domiciliario">Domiciliario</option>
+                        </select>
                     </div>
 
-                </form>
-            </div>
+                    <div id="form1" style="display: none;">
+                        <h2 style="text-align: center;">Internacion</h2>
+                        <label for="nombt">Sala</label>
+                        <input name="sala" type="text" class="fieldlabels" id="nombt" placeholder="Sala">
+                        <label for="nombt">Habitacion</label>
+                        <input name="habitacion" type="text" class="fieldlabels" id="nombt" placeholder="Habitacion">
+                        <label for="nombt">Cama</label>
+                        <input name="cama" type="text" class="fieldlabels" id="nombt" placeholder="Cama">
+                        <label for="disc1">Discapacidad</label>
+                        <input name="disc1" type="text" class="fieldlabels" id="disc1" placeholder="Discapacidad">
+                        <label for="obs1">Observacion</label>
+                        <input name="obs1" type="text" class="fieldlabels" id="obs1" placeholder="Observacion">
+                        <label for="diag1">Diagnostico</label>
+                        <input name="diag1" type="text" class="fieldlabels" id="diag1" placeholder="Diagnostico">
 
+                    </div>
+                    <div id="form2" style="display: none;">
+                        <h2 style="text-align: center;">Domiciliario</h2>
+                        <label for="dire">Direccion</label>
+                        <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Direccion">
+                        <label for="disc">Discapacidad</label>
+                        <input name="disc" type="text" class="fieldlabels" id="disc" placeholder="Discapacidad">
+                        <label for="obs">Observacion</label>
+                        <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
+                        <label for="diag">Diagnostico</label>
+                        <input name="diag" type="text" class="fieldlabels" id="diag" placeholder="Diagnostico">
+
+                    </div>
+                    <div class="botones-gs">
+                        <input type="submit" name="next" class="action-button green-button" value="Guardar y salir">
+                        <a href="formularioAlumno.php" class="action-button red-button">Cancelar</a>
+                    </div>
+                </div>
+
+            </form>
         </div>
+
+    </div>
 
     </div>
     <!-- REQUIRED SCRIPTS -->
