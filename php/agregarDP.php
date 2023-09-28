@@ -254,9 +254,7 @@ WHERE Dni = :id";
             }
         }
         ?>
-        <!-- /.sidebar-menu -->
-    
-    <!-- /.sidebar -->
+     
  
     <div class="content-wrapper" style="height: 400px;">
         <div class="container">
