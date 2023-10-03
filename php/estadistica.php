@@ -237,10 +237,80 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" style="height: 600px;">
 
+            <div style="display: flex; justify-content: space-between;">
+                <h2 class="mb-2 mt-4">Total de alumnos</h2>
+                <h2 class="mb-2 mt-4">Total de alumnos - Con escolaridad</h2>
+                <h2 class="mb-2 mt-4">Sin escolaridad</h2>
+            </div>
+
+            <div class="">
+
+                <div class="row" style="display: flex; justify-content:space-between;">
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-">
+                            <div class="inner">
+                                <?php
+                                $sql = "SELECT COUNT(*) AS Grado FROM datos_pedagogicos;";
+                                $consulta = $conn->prepare($sql);
+                                $consulta->execute();
+                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+                                echo "<h3>" . $resultado . "</h3>";
+                                ?>
+                                <p>Total de alumnos</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">
+                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-">
+                            <div class="inner">
+                                <?php
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado <> 'Sin escolaridad'";
+                                $consulta = $conn->prepare($sql);
+                                $consulta->execute();
+                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+                                echo "<h3>" . $resultado . "</h3>";
+                                ?>
+                                <p>Total de alumnos - Con Escolaridad</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">
+                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-">
+                            <div class="inner">
+                                <?php
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = 'Sin escolaridad'";
+                                $consulta = $conn->prepare($sql);
+                                $consulta->execute();
+                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+                                echo "<h3>" . $resultado . "</h3>";
+                                ?>
+                                <p>Sin escolaridad</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">
+                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
             <h2 class="mb-2 mt-4" style="display: flex; justify-content:center;">Salas</h2>
-
-
             <div class="">
 
                 <div class="row" style="display: flex; justify-content:center;">
@@ -455,37 +525,6 @@
                                 echo "<h3>" . $resultado . "</h3>";
                                 ?>
                                 <p>7º grado</p>
-                            </div>
-                            <div class="icon">
-                                <i class="fas fa-user-plus"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="mb-2 mt-4" style="display: flex; justify-content:center;">Sin escolaridad</h2>
-
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <div class="">
-
-                <div class="row" style="display: flex; justify-content:center;">
-                    <div class="col-lg-3 col-6">
-                        <div class="small-box bg-">
-                            <div class="inner">
-                                <?php
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = 'Sin escolaridad'";
-                                $consulta = $conn->prepare($sql);
-                                $consulta->execute();
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-                                echo "<h3>" . $resultado . "</h3>";
-                                ?>
-                                <p>Sin escolaridad</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-user-plus"></i>
