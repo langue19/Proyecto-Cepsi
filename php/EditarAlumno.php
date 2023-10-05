@@ -42,7 +42,7 @@ if (empty($dni) || empty($nomb) || empty($ape) || empty($genero) || empty($dom) 
         $stmt->bindParam(':nombre_tutor', $nombTutor);
         $stmt->execute();
 
-        header("location: cards.php"); // Redirigir a la página deseada después de la actualización
+        header("location: formularioAlumno.php"); // Redirigir a la página deseada después de la actualización
     } else {
         ?>
         <script>
