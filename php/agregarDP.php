@@ -169,18 +169,26 @@ WHERE Dni = :id";
                                 </div>
                             </div>
                             <div style="overflow:auto;" id="nextprevious">
-                                    <div style="float:right;">
-                                        <button class="action-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-                                        <button class="action-button" type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
-                                    </div>
+                                <div style="float:right;">
+                                    <button class="action-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                                    <button class="action-button" type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
 
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
 </body>
 
 </html>

@@ -37,7 +37,7 @@ $mesesEnEspanol = array(
 
 <body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
 
-<?php include 'aside.php'; ?>
+    <?php include 'aside.php'; ?>
 
     <div class="wrapper">
         <div class="content-wrapper">
@@ -972,7 +972,15 @@ ORDER BY Fecha ASC;
 
         <!-- /.col-md-6 -->
     </div>
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
 
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
 </body>
 
 </html>

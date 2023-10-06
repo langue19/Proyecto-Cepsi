@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
+<?php
+session_start();
+error_reporting(0);
 
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    // Si no ha iniciado sesión, redirigirlo a la página de inicio de sesión
+    header("Location: /Proyecto-master/Proyecto-master/login.html");
+    exit;
+}
 
+// Obtener la posición del usuario desde la sesión
+$posicion = $_SESSION['Posicion'];
+
+// Verificar si el usuario tiene la posición de "Usuario"
+// Si es así, redirigirlo a la página "formularioAlumno.php"
+if ($posicion == 'Usuario') {
+    header("Location: /Proyecto-master/Proyecto-master/php/formularioAlumno.php");
+    exit;
+}
+?>
 
 <head>
-    <title>FJV | Escuela CEPSI</title>
-    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/FormCSS.css">
-    <script src="/Proyecto-master/Proyecto-master/js/FormUsuario.js"></script>
-    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
-
-
-    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
-    <!-- REQUIRED SCRIPTS -->
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\font.css">
     <!-- Font Awesome Icons -->
@@ -24,27 +33,41 @@
     <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\code.ionic.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE -->
-    <script src="dist/js/adminlte.js"></script>
+    <title>FJV | Escuela CEPSI</title>
+    <meta charset="UTF-8">
+    <!-- CSS only -->
+    <link rel="stylesheet" type="text/css" href="/Proyecto-master/Proyecto-master/css/FormCSS.css">
+    <link rel="stylesheet" href="\Proyecto-master\Proyecto-master\css\w3.css">
+    <link href="\Proyecto-master\Proyecto-master\bootstrap\css\bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-    <!-- OPTIONAL SCRIPTS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
+    <link rel="shortcut icon" href="/Proyecto-master/Proyecto-master/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <script src="/Proyecto-master/Proyecto-master/js/FormUsuario.js"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini" style="background-color: #f4f6f9;">
     <?php include 'aside.php'; ?>
+
     <div class="wrapper">
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-            </div>
-            <!-- /.content-header -->
+            <section>
+                <div class="row mb-1">
+                    <label>
+                        <input class="toggle-checkbox" type="checkbox" id="toggle-checkbox">
+                        <div class="toggle-slot">
+                            <div class="sun-icon-wrapper">
+                                <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
+                            </div>
+                            <div class="toggle-button"></div>
+                            <div class="moon-icon-wrapper">
+                                <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
+                            </div>
+                        </div>
+                    </label>
 
-            <!-- Main content -->
+                </div><!-- /.container-fluid -->
+            </section>
             <div class="content">
                 <div class="container-fluid">
                     <div class="form-conten">
@@ -55,7 +78,7 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table id="table-id" class="table table-striped table-dark">
+                            <table id="table-id" class="table table-striped table-white">
                                 <thead class="bg-light">
                                     <tr>
                                         <th>Dni</th>
@@ -87,27 +110,11 @@
                                             } else {
                                                 echo "<td class='estadoI' style='color:white;'><a>Inactivo</a></td>";
                                             }
-
-                                            echo "<td class='acciones'>
-    <a href='#' onclick='abrirModal(" . $row['Dni'] . ")'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
-</td>";
-
                                             echo "<td>
-                      <div class='w3-container'>
-                          <div id='id-" . $row['Dni'] . "' class='w3-modal'>
-                              <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='width:50%'>
-                                  <header class='w3-black'>
-                                      <span onclick=\"document.getElementById('id-" . $row['Dni'] . "').style.display='none'\" class='w3-button w3-display-topright'>&times;</span>
-                                      <h1>Editar</h1>
-                                  </header>
-                                  <div id='London-" . $row['Dni'] . "' class='w3-container city'>
-                                      <div class='container'>
-                                          <!--  Table  -->
-                                          <div class=''>
-                                              <table class=''>
-                                                  <thead>
-                                                      <tr>";
-
+    <a data-toggle='modal' data-target='#loginModal-" . $row['Dni'] . "' onclick='abrirModal(" . $row['Dni'] . ")'>
+        <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'>
+    </a>
+</td>";
                                             // Consulta para obtener los datos del profesor con el DNI correspondiente
                                             $idviejo = $row['Dni'];
                                             $sql2 = "SELECT * FROM Datos_Profesor WHERE Dni = :idviejo";
@@ -116,45 +123,53 @@
                                             if ($consulta2->execute()) {
                                                 $row2 = $consulta2->fetch();
 
-                                                echo "
-                                                          <div class=''>
-                                                              <form id='msform' action='editarProf.php' method='post'>
-                                                                  <fieldset>
-                                                                      <div class='form-card'>
-                                                                          <div class='formulario' style='color:black;'>
-                                                                              <label for='Dni'>DNI</label>
-                                                                              <input name='Dni' type='text' style='background-color: antiquewhite; color:black;' id='Dni' placeholder='DNI' value='" . $row2['Dni'] . "' readonly>
-                                                                              <label for='Nombre'>Nombre</label>
-                                                                              <input style='color:black;' name='Nombre' type='text' class='fieldlabels' id='Nombre' placeholder='Nombre' value='" . $row2['Nombre'] . "'>
-                                                                              <label for='Apellido'>Apellido</label>
-                                                                              <input style='color:black;' name='Apellido' type='text' class='fieldlabels' id='Apellido' placeholder='Apellido' value='" . $row2['Apellido'] . "'>
-                                                                              <label for='Estado'>Estado</label>
-                                                                              <select style='color:black;' name='Estado' id='Estado'>
-                                                                                  <option style='color:black;' value='1' " . ($row2['Estado'] == 1 ? 'selected' : '') . ">Activo</option>
-                                                                                  <option style='color:black;' value='0' " . ($row2['Estado'] == 0 ? 'selected' : '') . ">Inactivo</option>
-                                                                              </select>
-                                                                          </div>
-                                                                      </div>
-                                                                      <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; gap:30px' value='Guardar y salir!' />
-                                                                  </fieldset>
-                                                              </form>
-                                                          </div>";
-                                            } else {
-                                                echo "Error al obtener los datos del profesor.";
+                                                echo '<td>
+    <div class="modal fade" id="loginModal-' . $row['Dni'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-column text-center">
+        <form id="msform" action="editarProf.php" method="post">
+
+            <div class="form-card">
+                <div class="formulario" style="color:black;">
+                    <label for="Dni">DNI</label>
+                    <input name="Dni" type="text" style="background-color: antiquewhite; color:black;" id="Dni" placeholder="DNI" value="' . $row2["Dni"] . '" readonly>
+                    <label for="Nombre">Nombre</label>
+                    <input style="color:black; background-color:rgb(241, 241, 241);" name="Nombre" type="text" id="Nombre" placeholder="Nombre" value="' . $row2["Nombre"] . '">
+                    <label for="Apellido">Apellido</label>
+                    <input style="color:black; background-color:rgb(241, 241, 241);" name="Apellido" type="text" id="Apellido" placeholder="Apellido" value="' . $row2["Apellido"] . '">
+                    <label for="Estado">Estado</label>
+                    <select style="color:black; background-color:rgb(241, 241, 241);" name="Estado" id="Estado">
+                        <option style="color:black;" value="1" ' . ($row2["Estado"] == 1 ? "selected" : "") . '>Activo</option>
+                        <option style="color:black;" value="0" ' . ($row2["Estado"] == 0 ? "selected" : "") . '>Inactivo</option>
+                    </select>
+                </div>
+                <div style="overflow:auto;" id="nextprevious">
+                    <div style="padding-top:20px;float:right;">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" name="guardarCambios" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+            
+        </div>
+      </div>
+  </div>
+</div>
+
+
+</td>';
+
+
+                                                echo "</tr>";
                                             }
-
-                                            echo "</tbody>
-                                              </table>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </td>";
-
-
-                                            echo "</tr>";
                                         }
                                     }
                                     ?>
@@ -207,7 +222,16 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
 
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
 
 </body>
 

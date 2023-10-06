@@ -110,7 +110,7 @@ WHERE Dni = :id";
                                         <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
                                         <label for="diag">Diagnostico</label>
                                         <input name="diag" type="text" class="fieldlabels" id="diag" placeholder="Diagnostico">
-                                    </div>  
+                                    </div>
                                 </div>
                             </div>
                             <div style="overflow:auto;" id="nextprevious">
@@ -125,6 +125,16 @@ WHERE Dni = :id";
             </div>
         </div>
     </div>
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="dist/js/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+
 </body>
 
 </html>
