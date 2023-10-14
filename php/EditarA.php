@@ -72,11 +72,11 @@
                                         <input style="background-color:antiquewhite; text-align:center;" name="documento" type="text" class="fieldlabels" id="dni" placeholder="Documento" value="<?php echo isset($registro['Dni']) ? $registro['Dni'] : ''; ?>" readonly>
 
                                         <label for="ape">Apellido</label>
-                                        <input name="apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido">
+                                        <input style="color:black; background-color:rgb(241, 241, 241);" name="apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido" value="<?php echo isset($registro['Apellido']) ? $registro['Apellido'] : ''; ?>">
                                         <label for="nomb">Nombre</label>
-                                        <input name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre">
+                                        <input style="color:black; background-color:rgb(241, 241, 241);" name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre" value="<?php echo isset($registro['Nombre']) ? $registro['Nombre'] : ''; ?>">
                                         <label for="sexo">Genero:</label>
-                                        <select name="genero" id="genero">
+                                        <select name="genero" id="genero" >
                                             <option value="Sin especificar">Seleccionar</option>
                                             <option value="Femenino">Femenino</option>
                                             <option value="Masculino">Masculino</option>

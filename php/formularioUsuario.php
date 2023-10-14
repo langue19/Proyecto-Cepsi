@@ -130,15 +130,15 @@ if ($posicion == 'Usuario') {
                             <a onclick='return confirmDelete();' href='eliminarU.php?id= " . $row['ID'] . "'><img src='/Proyecto-master/Proyecto-master/img/boton-eliminar.png'></a>
                             </td>";
 
-                            
-                            // Consulta para obtener los datos del profesor con el ID correspondiente
-                            $idviejo = $row['ID'];
-                            $sql2 = "SELECT * FROM datos_usuarios WHERE ID = :idviejo";
-                            $consulta2 = $conn->prepare($sql2);
-                            $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT);
-                            if ($consulta2->execute()) {
-                                $row2 = $consulta2->fetch();
-                      echo '<td>
+
+                      // Consulta para obtener los datos del profesor con el ID correspondiente
+                      $idviejo = $row['ID'];
+                      $sql2 = "SELECT * FROM datos_usuarios WHERE ID = :idviejo";
+                      $consulta2 = $conn->prepare($sql2);
+                      $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT);
+                      if ($consulta2->execute()) {
+                        $row2 = $consulta2->fetch();
+                        echo '<td>
     <div class="modal fade" id="loginModal-' . $row['ID'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -159,6 +159,12 @@ if ($posicion == 'Usuario') {
                       <div class="row">
                         <label for="Usuario">Usuario</label>
                         <input name="Usuario" type="text" style="background-color: antiquewhite; color:black;" id="user" placeholder="Usuario" value="<?php echo isset($row2['Usuario']) ? $row2['Usuario'] : ''; ?>" readonly>
+
+                        <label for="Nombre">Nombre</label>
+                        <input name="Nombre" type="text" style="color:black; background-color:rgb(241, 241, 241);" id="user" placeholder="Nombre" value="<?php echo isset($row2['Nombre']) ? $row2['Nombre'] : ''; ?>">
+                        <label for="Apellido">Apellido</label>
+                        <input name="Apellido" type="text" style="color:black; background-color:rgb(241, 241, 241);" id="user" placeholder="Apellido" value="<?php echo isset($row2['Apellido']) ? $row2['Apellido'] : ''; ?>">
+
                         <label for="nomb">Contraseña</label>
                         <input style="color:black; background-color:rgb(241, 241, 241);" name="Contraseña" type="text" class="fieldlabels" id="contra" placeholder="Contraseña" value="<?php echo isset($row2['Contraseña']) ? $row2['Contraseña'] : ''; ?>">
                         <label for="Contraseña">Estado</label>
@@ -195,61 +201,61 @@ if ($posicion == 'Usuario') {
         </div>
 
         </td>
-    <?php
-    }
+  <?php
+                      }
 
 
                       echo "</tr>";
                     }
                   }
-                
-    ?>
-    </tbody>
-    </table>
 
-    <?php
-    $totalFilas = 500; // Cambiar al total real de filas en la tabla
-    $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
-    $totalPaginas = ceil($totalFilas / $itemsPorPagina);
+  ?>
+  </tbody>
+  </table>
 
-    $enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la paginación
+  <?php
+  $totalFilas = 500; // Cambiar al total real de filas en la tabla
+  $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
+  $totalPaginas = ceil($totalFilas / $itemsPorPagina);
 
-    $mitadEnlaces = floor($enlacesMostrados / 2);
-    $inicioRango = max(1, $paginaActual - $mitadEnlaces);
-    $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
-    ?>
+  $enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la paginación
 
-    <div class="pagination">
-      <?php if ($paginaActual > 1) : ?>
-        <a href='formularioUsuario.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
+  $mitadEnlaces = floor($enlacesMostrados / 2);
+  $inicioRango = max(1, $paginaActual - $mitadEnlaces);
+  $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
+  ?>
+
+  <div class="pagination">
+    <?php if ($paginaActual > 1) : ?>
+      <a href='formularioUsuario.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
+    <?php endif; ?>
+
+    <?php if ($inicioRango > 1) : ?>
+      <a href='formularioUsuario.php?pagina=1'>1</a>
+      <?php if ($inicioRango > 2) : ?>
+        <a class="pagination-dots">...</a>
       <?php endif; ?>
+    <?php endif; ?>
 
-      <?php if ($inicioRango > 1) : ?>
-        <a href='formularioUsuario.php?pagina=1'>1</a>
-        <?php if ($inicioRango > 2) : ?>
-          <a class="pagination-dots">...</a>
-        <?php endif; ?>
+    <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
+      <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
+      <a class='<?php echo $active; ?>' href='formularioUsuario.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
+    <?php endfor; ?>
+
+    <?php if ($finRango < $totalPaginas) : ?>
+      <?php if ($finRango < $totalPaginas - 1) : ?>
+        <a class="pagination-dots">...</a>
       <?php endif; ?>
+      <a href='formularioUsuario.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
+    <?php endif; ?>
 
-      <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
-        <?php $active = ($i == $paginaActual) ? 'active' : ''; ?>
-        <a class='<?php echo $active; ?>' href='formularioUsuario.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
-      <?php endfor; ?>
+    <?php if ($paginaActual < $totalPaginas) : ?>
+      <a href='formularioUsuario.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente &gt;</a>
+    <?php endif; ?>
+  </div><?php
 
-      <?php if ($finRango < $totalPaginas) : ?>
-        <?php if ($finRango < $totalPaginas - 1) : ?>
-          <a class="pagination-dots">...</a>
-        <?php endif; ?>
-        <a href='formularioUsuario.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
-      <?php endif; ?>
-
-      <?php if ($paginaActual < $totalPaginas) : ?>
-        <a href='formularioUsuario.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente &gt;</a>
-      <?php endif; ?>
-    </div><?php
-
-          echo "</div>";
-          ?>
+        echo "</div>";
+        ?>
       </div>
 
     </div>

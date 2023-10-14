@@ -92,9 +92,11 @@ $mesesEnEspanol = array(
                                             <th style="text-align: center; vertical-align: middle;">PDF</th>
                                             <th style="text-align: center; vertical-align: middle;">Acciones</th>
                                         <?php endif; ?>
-                                        <?php if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) : ?>
+                                        <?php if ($mostrarColumnaAccion) : ?>
+                                            <th style="text-align: center; vertical-align: middle;"><img style='max-width:30px;' src='/Proyecto-Master/Proyecto-Master/img/barra-vertical.png'></th>
+                                            <th style="text-align: center; vertical-align: middle;">Obs</th>
                                             <th style="text-align: center; vertical-align: middle;">Anamnesis</th>
-                                            <th style="text-align: center; vertical-align: middle;">Mostrar</th>
+                                            <th style="text-align: center; vertical-align: middle;">PDF</th>
                                         <?php endif;
                                         if (!$mostrarColumnaAccion2) :  ?>
                                             <th style="text-align: center; vertical-align: middle;">
@@ -152,6 +154,7 @@ $mesesEnEspanol = array(
                                                                                         <th>Observaciones</th>
                                                                                         <th>Contenido</th>                                                                                       
                                                                                         <th>Profesor</th>
+                                                                                        <th>Acciones</th>
                                                                                         <th><a href='Observaciones.php?id=" . $row['Dni'] . "'>
                                                                                         <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
                                                                                     </a>
@@ -193,6 +196,7 @@ $mesesEnEspanol = array(
                                                         echo "<td>" . $row2['Observación'] . "</td>";
                                                         echo "<td>" . $row2['Contenido'] . "</td>";
                                                         echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
+                                                        echo "<td>"."</td>";
                                                         echo "<td></td>";
                                                         echo "</tr>";
                                                     }
@@ -479,7 +483,7 @@ $mesesEnEspanol = array(
                                                         echo "<td>
                     <span id='motivoSpan-$fechaIngresoFila1' style='display: none;'>" . $row2['Motivo'] . "</span>
                     <button style='border: none; background: none;' onclick='toggleMotivo1(\"$fechaIngresoFila1\")'>
-                      <img style='width: 100%;
+                      <img style='min-width: 100%;
                       background: none;
                       border: none;
                       outline:none ;
@@ -806,14 +810,99 @@ $mesesEnEspanol = array(
           <a href='EditarA.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
           </td>";
                                             endif;
+                                            if ($mostrarColumnaAccion) :
+                                                echo "<td><img src='/Proyecto-Master/Proyecto-Master/img/barra-vertical.png'></td>";
+                                            endif;
                                             if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) :
+
+
+                                                echo "<td><a href='#' onclick=\"openModal7('" . $row['Dni'] . "')\">
+                                    <img src='/Proyecto-master/Proyecto-master/img/observar.png'>
+                                </a>
+                                    <div class='w3-container'>
+                                        <div id='id-modal7-" . $row['Dni'] . "' class='w3-modal'>
+                                            <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
+                                                <header class='w3-container w3-white'> 
+                                                <span onclick=\"closeModal4('id-modal7-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                                                <h2>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
+                                                </header>
+                                                <div id='-" . $row['Dni'] . "' class='w3-container'>
+                                                <div class='container'>
+                                                    <div class='form-control'>
+                                                        <label for='search'><i class='icon-search'></i></label>
+                                                            <input class='table-filter' type='search' data-table='advanced-web-table' placeholder='Buscar...'>
+                                                        </div>
+                                                                        <!--  Table  -->
+                                                                        <div class='table-responsive'>
+                                                                            <table id='table-id' class='table table-striped table-class'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Fecha</th>
+                                                                                        <th>Observaciones</th>
+                                                                                        <th>Contenido</th>                                                                                       
+                                                                                        <th>Profesor</th>
+                                                                                        <th><a href='Observaciones.php?id=" . $row['Dni'] . "'>
+                                                                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
+                                                                                    </a>
+                                                                                    </th>
+                                                                                    </tr>
+                                                                                <tbody>";
+
+
+                                                $idviejo = $row['Dni'];
+                                                $sql2 = "SELECT *
+                 FROM datos_academ
+                 WHERE DNI = :idviejo
+                 ORDER BY Fecha ASC;
+        ";
+
+
+                                                // Usamos parámetros con consultas preparadas
+                                                $consulta2 = $conn->prepare($sql2);
+                                                $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
+                                                if ($consulta2->execute()) {
+                                                    // Obtenemos el primer resultado del SELECT (si es que existe)
+                                                    $row2 = $consulta2->fetch();
+                                                }
+
+
+
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        echo "<tr>";
+                                                        $fechaOriginal = $row2['Fecha'];
+                                                        $parts = explode('-', $fechaOriginal);
+                                                        $dia = intval($parts[2]);
+                                                        $mes = intval($parts[1]);
+                                                        $anio = intval($parts[0]);
+
+                                                        $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+
+                                                        echo "<td>" . $fechaFormateada . "</td>";
+                                                        echo "<td>" . $row2['Observación'] . "</td>";
+                                                        echo "<td>" . $row2['Contenido'] . "</td>";
+                                                        echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
+                                                        echo "<td></td>";
+                                                        echo "</tr>";
+                                                    }
+                                                }
+                                                echo "</tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </td>";
+
+
                                                 echo "<td class='acciones'>
           <a href='AgregarAnamnesis.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/area.png' class='imagen-espaciada'></a>
           </td>";
 
 
                                                 echo "<td><a href='#' onclick=\"openModal6('" . $row['Dni'] . "')\">
-          <img src='/Proyecto-master/Proyecto-master/img/carpeta.png'>
+          <img src='/Proyecto-master/Proyecto-master/img/pdf.png'>
       </a>
           <div class='w3-container'>
               <div id='id-modal6-" . $row['Dni'] . "' class='w3-modal'>

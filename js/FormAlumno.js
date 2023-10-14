@@ -41,6 +41,11 @@ function openModal6(dni) {
   modal.style.display = 'block';
 }
 
+function openModal7(dni) {
+  var modal = document.getElementById('id-modal7-' + dni);
+  modal.style.display = 'block';
+}
+
 function closeModal(modalId) {
   var modal = document.getElementById(modalId);
   modal.style.display = 'none';
@@ -62,6 +67,12 @@ function closeModal3(modalId) {
   var modal = document.getElementById(modalId);
   modal.style.display = 'none';
   openModal6(dni);
+}
+
+function closeModal4(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.style.display = 'none';
+  openModal7(dni);
 }
 
 function openCity(evt, cityName, dni) {
@@ -89,10 +100,10 @@ function toggleDiagnostico1(fechaIngresoFila) {
 
   if (diagnosticoSpan.style.display === "none") {
     diagnosticoSpan.style.display = "inline"; // Muestra el contenido
-    imgMostrar.src = '/Proyecto-master/img/no-ver.png'; // Cambia la imagen a "Ocultar"
+    imgMostrar.src = '/Proyecto-master/Proyecto-master/img/no-ver.png'; // Cambia la imagen a "Ocultar"
   } else {
     diagnosticoSpan.style.display = "none"; // Oculta el contenido
-    imgMostrar.src = '/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
+    imgMostrar.src = '/Proyecto-master/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
   }
 }
 
@@ -102,10 +113,10 @@ function toggleMotivo1(fechaIngresoFila1) {
 
   if (motivoSpan.style.display === "none") {
     motivoSpan.style.display = "inline"; // Muestra el contenido
-    imgMostrar1.src = '/Proyecto-master/img/no-ver.png'; // Cambia la imagen a "Ocultar"
+    imgMostrar1.src = '/Proyecto-master/Proyecto-master/img/no-ver.png'; // Cambia la imagen a "Ocultar"
   } else {
     motivoSpan.style.display = "none"; // Oculta el contenido
-    imgMostrar1.src = '/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
+    imgMostrar1.src = '/Proyecto-master/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
   }
 }
 
@@ -115,10 +126,10 @@ function toggleDiagnostico2(fechaIngresoFila3) {
 
   if (diagnosticoSpan2.style.display === "none") {
     diagnosticoSpan2.style.display = "inline"; // Muestra el contenido
-    imgMostrar2.src = '/Proyecto-master/img/no-ver.png'; // Cambia la imagen a "Ocultar"
+    imgMostrar2.src = '/Proyecto-master/Proyecto-master/img/no-ver.png'; // Cambia la imagen a "Ocultar"
   } else {
     diagnosticoSpan2.style.display = "none"; // Oculta el contenido
-    imgMostrar2.src = '/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
+    imgMostrar2.src = '/Proyecto-master/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
   }
 }
 
@@ -128,10 +139,10 @@ function toggleMotivo2(fechaIngresoFila4) {
 
   if (motivoSpan2.style.display === "none") {
     motivoSpan2.style.display = "inline"; // Muestra el contenido
-    imgMostrar3.src = '/Proyecto-master/img/no-ver.png'; // Cambia la imagen a "Ocultar"
+    imgMostrar3.src = '/Proyecto-master/Proyecto-master/img/no-ver.png'; // Cambia la imagen a "Ocultar"
   } else {
     motivoSpan2.style.display = "none"; // Oculta el contenido
-    imgMostrar3.src = '/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
+    imgMostrar3.src = '/Proyecto-master/Proyecto-master/img/ver.png'; // Cambia la imagen a "Mostrar"
   }
 }
 

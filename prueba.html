@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla con Edición al Presionar Editar</title>
+</head>
+<body>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span>Usuario 1</span></td>
+            <td><span>usuario1@example.com</span></td>
+            <td>
+                <button onclick="editarFila(this)">Editar</button>
+            </td>
+        </tr>
+        <tr>
+            <td><span>Usuario 2</span></td>
+            <td><span>usuario2@example.com</span></td>
+            <td>
+                <button onclick="editarFila(this)">Editar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button id="guardar" style="display: none;" onclick="guardarCambios()">Guardar Cambios</button>
+
+<script>
+    function editarFila(button) {
+        var row = button.parentNode.parentNode;
+        var spans = row.getElementsByTagName('span');
+        var guardarButton = document.getElementById('guardar');
+        
+        for (var i = 0; i < spans.length; i++) {
+            var span = spans[i];
+            var text = span.textContent;
+            var input = document.createElement('input');
+            input.value = text;
+            span.innerHTML = '';
+            span.appendChild(input);
+        }
+
+        button.textContent = "Guardar";
+        button.onclick = function () {
+            guardarCambios(row);
+        };
+
+        guardarButton.style.display = "block";
+    }
+
+    function guardarCambios(row) {
+        var spans = row.getElementsByTagName('span');
+        var inputs = row.getElementsByTagName('input');
+        
+        for (var i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+            var span = spans[i];
+            span.textContent = input.value;
+        }
+        
+        for (var i = 0; i < spans.length; i++) {
+            var span = spans[i];
+            var input = inputs[i];
+            input.value = span.textContent;
+        }
+        
+        var editButton = row.querySelector('button');
+        editButton.textContent = "Editar";
+        editButton.onclick = function () {
+            editarFila(this);
+        };
+    }
+
+    function guardarCambios() {
+        var rows = document.querySelectorAll('table tbody tr');
+        var guardarButton = document.getElementById('guardar');
+        
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var spans = row.getElementsByTagName('span');
+            var inputs = row.getElementsByTagName('input');
+            
+            for (var j = 0; j < inputs.length; j++) {
+                var input = inputs[j];
+                var span = spans[j];
+                span.textContent = input.value;
+            }
+            
+            var editButton = row.querySelector('button');
+            editButton.textContent = "Editar";
+            editButton.onclick = function () {
+                editarFila(this);
+            };
+        }
+
+        guardarButton.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
