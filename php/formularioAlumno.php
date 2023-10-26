@@ -1033,7 +1033,9 @@ $mesesEnEspanol = array(
                                                                 </div>
 
                                                             </div> 
-
+                                                            
+                                                            <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick='cancelarFormulario()' />
+    
                                                             <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            </form>    
 
                                                     </div>
