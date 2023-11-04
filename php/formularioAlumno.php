@@ -399,7 +399,7 @@ $mesesEnEspanol = array(
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Nombre_Profesor'] . "</td>";
 
-                                                        echo"<td class='acciones'>
+                                                        echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
 
                                                         <a href='txt-Editar-Obs.php?id=" . $row2['ID'] . "&dni=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
 
@@ -978,10 +978,112 @@ $mesesEnEspanol = array(
 
                   </td>";
 
-                                                        echo "<td><a href='#' onclick=\"openModal3('" . $row2['Fecha_ingreso'] . "')\">
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>
+                                                        ";
+                                                        if ($fechaOriginal1 > 0) {
 
-                    <img src='/Proyecto-master/Proyecto-master/img/alta1.png' alt='Dar de Alta'>
+                                                            echo "<a href='#' onclick=\"openModal9('" . $row2['Fecha_ingreso'] . "')\">
+    <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' alt='Dar de Alta'>";
+                                                            echo "</a>
+    <div class='w3-container'>
 
+        <div id='id-modal9-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
+
+            <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
+
+                <header class='w3-container w3-white'> 
+
+                <span onclick=\"closeModal1('id-modal9-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+
+                <h2>Editar</h2>
+
+                </header>
+
+                <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
+
+                <div class='container'>
+
+                <form id='msform' action='DardeAltaD.php' method='post'>
+
+                
+
+                
+
+                    <div class='form-card'>
+
+                    <div class='row'>
+                    <div class='col'>
+                        <label for='dni'>DNI</label>
+                        <input name='dni' type='text' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                    </div>
+                    
+                    <div class='col'>
+                        <label for='fechaI'>Fecha Ingreso</label>
+                        <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    <div class='col'>
+                        <label for='sala'>Sala</label>
+                        <input name='sala' type='text' class='fieldlabels' id='sala' value='" . $row2['Sala'] . "' style='text-align:center;'>
+                    </div>
+                    <div class='col'>
+                        <label for='habitacion'>Habitacion</label>
+                        <input name='habitacion' type='text' class='fieldlabels' id='habitacion' value='" . $row2['Habitación'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='col'>
+                        <label for='cama'>Cama</label>
+                        <input name='cama' type='text' class='fieldlabels' id='cama' value='" . $row2['Cama'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    <div class='col'>
+                        <label for='obs'>Observacion</label>
+                        <input name='obs' type='text' class='fieldlabels' id='obs' value='" . $row2['Observacion'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    <div class='col'>
+                        <label for='diag'>Diagnostico</label>
+                        <input name='diag' type='text' class='fieldlabels' id='diag' value='" . $row2['Diagnostico'] . "' style='text-align:center;'>
+                    </div>
+                    
+                    <div class='col'>
+                        <label for='fecha'>Fecha Alta</label>
+                        <input name='fecha' type='date' class='fieldlabels' id='fecha' placeholder='fecha' value='" . $row2['Fecha_alta'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    <div class='col'>
+                        <label for='motivo'>Motivo</label>
+                        <input name='motivo' type='text' class='fieldlabels' id='motivo' placeholder='motivo' value='" . $row2['Motivo'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+                
+
+                    </div> 
+
+                    <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            </form>    
+
+            </div>
+
+        </div>
+
+        </div>
+
+        </div>";
+                                                        } else {
+                                                            echo "
+                                                            <a href='#' onclick=\"openModal3('" . $row2['Fecha_ingreso'] . "')\">
+    <img src='/Proyecto-master/Proyecto-master/img/alta1.png' alt='Dar de Alta'>";
+                                                            echo "
                 </a>
 
         
@@ -1044,7 +1146,10 @@ $mesesEnEspanol = array(
 
                                                 </div>
 
-                                                </div></td>";
+                                                </div>";
+                                                        }
+
+                                                        echo "</td>";
 
 
 
@@ -1235,71 +1340,163 @@ $mesesEnEspanol = array(
 
                   </td>";
 
-                                                        echo "<td><a href='#' onclick=\"openModal4('" . $row2['Fecha_ingreso'] . "')\">
-
-                    <img src='/Proyecto-master/Proyecto-master/img/alta1.png' alt='Dar de Alta'>
-
-                </a>
-
-        
-
-                                            <div class='w3-container'>
-
-                                                <div id='id-modal4-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
-
-                                                    <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
-
-                                                        <header class='w3-container w3-white'> 
-
-                                                        <span onclick=\"closeModal1('id-modal4-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
-
-                                                        <h2>Dar de alta</h2>
-
-                                                        </header>
-
-                                                        <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
-
-                                                        <div class='container'>
-
-                                                        <form id='msform' action='DardeAltaD.php' method='post'>
-
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>
                                                         
+";
+                                                        if ($fechaOriginal1 > 0) {
 
-                                                        
+                                                            echo "<a href='#' onclick=\"openModal8('" . $row2['Fecha_ingreso'] . "')\">
+    <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' alt='Dar de Alta'>";
+                                                            echo "</a>
+    <div class='w3-container'>
 
-                                                            <div class='form-card'>
+        <div id='id-modal8-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
 
-                                                                <div class='row'>
+            <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
 
-                                                                    <label for='dni'>DNI</label>
+                <header class='w3-container w3-white'> 
 
-                                                                    <input name='dni' type='text' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                <span onclick=\"closeModal1('id-modal8-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
 
-                                                                    <label for='fechaI'>Fecha Ingreso</label>
+                <h2>Editar</h2>
 
-                                                                    <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                </header>
 
-                                                                    <label for='fecha'>Fecha</label>
+                <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
 
-                                                                    <input name='fecha' type='date' class='fieldlabels' id='fecha' placeholder='fecha'>
+                <div class='container'>
 
-                                                                    <label for='motivo'>Motivo</label>
+                <form id='msform' action='DardeAltaD.php' method='post'>
 
-                                                                    <input name='motivo' type='text' class='fieldlabels' id='motivo' placeholder='motivo'>
+                
 
-                                                                </div>
+                
 
-                                                            </div> 
+                    <div class='form-card'>
 
-                                                            <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            </form>    
+                    <div class='row'>
+                    <div class='col'>
+                        <label for='dni'>DNI</label>
+                        <input name='dni' type='text' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                    </div>
+                    
+                    <div class='col'>
+                        <label for='fechaI'>Fecha Ingreso</label>
+                        <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    <div class='col'>
+                        <label for='dire'>Direccion</label>
+                        <input name='dire' type='text' class='fieldlabels' id='dire' value='" . $row2['Direccion'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    <div class='col'>
+                        <label for='obs'>Observacion</label>
+                        <input name='obs' type='text' class='fieldlabels' id='obs' value='" . $row2['Observacion'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    <div class='col'>
+                        <label for='diag'>Diagnostico</label>
+                        <input name='diag' type='text' class='fieldlabels' id='diag' value='" . $row2['Diagnostico'] . "' style='text-align:center;'>
+                    </div>
+                    
+                    <div class='col'>
+                        <label for='fecha'>Fecha Alta</label>
+                        <input name='fecha' type='date' class='fieldlabels' id='fecha' placeholder='fecha' value='" . $row2['Fecha_alta'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+                
+                <div class='row'>
+                    <div class='col'>
+                        <label for='motivo'>Motivo</label>
+                        <input name='motivo' type='text' class='fieldlabels' id='motivo' placeholder='motivo' value='" . $row2['Motivo'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+                
 
-                                                    </div>
+                    </div> 
 
-                                                </div>
+                    <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            </form>    
 
-                                                </div>
+            </div>
 
-                                                </div></td>";
+        </div>
+
+        </div>
+
+        </div>";
+                                                        } else {
+
+                                                            echo "<a href='#' onclick=\"openModal4('" . $row2['Fecha_ingreso'] . "')\">
+
+    <img src='/Proyecto-master/Proyecto-master/img/alta1.png' alt='Dar de Alta'>";
+                                                            echo "</a>
+    <div class='w3-container'>
+
+        <div id='id-modal4-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
+
+            <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
+
+                <header class='w3-container w3-white'> 
+
+                <span onclick=\"closeModal1('id-modal4-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+
+                <h2>Dar de alta</h2>
+
+                </header>
+
+                <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
+
+                <div class='container'>
+
+                <form id='msform' action='DardeAltaD.php' method='post'>
+
+                
+
+                
+
+                    <div class='form-card'>
+
+                        <div class='row'>
+
+                            <label for='dni'>DNI</label>
+
+                            <input name='dni' type='text' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+
+                            <label for='fechaI'>Fecha Ingreso</label>
+
+                            <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+
+                            <label for='fecha'>Fecha</label>
+
+                            <input name='fecha' type='date' class='fieldlabels' id='fecha' placeholder='fecha'>
+
+                            <label for='motivo'>Motivo</label>
+
+                            <input name='motivo' type='text' class='fieldlabels' id='motivo' placeholder='motivo'>
+
+                        </div>
+
+                    </div> 
+
+                    <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            </form>    
+
+            </div>
+
+        </div>
+
+        </div>
+
+        </div>";
+                                                        }
+
+                                                        echo "</td>";
 
                                                         echo "</tr>";
                                                     }

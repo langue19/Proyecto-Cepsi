@@ -238,7 +238,8 @@ td img {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  
+  text-align: center; 
+  vertical-align: middle;
 }
 
 /* Estilos para la paginación */
