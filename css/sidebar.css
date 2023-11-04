@@ -458,33 +458,5 @@ width: 100%;
   border-radius: 3px;
 }
 
-/* Estilo para el botón "Eliminar" */
-.fila .eliminarFamilia {
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 3px;
-}
 
-/* Estilo para el botón "Eliminar" al pasar el mouse sobre él */
-.fila .eliminarFamilia:hover {
-  background-color: #cc0000;
-}
-
-/* Estilo para el botón "Guardar" */
-.fila .guardarFamilia {
-  background-color: #49da1c;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-/* Estilo para el botón "Guardar" al pasar el mouse sobre él */
-.fila .guardarFamilia:hover {
-  background-color: #009b1a;
-}
 
