@@ -710,6 +710,9 @@ $mesesEnEspanol = array(
 
                                     <th>Resuelve operaciones basicas?</th>
 
+
+                                    <th>Acciones</th>
+
                                 </tr>
 
                             </thead>
@@ -779,6 +782,108 @@ $mesesEnEspanol = array(
 
                                                         echo "<td>" . $row2['resuelvOpBas'] . "</td>";
 
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>";
+
+
+                                                        echo "<a href='#' onclick=\"openModal10('" . $row2['Fecha_ingreso'] . "')\">
+    <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' alt='Dar de Alta'>";
+                                                        echo "</a>
+    <div class='w3-container'>
+
+        <div id='id-modal10-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
+
+            <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
+
+                <header class='w3-container w3-white'> 
+
+                <span onclick=\"closeModal1('id-modal10-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+
+                <h2>Editar</h2>
+
+                </header>
+
+                <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
+
+                <div class='container'>
+
+                <form id='msform' action='DardeAltaD.php' method='post'>
+
+                <div class='form-card'>
+
+                <div class='row'>
+                    <div class='col'>
+                        <label for='dni'>DNI</label>
+                        <input name='dni' type='text' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                    </div>
+            
+                    <div class='col'>
+                        <label for='fechaI'>Fecha Ingreso</label>
+                        <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                    </div>
+                </div>
+            
+                <!-- Filas que deseas mantener -->
+                <div class='row'>
+                    <div class='col'>
+                        <label for='escRef'>Escuela de Referencia</label>
+                        <input name='escRef' type='text' class='fieldlabels' id='escRef' value='" . $row2['escRef'] . "' style='text-align:center;'>
+                    </div>
+                </div>
+            
+                <div class='row'>
+                    <div class='col'>
+                        <label for='Grado'>Grado</label>
+                        <input name='Grado' type='text' class='fieldlabels' id='Grado' value='" . $row2['Grado'] . "'style='text-align:center;'>
+                    </div>
+                    <div class='col'>
+                        <label for='poseeEsc'>Posee Escolaridad</label>
+                        <input name='poseeEsc' type='text' class='fieldlabels' id='poseeEsc' value='" . $row2['poseeEsc'] . "'style='text-align:center;'>
+                    </div>
+                    <div class='col'>
+                        <label for='escComun'>Tipo de Escuela</label>
+                        <input name='escComun' type='text' class='fieldlabels' id='escComun' value='" . ($row2['escComun'] == 'Si' ? 'Comun' : 'Especial') . "'style='text-align:center;'>
+                    </div>
+                </div>
+
+            
+                <div class='row'>
+                    <div class='col'>
+                        <label for='lectContinua'>Lectura Continua</label>
+                        <input name='lectContinua' type='text' class='fieldlabels' id='lectContinua' value='" . $row2['lectContinua'] . "'style='text-align:center;'>
+                    </div>
+                    <div class='col'>
+                        <label for='interpTextos'>Interpretación de Textos</label>
+                        <input name='interpTextos' type='text' class='fieldlabels' id='interpTextos' value='" . $row2['interpTextos'] . "'style='text-align:center;'>
+                    </div>
+                </div>
+            
+                <div class'row'>
+                    <div class='col'>
+                        <label for='lectyescri'>Lectura y Escritura</label>
+                        <input name='lectyescri' type='text' class='fieldlabels' id='lectyescri' value='" . $row2['lectyescri'] . "'style='text-align:center;'>
+                    </div>
+                    <div class='col'>
+                        <label for='resuelvOpBas'>Resolución de Problemas Básicos</label>
+                        <input name='resuelvOpBas' type='text' class='fieldlabels' id='resuelvOpBas' value='" . $row2['resuelvOpBas'] . "'style='text-align:center;'>
+                    </div>
+                </div>
+                <!-- Fin de filas que se mantienen -->
+            
+            </div>
+            
+
+    <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />
+</form>
+
+            </div>
+
+        </div>
+
+        </div>
+
+        </div>";
+                                                        echo "</td>";
+
                                                         echo "</tr>";
                                                     }
                                                 }
@@ -835,7 +940,7 @@ $mesesEnEspanol = array(
 
                                 <th>Motivo</th>
 
-                                <th>ALTA</th>
+                                <th>Acciones</th>
 
                                 <th></th>
 
@@ -1207,7 +1312,7 @@ $mesesEnEspanol = array(
 
                                 <th>Motivo</th>
 
-                                <th>ALTA</th>
+                                <th>Acciones</th>
 
                                 
 

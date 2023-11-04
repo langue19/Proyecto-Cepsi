@@ -108,6 +108,13 @@ function openModal9(dni) {
 
 }
 
+function openModal10(dni) {
+
+  var modal = document.getElementById('id-modal10-' + dni);
+
+  modal.style.display = 'block';
+
+}
 
 function closeModal(modalId) {
 
