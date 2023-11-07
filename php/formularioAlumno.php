@@ -1921,11 +1921,11 @@ $mesesEnEspanol = array(
 
                                                                                         <th>Observaciones</th>
 
-                                                                                        <th>Contenido</th>                                                                                       
+                                                                                                                                                                             
 
-                                                                                        <th>Profesor</th>
+                                                                                        <th>Psicopedagoga</th>
 
-                                                                                        <th><a href='Observaciones.php?id=" . $row['Dni'] . "'>
+                                                                                        <th><a href='ObsAnamnesis.php?id=" . $row['Dni'] . "'>
 
                                                                                         <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
 
@@ -2002,7 +2002,7 @@ $mesesEnEspanol = array(
 
                                                         echo "<td>" . $row2['Observación'] . "</td>";
 
-                                                        echo "<td>" . $row2['Contenido'] . "</td>";
+                                                       
 
                                                         echo "<td>" . $row2['Nombre_Profesor'] . "</td>";
 

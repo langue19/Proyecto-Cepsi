@@ -112,7 +112,7 @@ session_start();
     <div class="col-lg-3 col-6">
         <div class="box-container">
             <h2 class="mb-5 mt-4">Total de alumnos</h2>
-            <div class="small-box bg-">
+            <div class="small-box bg-red">
                 <div class="inner">
                     <?php
                     $sql = "SELECT COUNT(*) AS Grado FROM datos_pedagogicos;";
@@ -124,7 +124,7 @@ session_start();
 
                 </div>
                 <div class="icon">
-                    <i class="fas fa-user-plus"></i>
+                    <i class="fas fa-user"></i>
                 </div>
                 <a href="#" class="small-box-footer"></a>
             </div>
@@ -133,8 +133,8 @@ session_start();
 
     <div class="col-lg-3 col-6">
         <div class="box-container">
-            <h2 class="mb-1 mt-4">Total de alumnos - Con escolaridad</h2>
-            <div class="small-box bg-">
+            <h2 class="mb-5 mt-4">Con escolaridad</h2>
+            <div class="small-box bg-red">
                 <div class="inner">
                     <?php
                     $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado <> 'Sin escolaridad' AND Grado <> 'Sin especificar'";
@@ -146,7 +146,7 @@ session_start();
 
                 </div>
                 <div class="icon">
-                    <i class="fas fa-user-plus"></i>
+                    <i class="fas fa-user"></i>
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@ session_start();
     <div class="col-lg-3 col-6">
         <div class="box-container">
             <h2 class="mb-5 mt-4">Sin escolaridad</h2>
-            <div class="small-box bg-">
+            <div class="small-box bg-red">
                 <div class="inner">
                     <?php
                     $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = 'Sin escolaridad'";
@@ -166,7 +166,7 @@ session_start();
                     ?>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-user-plus"></i>
+                    <i class="fas fa-user"></i>
                 </div>
                 <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -191,7 +191,7 @@ session_start();
 
                         <!-- small card -->
 
-                        <div class="small-box bg-yellow">
+                        <div class="small-box bg-blue">
 
                             <div class="inner">
 
@@ -215,15 +215,11 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                           
 
                         </div>
 
@@ -233,7 +229,7 @@ session_start();
 
                         <!-- small card -->
 
-                        <div class="small-box bg-yellow">
+                        <div class="small-box bg-blue">
 
                             <div class="inner">
 
@@ -257,7 +253,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
@@ -275,7 +271,7 @@ session_start();
 
                         <!-- small card -->
 
-                        <div class="small-box bg-yellow">
+                        <div class="small-box bg-blue">
 
                             <div class="inner">
 
@@ -299,7 +295,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
