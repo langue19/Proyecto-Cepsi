@@ -505,6 +505,12 @@ session_start();
     <!-- OPTIONAL SCRIPTS -->
 
     <script src="plugins/chart.js/Chart.min.js"></script>
+    <script>
+        function cancelForm() {
+            // Redirige al usuario a la página deseada
+            window.location.href = 'formularioAlumno.php';
+        }
+    </script>
 
 </body>
 
