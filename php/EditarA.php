@@ -194,7 +194,7 @@ session_start();
 
                                     <div style="float:right;">
 
-                                        <button class="action-button" type="button" id="cancelBtn" onclick="cancelarFormulario()">Cancelar</button>
+                                        <button class="action-button" type="button" id="cancelBtn" onclick="cancelForm()">Cancelar</button>
 
                                         <button class="action-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
 
