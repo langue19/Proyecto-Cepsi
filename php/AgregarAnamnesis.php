@@ -697,8 +697,11 @@ session_start();
                         </section>
 
                     </section>
-                    <div class="col-md-3">
-                        <input class="form-control btn-success" type="submit" value="Generar">
+                    <div style="overflow:auto;" id="nextprevious">
+                        <div style="float:right; display: flex;">
+                            <button class="action-button" type="button" id="cancelBtn" onclick="cancelForm()" style="margin-right: 10px;">Cancelar</button>
+                            <input class="action-button" type="submit" value="Generar">
+                        </div>
                     </div>
                 </form>
             </div>
