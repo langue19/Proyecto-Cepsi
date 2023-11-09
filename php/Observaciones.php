@@ -249,6 +249,7 @@ session_start();
                                     <div style="overflow:auto;" id="nextprevious">
 
                                         <div style="float:right;">
+                                        
                                             <button class="action-button" type="button" id="cancelBtn" onclick="cancelForm()">Cancelar</button>
 
                                             <button class="action-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
@@ -290,6 +291,13 @@ session_start();
     <!-- OPTIONAL SCRIPTS -->
 
     <script src="plugins/chart.js/Chart.min.js"></script>
+
+    <script>
+        function cancelForm() {
+            // Redirige al usuario a la página deseada
+            window.location.href = 'formularioAlumno.php';
+        }
+    </script>
 
 </body>
 
