@@ -129,7 +129,7 @@ WHERE Dni = :id";
 
                         <form action="agregarDatosI.php" method="post" id="regForm">
 
-                        <h2 style="text-align: center;">Datos de <?php echo $estado; ?></h2>
+                            <h2 style="text-align: center;">Datos de <?php echo $estado; ?></h2>
                             <div class="all-steps" id="all-steps">
 
                                 <span class="step"><i class="fa fa-user"></i></span>
@@ -151,80 +151,62 @@ WHERE Dni = :id";
                                         <label for="fecha">Fecha</label>
 
                                         <input name="fecha" type="date" class="fieldlabels" id="fecha">
+                                        <?php
 
+                                        if ($estado === "Internacion") { ?>
+                                            <label for="nombt">Sala</label>
+
+                                            <input name="sala" type="text" class="fieldlabels" id="nombt" placeholder="Sala">
+
+                                            <label for="nombt">Habitacion</label>
+
+                                            <input name="habitacion" type="text" class="fieldlabels" id="nombt" placeholder="Habitacion">
+
+                                            <label for="nombt">Cama</label>
+
+                                            <input name="cama" type="text" class="fieldlabels" id="nombt" placeholder="Cama">
+
+                                            <label for="disc1">Discapacidad</label>
+
+                                            <input name="disc1" type="text" class="fieldlabels" id="disc1" placeholder="Discapacidad">
+
+                                            <label for="obs1">Observacion</label>
+
+                                            <input name="obs1" type="text" class="fieldlabels" id="obs1" placeholder="Observacion">
+
+                                            <label for="diag1">Diagnostico</label>
+
+                                            <input name="diag1" type="text" class="fieldlabels" id="diag1" placeholder="Diagnostico">
+                                        <?php
+                                        } elseif ($estado === "Domiciliario") {
+                                        ?>
+
+                                            <label for="dire">Direccion</label>
+
+                                            <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Direccion">
+
+                                            <label for="disc">Discapacidad</label>
+
+                                            <input name="disc" type="text" class="fieldlabels" id="disc" placeholder="Discapacidad">
+
+                                            <label for="obs">Observacion</label>
+
+                                            <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
+
+                                            <label for="diag">Diagnostico</label>
+
+                                            <input name="diag" type="text" class="fieldlabels" id="diag" placeholder="Diagnostico">
+
+
+
+                                        <?php
+                                        }
+
+                                        ?>
                                     </div>
 
-                                    <div class="row">
-
-                                        <label for="internacion">En que estado se encuentra?</label>
-
-                                        <select name="estado" id="estado" onchange="showForm(this.value)">
-
-                                            <option value="">Selecciona una opción</option>
-
-                                            <option value="Internado">Internado</option>
-
-                                            <option value="Domiciliario">Domiciliario</option>
-
-                                        </select>
-
-                                    </div>
 
 
-
-                                    <div id="form1" style="display: none;">
-
-                                        <h2 style="text-align: center;">Internacion</h2>
-
-                                        <label for="nombt">Sala</label>
-
-                                        <input name="sala" type="text" class="fieldlabels" id="nombt" placeholder="Sala">
-
-                                        <label for="nombt">Habitacion</label>
-
-                                        <input name="habitacion" type="text" class="fieldlabels" id="nombt" placeholder="Habitacion">
-
-                                        <label for="nombt">Cama</label>
-
-                                        <input name="cama" type="text" class="fieldlabels" id="nombt" placeholder="Cama">
-
-                                        <label for="disc1">Discapacidad</label>
-
-                                        <input name="disc1" type="text" class="fieldlabels" id="disc1" placeholder="Discapacidad">
-
-                                        <label for="obs1">Observacion</label>
-
-                                        <input name="obs1" type="text" class="fieldlabels" id="obs1" placeholder="Observacion">
-
-                                        <label for="diag1">Diagnostico</label>
-
-                                        <input name="diag1" type="text" class="fieldlabels" id="diag1" placeholder="Diagnostico">
-
-
-
-                                    </div>
-
-                                    <div id="form2" style="display: none;">
-
-                                        <h2 style="text-align: center;">Domiciliario</h2>
-
-                                        <label for="dire">Direccion</label>
-
-                                        <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Direccion">
-
-                                        <label for="disc">Discapacidad</label>
-
-                                        <input name="disc" type="text" class="fieldlabels" id="disc" placeholder="Discapacidad">
-
-                                        <label for="obs">Observacion</label>
-
-                                        <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">
-
-                                        <label for="diag">Diagnostico</label>
-
-                                        <input name="diag" type="text" class="fieldlabels" id="diag" placeholder="Diagnostico">
-
-                                    </div>
 
                                 </div>
 
