@@ -120,7 +120,7 @@ session_start();
                     $consulta->execute();
                     $resultado = $consulta->fetchColumn();
                     echo "<h3>" . $resultado . "</h3>";
-                    ?>
+                    ?><br>
 
                 </div>
                 <div class="icon">
@@ -142,7 +142,7 @@ session_start();
                     $consulta->execute();
                     $resultado = $consulta->fetchColumn();
                     echo "<h3>" . $resultado . "</h3>";
-                    ?>
+                    ?><br>
 
                 </div>
                 <div class="icon">
@@ -163,12 +163,11 @@ session_start();
                     $consulta->execute();
                     $resultado = $consulta->fetchColumn();
                     echo "<h3>" . $resultado . "</h3>";
-                    ?>
+                    ?><br>
                 </div>
                 <div class="icon">
                     <i class="fas fa-user"></i>
                 </div>
-                <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
@@ -257,11 +256,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 
@@ -299,11 +294,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 
@@ -361,11 +352,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 
@@ -403,11 +390,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 
@@ -445,11 +428,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 
@@ -487,11 +466,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 
@@ -529,11 +504,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 
@@ -571,11 +542,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 
@@ -613,11 +580,7 @@ session_start();
 
                             </div>
 
-                            <a href="#" class="small-box-footer">
-
-                                Más informacíon <i class="fas fa-arrow-circle-right"></i>
-
-                            </a>
+                            
 
                         </div>
 

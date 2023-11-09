@@ -1,4 +1,38 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("search-input");
+  const table = document.querySelector(".table table-striped table-white");
 
+  searchInput.addEventListener("input", function () {
+      const query = searchInput.value.trim();
+
+      if (query !== "") {
+          // Realizar una solicitud AJAX al archivo PHP de búsqueda en tiempo real
+          const xhr = new XMLHttpRequest();
+          xhr.open("GET", "buscar.php?dni=" + query, true);
+          xhr.send();
+
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                  // Actualizar la tabla con los resultados de la búsqueda
+                  table.innerHTML = xhr.responseText;
+              }
+          };
+      } else {
+          // Si el campo de búsqueda está vacío, restaurar la tabla a su estado original
+          // Realiza una solicitud AJAX para obtener todos los registros de la tabla
+          const xhr = new XMLHttpRequest();
+          xhr.open("GET", "buscar.php", true);
+          xhr.send();
+
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                  // Restablecer la tabla con todos los registros
+                  table.innerHTML = xhr.responseText;
+              }
+          };
+      }
+  });
+});
 
 
 
