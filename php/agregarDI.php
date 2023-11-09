@@ -88,7 +88,7 @@ session_start();
 
             $id = $_GET['id'];
 
-
+            $estado = $_GET['estado'];
 
             $sql = "SELECT *
 
@@ -129,8 +129,7 @@ WHERE Dni = :id";
 
                         <form action="agregarDatosI.php" method="post" id="regForm">
 
-                            <h2 style="text-align: center;">Datos De Internación/Domiciliario</h2>
-
+                        <h2 style="text-align: center;">Datos de <?php echo $estado; ?></h2>
                             <div class="all-steps" id="all-steps">
 
                                 <span class="step"><i class="fa fa-user"></i></span>
