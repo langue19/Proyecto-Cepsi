@@ -120,7 +120,7 @@ session_start();
 
                             <label>FAMILIAR 1</label>
 
-
+                            <hr>
 
                             <div class="fila">
 
@@ -167,7 +167,7 @@ session_start();
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
                             <label>FAMILIAR 2</label>
-
+                            <hr>
 
 
                             <div class="fila">
@@ -217,7 +217,7 @@ session_start();
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
                             <label>OBSERVACIONES SOBRE LA HISTORIA Y DINÁMICA FAMILIAR</label>
-
+                            <hr>
 
 
                             <div class="fila">
@@ -243,7 +243,7 @@ session_start();
                             <div class="nuevo" style="display:flex;">
 
                                 <label for="tipo">TIPO</label>
-
+                                <hr>
                                 <div class="fila1">
 
                                     <div class="form-check">
@@ -269,7 +269,7 @@ session_start();
                                 <!-- Construcción -->
 
                                 <label for="construccion">CONSTRUCCION</label>
-
+                                <hr>
                                 <div class="fila1">
 
 
@@ -305,7 +305,7 @@ session_start();
                                 <!-- Tenencia -->
 
                                 <label for="tenencia">TENENCIA</label>
-
+                                <hr>
                                 <div class="fila1">
 
 
@@ -349,7 +349,7 @@ session_start();
                                 <!-- Servicios -->
 
                                 <label for="servicios">SERVICIOS</label>
-
+                                <hr>
                                 <div class="fila1">
 
 
@@ -447,7 +447,7 @@ session_start();
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
                             <label>HISTORIAL EVOLUCIÓN DE ENFERMEDAD</label>
-
+                            <hr>
 
 
                             <div class="fila">
@@ -529,7 +529,7 @@ session_start();
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
                             <label>EDUCACIÓN</label>
-
+                            <hr>
 
 
                             <label style="display: flex; justify-content:center;">NIVEL INICIAL</label>
@@ -573,7 +573,7 @@ session_start();
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
                             <label>HISTORIA ESCOLAR</label>
-
+                            <hr>
 
 
                             <div class="fila">
@@ -651,7 +651,7 @@ session_start();
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
                             <label>ESCOLARIDAD HOSPITALARIA-DOMICILIARIA</label>
-
+                            <hr>
 
 
                             <div class="fila">
@@ -683,7 +683,7 @@ session_start();
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
                             <label>OBSERVACIONES GENERALES</label>
-
+                            <hr>
 
 
                             <div class="fila">
