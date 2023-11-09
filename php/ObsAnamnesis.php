@@ -69,7 +69,6 @@ session_start();
         if (isset($_GET['id'])) {
 
             $dni = $_GET['id'];
-
         }
 
 
@@ -89,11 +88,9 @@ session_start();
 
 
         if ($consulta->execute()) {
-
         }
 
         while ($row = $consulta->fetch()) {
-
         }
 
         $sql1 = "SELECT Dni, Nombre, Apellido
@@ -121,7 +118,6 @@ session_start();
             $nombre = $row['Nombre'];
 
             $apellido = $row['Apellido'];
-
         }
 
         ?>
@@ -172,13 +168,13 @@ session_start();
 
                                         <input name="fecha" type="date" class="form-control" id="fecha">
 
-                                        
+
 
                                         <label for="Observaciones">Observaciones</label>
 
                                         <input name="Observaciones" type="text" class="fieldlabels" id="Observaciones" placeholder="Observaciones">
 
-                                        
+
 
 
                                         <?php
@@ -196,13 +192,11 @@ session_start();
                                             $nomb = $_SESSION["Nombre"];
 
                                             echo " <label for='Profesor'>Profesor</label><input style='background-color:antiquewhite; text-align: center;' name='Contenido' type='text' class='fieldlabels' id='Contenido' value='$ape $nomb' readonly>";
-
                                         } else {
 
                                             echo "<label for='Profesor'>Psicopedagoga</label>
 
                             <select name='Profesor' id='Profesor' class='form-control' style='background-color:whitesmoke;color: black;'>";
-
                                         }
 
                                         ?>
@@ -240,11 +234,9 @@ session_start();
                                             $apellido = $row['Apellido'];
 
                                             echo "<option value=\"$nombre $apellido\">$nombre $apellido</option>";
-
                                         }
 
                                         echo "</select>";
-
                                     }
 
                                     ?>
@@ -254,6 +246,7 @@ session_start();
                                     <div style="overflow:auto;" id="nextprevious">
 
                                         <div style="float:right;">
+                                            <button class="action-button" type="button" id="cancelBtn" onclick="cancelForm()">Cancelar</button>
 
                                             <button class="action-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
 
@@ -294,6 +287,13 @@ session_start();
     <!-- OPTIONAL SCRIPTS -->
 
     <script src="plugins/chart.js/Chart.min.js"></script>
+    <script>
+
+    function cancelForm() {
+        // Redirige al usuario a la página deseada
+        window.location.href = 'formularioAlumno.php';
+    }
+</script>
 
 </body>
 

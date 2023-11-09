@@ -348,7 +348,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
@@ -386,7 +386,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
@@ -424,7 +424,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
@@ -462,7 +462,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
@@ -500,7 +500,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
@@ -538,7 +538,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 
@@ -576,7 +576,7 @@ session_start();
 
                             <div class="icon">
 
-                                <i class="fas fa-user-plus"></i>
+                                <i class="fas fa-user"></i>
 
                             </div>
 

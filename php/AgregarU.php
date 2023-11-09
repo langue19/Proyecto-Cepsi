@@ -163,23 +163,30 @@ session_start();
 
     </div>
 
-<!-- jQuery -->
+    <!-- jQuery -->
 
-<script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
 
-            <!-- Bootstrap -->
+    <!-- Bootstrap -->
 
-            <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- AdminLTE -->
+    <!-- AdminLTE -->
 
-            <script src="dist/js/adminlte.js"></script>
+    <script src="dist/js/adminlte.js"></script>
 
 
 
-            <!-- OPTIONAL SCRIPTS -->
+    <!-- OPTIONAL SCRIPTS -->
 
-            <script src="plugins/chart.js/Chart.min.js"></script>
+    <script src="plugins/chart.js/Chart.min.js"></script>
+
+    <script>
+        function cancelForm() {
+            // Redirige al usuario a la página deseada
+            window.location.href = 'formularioUsuario.php';
+        }
+    </script>
 
 </body>
 

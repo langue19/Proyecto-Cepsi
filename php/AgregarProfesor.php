@@ -176,6 +176,13 @@ session_start();
 
     <script src="plugins/chart.js/Chart.min.js"></script>
 
+    <script>
+        function cancelForm() {
+            // Redirige al usuario a la página deseada
+            window.location.href = 'formularioProfesor.php';
+        }
+    </script>
+
 </body>
 
 

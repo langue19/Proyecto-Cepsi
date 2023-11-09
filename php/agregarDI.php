@@ -107,7 +107,6 @@ WHERE Dni = :id";
             if ($consulta->execute()) {
 
                 $registro = $consulta->fetch(PDO::FETCH_ASSOC);
-
             } else {
 
                 // Manejo de error si la consulta falla
@@ -115,9 +114,7 @@ WHERE Dni = :id";
                 echo "Error al obtener los datos del registro.";
 
                 exit;
-
             }
-
         }
 
         ?>
@@ -234,7 +231,7 @@ WHERE Dni = :id";
 
                             </div>
 
-                            
+
 
                             <div style="overflow:auto;" id="nextprevious">
 
@@ -280,7 +277,12 @@ WHERE Dni = :id";
 
     <script src="plugins/chart.js/Chart.min.js"></script>
 
-
+    <script>
+        function cancelForm() {
+            // Redirige al usuario a la página deseada
+            window.location.href = 'formularioAlumno.php';
+        }
+    </script>
 
 </body>
 
