@@ -1842,7 +1842,7 @@ $mesesEnEspanol = array(
                                     </div> 
 
                                     <input type='hidden' name='dni' value='" . $row['Dni'] . "'>
-
+          <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_ingreso'] .  "') />
           <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
 
         </form>    
