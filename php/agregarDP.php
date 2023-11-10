@@ -219,29 +219,15 @@ WHERE Dni = :id";
 
                                         </select>
 
-                                        <label for="">Escuela comun?</label>
+                                        <label for="">Escuela...</label>
 
                                         <select name="escC">
 
                                             <option value="Sin especificar">Seleccionar</option>
 
-                                            <option value="Si">Si</option>
+                                            <option value="Comun">Comun</option>
 
-                                            <option value="No">No</option>
-
-                                            <option value="N/S">N/S</option>
-
-                                        </select>
-
-                                        <label for="">Escuelas especiales?</label>
-
-                                        <select name="escE">
-
-                                            <option value="Sin especificar">Seleccionar</option>
-
-                                            <option value="Si">Si</option>
-
-                                            <option value="No">No</option>
+                                            <option value="Especial">Especial</option>
 
                                             <option value="N/S">N/S</option>
 
@@ -279,33 +265,6 @@ WHERE Dni = :id";
 
                                         </select>
 
-                                        <label for="">Reconoce sustantivos/adjetivos/verbos?</label><br>
-
-                                        <select name="reconcSAV">
-
-                                            <option value="Sin especificar">Seleccionar</option>
-
-                                            <option value="Si">Si</option>
-
-                                            <option value="No">No</option>
-
-                                            <option value="N/S">N/S</option>
-
-                                        </select>
-
-                                        <label for="">Elabora oraciones?</label>
-
-                                        <select name="elabO">
-
-                                            <option value="Sin especificar">Seleccionar</option>
-
-                                            <option value="Si">Si</option>
-
-                                            <option value="No">No</option>
-
-                                            <option value="N/S">N/S</option>
-
-                                        </select>
 
                                         <label for="">Lectura y escritura?</label>
 

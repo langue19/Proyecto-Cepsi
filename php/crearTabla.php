@@ -146,15 +146,9 @@ try {
 
         escComun VARCHAR(45),
 
-        escEspecial VARCHAR(45),
-
         lectContinua VARCHAR(45),
 
         interpTextos VARCHAR(45),
-
-        reconoceSAV VARCHAR(45),
-
-        elabOrac VARCHAR(45),
 
         lectyescri VARCHAR(45),
 
@@ -179,8 +173,6 @@ try {
         Observación VARCHAR(100),
 
         Contenido VARCHAR(100),
-
-        Área_gabinete VARCHAR(50),
 
         Nombre_Profesor VARCHAR(50),
 

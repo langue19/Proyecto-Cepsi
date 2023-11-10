@@ -1,12 +1,10 @@
-
-
 <!DOCTYPE html>
 
 <head>
 
-    
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 
@@ -48,7 +46,7 @@
 
 <body>
 
-    
+
 
     <!-- Navbar -->
 
@@ -102,31 +100,28 @@
 
                     <?php
 
-                        error_reporting(0);
+                    error_reporting(0);
 
-                        
 
-                        $posicion = $_SESSION['Posicion'];
 
-                        if ($posicion == 'Administrador') {
+                    $posicion = $_SESSION['Posicion'];
 
-                            echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
+                    if ($posicion == 'Administrador') {
 
-                        } elseif ($posicion == 'Usuario') {
+                        echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
+                    } elseif ($posicion == 'Usuario') {
 
-                            echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
+                        echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
+                    } elseif ($posicion == 'Psicopedagoga') {
 
-                        } elseif ($posicion == 'Psicopedagoga') {
-
-                            echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
-
-                        }
+                        echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
+                    }
 
                     ?>
 
 
 
-                    
+
 
                 </div>
 
@@ -141,7 +136,6 @@
 
 
                             $apellido = $_SESSION["Apellido"];
-
                         }
 
                         echo "Bienvenido " . $apellido;
@@ -157,31 +151,25 @@
                         if ($posicion == 'Administrador') {
 
                             $mostrarColumnaAccion = true;
-
                         } else {
 
                             $mostrarColumnaAccion = false;
-
                         }
 
                         if ($posicion == 'Usuario') {
 
                             $mostrarColumnaAccion1 = true;
-
                         } else {
 
                             $mostrarColumnaAccion1 = false;
-
                         }
 
                         if ($posicion == 'Psicopedagoga') {
 
                             $mostrarColumnaAccion2 = true;
-
                         } else {
 
                             $mostrarColumnaAccion2 = false;
-
                         }
 
 
@@ -313,25 +301,25 @@
                         </a>
 
                         <ul class="nav nav-treeview">
+                            <?php if (!$mostrarColumnaAccion2) : ?>
+                                <li class="nav-item">
 
-                            <li class="nav-item">
+                                    <a href="agregarA.php" class="nav-link">
 
-                                <a href="agregarA.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
 
-                                    <i class="far fa-circle nav-icon"></i>
+                                        <p>
 
-                                    <p>
+                                            Alumnos
 
-                                        Alumnos
+                                        </p>
 
-                                    </p>
-
-                                </a>
+                                    </a>
 
 
 
-                            </li>
-
+                                </li>
+                            <?php endif; ?>
                             <?php if ($mostrarColumnaAccion) : ?>
 
                                 <li class="nav-item">
@@ -361,6 +349,26 @@
                                         <p>
 
                                             Profesores
+
+                                        </p>
+
+                                    </a>
+
+
+
+                                </li>
+
+                            <?php endif; ?>
+                            <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion2) : ?>
+                                <li class="nav-item">
+
+                                    <a href="AgregarAnamnesis.php" class="nav-link">
+
+                                        <i class="far fa-circle nav-icon"></i>
+
+                                        <p>
+
+                                            Anamnesis
 
                                         </p>
 

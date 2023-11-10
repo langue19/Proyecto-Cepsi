@@ -182,7 +182,7 @@ $mesesEnEspanol = array(
 
                                         <th style="text-align: center; vertical-align: middle;">Edad</th>
 
-                                        <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1) : ?>
+                                        <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1 ) : ?>
 
                                             <th style="text-align: center; vertical-align: middle;">Datos</th>
 
@@ -192,7 +192,7 @@ $mesesEnEspanol = array(
 
                                         <?php endif; ?>
 
-                                        <?php if ($mostrarColumnaAccion) : ?>
+                                        <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion2) : ?>
 
                                             <th style="text-align: center; vertical-align: middle;"><img src="/Proyecto-master/Proyecto-master/img/barra-vertical.png" style="max-width: 30px;"></th>
 
@@ -806,7 +806,7 @@ $mesesEnEspanol = array(
 
                 <div class='container'>
 
-                <form id='msform' action='DardeAltaD.php' method='post'>
+                <form id='msform' action='EditarDP.php' method='post'>
 
                 <div class='form-card'>
 
@@ -913,11 +913,11 @@ $mesesEnEspanol = array(
                         <thead>
 
                             <tr>";
-                            $est = "Internacion";
-                            ?>
-                            
-<?php
-                             echo "<th style='text-align: center; vertical-align: middle;'><a href='agregarDI.php?id=" . $row['Dni'] . "&estado=" . urlencode($est) . "'>
+                                                $est = "Internacion";
+                                            ?>
+
+                                                <?php
+                                                echo "<th style='text-align: center; vertical-align: middle;'><a href='agregarDI.php?id=" . $row['Dni'] . "&estado=" . urlencode($est) . "'>
 
                                         <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
 
@@ -1148,27 +1148,31 @@ $mesesEnEspanol = array(
                 
                 <div class='row'>
                     <div class='col'>
+                        <label for='disc1'>Discapacidad</label>
+                        <input name='disc1' type='text' class='fieldlabels' id='disc1' value='" . $row2['Discapacidad'] . "' style='text-align:center;'>
+                    </div>
+                    <div class='col'>
                         <label for='obs'>Observacion</label>
-                        <input name='obs' type='text' class='fieldlabels' id='obs' value='" . $row2['Observacion'] . "' style='text-align:center;'>
+                        <input name='obs1' type='text' class='fieldlabels' id='obs1' value='" . $row2['Observacion'] . "' style='text-align:center;'>
                     </div>
                 </div>
                 
                 <div class='row'>
                     <div class='col'>
                         <label for='diag'>Diagnostico</label>
-                        <input name='diag' type='text' class='fieldlabels' id='diag' value='" . $row2['Diagnostico'] . "' style='text-align:center;'>
+                        <input name='diag1' type='text' class='fieldlabels' id='diag1' value='" . $row2['Diagnostico'] . "' style='text-align:center;'>
                     </div>
                     
                     <div class='col'>
                         <label for='fecha'>Fecha Alta</label>
-                        <input name='fechaID' type='date' class='fieldlabels' id='fecha' placeholder='fecha' value='" . $row2['Fecha_alta'] . "' style='text-align:center;'>
+                        <input name='fechaID' type='date' class='fieldlabels' id='fechaID' placeholder='fecha' value='" . $row2['Fecha_alta'] . "' style='text-align:center;'>
                     </div>
                 </div>
                 
                 <div class='row'>
                     <div class='col'>
                         <label for='motivo'>Motivo</label>
-                        <input name='motivoID' type='text' class='fieldlabels' id='motivo' placeholder='motivo' value='" . $row2['Motivo'] . "' style='text-align:center;'>
+                        <input name='motivoID' type='text' class='fieldlabels' id='motivoID' placeholder='motivo' value='" . $row2['Motivo'] . "' style='text-align:center;'>
                     </div>
                 </div>
                 
@@ -1293,10 +1297,10 @@ $mesesEnEspanol = array(
                         <thead>
 
                             <tr>";
-                            $est = "Domiciliario";
-                            ?>
-<?php
-                             echo "<th style='text-align: center; vertical-align: middle;'><a href='agregarDI.php?id=" . $row['Dni'] . "&estado=" . urlencode($est) . "'>
+                                                $est = "Domiciliario";
+                                                ?>
+                                                <?php
+                                                echo "<th style='text-align: center; vertical-align: middle;'><a href='agregarDI.php?id=" . $row['Dni'] . "&estado=" . urlencode($est) . "'>
 
                                         <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
 
@@ -1477,7 +1481,7 @@ $mesesEnEspanol = array(
 
                 <div class='container'>
 
-                <form id='msform' action='DardeAltaD.php' method='post'>
+                <form id='msform' action='EditarID.php' method='post'>
 
                 
 
@@ -1506,6 +1510,10 @@ $mesesEnEspanol = array(
                 
                 <div class='row'>
                     <div class='col'>
+                        <label for='disc'>Discapacidad</label>
+                        <input name='disc' type='text' class='fieldlabels' id='disc' value='" . $row2['Discapacidad'] . "' style='text-align:center;'>
+                    </div>
+                    <div class='col'>
                         <label for='obs'>Observacion</label>
                         <input name='obs' type='text' class='fieldlabels' id='obs' value='" . $row2['Observacion'] . "' style='text-align:center;'>
                     </div>
@@ -1519,14 +1527,14 @@ $mesesEnEspanol = array(
                     
                     <div class='col'>
                         <label for='fecha'>Fecha Alta</label>
-                        <input name='fecha' type='date' class='fieldlabels' id='fecha' placeholder='fecha' value='" . $row2['Fecha_alta'] . "' style='text-align:center;'>
+                        <input name='fechaID' type='date' class='fieldlabels' id='fechaID' placeholder='fecha' value='" . $row2['Fecha_alta'] . "' style='text-align:center;'>
                     </div>
                 </div>
                 
                 <div class='row'>
                     <div class='col'>
                         <label for='motivo'>Motivo</label>
-                        <input name='motivo' type='text' class='fieldlabels' id='motivo' placeholder='motivo' value='" . $row2['Motivo'] . "' style='text-align:center;'>
+                        <input name='motivoID' type='text' class='fieldlabels' id='motivoID' placeholder='motivo' value='" . $row2['Motivo'] . "' style='text-align:center;'>
                     </div>
                 </div>
                 
@@ -1751,7 +1759,7 @@ $mesesEnEspanol = array(
 
                                                 echo "</select>";
 
-                                            ?><label for='datosD'>Datos Domiciliario:</label>
+                                                ?><label for='datosD'>Datos Domiciliario:</label>
 
                                                 <select name='datosD' id='datosD'>
 
@@ -1869,7 +1877,7 @@ $mesesEnEspanol = array(
 
                                             endif;
 
-                                            if ($mostrarColumnaAccion) :
+                                            if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) :
 
                                                 echo "<td style='text-align: center; vertical-align: middle;'><img src='/Proyecto-master/Proyecto-master/img/barra-vertical.png' style='max-width: 30px;'></td>";
 

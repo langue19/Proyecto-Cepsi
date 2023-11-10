@@ -242,25 +242,12 @@ session_start();
 
                                             <option value="Sin especificar">Seleccionar</option>
 
-                                            <option value="Si">Si</option>
+                                            <option value="Comun">Comun</option>
 
-                                            <option value="No">No</option>
-
-                                            <option value="N/S">N/S</option>
-
-                                        </select>
-
-                                        <label for="">Escuelas especiales?</label>
-
-                                        <select name="escE">
-
-                                            <option value="Sin especificar">Seleccionar</option>
-
-                                            <option value="Si">Si</option>
-
-                                            <option value="No">No</option>
+                                            <option value="Especial">Especial</option>
 
                                             <option value="N/S">N/S</option>
+
 
                                         </select>
 
@@ -296,20 +283,6 @@ session_start();
 
                                         </select>
 
-                                        <label for="">Reconoce sustantivos/adjetivos/verbos?</label><br>
-
-                                        <select name="reconcSAV">
-
-                                            <option value="Sin especificar">Seleccionar</option>
-
-                                            <option value="Si">Si</option>
-
-                                            <option value="No">No</option>
-
-                                            <option value="N/S">N/S</option>
-
-                                        </select>
-
                                         <label for="">Elabora oraciones?</label>
 
                                         <select name="elabO">
@@ -327,20 +300,6 @@ session_start();
                                         <label for="">Lectura y escritura?</label>
 
                                         <select name="LectyEsc">
-
-                                            <option value="Sin especificar">Seleccionar</option>
-
-                                            <option value="Si">Si</option>
-
-                                            <option value="No">No</option>
-
-                                            <option value="N/S">N/S</option>
-
-                                        </select>
-
-                                        <label for="">Resuelve operaciones basicas?</label>
-
-                                        <select name="resOpBasc">
 
                                             <option value="Sin especificar">Seleccionar</option>
 
@@ -461,7 +420,7 @@ session_start();
                             <div style="overflow:auto;" id="nextprevious">
 
                                 <div style="float:right;">
-                                    
+
                                     <button class="action-button" type="button" id="cancelBtn" onclick="cancelForm()">Cancelar</button>
 
                                     <button class="action-button" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>

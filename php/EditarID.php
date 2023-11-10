@@ -36,8 +36,8 @@ $motivoID = $_POST['motivoID'];
         $obs1 = $_POST['obs1'];
         $diag1 = $_POST['diag1'];
 
-        $stmt = $conn->prepare("UPDATE datos_internacion SET Sala = ?, Habitación = ?, Cama = ?, Discapacidad = ?, Observacion = ?, Diagnostico = ?, Estado = ? WHERE Dni = ? AND Fecha_ingreso = ?");
-        $stmt->execute([$sala, $habitacion, $cama, $disc1, $obs1, $diag1, $estado, $dni, $fecha]);
+        $stmt = $conn->prepare("UPDATE datos_internacion SET Sala = ?, Habitación = ?, Cama = ?, Discapacidad = ?, Observacion = ?, Diagnostico = ?, Estado = ?, Fecha_alta = ?, Motivo = ? WHERE Dni = ? AND Fecha_ingreso = ?");
+        $stmt->execute([$sala, $habitacion, $cama, $disc1, $obs1, $diag1, $estado, $fechaID, $motivoID, $dni, $fecha]);
 
     } elseif ($consultaDomiciliario->rowCount() > 0) {
         // Actualizar datos_domiciliario
@@ -46,30 +46,8 @@ $motivoID = $_POST['motivoID'];
         $obs = $_POST['obs'];
         $diag = $_POST['diag'];
 
-        $stmt = $conn->prepare("UPDATE datos_domiciliario SET Direccion = ?, Discapacidad = ?, Observacion = ?, Diagnostico = ?, Estado = ? WHERE Dni = ? AND Fecha_ingreso = ?");
-        $stmt->execute([$direccion, $disc, $obs, $diag, $estado, $dni, $fecha]);
-    } else {
-        // Si no existe en datos_internacion, insertar en datos_internacion
-        if ($estado == "Internacion") {
-            $sala = $_POST['sala'];
-            $habitacion = $_POST['habitacion'];
-            $cama = $_POST['cama'];
-            $disc1 = $_POST['disc1'];
-            $obs1 = $_POST['obs1'];
-            $diag1 = $_POST['diag1'];
-
-            $stmt = $conn->prepare("INSERT INTO datos_internacion(Dni, Fecha_ingreso, Sala, Habitación, Cama, Discapacidad, Observacion, Diagnostico, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([$dni, $fecha, $sala, $habitacion, $cama, $disc1, $obs1, $diag1, $estado]);
-        } else {
-            // Si no existe en datos_domiciliario, insertar en datos_domiciliario
-            $direccion = $_POST['dire'];
-            $disc = $_POST['disc'];
-            $obs = $_POST['obs'];
-            $diag = $_POST['diag'];
-
-            $stmt = $conn->prepare("INSERT INTO datos_domiciliario(Dni, Fecha_ingreso, Direccion, Discapacidad, Observacion, Diagnostico, Estado) VALUES (?,?,?,?,?,?,?)");
-            $stmt->execute([$dni, $fecha, $direccion, $disc, $obs, $diag, $estado]);
-        }
+        $stmt = $conn->prepare("UPDATE datos_domiciliario SET Direccion = ?, Discapacidad = ?, Observacion = ?, Diagnostico = ?, Estado = ?, Fecha_alta = ?, Motivo = ?  WHERE Dni = ? AND Fecha_ingreso = ?");
+        $stmt->execute([$direccion, $disc, $obs, $diag, $estado, $fechaID, $motivoID, $dni, $fecha]);
     }
 
     header("location: formularioAlumno.php");
