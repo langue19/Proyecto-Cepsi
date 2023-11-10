@@ -166,6 +166,14 @@ function openModal12(dni) {
 
 }
 
+function openModal13(dni) {
+
+  var modal = document.getElementById('id-modal13-' + dni);
+
+  modal.style.display = 'block';
+
+}
+
 function closeModal(modalId) {
 
   var modal = document.getElementById(modalId);

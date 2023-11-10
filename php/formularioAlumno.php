@@ -173,6 +173,11 @@ $mesesEnEspanol = array(
                                             <th style="text-align: center; vertical-align: middle;">Obs</th>
 
                                         <?php endif; ?>
+                                        <?php if ($mostrarColumnaAccion2) : ?>
+
+                                            <th style="text-align: center; vertical-align: middle;">Datos</th>
+
+                                        <?php endif; ?>
 
                                         <th style="text-align: center; vertical-align: middle;">DNI</th>
 
@@ -261,6 +266,60 @@ $mesesEnEspanol = array(
                                         while ($row = $consulta->fetch()) {
 
                                             echo "<tr>";
+                                            if ($mostrarColumnaAccion2) :
+
+                                                echo "<td style='text-align: center; vertical-align: middle;'><a href='#' onclick=\"openModal13#('" . $row['Dni'] . "')\">
+
+                                                <img src='/Proyecto-master/Proyecto-master/img/informacion-personal.png'>
+            
+                                            </a>
+            
+                                                <div class='w3-container'>
+            
+                                                    <div id='id-modal13-" . $row['Dni'] . "' class='w3-modal'>
+            
+                                                        <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
+            
+                                                            <header class='w3-container w3-white'> 
+            
+                                                            <span onclick=\"closeModal('id-modal13-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+            
+                                                            <h2 style='text-align: center; vertical-align: middle;'>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
+            
+                                                            </header>
+            
+                                                            <div id='-" . $row['Dni'] . "' class='w3-container'>
+            
+                                                            <div class='container'>
+            
+                                                                <div class='form-control'>
+            
+                                                                    <label for='search'><i class='icon-search'></i></label>
+            
+                                                                        <input class='table-filter' type='search' data-table='advanced-web-table' placeholder='Buscar...'>
+            
+                                                                    </div>
+            
+                                                                                    <!--  Table  -->
+            
+                                                                                    <div class='table-responsive'>
+            
+                                                                                        
+            
+                                                            </div>
+            
+                                                        </div>
+            
+                                                    </div>
+            
+                                                    </div>
+            
+                                                    </div>
+            
+                                                    </td>";
+
+                                            endif;
+
 
                                             if ($mostrarColumnaAccion || $mostrarColumnaAccion1) :
 
