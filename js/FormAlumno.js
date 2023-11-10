@@ -150,6 +150,22 @@ function openModal10(dni) {
 
 }
 
+function openModal11(dni) {
+
+  var modal = document.getElementById('id-modal11-' + dni);
+
+  modal.style.display = 'block';
+
+}
+
+function openModal12(dni) {
+
+  var modal = document.getElementById('id-modal12-' + dni);
+
+  modal.style.display = 'block';
+
+}
+
 function closeModal(modalId) {
 
   var modal = document.getElementById(modalId);
@@ -206,6 +222,15 @@ function closeModal4(modalId) {
 
 }
 
+function closeModal5(modalId) {
+
+  var modal = document.getElementById(modalId);
+
+  modal.style.display = 'none';
+
+  openModal11(dni);
+
+}
 
 
 function openCity(evt, cityName, dni) {

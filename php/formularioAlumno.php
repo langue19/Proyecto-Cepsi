@@ -182,7 +182,7 @@ $mesesEnEspanol = array(
 
                                         <th style="text-align: center; vertical-align: middle;">Edad</th>
 
-                                        <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1 ) : ?>
+                                        <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1) : ?>
 
                                             <th style="text-align: center; vertical-align: middle;">Datos</th>
 
@@ -193,8 +193,6 @@ $mesesEnEspanol = array(
                                         <?php endif; ?>
 
                                         <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion2) : ?>
-
-                                            <th style="text-align: center; vertical-align: middle;"><img src="/Proyecto-master/Proyecto-master/img/barra-vertical.png" style="max-width: 30px;"></th>
 
                                             <th style="text-align: center; vertical-align: middle;">Obs</th>
 
@@ -1877,11 +1875,6 @@ $mesesEnEspanol = array(
 
                                             endif;
 
-                                            if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) :
-
-                                                echo "<td style='text-align: center; vertical-align: middle;'><img src='/Proyecto-master/Proyecto-master/img/barra-vertical.png' style='max-width: 30px;'></td>";
-
-                                            endif;
 
                                             if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) :
 
@@ -1931,11 +1924,9 @@ $mesesEnEspanol = array(
 
                                                                                     <tr>
 
-                                                                                        <th style='text-align: center; vertical-align: middle;'>Fecha</th>
+                                                                                        <th style='text-align: center; vertical-align: middle;'>Fecha de registro</th>
 
                                                                                         <th style='text-align: center; vertical-align: middle;'>Observaciones</th>                                                                                   
-
-                                                                                        <th style='text-align: center; vertical-align: middle;'>Psicopedagoga</th>
 
                                                                                         <th style='text-align: center; vertical-align: middle;'><a href='ObsAnamnesis.php?id=" . $row['Dni'] . "'>
 
@@ -1957,11 +1948,11 @@ $mesesEnEspanol = array(
 
                                                 $sql2 = "SELECT *
 
-                 FROM datos_academ
+                 FROM datos_tabla
 
-                 WHERE DNI = :idviejo
+                 WHERE dni = :idviejo
 
-                 ORDER BY Fecha ASC;
+                 ORDER BY fecha_r DESC;
 
         ";
 
@@ -1994,7 +1985,7 @@ $mesesEnEspanol = array(
 
                                                         echo "<tr>";
 
-                                                        $fechaOriginal = $row2['Fecha'];
+                                                        $fechaOriginal = $row2['fecha_r'];
 
                                                         $parts = explode('-', $fechaOriginal);
 
@@ -2012,9 +2003,14 @@ $mesesEnEspanol = array(
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaFormateada . "</td>";
 
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Observación'] . "</td>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['observaciones'] . "</td>";
 
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Nombre_Profesor'] . "</td>";
+                                                        echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
+
+                                                        <a href='#?id=" . $row2['ID'] . "&dni=" . $row2['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
+
+                                                        </td>";
+
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'></td>";
 
@@ -2052,7 +2048,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                echo "<td style='text-align: center; vertical-align: middle;'><a href='#' onclick=\"openModal6('" . $row['Dni'] . "')\">
+                                                echo "<td style='text-align: center; vertical-align: middle;'><a href='generarPDF-amne.php?id=" . $row['Dni'] . "'>
 
           <img src='/Proyecto-master/Proyecto-master/img/pdf.png'>
 

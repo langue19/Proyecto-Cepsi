@@ -194,6 +194,92 @@ try {
 
         PRIMARY KEY (DNI));
 
+        CREATE TABLE datos_tabla (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    dni VARCHAR(20) NOT NULL,
+    fecha_r DATE NOT NULL,
+    observaciones TEXT,
+    UNIQUE KEY unique_dni_fecha (dni, fecha_r)
+);
+CREATE TABLE datos_estudiante (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre1 VARCHAR(255),
+    apellido1 VARCHAR(255),
+    edad1 INT,
+    rol1 VARCHAR(255),
+    ocupacion1 VARCHAR(255),
+    escolaridad1 VARCHAR(255),
+    salario_asignacion_pension1 VARCHAR(255),
+    asist1 VARCHAR(255),
+    observaciones1 TEXT,
+    
+    nombre2 VARCHAR(255),
+    apellido2 VARCHAR(255),
+    edad2 INT,
+    rol2 VARCHAR(255),
+    ocupacion2 VARCHAR(255),
+    escolaridad2 VARCHAR(255),
+    salario_asignacion_pension2 VARCHAR(255),
+    asist2 VARCHAR(255),
+    observaciones2 TEXT,
+    
+    obs TEXT,
+    
+    numconvi INT,
+    numhabit INT,
+    obsG TEXT,
+    mediosT TEXT,
+    
+    diagnostico TEXT,
+    medico_cabecera TEXT,
+    tratamiento TEXT,
+    medicacion TEXT,
+    tiempo_internacion VARCHAR(255),
+    tiempo VARCHAR(255),
+    pronostico TEXT,
+    observaciones TEXT,
+    manifestaciones TEXT,
+    enfermedades_previas TEXT,
+    medicacion_incidir TEXT,
+    tratamientos_terapeutica TEXT,
+    
+    nivel_inicial_sala VARCHAR(255),
+    nivel_inicial_asistio VARCHAR(255),
+    nivel_inicial_institucion VARCHAR(255),
+    obsE TEXT,
+    
+    nivel_primario_grado VARCHAR(255),
+    nivel_primario_tutor VARCHAR(255),
+    
+    promocion_automatica VARCHAR(255),
+    observaciones_promocion TEXT,
+    cambios_escuela VARCHAR(255),
+    institucion_cambios VARCHAR(255),
+    repitencia VARCHAR(255),
+    grado_repitencia VARCHAR(255),
+    veces_repitencia VARCHAR(255),
+    ausentismo VARCHAR(255),
+    observaciones_ausentismo TEXT,
+    desercion VARCHAR(255),
+    observaciones_desercion TEXT,
+    derivacion VARCHAR(255),
+    intervencion_equipo VARCHAR(255),
+    ppi VARCHAR(255),
+    caracter_anterior VARCHAR(255),
+    caracter_actual VARCHAR(255),
+    nombre_caracter VARCHAR(255),
+    
+    educacion_anterior VARCHAR(255),
+    institucion_educacion VARCHAR(255),
+    grado_educacion VARCHAR(255),
+    docente_educacion VARCHAR(255),
+    tiempo_intervencion VARCHAR(255),
+    
+    observaciones_generales TEXT
+);
+
+
+
 ";
 
   $conn->exec($sqlCrearTabla);

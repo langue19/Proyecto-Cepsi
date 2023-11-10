@@ -77,7 +77,7 @@ session_start();
 
         $sql1 = "SELECT *
 
-    FROM datos_personales WHERE Dni = $dni;
+    FROM datos_tabla WHERE Dni = $dni;
 
     ";
 

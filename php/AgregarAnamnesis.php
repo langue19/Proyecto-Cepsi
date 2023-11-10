@@ -113,102 +113,96 @@ session_start();
                 </section>
 
                 <hr><br />
-                <form action="#.php" method="POST">
+                <form action="agregarAmne.php" method="POST">
                     <section class="row">
 
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
-                            <label>FAMILIAR 1</label>
-
+                            <label for="nombre1">FAMILIAR 1</label>
                             <hr>
 
                             <div class="fila">
 
-                                <input type="text" placeholder="Nombre" name="nombre1">
+                                <input type="text" placeholder="Nombre" name="nombre1" id="nombre1">
 
-                                <input type="text" placeholder="Apellido" name="apellido1">
-
-                            </div>
-
-                            <div class="fila">
-
-                                <input type="text" placeholder="Edad" name="edad1">
+                                <input type="text" placeholder="Apellido" name="apellido1" id="apellido1">
 
                             </div>
 
                             <div class="fila">
 
-                                <input type="text" placeholder="Rol familiar" name="rol1">
-
-                                <input type="text" placeholder="Ocupacion" name="ocupacion1">
-
-                                <input type="text" placeholder="Escolaridad alcanzada" name="escolaridad1">
+                                <input type="text" placeholder="Edad" name="edad1" id="edad1">
 
                             </div>
 
                             <div class="fila">
 
-                                <input type="text" placeholder="Salario/Asignacion/Pension" name="salario/asignacion/pension1">
+                                <input type="text" placeholder="Rol familiar" name="rol1" id="rol1">
 
-                                <input type="text" placeholder="Asist. sanit." name="asist1">
+                                <input type="text" placeholder="Ocupacion" name="ocupacion1" id="ocupacion1">
+
+                                <input type="text" placeholder="Escolaridad alcanzada" name="escolaridad1" id="escolaridad1">
 
                             </div>
 
                             <div class="fila">
 
-                                <input type="text" placeholder="Observaciones" name="observaciones1">
+                                <input type="text" placeholder="Salario/Asignacion/Pension" name="salario_asignacion_pension1" id="salario_asignacion_pension1">
+
+                                <input type="text" placeholder="Asist. sanit." name="asist1" id="asist1">
 
                             </div>
 
+                            <div class="fila">
 
+                                <input type="text" placeholder="Observaciones" name="observaciones1" id="observaciones1">
+
+                            </div>
 
                         </section>
 
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
-                            <label>FAMILIAR 2</label>
+                            <label for="nombre2">FAMILIAR 2</label>
                             <hr>
 
-
                             <div class="fila">
 
-                                <input type="text" placeholder="Nombre" name="nombre2">
+                                <input type="text" placeholder="Nombre" name="nombre2" id="nombre2">
 
-                                <input type="text" placeholder="Apellido" name="apellido2">
+                                <input type="text" placeholder="Apellido" name="apellido2" id="apellido2">
 
                             </div>
 
                             <div class="fila">
 
-                                <input type="text" placeholder="Edad" name="edad2">
+                                <input type="text" placeholder="Edad" name="edad2" id="edad2">
 
                             </div>
 
                             <div class="fila">
 
-                                <input type="text" placeholder="Rol familiar" name="rol2">
+                                <input type="text" placeholder="Rol familiar" name="rol2" id="rol2">
 
-                                <input type="text" placeholder="Ocupacion" name="ocupacion2">
+                                <input type="text" placeholder="Ocupacion" name="ocupacion2" id="ocupacion2">
 
-                                <input type="text" placeholder="Escolaridad alcanzada" name="escolaridad2">
-
-                            </div>
-
-                            <div class="fila">
-
-                                <input type="text" placeholder="Salario/Asignacion/Pension" name="salario/asignacion/pension2">
-
-                                <input type="text" placeholder="Asist. sanit." name="asist2">
+                                <input type="text" placeholder="Escolaridad alcanzada" name="escolaridad2" id="escolaridad2">
 
                             </div>
 
                             <div class="fila">
 
-                                <input type="text" placeholder="Observaciones" name="observaciones2">
+                                <input type="text" placeholder="Salario/Asignacion/Pension" name="salario_asignacion_pension2" id="salario_asignacion_pension2">
+
+                                <input type="text" placeholder="Asist. sanit." name="asist2" id="asist2">
 
                             </div>
 
+                            <div class="fila">
 
+                                <input type="text" placeholder="Observaciones" name="observaciones2" id="observaciones2">
+
+                            </div>
 
                         </section>
 
@@ -216,29 +210,20 @@ session_start();
 
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
-                            <label>OBSERVACIONES SOBRE LA HISTORIA Y DINÁMICA FAMILIAR</label>
+                            <label for="obs">OBSERVACIONES SOBRE LA HISTORIA Y DINÁMICA FAMILIAR</label>
                             <hr>
-
 
                             <div class="fila">
 
-                                <input type="text" placeholder="Observaciones" name="obs">
+                                <input type="text" placeholder="Observaciones" name="obs" id="obs">
 
                             </div>
 
-
-
                         </section>
-
-
-
-
 
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
-                            <label>VIVIENDA</label>
-
-
+                            <label for="vivienda">VIVIENDA</label>
 
                             <div class="nuevo" style="display:flex;">
 
@@ -264,15 +249,11 @@ session_start();
 
                                 </div>
 
-
-
                                 <!-- Construcción -->
 
                                 <label for="construccion">CONSTRUCCION</label>
                                 <hr>
                                 <div class="fila1">
-
-
 
                                     <div class="form-check">
 
@@ -300,15 +281,11 @@ session_start();
 
                                 </div>
 
-
-
                                 <!-- Tenencia -->
 
                                 <label for="tenencia">TENENCIA</label>
                                 <hr>
                                 <div class="fila1">
-
-
 
                                     <div class="form-check">
 
@@ -346,13 +323,12 @@ session_start();
 
 
 
+
                                 <!-- Servicios -->
 
                                 <label for="servicios">SERVICIOS</label>
                                 <hr>
                                 <div class="fila1">
-
-
 
                                     <div class="form-check">
 
@@ -404,51 +380,38 @@ session_start();
 
                                 </div>
 
+                                <div class="fila">
 
+                                    <input type="text" placeholder="Numero de convivientes" name="numconvi">
 
+                                    <input type="text" placeholder="Numero de habitaciones" name="numhabit">
 
+                                </div>
 
+                                <!-- Observaciones Generales -->
 
+                                <div class="fila">
 
-                            </div>
+                                    <input type="text" placeholder="Observaciones generales" name="obsG">
 
-                            <div class="fila">
+                                </div>
 
-                                <input type="text" placeholder="Numero de convivientes" name="numconvi">
+                                <!-- Accesibilidad (Medios de Transporte) -->
 
-                                <input type="text" placeholder="Numero de habitaciones" name="numhabit">
+                                <div class="fila">
 
-                            </div>
+                                    <input type="text" placeholder="Medios de transporte" name="mediosT">
 
-                            <!-- Observaciones Generales -->
-
-                            <div class="fila">
-
-                                <input type="text" placeholder="Observaciones generales" name="obsG">
-
-                            </div>
-
-
-
-                            <!-- Accesibilidad (Medios de Transporte) -->
-
-                            <div class="fila">
-
-                                <input type="text" placeholder="Medios de transporte" name="mediosT">
-
-                            </div>
-
-
+                                </div>
 
                         </section>
 
-
-
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
-                            <label>HISTORIAL EVOLUCIÓN DE ENFERMEDAD</label>
-                            <hr>
+                            <!-- HISTORIAL EVOLUCIÓN DE ENFERMEDAD -->
 
+                            <label for="historial">HISTORIAL EVOLUCIÓN DE ENFERMEDAD</label>
+                            <hr>
 
                             <div class="fila">
 
@@ -518,8 +481,6 @@ session_start();
 
                             </div>
 
-
-
                         </section>
 
 
@@ -528,15 +489,14 @@ session_start();
 
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
+                            <!-- EDUCACIÓN -->
+
                             <label>EDUCACIÓN</label>
                             <hr>
-
 
                             <label style="display: flex; justify-content:center;">NIVEL INICIAL</label>
 
                             <div class="fila">
-
-
 
                                 <input type="text" placeholder="SALA" name="nivel_inicial_sala">
 
@@ -562,19 +522,14 @@ session_start();
 
                             </div>
 
-
-
                         </section>
-
-
-
-
 
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
+                            <!-- HISTORIA ESCOLAR -->
+
                             <label>HISTORIA ESCOLAR</label>
                             <hr>
-
 
                             <div class="fila">
 
@@ -642,17 +597,14 @@ session_start();
 
                             </div>
 
-
-
                         </section>
-
-
 
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
+                            <!-- ESCOLARIDAD HOSPITALARIA-DOMICILIARIA -->
+
                             <label>ESCOLARIDAD HOSPITALARIA-DOMICILIARIA</label>
                             <hr>
-
 
                             <div class="fila">
 
@@ -672,19 +624,14 @@ session_start();
 
                             </div>
 
-
-
-
-
                         </section>
-
-
 
                         <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
 
+                            <!-- OBSERVACIONES GENERALES -->
+
                             <label>OBSERVACIONES GENERALES</label>
                             <hr>
-
 
                             <div class="fila">
 
@@ -692,9 +639,8 @@ session_start();
 
                             </div>
 
-
-
                         </section>
+
 
                     </section>
                     <div style="overflow:auto;" id="nextprevious">
