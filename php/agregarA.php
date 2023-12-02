@@ -345,7 +345,7 @@ session_start();
 
                                                 <option value="">Selecciona una opción</option>
 
-                                                <option value="Internado">Internado</option>
+                                                <option value="Internacion">Internacion</option>
 
                                                 <option value="Domiciliario">Domiciliario</option>
 

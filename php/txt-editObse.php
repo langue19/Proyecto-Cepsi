@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ejecutar la consulta de actualización
     if ($stmt->execute()) {
         // Redirigir a la página deseada después de la actualización exitosa
+        
         header("Location: formularioAlumno.php");
         exit; // Terminar el script para evitar procesamiento adicional
     } else {

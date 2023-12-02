@@ -6,7 +6,7 @@ function showForm(selectedValue) {
 
 
 
-	if (selectedValue === "Internado") {
+	if (selectedValue === "Internacion") {
 
 		form1.style.display = "block";
 

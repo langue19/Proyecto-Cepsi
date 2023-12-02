@@ -460,3 +460,35 @@ width: 100%;
 
 
 
+
+.content-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  color: #fff;
+}
+
+.order-card {
+  border: 2px solid #17a2b8;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.order-card:hover {
+  transform: scale(1.05);
+}
+
+.card-block {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Eliminamos estilos relacionados con el enlace */

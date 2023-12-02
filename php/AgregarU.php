@@ -74,7 +74,7 @@ session_start();
 
                         <form action="AgregarUsuario.php" method="post" id="regForm">
 
-                            <h2 style="text-align: center;">Agregar Usuario</h2>
+                            <h2 style="text-align: center;">Agregar Docente</h2>
 
                             <div class="all-steps" id="all-steps">
 
@@ -126,7 +126,7 @@ session_start();
 
                                             <option value="Administrador">Administrador</option>
 
-                                            <option value="Usuario">Usuario</option>
+                                            <option value="Docente">Docente</option>
 
                                             <option value="Psicopedagoga">Psicopedagoga</option>
 

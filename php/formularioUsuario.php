@@ -144,7 +144,7 @@ if ($posicion == 'Usuario') {
 
             <div class="content-header" style="text-align: center; vertical-align: middle;">
 
-                <h2>Formulario Usuario</h2>
+                <h2>Formulario Docente</h2>
 
             </div>
 
@@ -364,7 +364,7 @@ if ($posicion == 'Usuario') {
 
                           <option style="color:black; background-color:rgb(241, 241, 241);" value="Administrador" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Administrador' ? 'selected' : ''; ?>>Administrador</option>
 
-                          <option style="color:black; background-color:rgb(241, 241, 241);" value="Usuario" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Usuario' ? 'selected' : ''; ?>>Usuario</option>
+                          <option style="color:black; background-color:rgb(241, 241, 241);" value="Usuario" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Usuario' ? 'selected' : ''; ?>>Docente</option>
 
                           <option style="color:black; background-color:rgb(241, 241, 241);" value="Psicopedagoga" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Psicopedagoga' ? 'selected' : ''; ?>>Psicopedagoga</option>
 

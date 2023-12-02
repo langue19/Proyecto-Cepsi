@@ -182,25 +182,11 @@ session_start();
 
                                         <?php
 
-                                        session_start();
-
-                                        $posicion = $_SESSION['Posicion'];
-
-                                        // Verificar si el usuario ha iniciado sesión (esto dependerá de tu sistema de autenticación)
-
-                                        if ($posicion == 'Usuario') {
-
-                                            $ape = $_SESSION["Apellido"];
-
-                                            $nomb = $_SESSION["Nombre"];
-
-                                            echo " <label for='Profesor'>Profesor</label><input style='background-color:antiquewhite; text-align: center;' name='Contenido' type='text' class='fieldlabels' id='Contenido' value='$ape $nomb' readonly>";
-                                        } else {
-
+                                        
                                             echo "<label for='Profesor'>Profesor</label>
 
                             <select name='Profesor' id='Profesor' class='form-control' style='background-color:whitesmoke;color: black;'>";
-                                        }
+                                        
 
                                         ?>
 
@@ -220,11 +206,9 @@ session_start();
 
                                     include 'crearTabla.php';
 
-                                    if ($posicion == 'Administrador') {
-
                                         $conn->exec("USE $dbname");
 
-                                        $stmt = $conn->query("SELECT Nombre, Apellido FROM datos_profesor WHERE Estado = true"); // Ajusta la consulta según tus necesidades
+                                        $stmt = $conn->query("SELECT Nombre, Apellido FROM datos_usuarios WHERE Estado = true"); // Ajusta la consulta según tus necesidades
 
                                         echo "<option value=''>Seleccionar</option>";
 
@@ -240,7 +224,6 @@ session_start();
                                         }
 
                                         echo "</select>";
-                                    }
 
                                     ?>
 

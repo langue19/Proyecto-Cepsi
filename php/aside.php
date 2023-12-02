@@ -248,7 +248,7 @@
 
                                         <p>
 
-                                            Usuarios
+                                            Docentes
 
                                         </p>
 
@@ -256,21 +256,6 @@
 
                                 </li>
 
-                                <li class="nav-item">
-
-                                    <a href="formularioProfesor.php" class="nav-link">
-
-                                        <i class="far fa-circle nav-icon"></i>
-
-                                        <p>
-
-                                            Profesor
-
-                                        </p>
-
-                                    </a>
-
-                                </li>
 
                             <?php endif; ?>
 
@@ -330,7 +315,7 @@
 
                                         <p>
 
-                                            Usuarios
+                                            Docentes
 
                                         </p>
 
@@ -340,23 +325,6 @@
 
                                 </li>
 
-                                <li class="nav-item">
-
-                                    <a href="AgregarProfesor.php" class="nav-link">
-
-                                        <i class="far fa-circle nav-icon"></i>
-
-                                        <p>
-
-                                            Profesores
-
-                                        </p>
-
-                                    </a>
-
-
-
-                                </li>
 
                             <?php endif; ?>
                             <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion2) : ?>
@@ -386,23 +354,55 @@
 
 
 
+
+
                     <li class="nav-item">
 
-                        <a href="estadistica.php" class="nav-link">
+                        <a href="#" class="nav-link">
 
                             <img src="/Proyecto-master/Proyecto-master/img/grafico.png" style="max-height:20px;">
 
                             <p>
 
-                                Estadistica
+                                Estadisticas
+
+                                <i class="fas fa-angle-left right"></i>
 
                             </p>
 
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
 
+                                <a href="estadistica-inter.php" class="nav-link">
 
+                                    <i class="far fa-circle nav-icon"></i>
 
+                                    <p>
 
+                                        Estadistica - Internacion
+
+                                    </p>
+
+                                </a>
+                            </li>
+                            <li class="nav-item">
+
+                                <a href="estadistica-dom.php" class="nav-link">
+
+                                    <i class="far fa-circle nav-icon"></i>
+
+                                    <p>
+
+                                        Estadistica - Domiciliario
+
+                                    </p>
+
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
 
 
 
