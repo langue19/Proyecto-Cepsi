@@ -252,14 +252,15 @@ $mesesEnEspanol = array(
 
 
             <div class="content-header row" style="display: flex; justify-content: center;">
-                <div class="col-md-4 col-xl-3">
+                <div class="col-md-4 col-xl-3" onclick="redirectTo('formularioAlumno.php', 'altas');" style="cursor: pointer;">
                     <div class="card bg-dark order-card">
                         <div class="card-block">
                             <h1 class="m-b-20">Dados de alta</h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-xl-3">
+
+                <div class="col-md-4 col-xl-3" onclick="redirectTo('formularioAlumno.php', 'internacion');" style="cursor: pointer;">
                     <div class="card bg-dark order-card">
                         <div class="card-block">
                             <h1 class="m-b-20">Internacion</h1>
@@ -267,7 +268,7 @@ $mesesEnEspanol = array(
                     </div>
                 </div>
 
-                <div class="col-md-4 col-xl-3">
+                <div class="col-md-4 col-xl-3" onclick="redirectTo('formularioAlumno.php', 'domiciliario');" style="cursor: pointer;">
                     <div class="card bg-dark order-card">
                         <div class="card-block">
                             <h1 class="m-b-20">Domiciliario</h1>
@@ -275,7 +276,7 @@ $mesesEnEspanol = array(
                     </div>
                 </div>
 
-                <div class="col-md-4 col-xl-3">
+                <div class="col-md-4 col-xl-3" onclick="redirectTo('formularioAlumno.php', 'todos');" style="cursor: pointer;">
                     <div class="card bg-dark order-card">
                         <div class="card-block">
                             <h1 class="m-b-20">Todos</h1>
@@ -283,8 +284,23 @@ $mesesEnEspanol = array(
                     </div>
                 </div>
 
+                <script>
+                    function redirectTo(url, valor) {
+                        window.location = url + '?valor=' + encodeURIComponent(valor);
+                    }
+                </script>
+
             </div>
 
+            <?php
+            // Supongamos que estás en formularioAlumno.php
+
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                if (isset($_GET['valor'])) {
+                    $valor = $_GET['valor'];
+                }
+            }
+            ?>
 
             <div class="">
                 <div class="container-fluid">
@@ -486,11 +502,31 @@ $mesesEnEspanol = array(
 
 
 
+                                    if ($valor == 'internacion') {
+                                        $sql1 = "SELECT Datos_personales.*
+                                        FROM Datos_personales
+                                        JOIN personales_fechas ON Datos_personales.Dni = personales_fechas.Dni
+                                        WHERE personales_fechas.Estado = 'Internacion'                                        
+                                        LIMIT  $inicio, $itemsPorPagina;";
+                               
+                                         
+                                    } elseif ($valor == 'domiciliario') {
+                                        
+                                        $sql1 = "SELECT Datos_personales.*
+                                        FROM Datos_personales
+                                        JOIN personales_fechas ON Datos_personales.Dni = personales_fechas.Dni
+                                        WHERE personales_fechas.Estado = 'Domiciliario'                                        
+                                        LIMIT $inicio, $itemsPorPagina;";
+                                    } elseif ($valor == 'altas') {
 
-                                    $sql1 = "SELECT *
-         FROM Datos_personales 
-         ORDER BY fecha_act DESC
-         LIMIT $inicio, $itemsPorPagina;";
+                                        $sql1 = "SELECT Datos_personales.*
+         FROM Datos_personales
+         JOIN personales_fechas ON Datos_personales.Dni = personales_fechas.Dni
+         WHERE personales_fechas.Fecha_alta IS NOT NULL LIMIT $inicio, $itemsPorPagina;";
+
+                                    } else {
+                                        $sql1 = "SELECT * FROM Datos_personales ORDER BY fecha_act DESC LIMIT $inicio, $itemsPorPagina;";
+                                    }
 
 
 
@@ -973,17 +1009,18 @@ $mesesEnEspanol = array(
 
 
 
-                                            $sql19 = "SELECT * FROM personales_fechas WHERE Dni = :dni ORDER BY Fecha_registro DESC";
+                                            $sql19 = "SELECT * FROM personales_fechas WHERE Dni = :dni ORDER BY Fecha_registro DESC LIMIT 1";
                                             $consulta2 = $conn->prepare($sql19);
                                             $consulta2->bindParam(':dni', $row['Dni']); // Corregir aquí
                                             if ($consulta2->execute()) {
                                                 while ($row2 = $consulta2->fetch()) {
-                                                    if ($row2['Estado'] == 'Internacion') {
+                                                    if ($row2['Fecha_alta'] != null) {
+                                                        echo '<span class="badge rounded-pill bg-pink" style="font-size: 14px; width: 120px;">DADO DE ALTA</span>';
+                                                    } else if ($row2['Estado'] == 'Internacion') {
                                                         echo '<span class="badge rounded-pill bg-success" style="font-size: 14px; width: 120px;">INTERNADO</span>';
                                                     } elseif ($row2['Estado'] == 'Domiciliario') {
                                                         echo '<span class="badge rounded-pill bg-info" style="font-size: 14px; width: 120px;">DOMICILIARIO</span>';
                                                     }
-                                                    
                                                 }
                                             }
 

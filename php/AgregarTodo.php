@@ -24,7 +24,7 @@ $fecha_nac = $_POST['fecha_nacimiento'];
 
 $nombTutor = $_POST['nombre_tutor'];
 
-$reingreso = $_POST['reingreso'];
+$reingreso = $_POST['pasa'];
 
 
 $conn->exec("USE $dbname");
@@ -32,7 +32,7 @@ $conn->exec("USE $dbname");
 
 
 
-if($reingreso == "reingreso"){
+if($reingreso != "reingreso"){
 
 
     $sql = "SELECT * FROM Datos_personales WHERE Dni = :dni"; // Usar marcador de posición

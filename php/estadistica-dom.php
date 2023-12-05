@@ -329,7 +329,7 @@ session_start();
 
                                 <?php
 
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '1º grado'";
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '1° grado'";
 
                                 $consulta = $conn->prepare($sql);
 
@@ -341,7 +341,7 @@ session_start();
 
                                 ?>
 
-                                <p>1º grado</p>
+                                <p>1° grado</p>
 
                             </div>
 
@@ -367,7 +367,7 @@ session_start();
 
                                 <?php
 
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '2º grado'";
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '2° grado'";
 
                                 $consulta = $conn->prepare($sql);
 
@@ -379,7 +379,7 @@ session_start();
 
                                 ?>
 
-                                <p>2º grado</p>
+                                <p>2° grado</p>
 
                             </div>
 
@@ -405,7 +405,7 @@ session_start();
 
                                 <?php
 
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '3º grado'";
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '3° grado'";
 
                                 $consulta = $conn->prepare($sql);
 
@@ -417,7 +417,7 @@ session_start();
 
                                 ?>
 
-                                <p>3º grado</p>
+                                <p>3° grado</p>
 
                             </div>
 
@@ -443,7 +443,7 @@ session_start();
 
                                 <?php
 
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '4º grado'";
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '4° grado'";
 
                                 $consulta = $conn->prepare($sql);
 
@@ -455,7 +455,7 @@ session_start();
 
                                 ?>
 
-                                <p>4º grado</p>
+                                <p>4° grado</p>
 
                             </div>
 
@@ -481,7 +481,7 @@ session_start();
 
                                 <?php
 
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '5º grado'";
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '5° grado'";
 
                                 $consulta = $conn->prepare($sql);
 
@@ -493,7 +493,7 @@ session_start();
 
                                 ?>
 
-                                <p>5º grado</p>
+                                <p>5° grado</p>
 
                             </div>
 
@@ -519,7 +519,7 @@ session_start();
 
                                 <?php
 
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '6º grado'";
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '6° grado'";
 
                                 $consulta = $conn->prepare($sql);
 
@@ -531,7 +531,7 @@ session_start();
 
                                 ?>
 
-                                <p>6º grado</p>
+                                <p>6° grado</p>
 
                             </div>
 
@@ -557,7 +557,7 @@ session_start();
 
                                 <?php
 
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '7º grado'";
+                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '7° grado'";
 
                                 $consulta = $conn->prepare($sql);
 
@@ -569,7 +569,7 @@ session_start();
 
                                 ?>
 
-                                <p>7º grado</p>
+                                <p>7° grado</p>
 
                             </div>
 
