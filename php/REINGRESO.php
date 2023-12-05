@@ -90,79 +90,12 @@ session_start();
 
                             <div class="all-steps" id="all-steps">
 
-                                <span class="step"><i class="fa fa-user"></i></span>
-
                                 <span class="step"><i class="fa fa-map-marker"></i></span>
 
                                 <span class="step"><i class="fa fa-shopping-bag"></i></span>
 
                             </div>
 
-
-
-                            <div class="tab">
-
-                                <div class="container">
-
-                                    <input type="hidden" id="currentTab" value="0">
-
-                                    <div class="row">
-
-                                        <label for="ape">Apellido:</label>
-
-                                        <input name="apellido" type="text" class="fieldlabels" id="ape" placeholder="Apellido" required>
-
-                                        <label for="nomb">Nombre:</label>
-
-                                        <input name="nombre" type="text" class="fieldlabels" id="nomb" placeholder="Nombre" required>
-
-                                    </div>
-
-                                    <div class="row">
-
-                                        <label for="dni">Dni:</label>
-
-                                        <input name="documento" type="text" class="fieldlabels" id="dni" placeholder="Documento" required>
-
-                                        <label for="sexo">Género:</label>
-
-                                        <select name="genero" id="genero" required>
-
-                                            <option value="Sin especificar">Seleccionar</option>
-
-                                            <option value="Femenino">Femenino</option>
-
-                                            <option value="Masculino">Masculino</option>
-
-                                        </select>
-
-                                    </div>
-
-                                    <div class="row">
-
-                                        <label for="domc">Domicilio:</label>
-
-                                        <input name="domicilio" type="text" class="fieldlabels" id="domc" placeholder="Domicilio" required>
-
-                                        <label for="fechanac">Fecha de nacimiento:</label>
-
-                                        <input name="fecha_nacimiento" type="date" class="fieldlabels" id="fechanac" required>
-
-                                    </div>
-
-                                    <div class="row">
-
-                                        <label for="nombt">Nombre del Tutor:</label>
-
-                                        <input name="nombre_tutor" type="text" class="fieldlabels" id="nombt" placeholder="Nombre del tutor" required>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            </div>
 
                             <div class="tab">
 
@@ -175,6 +108,15 @@ session_start();
 
 
                                     <div class="row">
+                                        <?php 
+                                        if (isset($_GET['dni'])) {
+                                            $dni = $_GET['dni'];
+                                        } ?>
+
+                                        <input name="documento" type="hidden" value="<?php echo $dni; ?>">
+                                        
+                                        <input name="pasa" type="hidden" value="reingreso">
+
 
                                         <label for="fechaing">Fecha de Registro</label>
 

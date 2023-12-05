@@ -404,7 +404,7 @@ $mesesEnEspanol = array(
                                         <?php endif;
 
                                         ?>
-                                        <th style="text-align: center; vertical-align: middle;">Acciones</th>
+                                        <th style="text-align: center; vertical-align: middle;">REINGRESO</th>
                                         <?php
 
                                         if (!$mostrarColumnaAccion2) :  ?>
@@ -488,10 +488,22 @@ $mesesEnEspanol = array(
 
 
                                     $sql1 = "SELECT *
-         FROM Datos_personales 
-         ORDER BY fecha_act DESC
-         LIMIT $inicio, $itemsPorPagina;";
 
+
+
+            FROM datos_personales
+
+
+
+            ORDER BY fecha_act DESC
+
+
+
+            LIMIT $inicio, $itemsPorPagina;
+
+
+
+        ";
 
 
 
@@ -969,26 +981,7 @@ $mesesEnEspanol = array(
 
 
 
-                                            echo "<td style='text-align: center; vertical-align: middle;'>";
-
-
-
-                                            $sql19 = "SELECT * FROM personales_fechas WHERE Dni = :dni ORDER BY Fecha_registro DESC";
-                                            $consulta2 = $conn->prepare($sql19);
-                                            $consulta2->bindParam(':dni', $row['Dni']); // Corregir aquí
-                                            if ($consulta2->execute()) {
-                                                while ($row2 = $consulta2->fetch()) {
-                                                    if ($row2['Estado'] == 'Internacion') {
-                                                        echo '<span class="badge rounded-pill bg-success" style="font-size: 14px; width: 120px;">INTERNADO</span>';
-                                                    } elseif ($row2['Estado'] == 'Domiciliario') {
-                                                        echo '<span class="badge rounded-pill bg-info" style="font-size: 14px; width: 120px;">DOMICILIARIO</span>';
-                                                    }
-                                                    
-                                                }
-                                            }
-
-
-                                            echo "</td>";
+                                            echo "<td style='text-align: center; vertical-align: middle;'>" . 'esto se cambia' . "</td>";
 
 
                                             echo "<td style='text-align: center; vertical-align: middle;'>" . $row['Dni'] . "</td>";
@@ -1468,6 +1461,20 @@ $mesesEnEspanol = array(
 
 
 
+                                <th style='text-align: center; vertical-align: middle;'><a href='agregarDP.php?id=" . $row['Dni'] . "'>
+
+
+
+                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
+
+
+
+                                    </a>
+
+
+
+                                </th>
+
 
 
                                     <th style='text-align: center; vertical-align: middle;'>Fecha Registro</th>
@@ -1545,10 +1552,10 @@ $mesesEnEspanol = array(
 
 
                                                 $sql2 = "SELECT *
-         FROM datos_pedagogicos
-         WHERE $dniviejo = Dni
-         ORDER BY fecha_registro DESC;";
 
+
+
+                        FROM datos_pedagogicos WHERE $dniviejo = Dni;";
 
 
 
@@ -1576,8 +1583,11 @@ $mesesEnEspanol = array(
 
 
 
+                                                        echo "<td style='text-align: center; vertical-align: middle;'></td>";
 
-                                                        $fechaOriginal1 = $row2['Fecha_registro'];
+
+
+                                                        $fechaOriginal1 = $row2['Fecha_ingreso'];
 
 
 
@@ -1658,9 +1668,9 @@ $mesesEnEspanol = array(
 
 
 
-                                                        echo "<a href='#' onclick=\"openModal10('" . $row2['Fecha_registro'] . "')\">
+                                                        echo "<a href='#' onclick=\"openModal10('" . $row2['Fecha_ingreso'] . "')\">
 
-    <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' alt='Editar'>";
+    <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' alt='Dar de Alta'>";
 
                                                         echo "</a>
 
@@ -1668,7 +1678,7 @@ $mesesEnEspanol = array(
 
 
 
-        <div id='id-modal10-" . $row2['Fecha_registro'] . "' class='w3-modal'>
+        <div id='id-modal10-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
 
 
 
@@ -1680,7 +1690,7 @@ $mesesEnEspanol = array(
 
 
 
-                <span onclick=\"closeModal1('id-modal10-" . $row2['Fecha_registro'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                <span onclick=\"closeModal1('id-modal10-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
 
 
 
@@ -1692,7 +1702,7 @@ $mesesEnEspanol = array(
 
 
 
-                <div id='-" . $row2['Fecha_registro'] . "' class='w3-container'>
+                <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
 
 
 
@@ -1724,7 +1734,7 @@ $mesesEnEspanol = array(
 
                         <label for='fechaI'>Fecha Ingreso</label>
 
-                        <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_registro'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                        <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
 
                     </div>
 
@@ -1920,8 +1930,24 @@ $mesesEnEspanol = array(
 
                                                 <?php
 
-                                                echo "
-                                                <th style='text-align: center; vertical-align: middle;'>Fecha de Registro</th>
+                                                echo "<th style='text-align: center; vertical-align: middle;'><a href='agregarDI.php?id=" . $row['Dni'] . "&estado=" . urlencode($est) . "'>
+
+
+
+                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
+
+
+
+                                    </a>
+
+
+
+                                </th>
+
+
+
+                                <th style='text-align: center; vertical-align: middle;'>Fecha de ingreso</th>
+
 
 
                                 <th style='text-align: center; vertical-align: middle;'>Sala</th>
@@ -1948,7 +1974,23 @@ $mesesEnEspanol = array(
 
 
 
+                                <th style='text-align: center; vertical-align: middle;'>Fecha ALTA</th>
+
+
+
+                                <th style='text-align: center; vertical-align: middle;'>Motivo</th>
+
+
+
                                 <th style='text-align: center; vertical-align: middle;'>Acciones</th>
+
+
+
+                                <th style='text-align: center; vertical-align: middle;'></th>
+
+
+
+                                
 
 
 
@@ -2000,7 +2042,7 @@ $mesesEnEspanol = array(
 
 
 
-                                    ORDER BY Fecha_registro DESC";
+                                    ORDER BY Fecha_ingreso DESC";
 
 
 
@@ -2027,7 +2069,12 @@ $mesesEnEspanol = array(
                                                         echo "<tr>";
 
 
-                                                        $fechaOriginal = $row2['Fecha_registro'];
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'></td>";
+
+
+
+                                                        $fechaOriginal = $row2['Fecha_ingreso'];
 
 
 
@@ -2062,6 +2109,7 @@ $mesesEnEspanol = array(
                                                         echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaFormateada . "</td>";
 
 
+
                                                         echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Sala'] . "</td>";
 
 
@@ -2082,7 +2130,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                        $fechaIngresoFila = $row2['Fecha_registro']; // Utiliza la fecha de ingreso como identificador único
+                                                        $fechaIngresoFila = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
 
 
 
@@ -2130,18 +2178,92 @@ $mesesEnEspanol = array(
 
 
 
+                                                        $fechaOriginal1 = $row2['Fecha_alta'];
+
+
+
+                                                        $parts = explode('-', $fechaOriginal1);
+
+
+
+                                                        if (count($parts) === 3) {
+
+
+
+                                                            $dia = intval($parts[2]);
+
+
+
+                                                            $mes = intval($parts[1]);
+
+
+
+                                                            $anio = intval($parts[0]);
 
 
 
 
 
-                                                        $fechaIngresoFila1 = $row2['Fecha_registro']; // Utiliza la fecha de ingreso como identificador único
+
+
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaOriginal1 . "</td>";
 
 
 
 
 
 
+
+                                                        $fechaIngresoFila1 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
+
+
+
+
+
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>
+
+
+
+                    <span id='motivoSpan-$fechaIngresoFila1' style='display: none;'>" . $row2['Motivo'] . "</span>
+
+
+
+                    <button style='border: none; background: none;' onclick='toggleMotivo1(\"$fechaIngresoFila1\")'>
+
+
+
+                      <img style='min-width: 100%;
+
+
+
+                      background: none;
+
+
+
+                      border: none;
+
+
+
+                      outline:none ;
+
+
+
+                      ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar1-$fechaIngresoFila1'>
+
+
+
+                    </button>
+
+
+
+                  </td>";
 
 
 
@@ -2153,9 +2275,9 @@ $mesesEnEspanol = array(
 
 
 
-                                                            echo "<a href='#' onclick=\"openModal9('" . $row2['Fecha_registro'] . "')\">
+                                                            echo "<a href='#' onclick=\"openModal9('" . $row2['Fecha_ingreso'] . "')\">
 
-    <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' alt='Editar'>";
+    <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' alt='Dar de Alta'>";
 
                                                             echo "</a>
 
@@ -2163,7 +2285,7 @@ $mesesEnEspanol = array(
 
 
 
-        <div id='id-modal9-" . $row2['Fecha_registro'] . "' class='w3-modal'>
+        <div id='id-modal9-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
 
 
 
@@ -2175,7 +2297,7 @@ $mesesEnEspanol = array(
 
 
 
-                <span onclick=\"closeModal1('id-modal9-" . $row2['Fecha_registro'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                <span onclick=\"closeModal1('id-modal9-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
 
 
 
@@ -2187,7 +2309,7 @@ $mesesEnEspanol = array(
 
 
 
-                <div id='-" . $row2['Fecha_registro'] . "' class='w3-container'>
+                <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
 
 
 
@@ -2221,8 +2343,15 @@ $mesesEnEspanol = array(
 
                     </div>
 
-                        <input name='fechaI' type='hidden' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_registro'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                    
 
+                    <div class='col'>
+
+                        <label for='fechaI'>Fecha Ingreso</label>
+
+                        <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+
+                    </div>
 
                 </div>
 
@@ -2290,12 +2419,36 @@ $mesesEnEspanol = array(
 
                     </div>
 
+                    
 
+                    <div class='col'>
+
+                        <label for='fecha'>Fecha Alta</label>
+
+                        <input name='fechaID' type='date' class='fieldlabels' id='fechaID' placeholder='fecha' value='" . $row2['Fecha_alta'] . "' style='text-align:center;'>
+
+                    </div>
 
                 </div>
 
+                
+
+                <div class='row'>
+
+                    <div class='col'>
+
+                        <label for='motivo'>Motivo</label>
+
+                        <input name='motivoID' type='text' class='fieldlabels' id='motivoID' placeholder='motivo' value='" . $row2['Motivo'] . "' style='text-align:center;'>
+
+                    </div>
+
+                </div>
 
                 
+
+
+
                     </div> 
 
 
@@ -2325,6 +2478,137 @@ $mesesEnEspanol = array(
 
 
         </div>";
+                                                        } else {
+
+                                                            echo "
+
+                                                            <a href='#' onclick=\"openModal3('" . $row2['Fecha_ingreso'] . "')\">
+
+    <img src='/Proyecto-master/Proyecto-master/img/alta1.png' alt='Dar de Alta'>";
+
+                                                            echo "
+
+                </a>
+
+
+
+        
+
+
+
+                                            <div class='w3-container'>
+
+
+
+                                                <div id='id-modal3-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
+
+
+
+                                                    <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
+
+
+
+                                                        <header class='w3-container w3-white'> 
+
+
+
+                                                        <span onclick=\"closeModal1('id-modal3-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+
+
+
+                                                        <h2>Dar de alta</h2>
+
+
+
+                                                        </header>
+
+
+
+                                                        <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
+
+
+
+                                                        <div class='container'>
+
+
+
+                                                        <form id='msform' action='DardeAlta.php' method='POST'>
+
+
+
+                                                        
+
+
+
+                                                        
+
+
+
+                                                            <div class='form-card'>
+
+
+
+                                                                <div class='row'>
+
+
+
+                                                                    <label for='dni'>DNI</label>
+
+
+
+                                                                    <input name='dni' type='text' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+
+
+
+                                                                    <label for='fechaI'>Fecha Ingreso</label>
+
+
+
+                                                                    <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+
+
+
+                                                                    <label for='fecha'>Fecha</label>
+
+    <input name='fechaID' type='date' class='fieldlabels' id='fechaALTA' placeholder='fecha'>
+
+
+
+    <label for='motivo'>Motivo</label>
+
+    <input name='motivoID' type='text' class='fieldlabels' id='motivoALTA' placeholder='motivo'>
+
+
+
+                                                                
+
+
+
+                                                            </div> 
+
+                                                            
+
+                                                            <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_ingreso'] .  "') />
+
+    
+
+                                                            <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            </form>    
+
+
+
+                                                    </div>
+
+
+
+                                                </div>
+
+
+
+                                                </div>
+
+
+
+                                                </div>";
                                                         }
 
 
@@ -2403,10 +2687,23 @@ $mesesEnEspanol = array(
 
                                                 <?php
 
-                                                echo "
+                                                echo "<th style='text-align: center; vertical-align: middle;'><a href='agregarDI.php?id=" . $row['Dni'] . "&estado=" . urlencode($est) . "'>
 
 
-                                <th style='text-align: center; vertical-align: middle;'>Fecha de Registro</th>
+
+                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' style='max-width: 30px;'>
+
+
+
+                                    </a>
+
+
+
+                                </th>
+
+
+
+                                <th style='text-align: center; vertical-align: middle;'>Fecha de ingreso</th>
 
 
 
@@ -2426,7 +2723,12 @@ $mesesEnEspanol = array(
 
 
 
-                               
+                                <th style='text-align: center; vertical-align: middle;'>Fecha ALTA</th>
+
+
+
+                                <th style='text-align: center; vertical-align: middle;'>Motivo</th>
+
 
 
                                 <th style='text-align: center; vertical-align: middle;'>Acciones</th>
@@ -2477,7 +2779,7 @@ $mesesEnEspanol = array(
 
 
 
-                                    ORDER BY Fecha_registro DESC";
+                                    ORDER BY Fecha_ingreso DESC";
 
 
 
@@ -2507,7 +2809,13 @@ $mesesEnEspanol = array(
 
                                                         echo "<tr>";
 
-                                                        $fechaOriginal = $row2['Fecha_registro'];
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'></td>";
+
+
+
+                                                        $fechaOriginal = $row2['Fecha_ingreso'];
 
 
 
@@ -2555,7 +2863,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                        $fechaIngresoFila3 = $row2['Fecha_registro']; // Utiliza la fecha de ingreso como identificador único
+                                                        $fechaIngresoFila3 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
 
 
 
@@ -2603,7 +2911,90 @@ $mesesEnEspanol = array(
 
 
 
-                                                        $fechaIngresoFila4 = $row2['Fecha_registro']; // Utiliza la fecha de ingreso como identificador único
+                                                        $fechaOriginal1 = $row2['Fecha_alta'];
+
+
+
+                                                        $parts = explode('-', $fechaOriginal1);
+
+
+
+                                                        if (count($parts) === 3 && $parts[0] > 0 && $parts[1] > 0 && $parts[2] > 0) {
+
+
+
+                                                            $dia = intval($parts[2]);
+
+
+
+                                                            $mes = intval($parts[1]);
+
+
+
+                                                            $anio = intval($parts[0]);
+
+
+
+                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                        }
+
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaOriginal1 . "</td>";
+
+
+
+
+
+
+
+                                                        $fechaIngresoFila4 = $row2['Fecha_ingreso']; // Utiliza la fecha de ingreso como identificador único
+
+
+
+
+
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>
+
+
+
+                    <span id='motivoSpan2-$fechaIngresoFila4' style='display: none;'>" . $row2['Motivo'] . "</span>
+
+
+
+                    <button style='border: none; background: none;' onclick='toggleMotivo2(\"$fechaIngresoFila4\")'>
+
+
+
+                      <img style='width: 100%;
+
+
+
+                      background: none;
+
+
+
+                      border: none;
+
+
+
+                      outline:none ;
+
+
+
+                      ' src='/Proyecto-master/Proyecto-master/img/ver.png' id='img-mostrar3-$fechaIngresoFila4'>
+
+
+
+                    </button>
+
+
+
+                  </td>";
+
+
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>
 
@@ -2615,7 +3006,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                            echo "<a href='#' onclick=\"openModal8('" . $row2['Fecha_registro'] . "')\">
+                                                            echo "<a href='#' onclick=\"openModal8('" . $row2['Fecha_ingreso'] . "')\">
 
     <img src='/Proyecto-master/Proyecto-master/img/lapiz.png' alt='Dar de Alta'>";
 
@@ -2625,7 +3016,7 @@ $mesesEnEspanol = array(
 
 
 
-        <div id='id-modal8-" . $row2['Fecha_registro'] . "' class='w3-modal'>
+        <div id='id-modal8-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
 
 
 
@@ -2637,7 +3028,7 @@ $mesesEnEspanol = array(
 
 
 
-                <span onclick=\"closeModal1('id-modal8-" . $row2['Fecha_registro'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                <span onclick=\"closeModal1('id-modal8-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
 
 
 
@@ -2649,7 +3040,7 @@ $mesesEnEspanol = array(
 
 
 
-                <div id='-" . $row2['Fecha_registro'] . "' class='w3-container'>
+                <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
 
 
 
@@ -2689,7 +3080,7 @@ $mesesEnEspanol = array(
 
                         <label for='fechaI'>Fecha Ingreso</label>
 
-                        <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_registro'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                        <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
 
                     </div>
 
@@ -2798,7 +3189,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                            echo "<a href='#' onclick=\"openModal4('" . $row2['Fecha_registro'] . "')\">
+                                                            echo "<a href='#' onclick=\"openModal4('" . $row2['Fecha_ingreso'] . "')\">
 
 
 
@@ -2810,7 +3201,7 @@ $mesesEnEspanol = array(
 
 
 
-        <div id='id-modal4-" . $row2['Fecha_registro'] . "' class='w3-modal'>
+        <div id='id-modal4-" . $row2['Fecha_ingreso'] . "' class='w3-modal'>
 
 
 
@@ -2822,7 +3213,7 @@ $mesesEnEspanol = array(
 
 
 
-                <span onclick=\"closeModal1('id-modal4-" . $row2['Fecha_registro'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                <span onclick=\"closeModal1('id-modal4-" . $row2['Fecha_ingreso'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
 
 
 
@@ -2834,7 +3225,7 @@ $mesesEnEspanol = array(
 
 
 
-                <div id='-" . $row2['Fecha_registro'] . "' class='w3-container'>
+                <div id='-" . $row2['Fecha_ingreso'] . "' class='w3-container'>
 
 
 
@@ -2874,7 +3265,7 @@ $mesesEnEspanol = array(
 
 
 
-                            <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_registro'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
+                            <input name='fechaI' type='date' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_ingreso'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
 
 
 
@@ -3053,7 +3444,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                $sql2 = "SELECT Fecha_registro FROM datos_pedagogicos WHERE Dni = '$dni_1' ORDER BY Fecha_registro DESC";
+                                                $sql2 = "SELECT Fecha_ingreso FROM datos_pedagogicos WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
 
 
 
@@ -3073,7 +3464,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                        $fechaOriginal1 = $row2['Fecha_registro'];
+                                                        $fechaOriginal1 = $row2['Fecha_ingreso'];
 
 
 
@@ -3106,7 +3497,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                        echo "<option style='text-align:center;' value='" . $row2['Fecha_registro'] . "'>" . $fechaOriginal1 . "</option>";
+                                                        echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
                                                     }
                                                 }
 
@@ -3144,7 +3535,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                $sql2 = "SELECT Fecha_registro FROM datos_internacion WHERE Dni = '$dni_1' ORDER BY Fecha_registro DESC";
+                                                $sql2 = "SELECT Fecha_ingreso FROM datos_internacion WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
 
 
 
@@ -3160,7 +3551,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                        $fechaOriginal1 = $row2['Fecha_registro'];
+                                                        $fechaOriginal1 = $row2['Fecha_ingreso'];
 
 
 
@@ -3193,7 +3584,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                        echo "<option style='text-align:center;' value='" . $row2['Fecha_registro'] . "'>" . $fechaOriginal1 . "</option>";
+                                                        echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
                                                     }
                                                 }
 
@@ -3219,7 +3610,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                    $sql2 = "SELECT Fecha_registro FROM datos_domiciliario WHERE Dni = '$dni_1' ORDER BY Fecha_registro DESC";
+                                                    $sql2 = "SELECT Fecha_ingreso FROM datos_domiciliario WHERE Dni = '$dni_1' ORDER BY Fecha_ingreso DESC";
 
 
 
@@ -3235,7 +3626,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                            $fechaOriginal1 = $row2['Fecha_registro'];
+                                                            $fechaOriginal1 = $row2['Fecha_ingreso'];
 
 
 
@@ -3268,7 +3659,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                            echo "<option style='text-align:center;' value='" . $row2['Fecha_registro'] . "'>" . $fechaOriginal1 . "</option>";
+                                                            echo "<option style='text-align:center;' value='" . $row2['Fecha_ingreso'] . "'>" . $fechaOriginal1 . "</option>";
                                                         }
                                                     }
 
@@ -3379,7 +3770,7 @@ $mesesEnEspanol = array(
 
                                     <input type='hidden' name='dni' value='" . $row['Dni'] . "'>
 
-          <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+          <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_ingreso'] .  "') />
 
           <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
 
@@ -4097,56 +4488,26 @@ ORDER BY Fecha ASC;
 
                                             echo "<td style='text-align: center; vertical-align: middle;'>
                                             ";
-
                                             $idviejo3 = $row['Dni'];
-                                            $sql3 = "SELECT * FROM personales_fechas WHERE Dni = :idviejo3 ORDER BY Fecha_registro DESC LIMIT 1";
+                                            $fechaviejo3 = $row['Fecha_registro'];
+                                            $sql3 = "SELECT * FROM datos_fechas WHERE Dni = :idviejo3 AND Fecha_registro = :fechaviejo3";
 
                                             $consulta3 = $conn->prepare($sql3);
                                             $consulta3->bindParam(':idviejo3', $idviejo3, PDO::PARAM_INT);
+                                            $consulta3->bindParam(':fechaviejo3', $fechaviejo3, PDO::PARAM_STR);  // Cambiado a PARAM_STR ya que parece ser una fecha
 
                                             if ($consulta3->execute()) {
                                                 $row2 = $consulta3->fetch();
 
-                                                if ($row2["Fecha_alta"]) {
-                                                    echo "<a href='REINGRESO.php?dni=" . $row2['Dni'] . "'>
-        <button class='boton reingreso'>REINGRESO</button>
-      </a>";
-                                                } else {
+                                                if ($row2) {
 
-                                                    echo "<a onclick=\"openModal14('" . $row2['Fecha_registro'] . "')\">
-                                                    <button class='boton darDeAlta'>DAR ALTA</button>
-                                                  </a>
-    <div class='w3-container'>
-        <div id='id-modal14-" . $row2['Fecha_registro'] . "' class='w3-modal'>
-            <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
-                <header class='w3-container w3-white'> 
-                    <span onclick=\"closeModal1('id-modal14-" . $row2['Fecha_registro'] .  "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
-                    <h2>Dar de alta</h2>
-                </header>
-                <div id='-" . $row2['Fecha_registro'] . "' class='w3-container'>
-                    <div class='container'>
-                        <form id='msform' action='DardeAltaD.php' method='post'>
-                            <div class='form-card'>
-                                <div class='row'>
-                                    <input name='dni' type='hidden' class='fieldlabels' id='dni' value='" . $row['Dni'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
-                                    <input name='fechaI' type='hidden' class='fieldlabels' id='fechaI' value='" . $row2['Fecha_registro'] . "' style='text-align:center; background-color:antiquewhite;' readonly>
-                                    <label for='fecha'>Fecha de alta</label>
-                                    <input name='fecha' type='date' class='fieldlabels' id='fecha' placeholder='fecha'>
-                                    <label for='motivo'>Motivo</label>
-                                    <input name='motivo' type='text' class='fieldlabels' id='motivo' placeholder='motivo'>
-                                </div>
-                            </div> 
-                            <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Guardar y salir!' />                                            
-                        </form>    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>";
+                                                    echo "Se encontró un registro con DNI $idviejo3 y Fecha_registro $fechaviejo3";
+                                                } else {
+                                                    echo "No se encontró un registro con DNI $idviejo3 y Fecha_registro $fechaviejo3";
                                                 }
                                             } else {
                                                 // Manejo de errores en la ejecución de la consulta
-                                                echo "Error";
+                                                echo "Error en la ejecución de la consulta";
                                             }
 
                                             "</td>";

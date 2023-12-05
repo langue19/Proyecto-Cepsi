@@ -174,6 +174,14 @@ function openModal13(dni) {
 
 }
 
+function openModal14(dni) {
+
+  var modal = document.getElementById('id-modal14-' + dni);
+
+  modal.style.display = 'block';
+
+}
+
 function closeModal(modalId) {
 
   var modal = document.getElementById(modalId);

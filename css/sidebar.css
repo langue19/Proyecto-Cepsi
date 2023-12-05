@@ -492,3 +492,27 @@ h1 {
 }
 
 /* Eliminamos estilos relacionados con el enlace */
+.boton {
+  display: inline-block;
+  padding: 10px 20px; /* Ajusta este padding según tus necesidades */
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  width: 120px; /* Ancho fijo para ambos botones */
+}
+
+/* Estilos específicos para el botón de REINGRESO */
+.reingreso {
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Estilos específicos para el botón de DAR DE ALTA */
+.darDeAlta {
+  background-color: #2ecc71;
+  color: #fff;
+}
