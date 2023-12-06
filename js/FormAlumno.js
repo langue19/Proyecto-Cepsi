@@ -389,36 +389,37 @@ function toggleMotivo2(fechaIngresoFila4) {
 
 }
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
-
   const checkbox = document.getElementById("toggle-checkbox");
-
+  const cards = document.querySelectorAll(".order-card");
   const table = document.getElementById("table-id");
+  const body = document.body;
 
-
-
-  checkbox.addEventListener("change", function () {
-
-    if (checkbox.checked) {
-
-      table.classList.remove("table-white");
-
-      table.classList.add("table-dark");
-
-    } else {
-
-      table.classList.remove("table-dark");
-
-      table.classList.add("table-white");
-
-    }
-
+  // Inicializar tarjetas con la clase bg-secondary
+  cards.forEach(card => {
+    card.classList.add("bg-primary");
   });
 
-});
+  checkbox.addEventListener("change", function () {
+    cards.forEach(card => {
+      if (checkbox.checked) {
+        card.classList.remove("bg-primary");
+        card.classList.add("bg-dark");
+      } else {
+        card.classList.remove("bg-dark");
+        card.classList.add("bg-primary");
+      }
+    });
 
+    if (checkbox.checked) {
+      table.classList.remove("table-white");
+      table.classList.add("table-dark");
+    } else {
+      table.classList.remove("table-dark");
+      table.classList.add("table-white");
+    }
+  });
+});
 
 
 

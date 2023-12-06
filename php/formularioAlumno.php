@@ -253,7 +253,7 @@ $mesesEnEspanol = array(
 
             <div class="content-header row" style="display: flex; justify-content: center;">
                 <div class="col-md-4 col-xl-3" onclick="redirectTo('formularioAlumno.php', 'altas');" style="cursor: pointer;">
-                    <div class="card bg-dark order-card">
+                    <div class="card order-card alta-card">
                         <div class="card-block">
                             <h1 class="m-b-20">Dados de alta</h1>
                         </div>
@@ -261,7 +261,7 @@ $mesesEnEspanol = array(
                 </div>
 
                 <div class="col-md-4 col-xl-3" onclick="redirectTo('formularioAlumno.php', 'internacion');" style="cursor: pointer;">
-                    <div class="card bg-dark order-card">
+                    <div class="card order-card internacion-card">
                         <div class="card-block">
                             <h1 class="m-b-20">Internacion</h1>
                         </div>
@@ -269,7 +269,7 @@ $mesesEnEspanol = array(
                 </div>
 
                 <div class="col-md-4 col-xl-3" onclick="redirectTo('formularioAlumno.php', 'domiciliario');" style="cursor: pointer;">
-                    <div class="card bg-dark order-card">
+                    <div class="card order-card domiciliario-card">
                         <div class="card-block">
                             <h1 class="m-b-20">Domiciliario</h1>
                         </div>
@@ -277,7 +277,7 @@ $mesesEnEspanol = array(
                 </div>
 
                 <div class="col-md-4 col-xl-3" onclick="redirectTo('formularioAlumno.php', 'todos');" style="cursor: pointer;">
-                    <div class="card bg-dark order-card">
+                    <div class="card order-card todos-card">
                         <div class="card-block">
                             <h1 class="m-b-20">Todos</h1>
                         </div>
@@ -319,7 +319,7 @@ $mesesEnEspanol = array(
                             <input class="table-filter" type="search" data-table="advanced-web-table" placeholder="Buscar..." id="search-input">
 
 
-
+                            ESTO SE CAMBIA
                         </div>
 
 
@@ -411,7 +411,7 @@ $mesesEnEspanol = array(
 
                                             <th style="text-align: center; vertical-align: middle;">Anamnesis</th>
 
-
+                                            <th style="text-align: center; vertical-align: middle;">Datos</th>
 
                                             <th style="text-align: center; vertical-align: middle;">PDF</th>
 
@@ -513,7 +513,6 @@ $mesesEnEspanol = array(
          ) AS pf ON dp.Dni = pf.Dni
          WHERE pf.row_num = 1
          LIMIT $inicio, $itemsPorPagina;";
-
                                     } elseif ($valor == 'domiciliario') {
 
                                         $sql1 = "SELECT dp.*, pf.Fecha_registro, pf.Fecha_alta, pf.Motivo, pf.Estado
@@ -543,11 +542,6 @@ $mesesEnEspanol = array(
          LEFT JOIN personales_fechas pf2 ON dp.Dni = pf2.Dni AND pf2.Fecha_registro > pf.Fecha_registro
          WHERE pf2.Dni IS NULL
          LIMIT $inicio, $itemsPorPagina;";
-
-
-
-
-
                                     } else {
                                         $sql1 = "SELECT * FROM datos_personales ORDER BY fecha_act DESC LIMIT $inicio, $itemsPorPagina;";
                                     }
@@ -3828,9 +3822,143 @@ $mesesEnEspanol = array(
           </td>";
 
 
+                                                echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
+                <button class='boton ver' data-toggle='modal' data-target='#modal-xl'>VER</button>
+          </td>
+          
+        <div class='modal fade' id='modal-xl'>
+          <div class='modal-dialog modal-xl'>
+            <div class='modal-content'>
+              <div>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                </button>
+              </div>
+
+              <div class='modal-body'>
+                <label for='fecha'>Seleccione una fecha:</label>
+                <select id='fecha' onchange='mostrarFormulario()'>
+                    <option value=''>-- Seleccionar fecha --</option>
+                    <option value='2023-12-01'>1 de diciembre de 2023</option>
+                    <option value='2023-12-15'>15 de diciembre de 2023</option>
+                </select>
+
+                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                            <input type='hidden'>
+                            <legend>FAMILIAR 1</legend>
+
+                            <div class='fila'>
+                                <input type='text' placeholder='Nombre' name='nombre1' id='nombre1'>
+                                <input type='text' placeholder='Apellido' name='apellido1' id='apellido1'>
+                                <input type='text' placeholder='Edad' name='edad1' id='edad1'>
+                                <input type='text' placeholder='Rol familiar' name='rol1' id='rol1'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Ocupacion' name='ocupacion1' id='ocupacion1'>
+                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad1' id='escolaridad1'>
+                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension1' id='salario_asignacion_pension1'>
+                                <input type='text' placeholder='Asist. sanit.' name='asist1' id='asist1'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Observaciones' name='observaciones1' id='observaciones1'>
+                            </div>
+                        </section>
+
+                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                            <input type='hidden'>
+                            <legend>FAMILIAR 2</legend>
+
+                            <div class='fila'>
+                                <input type='text' placeholder='Nombre' name='nombre2' id='nombre2'>
+                                <input type='text' placeholder='Apellido' name='apellido2' id='apellido2'>
+                                <input type='text' placeholder='Edad' name='edad2' id='edad2'>
+                                <input type='text' placeholder='Rol familiar' name='rol2' id='rol2'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Ocupacion' name='ocupacion2' id='ocupacion2'>
+                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad2' id='escolaridad2'>
+                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension2' id='salario_asignacion_pension2'>
+                                <input type='text' placeholder='Asist. sanit.' name='asist2' id='asist2'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Observaciones' name='observaciones2' id='observaciones2'>
+                            </div>
+                        </section>
+
+                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                            <input type='hidden'>
+                            <legend>FAMILIAR 3</legend>
+
+                            <div class='fila'>
+                                <input type='text' placeholder='Nombre' name='nombre3' id='nombre3'>
+                                <input type='text' placeholder='Apellido' name='apellido3' id='apellido3'>
+                                <input type='text' placeholder='Edad' name='edad3' id='edad3'>
+                                <input type='text' placeholder='Rol familiar' name='rol3' id='rol3'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Ocupacion' name='ocupacion3' id='ocupacion3'>
+                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad3' id='escolaridad3'>
+                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension3' id='salario_asignacion_pension3'>
+                                <input type='text' placeholder='Asist. sanit.' name='asist3' id='asist3'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Observaciones' name='observaciones3' id='observaciones3'>
+                            </div>
+                        </section>
+
+                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                            <input type='hidden'>
+                            <legend>FAMILIAR 4</legend>
+
+                            <div class='fila'>
+                                <input type='text' placeholder='Nombre' name='nombre4' id='nombre4'>
+                                <input type='text' placeholder='Apellido' name='apellido4' id='apellido4'>
+                                <input type='text' placeholder='Edad' name='edad4' id='edad4'>
+                                <input type='text' placeholder='Rol familiar' name='rol4' id='rol4'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Ocupacion' name='ocupacion4' id='ocupacion4'>
+                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad4' id='escolaridad4'>
+                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension4' id='salario_asignacion_pension4'>
+                                <input type='text' placeholder='Asist. sanit.' name='asist4' id='asist4'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Observaciones' name='observaciones4' id='observaciones4'>
+                            </div>
+                        </section>
+
+                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                            <input type='hidden'>
+                            <legend>FAMILIAR 5</legend>
+
+                            <div class='fila'>
+                                <input type='text' placeholder='Nombre' name='nombre5' id='nombre5'>
+                                <input type='text' placeholder='Apellido' name='apellido5' id='apellido5'>
+                                <input type='text' placeholder='Edad' name='edad5' id='edad5'>
+                                <input type='text' placeholder='Rol familiar' name='rol5' id='rol5'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Ocupacion' name='ocupacion5' id='ocupacion5'>
+                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad5' id='escolaridad5'>
+                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension5' id='salario_asignacion_pension5'>
+                                <input type='text' placeholder='Asist. sanit.' name='asist5' id='asist5'>
+                            </div>
+                            <div class='fila'>
+                                <input type='text' placeholder='Observaciones' name='observaciones5' id='observaciones5'>
+                            </div>
+                        </section>
 
 
+             </div>
 
+              <div class='modal-footer justify-content-between'>
+                <button type='button' class='btn btn-primary' data-dismiss='modal'>Cerrar</button>
+                <button type='button' class='btn btn-primary'>Imprimir PDF</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>";
 
 
 
