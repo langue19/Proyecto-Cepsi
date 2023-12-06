@@ -30,7 +30,7 @@ $conn->exec("USE $dbname");
 
 $stmt = $conn->prepare("UPDATE personales_fechas
 
-                       SET Fecha_alta = :nuevaFecha, Motivo = :nuevoMotivo
+                       SET Fecha_alta = :nuevaFecha, Motivo = :nuevoMotivo, Estado = 'Dado de alta'
 
                        WHERE Dni = :dni AND Fecha_registro = :fechaI");
 

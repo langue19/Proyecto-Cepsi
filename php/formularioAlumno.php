@@ -503,29 +503,53 @@ $mesesEnEspanol = array(
 
 
                                     if ($valor == 'internacion') {
-                                        $sql1 = "SELECT Datos_personales.*
-                                        FROM Datos_personales
-                                        JOIN personales_fechas ON Datos_personales.Dni = personales_fechas.Dni
-                                        WHERE personales_fechas.Estado = 'Internacion'                                        
-                                        LIMIT  $inicio, $itemsPorPagina;";
-                               
-                                         
+                                        $sql1 = "SELECT dp.*, pf.Fecha_registro, pf.Fecha_alta, pf.Motivo, pf.Estado
+         FROM datos_personales dp
+         JOIN (
+            SELECT Dni, Fecha_registro, Fecha_alta, Motivo, Estado,
+                   ROW_NUMBER() OVER (PARTITION BY Dni ORDER BY Fecha_registro) as row_num
+            FROM personales_fechas
+            WHERE Estado = 'Internacion' && Fecha_alta IS NULL
+         ) AS pf ON dp.Dni = pf.Dni
+         WHERE pf.row_num = 1
+         LIMIT $inicio, $itemsPorPagina;";
+
                                     } elseif ($valor == 'domiciliario') {
-                                        
-                                        $sql1 = "SELECT Datos_personales.*
-                                        FROM Datos_personales
-                                        JOIN personales_fechas ON Datos_personales.Dni = personales_fechas.Dni
-                                        WHERE personales_fechas.Estado = 'Domiciliario'                                        
-                                        LIMIT $inicio, $itemsPorPagina;";
+
+                                        $sql1 = "SELECT dp.*, pf.Fecha_registro, pf.Fecha_alta, pf.Motivo, pf.Estado
+         FROM datos_personales dp
+         JOIN (
+            SELECT Dni, Fecha_registro, Fecha_alta, Motivo, Estado,
+                   ROW_NUMBER() OVER (PARTITION BY Dni ORDER BY Fecha_registro) as row_num
+            FROM personales_fechas
+            WHERE Estado = 'Domiciliario' && Fecha_alta IS NULL
+         ) AS pf ON dp.Dni = pf.Dni
+         WHERE pf.row_num = 1
+         LIMIT $inicio, $itemsPorPagina;";
                                     } elseif ($valor == 'altas') {
 
-                                        $sql1 = "SELECT Datos_personales.*
-         FROM Datos_personales
-         JOIN personales_fechas ON Datos_personales.Dni = personales_fechas.Dni
-         WHERE personales_fechas.Fecha_alta IS NOT NULL LIMIT $inicio, $itemsPorPagina;";
+                                        $sql1 = "SELECT dp.*, pf.Fecha_registro, pf.Fecha_alta, pf.Motivo, pf.Estado
+         FROM datos_personales dp
+         JOIN (
+            SELECT Dni, Fecha_registro, Fecha_alta, Motivo, Estado
+            FROM (
+                SELECT Dni, Fecha_registro, Fecha_alta, Motivo, Estado,
+                       ROW_NUMBER() OVER (PARTITION BY Dni ORDER BY Fecha_registro DESC) as row_num
+                FROM personales_fechas
+                WHERE Estado = 'Dado de alta'
+            ) AS ranked
+            WHERE row_num = 1 AND Fecha_alta IS NOT NULL
+         ) AS pf ON dp.Dni = pf.Dni
+         LEFT JOIN personales_fechas pf2 ON dp.Dni = pf2.Dni AND pf2.Fecha_registro > pf.Fecha_registro
+         WHERE pf2.Dni IS NULL
+         LIMIT $inicio, $itemsPorPagina;";
+
+
+
+
 
                                     } else {
-                                        $sql1 = "SELECT * FROM Datos_personales ORDER BY fecha_act DESC LIMIT $inicio, $itemsPorPagina;";
+                                        $sql1 = "SELECT * FROM datos_personales ORDER BY fecha_act DESC LIMIT $inicio, $itemsPorPagina;";
                                     }
 
 
