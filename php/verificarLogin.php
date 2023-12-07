@@ -36,13 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     // Marcar como encontrada una coincidencia válida
                     $found = true;
-                    include 'spinner.html';
                     break;
                 }
             }
             if ($found) {
-                if ($posicion == "Administrador" || $posicion == "Usuario" || $posicion == "Psicopedagoga") {
-                    header("refresh:3;url=formularioAlumno.php");
+                if ($posicion == "Administrador" || $posicion == "Docente" || $posicion == "Gabinete") {
+                    header("Location: formularioAlumno.php");
                     exit;
                 } else {
                     header("Location: /Proyecto-master/Proyecto-master/login.html?error=1");

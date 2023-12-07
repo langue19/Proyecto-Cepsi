@@ -119,9 +119,13 @@ Grado VARCHAR(45),
 poseeEsc VARCHAR(45),
 escComun VARCHAR(45),
 lectContinua VARCHAR(45),
+obs_lectC VARCHAR(100),
 interpTextos VARCHAR(45),
+obs_interpT VARCHAR(100),
 resuelvOpBas VARCHAR(45),
+obs_resuelvOpBas VARCHAR(100),
 lectyescri VARCHAR(45),
+obs_LectyEsc VARCHAR(100),
 PRIMARY KEY (Dni, Fecha_registro),
 FOREIGN KEY (Dni, Fecha_registro) REFERENCES personales_fechas(Dni, Fecha_registro));
 
@@ -146,167 +150,77 @@ PRIMARY KEY(id, dni)
 );
 
 
-
 CREATE TABLE datos_estudiante (
-
-    id INT AUTO_INCREMENT PRIMARY KEY,
     DNI INT,
-
-    nombre1 VARCHAR(255),
-
-    apellido1 VARCHAR(255),
-
-    edad1 INT,
-
-    rol1 VARCHAR(255),
-
-    ocupacion1 VARCHAR(255),
-
-    escolaridad1 VARCHAR(255),
-
-    salario_asignacion_pension1 VARCHAR(255),
-
-    asist1 VARCHAR(255),
-
-    observaciones1 TEXT,
-
-    
-
-    nombre2 VARCHAR(255),
-
-    apellido2 VARCHAR(255),
-
-    edad2 INT,
-
-    rol2 VARCHAR(255),
-
-    ocupacion2 VARCHAR(255),
-
-    escolaridad2 VARCHAR(255),
-
-    salario_asignacion_pension2 VARCHAR(255),
-
-    asist2 VARCHAR(255),
-
-    observaciones2 TEXT,
-
-    
-
+    Fecha_registro DATE,
     obs TEXT,
-
-    
-
+    tipo VARCHAR(255),
+    construccion VARCHAR(255),
+    tenencia VARCHAR(255),
+    servicios VARCHAR(255),
     numconvi INT,
-
     numhabit INT,
-
     obsG TEXT,
-
     mediosT TEXT,
-
-    
-
     diagnostico TEXT,
-
     medico_cabecera TEXT,
-
     tratamiento TEXT,
-
     medicacion TEXT,
-
     tiempo_internacion VARCHAR(255),
-
     tiempo VARCHAR(255),
-
     pronostico TEXT,
-
     observaciones TEXT,
-
     manifestaciones TEXT,
-
     enfermedades_previas TEXT,
-
     medicacion_incidir TEXT,
-
     tratamientos_terapeutica TEXT,
-
-    
-
     nivel_inicial_sala VARCHAR(255),
-
     nivel_inicial_asistio VARCHAR(255),
-
     nivel_inicial_institucion VARCHAR(255),
-
     obsE TEXT,
-
-    
-
     nivel_primario_grado VARCHAR(255),
-
     nivel_primario_tutor VARCHAR(255),
-
-    
-
     promocion_automatica VARCHAR(255),
-
-    observaciones_promocion TEXT,
-
+    observaciones_promocion TEXT,    
     cambios_escuela VARCHAR(255),
-
     institucion_cambios VARCHAR(255),
-
     repitencia VARCHAR(255),
-
     grado_repitencia VARCHAR(255),
-
     veces_repitencia VARCHAR(255),
-
     ausentismo VARCHAR(255),
-
     observaciones_ausentismo TEXT,
-
     desercion VARCHAR(255),
-
     observaciones_desercion TEXT,
-
     derivacion VARCHAR(255),
-
     intervencion_equipo VARCHAR(255),
-
     ppi VARCHAR(255),
-
     caracter_anterior VARCHAR(255),
-
     caracter_actual VARCHAR(255),
-
     nombre_caracter VARCHAR(255),
-
-    
-
     educacion_anterior VARCHAR(255),
-
     institucion_educacion VARCHAR(255),
-
     grado_educacion VARCHAR(255),
-
     docente_educacion VARCHAR(255),
-
     tiempo_intervencion VARCHAR(255),
-
-    
-
-    observaciones_generales TEXT
-
+    observaciones_generales TEXT,
+    PRIMARY KEY(DNI, Fecha_registro)
 );
 
-
-
-
-
-
-
-";
+CREATE TABLE datos_persona (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    DNI INT,
+    Fecha_registro DATE,
+    nombre VARCHAR(255),
+    apellido VARCHAR(255),
+    edad INT,
+    rol VARCHAR(255),
+    ocupacion VARCHAR(255),
+    escolaridad VARCHAR(255),
+    salario_asignacion_pension VARCHAR(255),
+    asist VARCHAR(255),
+    observaciones TEXT,
+    FOREIGN KEY (DNI,Fecha_registro) REFERENCES datos_estudiante(DNI,Fecha_registro)
+);";
 
 
 

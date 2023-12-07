@@ -259,13 +259,10 @@ session_start();
 
                                     include 'crearTabla.php';
 
-                                    if ($posicion == 'Administrador') {
 
                                         $conn->exec("USE $dbname");
 
-                                        $stmt = $conn->query("SELECT Nombre, Apellido FROM datos_profesor WHERE Estado = true"); // Ajusta la consulta según tus necesidades
-
-                                        echo "<option value=\"$prof\">$prof</option>";
+                                        $stmt = $conn->query("SELECT Nombre, Apellido FROM datos_usuarios WHERE Estado = true"); // Ajusta la consulta según tus necesidades
 
                                         // Itera a través de los resultados y crea una opción para cada profesor
 
@@ -279,7 +276,7 @@ session_start();
                                         }
 
                                         echo "</select>";
-                                    }
+                                    
 
                                     ?>
 

@@ -109,10 +109,10 @@
                     if ($posicion == 'Administrador') {
 
                         echo "<img src='\Proyecto-master\Proyecto-master\img\administrador.png' class='img-circle elevation-2' alt='User Image'>";
-                    } elseif ($posicion == 'Usuario') {
+                    } elseif ($posicion == 'Docente') {
 
                         echo "<img src='\Proyecto-master\Proyecto-master\img\usuario.png' class='img-circle elevation-2' alt='User Image'>";
-                    } elseif ($posicion == 'Psicopedagoga') {
+                    } elseif ($posicion == 'Gabinete') {
 
                         echo "<img src='\Proyecto-master\Proyecto-master\img\cerebro.png' class='img-circle elevation-2' alt='User Image'>";
                     }
@@ -156,7 +156,7 @@
                             $mostrarColumnaAccion = false;
                         }
 
-                        if ($posicion == 'Usuario') {
+                        if ($posicion == 'Docente') {
 
                             $mostrarColumnaAccion1 = true;
                         } else {
@@ -164,7 +164,7 @@
                             $mostrarColumnaAccion1 = false;
                         }
 
-                        if ($posicion == 'Psicopedagoga') {
+                        if ($posicion == 'Gabinete') {
 
                             $mostrarColumnaAccion2 = true;
                         } else {

@@ -261,9 +261,11 @@ session_start();
 
                                             <option value="No">No</option>
 
-                                            <option value="N/S">N/S</option>
+                                            <option value="En proceso">En proceso</option>
 
                                         </select>
+                                        <label for="">Observaciones</label>
+                                        <input name="obs_lectC" placeholder="Observaciones...">
 
                                     </div>
 
@@ -279,9 +281,11 @@ session_start();
 
                                             <option value="No">No</option>
 
-                                            <option value="N/S">N/S</option>
+                                            <option value="En proceso">En proceso</option>
 
                                         </select>
+                                        <label for="">Observaciones</label>
+                                        <input name="obs_interpT" placeholder="Observaciones...">
 
                                         <label for="">Resuelve Operaciones Basicas?</label>
 
@@ -296,21 +300,20 @@ session_start();
                                             <option value="N/S">N/S</option>
 
                                         </select>
+                                        <label for="">Observaciones</label>
+                                        <input name="obs_resuelvOpBas" placeholder="Observaciones...">
 
                                         <label for="">Lectura y escritura?</label>
-
                                         <select name="LectyEsc">
 
                                             <option value="Sin especificar">Seleccionar</option>
-
                                             <option value="Si">Si</option>
-
                                             <option value="No">No</option>
-
-                                            <option value="N/S">N/S</option>
+                                            <option value="En proceso">En proceso</option>
 
                                         </select>
-
+                                        <label for="">Observaciones</label>
+                                        <input name="obs_LectyEsc" placeholder="Observaciones...">
                                     </div>
 
 
@@ -364,8 +367,12 @@ session_start();
                                             <input name="cama" type="text" class="fieldlabels" id="nombt" placeholder="Cama">
 
                                             <label for="disc1">Discapacidad</label>
+                                            <select name="disc1">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
 
-                                            <input name="disc1" type="text" class="fieldlabels" id="disc1" placeholder="Discapacidad">
 
                                             <label for="obs1">Observacion</label>
 
@@ -388,9 +395,11 @@ session_start();
                                             <input name="dire" type="text" class="fieldlabels" id="dire" placeholder="Direccion">
 
                                             <label for="disc">Discapacidad</label>
-
-                                            <input name="disc" type="text" class="fieldlabels" id="disc" placeholder="Discapacidad">
-
+                                            <select name="disc">
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                            </select>
                                             <label for="obs">Observacion</label>
 
                                             <input name="obs" type="text" class="fieldlabels" id="obs" placeholder="Observacion">

@@ -318,8 +318,6 @@ $mesesEnEspanol = array(
 
                             <input class="table-filter" type="search" data-table="advanced-web-table" placeholder="Buscar..." id="search-input">
 
-
-                            ESTO SE CAMBIA
                         </div>
 
 
@@ -343,7 +341,6 @@ $mesesEnEspanol = array(
                                     <tr>
 
 
-
                                         <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion1) : ?>
 
 
@@ -352,14 +349,16 @@ $mesesEnEspanol = array(
 
 
 
+
                                         <?php endif; ?>
 
 
-                                        <?php if ($mostrarColumnaAccion2) : ?>
+                                        <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion2) : ?>
 
 
 
-                                            <th style="text-align: center; vertical-align: middle;">Datos</th>
+                                            <th style="text-align: center; vertical-align: middle;">Obs</th>
+
 
 
 
@@ -393,10 +392,6 @@ $mesesEnEspanol = array(
 
                                             <th style="text-align: center; vertical-align: middle;">PDF</th>
 
-
-
-                                            <th style="text-align: center; vertical-align: middle;">Acciones</th>
-
                                         <?php endif; ?>
 
 
@@ -405,15 +400,8 @@ $mesesEnEspanol = array(
 
 
 
-                                            <th style="text-align: center; vertical-align: middle;">Obs</th>
-
-
-
                                             <th style="text-align: center; vertical-align: middle;">Anamnesis</th>
 
-                                            <th style="text-align: center; vertical-align: middle;">Datos</th>
-
-                                            <th style="text-align: center; vertical-align: middle;">PDF</th>
 
 
 
@@ -421,17 +409,12 @@ $mesesEnEspanol = array(
 
                                         ?>
                                         <th style="text-align: center; vertical-align: middle;">Acciones</th>
-                                        <?php
 
-                                        if (!$mostrarColumnaAccion2) :  ?>
-
-
-
-                                            <th style="text-align: center; vertical-align: middle;">
+                                        <th style="text-align: center; vertical-align: middle;">
 
 
 
-                                                <a href='agregarA.php'>
+                                            <a href='agregarA.php'>
 
 
 
@@ -439,19 +422,16 @@ $mesesEnEspanol = array(
 
 
 
-                                                    <img src="/Proyecto-master/Proyecto-master/img/mas.png" style="max-width: 30px;">
+                                                <img src="/Proyecto-master/Proyecto-master/img/mas.png" style="max-width: 30px;">
 
 
 
-                                                </a>
+                                            </a>
 
 
 
-                                            </th>
+                                        </th>
 
-
-
-                                        <?php endif; ?>
 
 
 
@@ -567,119 +547,7 @@ $mesesEnEspanol = array(
 
                                             echo "<tr>";
 
-                                            if ($mostrarColumnaAccion2) :
-
-
-
-                                                echo "<td style='text-align: center; vertical-align: middle;'><a href='#' onclick=\"openModal13#('" . $row['Dni'] . "')\">
-
-
-
-                                                <img src='/Proyecto-master/Proyecto-master/img/informacion-personal.png'>
-
-            
-
-                                            </a>
-
-            
-
-                                                <div class='w3-container'>
-
-            
-
-                                                    <div id='id-modal13-" . $row['Dni'] . "' class='w3-modal'>
-
-            
-
-                                                        <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
-
-            
-
-                                                            <header class='w3-container w3-white'> 
-
-            
-
-                                                            <span onclick=\"closeModal('id-modal13-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
-
-            
-
-                                                            <h2 style='text-align: center; vertical-align: middle;'>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
-
-            
-
-                                                            </header>
-
-            
-
-                                                            <div id='-" . $row['Dni'] . "' class='w3-container'>
-
-            
-
-                                                            <div class='container'>
-
-            
-
-                                                                <div class='form-control'>
-
-            
-
-                                                                    <label for='search'><i class='icon-search'></i></label>
-
-            
-
-                                                                        <input class='table-filter' type='search' data-table='advanced-web-table' placeholder='Buscar...'>
-
-            
-
-                                                                    </div>
-
-            
-
-                                                                                    <!--  Table  -->
-
-            
-
-                                                                                    <div class='table-responsive'>
-
-            
-
-                                                                                        
-
-            
-
-                                                            </div>
-
-            
-
-                                                        </div>
-
-            
-
-                                                    </div>
-
-            
-
-                                                    </div>
-
-            
-
-                                                    </div>
-
-            
-
-                                                    </td>";
-
-
-
-                                            endif;
-
-
-
-
-
                                             if ($mostrarColumnaAccion || $mostrarColumnaAccion1) :
-
-
 
                                                 echo "<td style='text-align: center; vertical-align: middle;'><a href='#' onclick=\"openModal1('" . $row['Dni'] . "')\">
 
@@ -728,20 +596,6 @@ $mesesEnEspanol = array(
                                                 <div class='container'>
 
 
-
-                                                    <div class='form-control'>
-
-
-
-                                                        <label for='search'><i class='icon-search'></i></label>
-
-
-
-                                                            <input class='table-filter' type='search' data-table='advanced-web-table' placeholder='Buscar...'>
-
-
-
-                                                        </div>
 
 
 
@@ -999,15 +853,295 @@ $mesesEnEspanol = array(
                                         </td>";
 
 
-
                                             endif;
 
+                                            if ($mostrarColumnaAccion || $mostrarColumnaAccion2) :
+                                                echo "<td style='text-align: center; vertical-align: middle;'><a href='#' onclick=\"openModal7('" . $row['Dni'] . "')\">
+
+
+
+                                                <img src='/Proyecto-master/Proyecto-master/img/observar.png'>
+            
+            
+            
+                                            </a>
+            
+            
+            
+                                                <div class='w3-container'>
+            
+            
+            
+                                                    <div id='id-modal7-" . $row['Dni'] . "' class='w3-modal'>
+            
+            
+            
+                                                        <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
+            
+            
+            
+                                                            <header class='w3-container w3-white'> 
+            
+            
+            
+                                                            <span onclick=\"closeModal4('id-modal7-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+            
+            
+            
+                                                            <h2>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
+            
+            
+            
+                                                            </header>
+            
+            
+            
+                                                            <div id='-" . $row['Dni'] . "' class='w3-container'>
+            
+            
+            
+                                                            <div class='container'>
+            
+
+            
+            
+            
+                                                                                    <!--  Table  -->
+            
+            
+            
+                                                                                    <div class='table-responsive'>
+            
+            
+            
+                                                                                        <table id='table-id' class='table table-striped table-class'>
+            
+            
+            
+                                                                                            <thead>
+            
+            
+            
+                                                                                                <tr>
+            
+            
+            
+                                                                                                    <th style='text-align: center; vertical-align: middle;'>Fecha de registro</th>
+            
+            
+            
+                                                                                                    <th style='text-align: center; vertical-align: middle;'>Observaciones</th>                                                                                   
+            
+            
+            
+                                                                                                    <th style='text-align: center; vertical-align: middle;'><a href='ObsAnamnesis.php?id=" . $row['Dni'] . "'>
+            
+            
+            
+                                                                                                    <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
+            
+            
+            
+                                                                                                </a>
+            
+            
+            
+                                                                                                </th>
+            
+            
+            
+                                                                                                </tr>
+            
+            
+            
+                                                                                            <tbody>";
 
 
 
 
 
 
+
+
+
+
+
+                                                $idviejo = $row['Dni'];
+
+
+
+                                                $sql2 = "SELECT *
+            
+            
+            
+                             FROM datos_tabla
+            
+            
+            
+                             WHERE dni = :idviejo
+            
+            
+            
+                             ORDER BY fecha_r DESC;
+            
+            
+            
+                    ";
+
+
+
+
+
+
+
+
+
+
+
+                                                // Usamos parámetros con consultas preparadas
+
+
+
+                                                $consulta2 = $conn->prepare($sql2);
+
+
+
+                                                $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
+
+
+
+                                                if ($consulta2->execute()) {
+
+
+
+                                                    // Obtenemos el primer resultado del SELECT (si es que existe)
+
+
+
+                                                    $row2 = $consulta2->fetch();
+                                                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                if ($consulta2->execute()) {
+
+
+
+                                                    while ($row2 = $consulta2->fetch()) {
+
+
+
+                                                        echo "<tr>";
+
+
+
+                                                        $fechaOriginal = $row2['fecha_r'];
+
+
+
+                                                        $parts = explode('-', $fechaOriginal);
+
+
+
+                                                        $dia = intval($parts[2]);
+
+
+
+                                                        $mes = intval($parts[1]);
+
+
+
+                                                        $anio = intval($parts[0]);
+
+
+
+
+
+
+
+                                                        $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+
+
+
+
+
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaFormateada . "</td>";
+
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['observaciones'] . "</td>";
+
+
+
+                                                        echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
+            
+            
+            
+                                                                    <a href='#?id=" . $row2['ID'] . "&dni=" . $row2['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
+            
+            
+            
+                                                                    </td>";
+
+
+
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'></td>";
+
+
+
+                                                        echo "</tr>";
+                                                    }
+                                                }
+
+
+
+                                                echo "</tbody>
+            
+            
+            
+                                                                </table>
+            
+            
+            
+                                                            </div>
+            
+            
+            
+                                                        </div>
+            
+            
+            
+                                                    </div>
+            
+            
+            
+                                                    </div>
+            
+            
+            
+                                                    </div>
+            
+            
+            
+                                                    </td>";
+
+                                            endif;
 
 
 
@@ -1159,7 +1293,7 @@ $mesesEnEspanol = array(
 
 
 
-                <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
+                <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='width:1300px;'>
 
 
 
@@ -1546,10 +1680,12 @@ $mesesEnEspanol = array(
 
 
                                     <th style='text-align: center; vertical-align: middle;'>Lectura continua?</th>
+                                    <th style='text-align: center; vertical-align: middle;'>Obs</th>
 
 
 
                                     <th style='text-align: center; vertical-align: middle;'>Interpreta textos?</th>
+                                    <th style='text-align: center; vertical-align: middle;'>Obs</th>
 
 
 
@@ -1558,6 +1694,7 @@ $mesesEnEspanol = array(
 
 
                                     <th style='text-align: center; vertical-align: middle;'>Lectura y escritura?</th>
+                                    <th style='text-align: center; vertical-align: middle;'>Obs</th>
 
 
 
@@ -1566,6 +1703,7 @@ $mesesEnEspanol = array(
 
 
                                     <th style='text-align: center; vertical-align: middle;'>Resuelve operaciones basicas?</th>
+                                    <th style='text-align: center; vertical-align: middle;'>Obs</th>
 
 
 
@@ -1692,18 +1830,22 @@ $mesesEnEspanol = array(
 
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['lectContinua'] . "</td>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['obs_lectC'] . "</td>";
 
 
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['interpTextos'] . "</td>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['obs_interpT'] . "</td>";
 
 
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['lectyescri'] . "</td>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['obs_LectyEsc'] . "</td>";
 
 
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['resuelvOpBas'] . "</td>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['obs_resuelvOpBas'] . "</td>";
 
 
 
@@ -1814,21 +1956,13 @@ $mesesEnEspanol = array(
                     </div>
 
                     <div class='col'>
-
                         <label for='poseeEsc'>Posee Escolaridad</label>
-
                         <input name='poseeEsc' type='text' class='fieldlabels' id='poseeEsc' value='" . $row2['poseeEsc'] . "'style='text-align:center;'>
-
                     </div>
-
                     <div class='col'>
-
                         <label for='escComun'>Tipo de Escuela</label>
-
                         <input name='escComun' type='text' class='fieldlabels' id='escComun' value='" . ($row2['escComun'] == 'Si' ? 'Comun' : 'Especial') . "'style='text-align:center;'>
-
                     </div>
-
                 </div>
 
 
@@ -1836,51 +1970,50 @@ $mesesEnEspanol = array(
             
 
                 <div class='row'>
+    <div class='col'>
+        <label for='lectContinua'>Lectura Continua</label>
+        <input name='lectContinua' type='text' class='fieldlabels' id='lectContinua' value='" . $row2['lectContinua'] . "' style='text-align:center;'>
+    </div>
+    <div class='col'>
+        <label for='obsLectContinua'>OBS</label>
+        <input name='obsLectContinua' type='text' class='fieldlabels' id='obsLectContinua' value='" . $row2['obs_lectC'] . "' style='text-align:center;'>
+    </div>
+</div>
 
-                    <div class='col'>
+<div class='row'>
+    <div class='col'>
+        <label for='interpTextos'>Interpretación de Textos</label>
+        <input name='interpTextos' type='text' class='fieldlabels' id='interpTextos' value='" . $row2['interpTextos'] . "' style='text-align:center;'>
+    </div>
+    <div class='col'>
+        <label for='obsInterpTextos'>OBS</label>
+        <input name='obsInterpTextos' type='text' class='fieldlabels' id='obsInterpTextos' value='" . $row2['obs_interpT'] . "' style='text-align:center;'>
+    </div>
+</div>
 
-                        <label for='lectContinua'>Lectura Continua</label>
+<div class='row'>
+    <div class='col'>
+        <label for='lectyescri'>Lectura y Escritura</label>
+        <input name='lectyescri' type='text' class='fieldlabels' id='lectyescri' value='" . $row2['lectyescri'] . "' style='text-align:center;'>
+    </div>
+    <div class='col'>
+        <label for='obsLectyescri'>OBS</label>
+        <input name='obsLectyescri' type='text' class='fieldlabels' id='obsLectyescri' value='" . $row2['obs_LectyEsc'] . "' style='text-align:center;'>
+    </div>
+</div>
 
-                        <input name='lectContinua' type='text' class='fieldlabels' id='lectContinua' value='" . $row2['lectContinua'] . "'style='text-align:center;'>
-
-                    </div>
-
-                    <div class='col'>
-
-                        <label for='interpTextos'>Interpretación de Textos</label>
-
-                        <input name='interpTextos' type='text' class='fieldlabels' id='interpTextos' value='" . $row2['interpTextos'] . "'style='text-align:center;'>
-
-                    </div>
-
-                </div>
-
-            
-
-                <div class'row'>
-
-                    <div class='col'>
-
-                        <label for='lectyescri'>Lectura y Escritura</label>
-
-                        <input name='lectyescri' type='text' class='fieldlabels' id='lectyescri' value='" . $row2['lectyescri'] . "'style='text-align:center;'>
-
-                    </div>
-
-                    <div class='col'>
-
-                        <label for='resuelvOpBas'>Resolución de Problemas Básicos</label>
-
-                        <input name='resuelvOpBas' type='text' class='fieldlabels' id='resuelvOpBas' value='" . $row2['resuelvOpBas'] . "'style='text-align:center;'>
-
-                    </div>
-
-                </div>
+<div class='row'>
+    <div class='col'>
+        <label for='resuelvOpBas'>Resolución de Problemas Básicos</label>
+        <input name='resuelvOpBas' type='text' class='fieldlabels' id='resuelvOpBas' value='" . $row2['resuelvOpBas'] . "' style='text-align:center;'>
+    </div>
+    <div class='col'>
+        <label for='obsResuelvOpBas'>OBS</label>
+        <input name='obsResuelvOpBas' type='text' class='fieldlabels' id='obsResuelvOpBas' value='" . $row2['obs_resuelvOpBas'] . "' style='text-align:center;'>
+    </div>
+</div>
 
                 <!-- Fin de filas que se mantienen -->
-
-            
-
             </div>
 
             
@@ -2121,7 +2254,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Habitación'] . "</td>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Habitacion'] . "</td>";
 
 
 
@@ -2297,7 +2430,7 @@ $mesesEnEspanol = array(
 
                         <label for='habitacion'>Habitacion</label>
 
-                        <input name='habitacion' type='text' class='fieldlabels' id='habitacion' value='" . $row2['Habitación'] . "' style='text-align:center;'>
+                        <input name='habitacion' type='text' class='fieldlabels' id='habitacion' value='" . $row2['Habitacion'] . "' style='text-align:center;'>
 
                     </div>
 
@@ -2355,7 +2488,7 @@ $mesesEnEspanol = array(
 
 
 
-                    <input type='hidden' name='estado' value='<?php echo $estado; ?>'>
+                    <input type='hidden' name='estado' value='Internacion'>
 
 
 
@@ -2800,35 +2933,18 @@ $mesesEnEspanol = array(
 
                     
 
-                    <div class='col'>
-
-                        <label for='fecha'>Fecha Alta</label>
-
-                        <input name='fechaID' type='date' class='fieldlabels' id='fechaID' placeholder='fecha' value='" . $row2['Fecha_alta'] . "' style='text-align:center;'>
-
-                    </div>
 
                 </div>
 
-                
 
-                <div class='row'>
-
-                    <div class='col'>
-
-                        <label for='motivo'>Motivo</label>
-
-                        <input name='motivoID' type='text' class='fieldlabels' id='motivoID' placeholder='motivo' value='" . $row2['Motivo'] . "' style='text-align:center;'>
-
-                    </div>
-
-                </div>
 
                 
 
 
 
                     </div> 
+
+                    <input type='hidden' name='estado' value='Domiciliario'>
 
 
 
@@ -3349,47 +3465,47 @@ $mesesEnEspanol = array(
 
 
 
-                                            <?php
+                                                        <?php
 
 
 
-                                                $sql2 = "SELECT Fecha FROM datos_academ WHERE Dni = '$dni_1' ORDER BY Fecha DESC";
+                                                        $sql2 = "SELECT Fecha FROM datos_academ WHERE Dni = '$dni_1' ORDER BY Fecha DESC";
 
 
 
-                                                $consulta2 = $conn->prepare($sql2);
+                                                        $consulta2 = $conn->prepare($sql2);
 
 
 
-                                                if ($consulta2->execute()) {
+                                                        if ($consulta2->execute()) {
 
 
 
-                                                    while ($row2 = $consulta2->fetch()) {
+                                                            while ($row2 = $consulta2->fetch()) {
 
 
 
-                                                        $fechaOriginal1 = $row2['Fecha'];
+                                                                $fechaOriginal1 = $row2['Fecha'];
 
 
 
-                                                        $parts = explode('-', $fechaOriginal1);
+                                                                $parts = explode('-', $fechaOriginal1);
 
 
 
-                                                        if (count($parts) === 3) {
+                                                                if (count($parts) === 3) {
 
 
 
-                                                            $dia = intval($parts[2]);
+                                                                    $dia = intval($parts[2]);
 
 
 
-                                                            $mes = intval($parts[1]);
+                                                                    $mes = intval($parts[1]);
 
 
 
-                                                            $anio = intval($parts[0]);
+                                                                    $anio = intval($parts[0]);
 
 
 
@@ -3397,18 +3513,18 @@ $mesesEnEspanol = array(
 
 
 
-                                                            $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                                    $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+                                                                }
+
+
+
+                                                                echo "<option style='text-align:center;' value='" . $row2['Fecha'] . "'>" . $fechaOriginal1 . "</option>";
+                                                            }
                                                         }
 
 
 
-                                                        echo "<option style='text-align:center;' value='" . $row2['Fecha'] . "'>" . $fechaOriginal1 . "</option>";
-                                                    }
-                                                }
-
-
-
-                                                echo "</select>";
+                                                        echo "</select>";
 
 
 
@@ -3416,7 +3532,7 @@ $mesesEnEspanol = array(
 
 
 
-                                                echo "
+                                                        echo "
 
 
 
@@ -3472,837 +3588,325 @@ $mesesEnEspanol = array(
 
 
 
-                                                echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
 
 
 
-          <a href='EditarA.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
 
+                                                    endif;
 
+                                                    if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) :
 
-          </td>";
-
-
-
-                                            endif;
-
-
-
-
-
-                                            if ($mostrarColumnaAccion2 || $mostrarColumnaAccion) :
-
-
-
-
-
-
-
-
-
-
-
-                                                echo "<td style='text-align: center; vertical-align: middle;'><a href='#' onclick=\"openModal7('" . $row['Dni'] . "')\">
-
-
-
-                                    <img src='/Proyecto-master/Proyecto-master/img/observar.png'>
-
-
-
-                                </a>
-
-
-
-                                    <div class='w3-container'>
-
-
-
-                                        <div id='id-modal7-" . $row['Dni'] . "' class='w3-modal'>
-
-
-
-                                            <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
-
-
-
-                                                <header class='w3-container w3-white'> 
-
-
-
-                                                <span onclick=\"closeModal4('id-modal7-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
-
-
-
-                                                <h2>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
-
-
-
-                                                </header>
-
-
-
-                                                <div id='-" . $row['Dni'] . "' class='w3-container'>
-
-
-
-                                                <div class='container'>
-
-
-
-                                                    <div class='form-control'>
-
-
-
-                                                        <label for='search'><i class='icon-search'></i></label>
-
-
-
-                                                            <input class='table-filter' type='search' data-table='advanced-web-table' placeholder='Buscar...'>
-
-
-
-                                                        </div>
-
-
-
-                                                                        <!--  Table  -->
-
-
-
-                                                                        <div class='table-responsive'>
-
-
-
-                                                                            <table id='table-id' class='table table-striped table-class'>
-
-
-
-                                                                                <thead>
-
-
-
-                                                                                    <tr>
-
-
-
-                                                                                        <th style='text-align: center; vertical-align: middle;'>Fecha de registro</th>
-
-
-
-                                                                                        <th style='text-align: center; vertical-align: middle;'>Observaciones</th>                                                                                   
-
-
-
-                                                                                        <th style='text-align: center; vertical-align: middle;'><a href='ObsAnamnesis.php?id=" . $row['Dni'] . "'>
-
-
-
-                                                                                        <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
-
-
-
-                                                                                    </a>
-
-
-
-                                                                                    </th>
-
-
-
-                                                                                    </tr>
-
-
-
-                                                                                <tbody>";
-
-
-
-
-
-
-
-
-
-
-
-                                                $idviejo = $row['Dni'];
-
-
-
-                                                $sql2 = "SELECT *
-
-
-
-                 FROM datos_tabla
-
-
-
-                 WHERE dni = :idviejo
-
-
-
-                 ORDER BY fecha_r DESC;
-
-
-
-        ";
-
-
-
-
-
-
-
-
-
-
-
-                                                // Usamos parámetros con consultas preparadas
-
-
-
-                                                $consulta2 = $conn->prepare($sql2);
-
-
-
-                                                $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
-
-
-
-                                                if ($consulta2->execute()) {
-
-
-
-                                                    // Obtenemos el primer resultado del SELECT (si es que existe)
-
-
-
-                                                    $row2 = $consulta2->fetch();
-                                                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                if ($consulta2->execute()) {
-
-
-
-                                                    while ($row2 = $consulta2->fetch()) {
-
-
-
-                                                        echo "<tr>";
-
-
-
-                                                        $fechaOriginal = $row2['fecha_r'];
-
-
-
-                                                        $parts = explode('-', $fechaOriginal);
-
-
-
-                                                        $dia = intval($parts[2]);
-
-
-
-                                                        $mes = intval($parts[1]);
-
-
-
-                                                        $anio = intval($parts[0]);
-
-
-
-
-
-
-
-                                                        $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-
-
-
-
-
-
-
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaFormateada . "</td>";
-
-
-
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['observaciones'] . "</td>";
 
 
 
                                                         echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
-
-
-
-                                                        <a href='#?id=" . $row2['ID'] . "&dni=" . $row2['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
-
-
-
-                                                        </td>";
-
-
-
-
-
-                                                        echo "<td style='text-align: center; vertical-align: middle;'></td>";
-
-
-
-                                                        echo "</tr>";
-                                                    }
-                                                }
-
-
-
-                                                echo "</tbody>
-
-
-
-                                                    </table>
-
-
-
-                                                </div>
-
-
-
-                                            </div>
-
-
-
-                                        </div>
-
-
-
-                                        </div>
-
-
-
-                                        </div>
-
-
-
-                                        </td>";
-
-
-
-
-
-
-
-
-
-
-
-                                                echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
-
-
-
-          <a href='AgregarAnamnesis.php?id=" . $row['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/area.png' class='imagen-espaciada'></a>
-
-
-
-          </td>";
-
-
-                                                echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
-                <button class='boton ver' data-toggle='modal' data-target='#modal-xl'>VER</button>
-          </td>
-          
-        <div class='modal fade' id='modal-xl'>
-          <div class='modal-dialog modal-xl'>
-            <div class='modal-content'>
-              <div>
-                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                </button>
-              </div>
-
-              <div class='modal-body'>
-                <label for='fecha'>Seleccione una fecha:</label>
-                <select id='fecha' onchange='mostrarFormulario()'>
-                    <option value=''>-- Seleccionar fecha --</option>
-                    <option value='2023-12-01'>1 de diciembre de 2023</option>
-                    <option value='2023-12-15'>15 de diciembre de 2023</option>
-                </select>
-
-                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
-                            <input type='hidden'>
-                            <legend>FAMILIAR 1</legend>
-
-                            <div class='fila'>
-                                <input type='text' placeholder='Nombre' name='nombre1' id='nombre1'>
-                                <input type='text' placeholder='Apellido' name='apellido1' id='apellido1'>
-                                <input type='text' placeholder='Edad' name='edad1' id='edad1'>
-                                <input type='text' placeholder='Rol familiar' name='rol1' id='rol1'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Ocupacion' name='ocupacion1' id='ocupacion1'>
-                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad1' id='escolaridad1'>
-                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension1' id='salario_asignacion_pension1'>
-                                <input type='text' placeholder='Asist. sanit.' name='asist1' id='asist1'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Observaciones' name='observaciones1' id='observaciones1'>
-                            </div>
-                        </section>
-
-                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
-                            <input type='hidden'>
-                            <legend>FAMILIAR 2</legend>
-
-                            <div class='fila'>
-                                <input type='text' placeholder='Nombre' name='nombre2' id='nombre2'>
-                                <input type='text' placeholder='Apellido' name='apellido2' id='apellido2'>
-                                <input type='text' placeholder='Edad' name='edad2' id='edad2'>
-                                <input type='text' placeholder='Rol familiar' name='rol2' id='rol2'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Ocupacion' name='ocupacion2' id='ocupacion2'>
-                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad2' id='escolaridad2'>
-                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension2' id='salario_asignacion_pension2'>
-                                <input type='text' placeholder='Asist. sanit.' name='asist2' id='asist2'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Observaciones' name='observaciones2' id='observaciones2'>
-                            </div>
-                        </section>
-
-                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
-                            <input type='hidden'>
-                            <legend>FAMILIAR 3</legend>
-
-                            <div class='fila'>
-                                <input type='text' placeholder='Nombre' name='nombre3' id='nombre3'>
-                                <input type='text' placeholder='Apellido' name='apellido3' id='apellido3'>
-                                <input type='text' placeholder='Edad' name='edad3' id='edad3'>
-                                <input type='text' placeholder='Rol familiar' name='rol3' id='rol3'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Ocupacion' name='ocupacion3' id='ocupacion3'>
-                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad3' id='escolaridad3'>
-                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension3' id='salario_asignacion_pension3'>
-                                <input type='text' placeholder='Asist. sanit.' name='asist3' id='asist3'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Observaciones' name='observaciones3' id='observaciones3'>
-                            </div>
-                        </section>
-
-                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
-                            <input type='hidden'>
-                            <legend>FAMILIAR 4</legend>
-
-                            <div class='fila'>
-                                <input type='text' placeholder='Nombre' name='nombre4' id='nombre4'>
-                                <input type='text' placeholder='Apellido' name='apellido4' id='apellido4'>
-                                <input type='text' placeholder='Edad' name='edad4' id='edad4'>
-                                <input type='text' placeholder='Rol familiar' name='rol4' id='rol4'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Ocupacion' name='ocupacion4' id='ocupacion4'>
-                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad4' id='escolaridad4'>
-                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension4' id='salario_asignacion_pension4'>
-                                <input type='text' placeholder='Asist. sanit.' name='asist4' id='asist4'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Observaciones' name='observaciones4' id='observaciones4'>
-                            </div>
-                        </section>
-
-                        <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
-                            <input type='hidden'>
-                            <legend>FAMILIAR 5</legend>
-
-                            <div class='fila'>
-                                <input type='text' placeholder='Nombre' name='nombre5' id='nombre5'>
-                                <input type='text' placeholder='Apellido' name='apellido5' id='apellido5'>
-                                <input type='text' placeholder='Edad' name='edad5' id='edad5'>
-                                <input type='text' placeholder='Rol familiar' name='rol5' id='rol5'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Ocupacion' name='ocupacion5' id='ocupacion5'>
-                                <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad5' id='escolaridad5'>
-                                <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension5' id='salario_asignacion_pension5'>
-                                <input type='text' placeholder='Asist. sanit.' name='asist5' id='asist5'>
-                            </div>
-                            <div class='fila'>
-                                <input type='text' placeholder='Observaciones' name='observaciones5' id='observaciones5'>
-                            </div>
-                        </section>
-
-
-             </div>
-
-              <div class='modal-footer justify-content-between'>
-                <button type='button' class='btn btn-primary' data-dismiss='modal'>Cerrar</button>
-                <button type='button' class='btn btn-primary'>Imprimir PDF</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>";
-
-
-
-
-
-
-                                                echo "<td style='text-align: center; vertical-align: middle;'><a href='generarPDF-amne.php?id=" . $row['Dni'] . "'>
-
-
-
-          <img src='/Proyecto-master/Proyecto-master/img/pdf.png'>
-
-
-
-      </a>
-
-
-
-          <div class='w3-container'>
-
-
-
-              <div id='id-modal6-" . $row['Dni'] . "' class='w3-modal'>
-
-
-
-                  <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
-
-
-
-                      <header class='w3-container w3-white'> 
-
-
-
-                      <span onclick=\"closeModal3('id-modal6-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
-
-
-
-                      <h2>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
-
-
-
-                      </header>
-
-
-
-                      <div id='-" . $row['Dni'] . "' class='w3-container'>
-
-
-
-                      <div class='container'>
-
-
-
-                          <div class='form-control'>
-
-
-
-                              <label for='search'><i class='icon-search'></i></label>
-
-
-
-                                  <input class='table-filter' type='search' data-table='advanced-web-table' placeholder='Buscar...'>
-
-
-
-                              </div>
-
-
-
-                                              <!--  Table  -->
-
-
-
-                                              <div class='table-responsive'>
-
-
-
-                                                  <table id='table-id' class='table table-striped table-class'>
-
-
-
-                                                      <thead>
-
-
-
-                                                          <tr>
-
-
-
-                                                              <th style='text-align: center; vertical-align: middle;'>Fecha</th>
-
-
-
-                                                              <th style='text-align: center; vertical-align: middle;'>Observaciones</th>
-
-
-
-                                                              <th style='text-align: center; vertical-align: middle;'>Contenido</th>                                                                                       
-
-
-
-                                                              <th style='text-align: center; vertical-align: middle;'>Profesor</th>
-
-
-
-                                                              <th style='text-align: center; vertical-align: middle;'><a href='Observaciones.php?id=" . $row['Dni'] . "'>
-
-
-
-                                                              <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
-
-
-
-                                                          </a>
-
-
-
-                                                          </th>
-
-
-
-                                                          </tr>
-
-
-
-                                                      <tbody>";
-
-
-
-
-
-
-
-
-
-
-
-                                                $idviejo = $row['Dni'];
-
-
-
-                                                $sql2 = "SELECT *
-
-
-
-FROM datos_academ
-
-
-
-WHERE DNI = :idviejo
-
-
-
-ORDER BY Fecha ASC;
-
-
-
-";
-
-
-
-
-
-
-
-
-
-
-
-                                                // Usamos parámetros con consultas preparadas
-
-
-
-                                                $consulta2 = $conn->prepare($sql2);
-
-
-
-                                                $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
-
-
-
-                                                if ($consulta2->execute()) {
-
-
-
-                                                    // Obtenemos el primer resultado del SELECT (si es que existe)
-
-
-
-                                                    $row2 = $consulta2->fetch();
-                                                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                if ($consulta2->execute()) {
-
-
-
-                                                    while ($row2 = $consulta2->fetch()) {
-
-
-
-                                                        echo "<tr>";
-
-
-
-                                                        $fechaOriginal = $row2['Fecha'];
-
-
-
-                                                        $parts = explode('-', $fechaOriginal);
-
-
-
-                                                        $dia = intval($parts[2]);
-
-
-
-                                                        $mes = intval($parts[1]);
-
-
-
-                                                        $anio = intval($parts[0]);
-
-
-
-
-
-
-
-                                                        $fechaFormateada = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
-
-
-
-
-
-
-
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaFormateada . "</td>";
-
-
-
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Observación'] . "</td>";
-
-
-
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Contenido'] . "</td>";
-
-
-
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Nombre_Profesor'] . "</td>";
-
-
-
-                                                        echo "<td style='text-align: center; vertical-align: middle;'></td>";
-
-
-
-                                                        echo "</tr>";
-                                                    }
-                                                }
-
-
-
-                                                echo "</tbody>
-
-
-
-                          </table>
-
-
-
-                      </div>
-
-
-
-                  </div>
-
-
-
-              </div>
-
-
-
-              </div>
-
-
-
-              </div>
-
-
-
-              </td>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                            endif;
-
-
-
-                                            echo "<td style='text-align: center; vertical-align: middle;'>
+                                                        <a href='AgregarAnamnesis.php?id=" . $row['Dni'] . "'><button class='boton agregar'>AGREGAR</button></a>
+
+        <a href='#' onclick=\"openModal20('" . $row['Dni'] . "')\">
+        <button class='boton ver'>MOSTRAR</button>
+    </a>
+    </td>
+    <div class='w3-container' >
+        <div id='id-modal20-" . $row['Dni'] . "' class='w3-modal' >
+            <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='width:1000px;' >
+                <header class='w3-container w3-white'> 
+                    <span onclick=\"closeModal('id-modal20-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                    <h2 style='text-align: center; vertical-align: middle;'>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
+                </header>
+                <div id='-" . $row['Dni'] . "' class='w3-container'>
+                
+          ";
+                                                        $dni_1 = $row['Dni'];
+                                                        $sql2 = "SELECT datos_persona.*, datos_estudiante.*
+         FROM datos_persona
+         INNER JOIN datos_estudiante ON datos_persona.DNI = datos_estudiante.DNI
+                                    AND datos_persona.Fecha_registro = datos_estudiante.Fecha_registro
+         WHERE datos_persona.DNI = $dni_1";
+                                                        $consulta2 = $conn->prepare($sql2);
+                                                        if ($consulta2->execute()) {
+                                                            $contador = 0;
+                                                            while ($row2 = $consulta2->fetch()) {
+                                                                $contador = $contador + 1;
+                                                        ?>
+
+
+                                                                <div class="campo">
+                                                                    <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                                                                        <input type='hidden'>
+                                                                        <legend>FAMILIAR <?php echo $contador; ?></legend>
+
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='Nombre' name='nombre1' id='nombre1' value="<?php echo $row2['nombre'] ?>">
+                                                                            <input type='text' placeholder='Apellido' name='apellido1' id='apellido1' value="<?php echo $row2['apellido'] ?>">
+                                                                            <input type='text' placeholder='Edad' name='edad1' id='edad1' value="<?php echo $row2['edad'] ?>">
+                                                                            <input type='text' placeholder='Rol familiar' name='rol1' id='rol1' value="<?php echo $row2['rol'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='Ocupacion' name='ocupacion1' id='ocupacion1' value="<?php echo $row2['ocupacion'] ?>">
+                                                                            <input type='text' placeholder='Escolaridad alcanzada' name='escolaridad1' id='escolaridad1' value="<?php echo $row2['escolaridad'] ?>">
+                                                                            <input type='text' placeholder='Salario/Asignacion/Pension' name='salario_asignacion_pension1' id='salario_asignacion_pension1' value="<?php echo $row2['salario_asignacion_pension'] ?>">
+                                                                            <input type='text' placeholder='Asist. sanit.' name='asist1' id='asist1' value="<?php echo $row2['asist'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='Observaciones' name='observaciones1' id='observaciones1' value="<?php echo $row2['observaciones'] ?>">
+                                                                        </div>
+                                                                    </section>
+                                                                <?php }
+                                                        }
+                                                        $dni_1 = $row['Dni'];
+                                                        $sql3 = "SELECT datos_persona.*, datos_estudiante.*
+         FROM datos_persona
+         INNER JOIN datos_estudiante ON datos_persona.DNI = datos_estudiante.DNI
+                                    AND datos_persona.Fecha_registro = datos_estudiante.Fecha_registro
+         WHERE datos_persona.DNI = $dni_1";
+                                                        $consulta3 = $conn->prepare($sql3);
+                                                        if ($consulta3->execute()) {
+                                                            $contador = 0;
+                                                            if ($row3 = $consulta3->fetch()) { ?>
+                                                                    <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                                                                        <legend for='obs'>OBSERVACIONES SOBRE LA HISTORIA Y DINÁMICA FAMILIAR</legend>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='Observaciones' name='obs' id='obs' value="<?php echo $row3['obs'] ?>">
+                                                                        </div>
+                                                                    </section>
+
+                                                                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                                                                        <legend for="vivienda">VIVIENDA</legend>
+                                                                        <div class="nuevo" style="display:flex;">
+                                                                            <label for="tipo">TIPO</label>
+                                                                            <div class="fila1">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="individualCheck" name="construccion" value="individual">
+                                                                                    <label class="form-check-label" for="individualCheck">INDIVIDUAL</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="compartidaCheck" name="construccion" value="compartida">
+                                                                                    <label class="form-check-label" for="compartidaCheck">COMPARTIDA</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- Construcción -->
+                                                                            <label for="construccion">CONSTRUCCION</label>
+                                                                            <div class="fila1">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="materialCheck" name="construccion" value="material">
+                                                                                    <label class="form-check-label" for="materialCheck">MATERIAL</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="ranchoCheck" name="construccion" value="rancho">
+                                                                                    <label class="form-check-label" for="ranchoCheck">RANCHO</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="otrosCheck" name="construccion" value="otros">
+                                                                                    <label class="form-check-label" for="otrosCheck">OTROS</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- Tenencia -->
+                                                                            <label for="tenencia">TENENCIA</label>
+                                                                            <hr>
+                                                                            <div class="fila1">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="propiaCheck" name="tenencia" value="propia">
+                                                                                    <label class="form-check-label" for="propiaCheck">PROPIA</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="prestadaCheck" name="tenencia" value="prestada">
+                                                                                    <label class="form-check-label" for="prestadaCheck">PRESTADA</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="alquiladaCheck" name="tenencia" value="alquilada">
+                                                                                    <label class="form-check-label" for="alquiladaCheck">ALQUILADA</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="cedidaCheck" name="tenencia" value="cedida">
+                                                                                    <label class="form-check-label" for="cedidaCheck">CEDIDA</label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <label for="servicios">SERVICIOS</label>
+                                                                            <div class="fila1">
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="aguaCheck" name="servicios" value="agua">
+                                                                                    <label class="form-check-label" for="aguaCheck">AGUA</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="luzCheck" name="servicios" value="luz">
+                                                                                    <label class="form-check-label" for="luzCheck">LUZ</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="gasCheck" name="servicios" value="gas">
+                                                                                    <label class="form-check-label" for="gasCheck">GAS</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="cloacasCheck" name="servicios" value="cloacas">
+                                                                                    <label class="form-check-label" for="cloacasCheck">CLOACAS</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="cableCheck" name="servicios" value="cable">
+                                                                                    <label class="form-check-label" for="cableCheck">CABLE</label>
+                                                                                </div>
+                                                                                <div class="form-check">
+                                                                                    <input class="form-check-input" type="checkbox" id="internetCheck" name="servicios" value="internet">
+                                                                                    <label class="form-check-label" for="internetCheck">INTERNET</label>
+                                                                                </div>
+                                                                            </div>
+                                                                    </section>
+                                                                    <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='Numero de convivientes' name='numconvi' value="<?php echo $row3['numconvi'] ?>">
+                                                                            <input type='text' placeholder='Numero de habitaciones' name='numhabit' value="<?php echo $row3['numhabit'] ?>">
+                                                                        </div>
+                                                                        <!-- Observaciones Generales -->
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='Observaciones generales' name='obsG' value="<?php echo $row3['obsG'] ?>">
+                                                                        </div>
+                                                                        <!-- Accesibilidad (Medios de Transporte) -->
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='Medios de transporte' name='mediosT' value="<?php echo $row3['mediosT'] ?>">
+                                                                        </div>
+                                                                    </section>
+                                                                    <section class='col-md-12' style='padding: 0px 0px 0px 15px;'>
+                                                                        <!-- HISTORIAL EVOLUCIÓN DE ENFERMEDAD -->
+                                                                        <legend for='historial'>HISTORIAL EVOLUCIÓN DE ENFERMEDAD</legend>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='DIAGNOSTICO:' name='diagnostico' value="<?php echo $row3['diagnostico'] ?>">
+                                                                            <input type='text' placeholder='MEDICO DE CABECERA:' name='medico_cabecera' value="<?php echo $row3['medico_cabecera'] ?>">
+                                                                            <input type='text' placeholder='TRATAMIENTO:' name='tratamiento' value="<?php echo $row3['tratamiento'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='MEDICACIÓN INDICADA:' name='medicacion' value="<?php echo $row3['medicacion'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='REQUIRIO INTERNACIÓN? SI/NO' name='tiempo_internacion' value="<?php echo $row3['tiempo_internacion'] ?>">
+                                                                            <input type='text' placeholder='TIEMPO:' name='tiempo' value="<?php echo $row3['tiempo'] ?>">
+                                                                            <input type='text' placeholder='PRONOSTICO:' name='pronostico' value="<?php echo $row3['pronostico'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='OTRAS OBSERV: (CUIDADOS):' name='observaciones' value="<?php echo $row3['observaciones'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='MANIFESTACIONES AFECTIVO-EMOCIONALES ASOCIADAS A LA SITUACIÓN DE ENFERMEDAD:' name='manifestaciones' value="<?php echo $row3['manifestaciones'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='ENFERMEDADES PREVIAS IMPORTANTES O CRÓNICAS/ ACCIDENTES:' name='enfermedades_previas' value="<?php echo $row3['enfermedades_previas'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='MEDICACIÓN QUE PUDIERA INCIDIR EN EL DESEMPEÑO ESCOLAR:' name='medicacion_incidir' value="<?php echo $row3['medicacion_incidir'] ?>">
+                                                                        </div>
+                                                                        <div class='fila'>
+                                                                            <input type='text' placeholder='TRATAMIENTOS O TERAPEUTICA QUE RECIBA EL NIÑO:' name='tratamientos_terapeutica' value="<?php echo $row3['tratamientos_terapeutica'] ?>">
+                                                                        </div>
+                                                                    </section>
+                                                                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                                                                        <!-- EDUCACIÓN -->
+                                                                        <legend style="display: flex; justify-content:center;">NIVEL INICIAL</legend>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="SALA" name="nivel_inicial_sala" value="<?php echo $row3['nivel_inicial_sala']; ?>">
+                                                                            <input type="text" placeholder="ASISTIÓ" name="nivel_inicial_asistio" value="<?php echo $row3['nivel_inicial_asistio']; ?>">
+                                                                            <input type="text" placeholder="INSTITUCIÓN" name="nivel_inicial_institucion" value="<?php echo $row3['nivel_inicial_institucion']; ?>">
+                                                                        </div>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="Observaciones educacion" name="obsE" value="<?php echo $row3['obsE']; ?>">
+                                                                        </div>
+                                                                        <legend style="display: flex; justify-content:center;">NIVEL PRIMARIO</legend>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="GRADO QUE CURSA:" name="nivel_primario_grado" value="<?php echo $row3['nivel_primario_grado']; ?>">
+                                                                            <input type="text" placeholder="DOCENTE TUTOR:" name="nivel_primario_tutor" value="<?php echo $row3['nivel_primario_tutor']; ?>">
+                                                                        </div>
+                                                                    </section>
+
+                                                                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                                                                        <!-- HISTORIA ESCOLAR -->
+                                                                        <legend>HISTORIA ESCOLAR</legend>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="PROMOCIÓN AUTOMÁTICA EN EL PRIMER CICLO? SI/NO" name="promocion_automatica" value="<?php echo $row3['promocion_automatica']; ?>">
+                                                                            <input type="text" placeholder="OBSERVACIONES" name="observaciones_promocion" value="<?php echo $row3['observaciones_promocion']; ?>">
+                                                                        </div>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="CAMBIO DE ESCUELA? SI/NO" name="cambios_escuela" value="<?php echo $row3['cambios_escuela']; ?>">
+                                                                            <input type="text" placeholder="INSTITUCIÓN" name="institucion_cambios" value="<?php echo $row3['institucion_cambios']; ?>">
+                                                                            <input type="text" placeholder="REPITENCIA? SI/NO" name="repitencia" value="<?php echo $row3['repitencia']; ?>">
+                                                                            <input type="text" placeholder="GRADO" name="grado_repitencia" value="<?php echo $row3['grado_repitencia']; ?>">
+                                                                            <input type="text" placeholder="¿CUÁNTAS VECES?" name="veces_repitencia" value="<?php echo $row3['veces_repitencia']; ?>">
+                                                                        </div>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="AUSENTISMO? SI/NO" name="ausentismo" value="<?php echo $row3['ausentismo']; ?>">
+                                                                            <input type="text" placeholder="OBSERVACIONES" name="observaciones_ausentismo" value="<?php echo $row3['observaciones_ausentismo']; ?>">
+                                                                        </div>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="DESERCION? SI/NO" name="desercion" value="<?php echo $row3['desercion']; ?>">
+                                                                            <input type="text" placeholder="OBSERVACIONES" name="observaciones_desercion" value="<?php echo $row3['observaciones_desercion']; ?>">
+                                                                        </div>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="DERIVACIÓN? SI/NO" name="derivacion" value="<?php echo $row3['derivacion']; ?>">
+                                                                            <input type="text" placeholder="INTERVENCIÓN EQUIPO TÉCNICO DE APOYO? SI/NO" name="intervencion_equipo" value="<?php echo $row3['intervencion_equipo']; ?>">
+                                                                        </div>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="PPI? SI/NO" name="ppi" value="<?php echo $row3['ppi']; ?>">
+                                                                            <input type="text" placeholder="CARÁCTER ANTERIOR" name="caracter_anterior" value="<?php echo $row3['caracter_anterior']; ?>">
+                                                                            <input type="text" placeholder="CARÁCTER ACTUAL" name="caracter_actual" value="<?php echo $row3['caracter_actual']; ?>">
+                                                                            <input type="text" placeholder="NOMBRE" name="nombre_caracter" value="<?php echo $row3['nombre_caracter']; ?>">
+                                                                        </div>
+                                                                    </section>
+
+                                                                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                                                                        <!-- ESCOLARIDAD HOSPITALARIA-DOMICILIARIA -->
+                                                                        <legend>ESCOLARIDAD HOSPITALARIA-DOMICILIARIA</legend>
+                                                                        <div class="fila">
+                                                                            <input type="text" placeholder="RECIBIÓ CON ANTERIORIDAD EDUCACIÓN HOSPITALARIA/DOMICILIARIA? SI/NO" name="educacion_anterior" value="<?php echo $row3['educacion_anterior']; ?>">
+                                                                            <input type="text" name="institucion_educacion" placeholder="INSTITUCIÓN" value="<?php echo $row3['institucion_educacion']; ?>">
+                                                                            <input type="text" name="grado_educacion" placeholder="GRADO" value="<?php echo $row3['grado_educacion']; ?>">
+                                                                        </div>
+                                                                        <div class="fila">
+                                                                            <input type="text" name="docente_educacion" placeholder="DOCENTE A CARGO" value="<?php echo $row3['docente_educacion']; ?>">
+                                                                            <input type="text" name="tiempo_intervencion" placeholder="TIEMPO DE INTERVENCIÓN ESC, HOSP-DOMIC" value="<?php echo $row3['tiempo_intervencion']; ?>">
+                                                                        </div>
+                                                                    </section>
+                                                                    <section class="col-md-12" style="padding: 0px 0px 0px 15px;">
+                                                                        <!-- OBSERVACIONES GENERALES -->
+                                                                        <legend>OBSERVACIONES GENERALES</legend>
+                                                                        <div class="fila">
+                                                                            <input name="observaciones_generales" placeholder="OBSERVACIONES GENERALES (DISPONIBILIDAD DE TIEMPOS, ESPACIOS, ETC)" value="<?php echo $row3['observaciones_generales']; ?>">
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                        <?php }
+                                                        } ?>
+                        </div>
+                        <div class='modal-footer justify-content-between'>
+                            <button type='button' class='boton-anam rojo' data-dismiss='modal'>Cerrar</button>
+                            <a href='generarPDF-amne.php?id=<?php echo $row['Dni']; ?>'>
+                            <button type='submit' class='boton-anam celeste'>Imprimir PDF</button></a>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div><?php
+
+                                                    endif;
+
+
+
+                                                    echo "<td style='text-align: center; vertical-align: middle;'>
                                             ";
 
-                                            $idviejo3 = $row['Dni'];
-                                            $sql3 = "SELECT * FROM personales_fechas WHERE Dni = :idviejo3 ORDER BY Fecha_registro DESC LIMIT 1";
+                                                    $idviejo3 = $row['Dni'];
+                                                    $sql3 = "SELECT * FROM personales_fechas WHERE Dni = :idviejo3 ORDER BY Fecha_registro DESC LIMIT 1";
 
-                                            $consulta3 = $conn->prepare($sql3);
-                                            $consulta3->bindParam(':idviejo3', $idviejo3, PDO::PARAM_INT);
+                                                    $consulta3 = $conn->prepare($sql3);
+                                                    $consulta3->bindParam(':idviejo3', $idviejo3, PDO::PARAM_INT);
 
-                                            if ($consulta3->execute()) {
-                                                $row2 = $consulta3->fetch();
+                                                    if ($consulta3->execute()) {
+                                                        $row2 = $consulta3->fetch();
+                                                        echo "<a href='EditarA.php?id=" . $row['Dni'] . "'><button class='boton editar'>EDITAR</button></a>
+";
 
-                                                if ($row2["Fecha_alta"]) {
-                                                    echo "<a href='REINGRESO.php?dni=" . $row2['Dni'] . "'>
+                                                        if ($row2["Fecha_alta"]) {
+                                                            echo "<a href='REINGRESO.php?dni=" . $row2['Dni'] . "'>
         <button class='boton reingreso'>REINGRESO</button>
       </a>";
-                                                } else {
+                                                        } else {
 
-                                                    echo "<a onclick=\"openModal14('" . $row2['Fecha_registro'] . "')\">
+                                                            echo "<a onclick=\"openModal14('" . $row2['Fecha_registro'] . "')\">
                                                     <button class='boton darDeAlta'>DAR ALTA</button>
                                                   </a>
     <div class='w3-container'>
@@ -4332,300 +3936,254 @@ ORDER BY Fecha ASC;
             </div>
         </div>
     </div>";
+                                                        }
+                                                    } else {
+                                                        // Manejo de errores en la ejecución de la consulta
+                                                        echo "Error";
+                                                    }
+
+                                                    "</td>";
+
+                                                    echo "<td style='text-align: center; vertical-align: middle;'></td>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    echo "</tr>";
                                                 }
-                                            } else {
-                                                // Manejo de errores en la ejecución de la consulta
-                                                echo "Error";
                                             }
 
-                                            "</td>";
-                                            if (!$mostrarColumnaAccion2) :
 
 
+                    ?>
 
-                                                echo "<td style='text-align: center; vertical-align: middle;'></td>";
 
 
 
-                                            endif;
 
 
 
+</tbody>
 
 
 
+</table>
 
 
 
+<?php
 
 
 
+$totalFilas = 500; // Cambiar al total real de filas en la tabla
 
 
 
+$itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
 
 
 
+$totalPaginas = ceil($totalFilas / $itemsPorPagina);
 
 
 
 
 
-                                            echo "</tr>";
-                                        }
-                                    }
 
 
+$enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la paginación
 
-                                            ?>
 
 
 
 
 
 
+$mitadEnlaces = floor($enlacesMostrados / 2);
 
-                                </tbody>
 
 
+$inicioRango = max(1, $paginaActual - $mitadEnlaces);
 
-                            </table>
 
 
+$finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
 
-                            <?php
 
 
+?>
 
-                            $totalFilas = 500; // Cambiar al total real de filas en la tabla
 
 
 
-                            $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
 
 
 
-                            $totalPaginas = ceil($totalFilas / $itemsPorPagina);
+<div class="pagination">
 
 
 
+    <?php if ($paginaActual > 1) : ?>
 
 
 
+        <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
 
-                            $enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la paginación
 
 
+    <?php endif; ?>
 
 
 
 
 
-                            $mitadEnlaces = floor($enlacesMostrados / 2);
 
 
+    <?php if ($inicioRango > 1) : ?>
 
-                            $inicioRango = max(1, $paginaActual - $mitadEnlaces);
 
 
+        <a href='formularioAlumno.php?pagina=1'>1</a>
 
-                            $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
 
 
+        <?php if ($inicioRango > 2) : ?>
 
-                            ?>
 
 
+            <a class="pagination-dots">...</a>
 
 
 
+        <?php endif; ?>
 
 
-                            <div class="pagination">
 
+    <?php endif; ?>
 
 
-                                <?php if ($paginaActual > 1) : ?>
 
 
 
-                                    <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
 
 
+    <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
 
-                                <?php endif; ?>
 
 
+        <?php $active1 = ($i == $paginaActual) ? 'active1' : ''; ?>
 
 
 
+        <a class='<?php echo $active1; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
 
 
-                                <?php if ($inicioRango > 1) : ?>
 
+    <?php endfor; ?>
 
 
-                                    <a href='formularioAlumno.php?pagina=1'>1</a>
 
 
 
-                                    <?php if ($inicioRango > 2) : ?>
 
 
+    <?php if ($finRango < $totalPaginas) : ?>
 
-                                        <a class="pagination-dots">...</a>
 
 
+        <?php if ($finRango < $totalPaginas - 1) : ?>
 
-                                    <?php endif; ?>
 
 
+            <a class="pagination-dots">...</a>
 
-                                <?php endif; ?>
 
 
+        <?php endif; ?>
 
 
 
+        <a href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
 
 
-                                <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
 
+    <?php endif; ?>
 
 
-                                    <?php $active1 = ($i == $paginaActual) ? 'active1' : ''; ?>
 
 
 
-                                    <a class='<?php echo $active1; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
 
 
+    <?php if ($paginaActual < $totalPaginas) : ?>
 
-                                <?php endfor; ?>
 
 
+        <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
 
 
 
+            &gt;</a>
 
 
-                                <?php if ($finRango < $totalPaginas) : ?>
 
+    <?php endif; ?>
 
 
-                                    <?php if ($finRango < $totalPaginas - 1) : ?>
 
+</div>
 
 
-                                        <a class="pagination-dots">...</a>
 
 
 
-                                    <?php endif; ?>
 
 
 
-                                    <a href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
 
 
 
-                                <?php endif; ?>
 
 
 
 
+<?php
 
 
 
-                                <?php if ($paginaActual < $totalPaginas) : ?>
 
 
 
-                                    <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
 
+echo "</div>";
 
 
-                                        &gt;</a>
 
+?>
 
 
-                                <?php endif; ?>
 
 
-
-                            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            <?php
-
-
-
-
-
-
-
-                            echo "</div>";
-
-
-
-                            ?>
-
-
-
-
-
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-                </div>
-
-
-
-
-
-
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- /.d-flex -->
 
 
 
@@ -4633,11 +4191,51 @@ ORDER BY Fecha ASC;
 
 
 
+    </div>
+
+
+
+    </div>
 
 
 
 
-        <!-- /.col-md-6 -->
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- /.d-flex -->
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- /.col-md-6 -->
 
 
 

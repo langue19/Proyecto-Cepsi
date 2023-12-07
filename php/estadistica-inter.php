@@ -92,7 +92,7 @@ session_start();
 
 
 
-            <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; justify-content: space-between;">
 
 
 
@@ -100,496 +100,570 @@ session_start();
 
 
 
-            </div>
-
-
-
-            <div class="">
-
-
-
-            <div class="row" style="display: flex; justify-content: space-between;">
-    <div class="col-lg-3 col-6">
-        <div class="box-container">
-            <h2 class="mb-5 mt-4">Total de alumnos</h2>
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <?php
-                    $sql = "SELECT COUNT(*) AS Grado FROM datos_pedagogicos;";
-                    $consulta = $conn->prepare($sql);
-                    $consulta->execute();
-                    $resultado = $consulta->fetchColumn();
-                    echo "<h3>" . $resultado . "</h3>";
-                    ?><br> <br>
-
-                </div>
-                <div class="icon">
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-6">
-        <div class="box-container">
-            <h2 class="mb-5 mt-4">Con escolaridad</h2>
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <?php
-                    $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado <> 'Sin escolaridad' AND Grado <> 'Sin especificar'";
-                    $consulta = $conn->prepare($sql);
-                    $consulta->execute();
-                    $resultado = $consulta->fetchColumn();
-                    echo "<h3>" . $resultado . "</h3>";
-                    ?><br> <br>
-
-                </div>
-                <div class="icon">
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-6">
-        <div class="box-container">
-            <h2 class="mb-5 mt-4">Sin escolaridad</h2>
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <?php
-                    $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = 'Sin escolaridad'";
-                    $consulta = $conn->prepare($sql);
-                    $consulta->execute();
-                    $resultado = $consulta->fetchColumn();
-                    echo "<h3>" . $resultado . "</h3>";
-                    ?><br> <br>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 
+
+<div class="">
+
+
+
+    <div class="row" style="display: flex; justify-content: space-between;">
+        <div class="col-lg-3 col-6">
+            <div class="box-container">
+                <h2 class="mb-5 mt-4">Total de alumnos</h2>
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <?php
+                        $sql = "SELECT COUNT(*) AS Cantidad
+                        FROM (
+                            SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+                            FROM Datos_pedagogicos dp
+                            INNER JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+                            WHERE pf.Estado = 'Internacion'
+                            GROUP BY dp.Dni
+                        ) AS UltimaFecha;
+                        ";
+                        $consulta = $conn->prepare($sql);
+                        $consulta->execute();
+                        $resultado = $consulta->fetchColumn();
+                        echo "<h3>" . $resultado . "</h3>";
+                        ?><br> <br>
+
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+            <div class="box-container">
+                <h2 class="mb-5 mt-4">Con escolaridad</h2>
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <?php
+                        $sql = "SELECT COUNT(*)
+                        FROM (
+                            SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+                            FROM Datos_pedagogicos dp
+                            INNER JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+                            WHERE dp.Grado <> 'Sin escolaridad' AND dp.Grado <> 'Sin especificar' AND pf.Estado = 'Internacion'
+                            GROUP BY dp.Dni
+                        ) AS UltimaFecha;
+                        ";
 
 
-
-            <h2 class="mb-2 mt-4" style="display: flex; justify-content:center;">Salas</h2>
-
-            <div class="">
-
-
-
-                <div class="row" style="display: flex; justify-content:center;">
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-blue">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = 'Sala 3'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>Sala de 3</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                           
-
-                        </div>
+                        $consulta = $conn->prepare($sql);
+                        $consulta = $conn->prepare($sql);
+                        $consulta->execute();
+                        $resultado = $consulta->fetchColumn();
+                        echo "<h3>" . $resultado . "</h3>";
+                        ?><br> <br>
 
                     </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-blue">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = 'Sala 4'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>Sala de 4</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-blue">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = 'Sala 5'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>Sala de 5</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
+        <div class="col-lg-3 col-6">
+            <div class="box-container">
+                <h2 class="mb-5 mt-4">Sin escolaridad</h2>
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <?php
+                        $sql = "SELECT COUNT(*) 
+FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+FROM Datos_pedagogicos dp
+JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+WHERE dp.Grado = 'Sin escolaridad' AND pf.Estado = 'Internacion'
+GROUP BY dp.Dni) AS SinEscolaridad;";
+                        $consulta = $conn->prepare($sql);
+                        $consulta->execute();
+                        $resultado = $consulta->fetchColumn();
+                        echo "<h3>" . $resultado . "</h3>";
+                        ?><br> <br>
                     </div>
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<h2 class="mb-2 mt-4" style="display: flex; justify-content:center;">Salas</h2>
+
+<div class="">
+
+
+
+    <div class="row" style="display: flex; justify-content:center;">
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-blue">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+FROM Datos_pedagogicos dp
+JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+WHERE dp.Grado = 'Sala 3' AND pf.Estado = 'Internacion'
+GROUP BY dp.Dni) AS Sala3;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>Sala de 3</p>
 
                 </div>
 
-            </div>
+                <div class="icon">
 
-
-
-            <h2 class="mb-2 mt-4" style="display: flex; justify-content:center;">Primaria</h2>
-
-            <!-- /.content-header -->
-
-
-
-            <!-- Main content -->
-
-            <div class="">
-
-
-
-                <div class="row" style="display: flex; justify-content:center;">
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-green">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '1° grado'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>1° grado</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-green">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '2° grado'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>2° grado</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-green">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '3° grado'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>3° grado</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-green">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '4° grado'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>4° grado</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-green">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '5° grado'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>5° grado</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-green">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '6° grado'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>6° grado</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <!-- small card -->
-
-                        <div class="small-box bg-green">
-
-                            <div class="inner">
-
-                                <?php
-
-                                $sql = "SELECT COUNT(*) FROM datos_pedagogicos WHERE Grado = '7° grado'";
-
-                                $consulta = $conn->prepare($sql);
-
-                                $consulta->execute();
-
-                                $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
-
-                                echo "<h3>" . $resultado . "</h3>";
-
-                                ?>
-
-                                <p>7° grado</p>
-
-                            </div>
-
-                            <div class="icon">
-
-                                <i class="fas fa-user"></i>
-
-                            </div>
-
-                            
-
-                        </div>
-
-                    </div>
+                    <i class="fas fa-user"></i>
 
                 </div>
+
+
 
             </div>
 
         </div>
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-blue">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+FROM Datos_pedagogicos dp
+JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+WHERE dp.Grado = 'Sala 4' AND pf.Estado = 'Internacion'
+GROUP BY dp.Dni) AS Sala4;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>Sala de 4</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-blue">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+FROM Datos_pedagogicos dp
+JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+WHERE dp.Grado = 'Sala 5' AND pf.Estado = 'Internacion'
+GROUP BY dp.Dni) AS Sala5;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>Sala de 5</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<h2 class="mb-2 mt-4" style="display: flex; justify-content:center;">Primaria</h2>
+
+<!-- /.content-header -->
+
+
+
+<!-- Main content -->
+
+<div class="">
+
+
+
+    <div class="row" style="display: flex; justify-content:center;">
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-green">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+                    FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+                          FROM Datos_pedagogicos dp
+                          JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+                          WHERE dp.Grado = '1° grado' AND pf.Estado = 'Internacion'
+                          GROUP BY dp.Dni) AS PrimerGrado;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>1° grado</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-green">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+FROM Datos_pedagogicos dp
+JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+WHERE dp.Grado = '2° grado' AND pf.Estado = 'Internacion'
+GROUP BY dp.Dni) AS SegundoGrado;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>2° grado</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-green">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+                    FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+                          FROM Datos_pedagogicos dp
+                          JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+                          WHERE dp.Grado = '3° grado' AND pf.Estado = 'Internacion'
+                          GROUP BY dp.Dni) AS TercerGrado;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>3° grado</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-green">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+                    FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+                          FROM Datos_pedagogicos dp
+                          JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+                          WHERE dp.Grado = '4° grado' AND pf.Estado = 'Internacion'
+                          GROUP BY dp.Dni) AS CuartoGrado;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>4° grado</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-green">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+                    FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+                          FROM Datos_pedagogicos dp
+                          JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+                          WHERE dp.Grado = '5° grado' AND pf.Estado = 'Internacion'
+                          GROUP BY dp.Dni) AS QuintoGrado;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>5° grado</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-green">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+                    FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+                          FROM Datos_pedagogicos dp
+                          JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+                          WHERE dp.Grado = '6° grado' AND pf.Estado = 'Internacion'
+                          GROUP BY dp.Dni) AS SextoGrado;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>6° grado</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-6">
+
+            <!-- small card -->
+
+            <div class="small-box bg-green">
+
+                <div class="inner">
+
+                    <?php
+
+                    $sql = "SELECT COUNT(*) 
+                    FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
+                          FROM Datos_pedagogicos dp
+                          JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
+                          WHERE dp.Grado = '7° grado' AND pf.Estado = 'Internacion'
+                          GROUP BY dp.Dni) AS SeptimoGrado;";
+
+                    $consulta = $conn->prepare($sql);
+
+                    $consulta->execute();
+
+                    $resultado = $consulta->fetchColumn(); // Obtenemos el resultado
+
+                    echo "<h3>" . $resultado . "</h3>";
+
+                    ?>
+
+                    <p>7° grado</p>
+
+                </div>
+
+                <div class="icon">
+
+                    <i class="fas fa-user"></i>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
 
     </div>
 

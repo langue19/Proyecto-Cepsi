@@ -128,7 +128,7 @@ session_start();
 
                                             <option value="Docente">Docente</option>
 
-                                            <option value="Psicopedagoga">Psicopedagoga</option>
+                                            <option value="Gabinete">Gabinete</option>
 
                                         </select>
 

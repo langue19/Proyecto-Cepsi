@@ -97,15 +97,20 @@ if ($fecha_ing != "") {
 
     $lectYesct = $_POST['LectyEsc'];
 
+    $obs_resuelvOpBas = $_POST['obs_resuelvOpBas'];
+    $obs_LectyEsc = $_POST['obs_LectyEsc'];
+    $obs_interpT = $_POST['obs_interpT'];
+    $obs_lectC = $_POST['obs_lectC'];
+
 
 
     $conn->exec("USE $dbname");
 
 
 
-    $stmt = $conn->prepare("INSERT INTO Datos_pedagogicos(Dni, Fecha_registro, escRef, Grado, poseeEsc, escComun, lectContinua, interpTextos, resuelvOpBas, lectyescri) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Datos_pedagogicos(Dni, Fecha_registro, escRef, Grado, poseeEsc, escComun, lectContinua,obs_lectC, interpTextos,obs_interpT, resuelvOpBas,obs_resuelvOpBas, lectyescri,obs_LectyEsc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $stmt->execute([$dni, $fecha_ing, $escRef, $grado, $poseEsc, $escComun, $LecturaCont, $InterpText, $opBasicas, $lectYesct]);
+    $stmt->execute([$dni, $fecha_ing, $escRef, $grado, $poseEsc, $escComun, $LecturaCont,$obs_lectC, $InterpText,$obs_interpT, $opBasicas,$obs_resuelvOpBas, $lectYesct,$obs_LectyEsc]);
 
 
 

@@ -182,6 +182,14 @@ function openModal14(dni) {
 
 }
 
+function openModal20(dni) {
+
+  var modal = document.getElementById('id-modal20-' + dni);
+
+  modal.style.display = 'block';
+
+}
+
 function closeModal(modalId) {
 
   var modal = document.getElementById(modalId);
