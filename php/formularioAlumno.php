@@ -309,17 +309,21 @@ $mesesEnEspanol = array(
 
 
                         <div class="form-contro">
-
-
-
-                            <label for="search"><i class="icon-search"></i></label>
-
-
-
                             <input class="table-filter" type="search" data-table="advanced-web-table" placeholder="Buscar..." id="search-input">
-
+                            <button onclick="searchByDNI()">Buscar</button>
                         </div>
+                        <script>
+// Función para realizar la búsqueda por DNI
+function searchByDNI() {
+    // Obtener el valor del campo de búsqueda
+    var dni = document.getElementById('search-input').value;
 
+    // Puedes hacer algo con el valor del DNI, como redirigir a otra página
+    if (dni) {
+        window.location.href = 'formularioAlumno.php?dni=' + dni;
+    }
+}
+</script>
 
 
                         <!-- Table -->
@@ -478,7 +482,9 @@ $mesesEnEspanol = array(
                                     $inicio = ($paginaActual - 1) * $itemsPorPagina;
 
 
-
+                                    if(isset($_GET['dni'])) {
+                                        $dni = $_GET['dni'];
+                                       }
 
 
 
@@ -522,7 +528,9 @@ $mesesEnEspanol = array(
          LEFT JOIN personales_fechas pf2 ON dp.Dni = pf2.Dni AND pf2.Fecha_registro > pf.Fecha_registro
          WHERE pf2.Dni IS NULL
          LIMIT $inicio, $itemsPorPagina;";
-                                    } else {
+                                    } elseif($dni != NULL) {
+                                        $sql1 = "SELECT * FROM datos_personales WHERE DNI = $dni;";
+                                    }else{
                                         $sql1 = "SELECT * FROM datos_personales ORDER BY fecha_act DESC LIMIT $inicio, $itemsPorPagina;";
                                     }
 
@@ -860,7 +868,7 @@ $mesesEnEspanol = array(
                                                 $consulta2 = $conn->prepare($sql2);
                                                 $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
                                                 if ($consulta2->execute()) {
-                                                    
+
                                                     $row2 = $consulta2->fetch();
                                                     echo "<td style='text-align: center; vertical-align: middle;'>";
                                                     if ($row2['AÑO'] != NULL) {
@@ -919,8 +927,8 @@ $mesesEnEspanol = array(
                                                 $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
 
                                                 if ($consulta2->execute()) {
-                                                    while ($row2 = $consulta2->fetch() ) {
-                                                        
+                                                    while ($row2 = $consulta2->fetch()) {
+
                                                         echo "<tr>";
                                                         echo "<td style='text-align: center; vertical-align: middle;' >" . $row2['AÑO'] . "</td>";
                                                         echo "<td style='text-align: center; vertical-align: middle;'>
@@ -1197,7 +1205,7 @@ $mesesEnEspanol = array(
                                                             </div>
                                                         </div>
                                                     </td>";
-                                                        } 
+                                                        }
 
 
 
@@ -1209,8 +1217,8 @@ $mesesEnEspanol = array(
                                                             echo "<img src='/Proyecto-master/Proyecto-master/img/listo.png'>";
                                                             echo "</a>";
                                                             echo "</td>";
-                                                            
-                                                        echo "<div class='w3-container'>
+
+                                                            echo "<div class='w3-container'>
                                                         <div id='id-modal24-" . $row2['DNI'] . $row2['AÑO'] . "' class='w3-modal'>
                                                             <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:800px'>
                                                                 <header class='w3-container w3-white'> 
@@ -1221,30 +1229,30 @@ $mesesEnEspanol = array(
                                                                     <div class='container'>
                 
                                                                         <form id='msform' action='agregar_notas.php' method='post'>";
-                
-                
-                
-                                                                        echo "<div class='campo'>";
-                                                                        if ($row2['AÑO']) {
-                                                                            ?><input type='text' name='AÑO' value='<?php echo $row2['AÑO']; ?>' style='background-color: #6c757d; color: white;' readonly>
-                                                                        <?php
-                                                                        } else {
-                                                                        ?>
-                                                                            <label for='AÑO'>AÑO</label>
-                                                                            <input type='text' name='AÑO'>
-                
-                                                                        <?php }
-                                                                        if ($row2['Trimestre']) {
-                                                                        ?><input type='text' name='Trimestre' value='<?php echo $row2['Trimestre']; ?>' style='background-color: #6c757d; color: white;' readonly>
-                
-                                                                        <?php
-                                                                        } else {
-                                                                        ?>
-                                                                            <label for='Trimestre'>Trimestre</label>
-                                                                            <input type='text' name='Trimestre'>
-                
+
+
+
+                                                            echo "<div class='campo'>";
+                                                            if ($row2['AÑO']) {
+                                                            ?><input type='text' name='AÑO' value='<?php echo $row2['AÑO']; ?>' style='background-color: #6c757d; color: white;' readonly>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <label for='AÑO'>AÑO</label>
+                                                                <input type='text' name='AÑO'>
+
                                                             <?php }
-                                                                        echo "<input type='text' name='DNI' value= '" . $row2['DNI'] . "' style='background-color: #6c757d; color: white;' readonly>
+                                                            if ($row2['Trimestre']) {
+                                                            ?><input type='text' name='Trimestre' value='<?php echo $row2['Trimestre']; ?>' style='background-color: #6c757d; color: white;' readonly>
+
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <label for='Trimestre'>Trimestre</label>
+                                                                <input type='text' name='Trimestre'>
+
+                                            <?php }
+                                                            echo "<input type='text' name='DNI' value= '" . $row2['DNI'] . "' style='background-color: #6c757d; color: white;' readonly>
                                                                         </div><br>
                                                                     
                                                                         <div class='campo'>
@@ -1340,7 +1348,7 @@ $mesesEnEspanol = array(
                                                         </div>
                                                     </div>
                                                 </td>";
-                                                        } 
+                                                        }
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>
             <a href='#' onclick=\"openModal5('" . $row['DNI'] . "')\">
