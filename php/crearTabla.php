@@ -129,6 +129,37 @@ obs_LectyEsc VARCHAR(100),
 PRIMARY KEY (Dni, Fecha_registro),
 FOREIGN KEY (Dni, Fecha_registro) REFERENCES personales_fechas(Dni, Fecha_registro));
 
+CREATE TABLE datos_notas (
+    DNI INT NOT NULL,
+    AÑO INT NOT NULL,
+    Trimestre VARCHAR(45),
+    Lengua_cal FLOAT,
+    Lengua_observaciones TEXT,
+    Matematica_cal FLOAT,
+    Matematica_observaciones TEXT,
+    Sociales_cal FLOAT,
+    Sociales_observaciones TEXT,
+    Tecnologia_cal FLOAT,
+    Tecnologia_observaciones TEXT,
+    Musica_cal FLOAT,
+    Musica_observaciones TEXT,
+    Plastica_cal FLOAT,
+    Plastica_observaciones TEXT,
+    EticayCiudadana_cal FLOAT,
+    EticayCiudadana_observaciones TEXT,
+    Int_pract_destaca TEXT,
+    Int_pract_trabaja TEXT,
+    Int_pract_mejorar TEXT,
+    Personales_soc_motiv TEXT,
+    Personales_soc_trabajo TEXT,
+    Personales_soc_respons TEXT,
+    Personales_soc_acompañ TEXT,
+    Int_equipo_psicologo TEXT,
+    Int_equipo_psicopedagogo TEXT,
+    Observaciones_generales TEXT,
+    PRIMARY KEY (DNI, AÑO,Trimestre),
+    FOREIGN KEY (DNI) REFERENCES personales_fechas(DNI)
+);
 
     CREATE TABLE Datos_academ (
     ID INT AUTO_INCREMENT,
@@ -225,13 +256,5 @@ CREATE TABLE datos_persona (
 
 
   $conn->exec($sqlCrearTabla);
-
-
-
-
-
 } catch (PDOException $e) {
-
 }
-
-?>

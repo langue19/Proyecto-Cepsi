@@ -190,6 +190,33 @@ function openModal20(dni) {
 
 }
 
+function openModal21(dni) {
+
+  var modal = document.getElementById('id-modal21-' + dni);
+
+  modal.style.display = 'block';
+}
+
+function openModal22(dni) {
+
+  var modal = document.getElementById('id-modal22-' + dni);
+
+  modal.style.display = 'block';
+}
+
+function openModal23(dni) {
+
+  var modal = document.getElementById('id-modal23-' + dni);
+
+  modal.style.display = 'block';
+}
+
+function openModal24(dni) {
+
+  var modal = document.getElementById('id-modal24-' + dni);
+
+  modal.style.display = 'block';
+}
 function closeModal(modalId) {
 
   var modal = document.getElementById(modalId);
@@ -253,6 +280,16 @@ function closeModal5(modalId) {
   modal.style.display = 'none';
 
   openModal11(dni);
+
+}
+
+function closeModal6(modalId) {
+
+  var modal = document.getElementById(modalId);
+
+  modal.style.display = 'none';
+
+  openModal22(dni);
 
 }
 

@@ -154,7 +154,7 @@ session_start();
                                     ) AS UltimaFecha;
                                     ";
 
-      
+
                                     $consulta = $conn->prepare($sql);
                                     $consulta = $conn->prepare($sql);
                                     $consulta->execute();
@@ -176,7 +176,7 @@ session_start();
                             <div class="small-box bg-red">
                                 <div class="inner">
                                     <?php
-$sql = "SELECT COUNT(*) 
+                                    $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
       FROM Datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -219,7 +219,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
       FROM Datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -262,7 +262,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
       FROM Datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -305,7 +305,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
       FROM Datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -411,7 +411,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
       FROM Datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -454,7 +454,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
                                       FROM Datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -497,7 +497,7 @@ $sql = "SELECT COUNT(*)
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
                                       FROM Datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -540,7 +540,7 @@ $sql = "SELECT COUNT(*)
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
                                       FROM Datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -583,7 +583,7 @@ $sql = "SELECT COUNT(*)
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
                                       FROM Datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
@@ -626,7 +626,7 @@ $sql = "SELECT COUNT(*)
 
                                 <?php
 
-$sql = "SELECT COUNT(*) 
+                                $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
                                       FROM Datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro

@@ -347,7 +347,7 @@ $mesesEnEspanol = array(
 
                                             <th style="text-align: center; vertical-align: middle;">Obs</th>
 
-
+                                            <th style="text-align: center; vertical-align: middle;">Notas</th>
 
 
                                         <?php endif; ?>
@@ -851,6 +851,547 @@ $mesesEnEspanol = array(
 
 
                                         </td>";
+                                                $idviejo = $row['Dni'];
+                                                $sql2 = "SELECT *
+             FROM datos_notas
+             WHERE DNI = :idviejo
+             ORDER BY AÑO DESC;
+    ";
+                                                $consulta2 = $conn->prepare($sql2);
+                                                $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
+                                                if ($consulta2->execute()) {
+                                                    $row2 = $consulta2->fetch();
+                                                    echo "<td style='text-align: center; vertical-align: middle;'>";
+                                                    if ($row2['AÑO'] != NULL) {
+                                                        echo "<a href='#' onclick=\"openModal21('" . $row2['DNI'] . "')\">
+                                        <img src='/Proyecto-master/Proyecto-master/img/cuaderno.png'>";
+                                                    } else {
+                                                        echo "<a href='agregar_notas.php?id=" . $row2['DNI'] . "'>
+                                        <img src='/Proyecto-master/Proyecto-master/img/cuaderno.png' class='imagen-espaciada'>
+                                        ";
+                                                    }
+                                                }
+                                                echo "</a><div class='w3-container'>
+
+                                            <div id='id-modal21-" . $row2['DNI'] . "' class='w3-modal'>
+    
+    
+    
+                                                <div class='w3-modal-content w3-card-4 w3-animate-zoom'>
+    
+    
+    
+                                                    <header class='w3-container w3-white'> 
+    
+    
+                                                    <span onclick=\"closeModal('id-modal21-" . $row2['DNI'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+    
+
+                                                    <h2 style='text-align: center; vertical-align: middle;'>" . $row['Nombre'] . " " . $row['Apellido'] .  "</h2>
+
+                                                    </header>
+                                                    <div id='-" . $row2['DNI'] . "' class='w3-container'>
+                                                    <div class='container'>
+                                                                            <div class='table-responsive'>
+                                                                                <table id='table-id' class='table table-striped table-class'>
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th style='text-align: center; vertical-align: middle;'>Año</th>
+                                                                                            <th style='text-align: center; vertical-align: middle;'>1er trimestre</th>
+                                                                                            <th style='text-align: center; vertical-align: middle;'>2do trimestre</th>                                                                                       
+                                                                                            <th style='text-align: center; vertical-align: middle;'>3er trimestre</th>
+                                                                                            <th style='text-align: center; vertical-align: middle;'>Acciones</th>
+
+                                                                                            <th style='text-align: center; vertical-align: middle;'><a href='agregar_notas.php?id=" . $row2['DNI'] . "'>
+                                                                                            <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
+                                                                                        </a>
+                                                                                        </th>
+                                                                                        </tr>
+                                                                                    <tbody>";
+                                                $idviejo = $row2['DNI'];
+                                                $sql2 = "SELECT *
+                     FROM datos_notas
+                     WHERE DNI = :idviejo
+                     ORDER BY AÑO DESC;
+            ";
+                                                $consulta2 = $conn->prepare($sql2);
+                                                $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
+
+                                                if ($consulta2->execute()) {
+                                                    while ($row2 = $consulta2->fetch()) {
+                                                        echo "<tr>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;' >" . $row2['AÑO'] . "</td>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>
+                                                        <a href='#' onclick=\"openModal22('" . $row2['DNI'] . "')\">";
+                                                        if ($row2['Trimestre'] == 'Primer trimestre') {
+
+                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/listo.png'>";
+                                                        } else {
+                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/no-listo.png'>";
+                                                        }
+                                                        echo "<img src='/Proyecto-master/Proyecto-master/img/carpeta.png'></a>";
+                                                        echo "</td>
+                                                        <div class='w3-container'>
+                                                        <div id='id-modal22-" . $row2['DNI'] . "' class='w3-modal'>
+                                                            <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:800px'>
+                                                                <header class='w3-container w3-white'> 
+                                                                    <span onclick=\"closeModal6('id-modal22-" . $row2['DNI'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                                                                    <h2 style='text-align:center;'>INFORME PEDAGOGICO TRIMESTRAL</h2>
+                                                                </header>
+                                                                <div id='-" . $row2['DNI'] . "' class='w3-container'>
+                                                                    <div class='container'>
+
+                                                                        <form id='msform' action='agregar_notas.php' method='post'>";
+
+
+
+                                                        echo "<div class='campo'>";
+                                                        if ($row2['AÑO']) {
+                                    ?><input type='text' name='AÑO' value='<?php echo $row2['AÑO']; ?>' style='background-color: #6c757d; color: white;' readonly>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <label for='AÑO'>AÑO</label>
+                                                            <input type='text' name='AÑO'>
+
+                                                        <?php }
+                                                        if ($row2['Trimestre']) {
+                                                        ?><input type='text' name='Trimestre' value='<?php echo $row2['Trimestre']; ?>' style='background-color: #6c757d; color: white;' readonly>
+
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <label for='Trimestre'>Trimestre</label>
+                                                            <input type='text' name='Trimestre'>
+
+                                                        <?php }
+                                                        echo "<input type='text' name='DNI' value= '" . $row2['DNI'] . "' style='background-color: #6c757d; color: white;' readonly>
+                                                                        </div><br>
+                                                                    
+                                                                        <div class='campo'>
+                                                                        <div class='fila'>
+                                                                            <label for='Lengua_cal'>Lengua Calificación</label>
+                                                                            <input type='text' name='Lengua_cal'  value= '" . $row2['Lengua_cal'] . "' required>
+                                                                            <label for='Lengua_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='Lengua_observaciones' value= '" . $row2['Lengua_observaciones'] . "' required>
+                                                                        </div><div class='fila'>                                   
+                                                                        
+                                                                            <label for='Matematica_cal'>Matemática Calificación</label>
+                                                                            <input type='text' name='Matematica_cal' value= '" . $row2['Matematica_cal'] . "' required>
+                                                                        
+                                                                            <label for='Matematica_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='Matematica_observaciones' value= '" . $row2['Matematica_observaciones'] . "'></input>
+
+                                                                            </div><div class='fila'>   
+                                                                            <label for='Sociales_cal'>Sociales Calificación</label>
+                                                                            <input type='text' name='Sociales_cal' value= '" . $row2['Sociales_cal'] . "' required>
+                                                                            <label for='Sociales_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='Sociales_observaciones' value= '" . $row2['Sociales_observaciones'] . "'></input>
+
+                                                                            </div><div class='fila'>   
+                                                                            <label for='Tecnologia_cal'>Tecnología Calificación</label>
+                                                                            <input type='text' name='Tecnologia_cal' value= '" . $row2['Tecnologia_cal'] . "' required>
+                                                                            <label for='Tecnologia_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='Tecnologia_observaciones' value= '" . $row2['Tecnologia_observaciones'] . "'></input>
+                                                                            </div><div class='fila'>   
+                                                                            <label for='Musica_cal'>Música Calificación</label>
+                                                                            <input type='text' name='Musica_cal' value= '" . $row2['Musica_cal'] . "' required>
+                                                                        
+                                                                            <label for='Musica_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='Musica_observaciones' value= '" . $row2['Musica_observaciones'] . "'></input>
+                                                                            </div><div class='fila'>   
+                                                                            <label for='Plastica_cal'>Plástica Calificación</label>
+                                                                            <input type='text' name='Plastica_cal' value= '" . $row2['Plastica_cal'] . "' required>
+                                                                        
+                                                                            <label for='Plastica_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='Plastica_observaciones' value= '" . $row2['Plastica_observaciones'] . "'></input>
+                                                                            </div><div class='fila'>   
+                                                                            <label for='EticayCiudadana_cal'>Ética y Ciud. Calificación</label>
+                                                                            <input type='text' name='EticayCiudadana_cal' value= '" . $row2['EticayCiudadana_cal'] . "' required>
+                                                                        
+                                                                            <label for='EticayCiudadana_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='EticayCiudadana_observaciones' value= '" . $row2['EticayCiudadana_observaciones'] . "'></input>
+                                                                            </div></div>
+                                                                            <h2>Intelectuales y Practicas</h2>
+                                                                            
+                                                                            <div>
+                                                                            <label for='Int_pract_destaca'>Se destacada en</label>
+                                                                            <input type='text' name='Int_pract_destaca' value= '" . $row2['Int_pract_destaca'] . "'></input>
+                                                                            <label for='Int_pract_trabaja'>Trabaja bien en</label>
+                                                                            <input type='text' name='Int_pract_trabaja' value= '" . $row2['Int_pract_trabaja'] . "'></input>
+                                                                            <label for='Int_pract_mejorar'>Debe Mejorar en</label>
+                                                                            <input type='text' name='Int_pract_mejorar' value= '" . $row2['Int_pract_mejorar'] . "'></input>
+                                                                            </div>
+                                                                            <h2>Personales y Sociales</h2>
+                                                                            <div> 
+
+                                                                            <label for='Personales_soc_motiv'>Motivacion para la actividad escolar</label>
+                                                                            <input type='text' name='Personales_soc_motiv' value= '" . $row2['Personales_soc_motiv'] . "'></input>
+                                                                        
+                                                                            <label for='Personales_soc_trabajo'>Habitos de trabajo</label>
+                                                                            <input type='text' name='Personales_soc_trabajo' value= '" . $row2['Personales_soc_trabajo'] . "'></input>
+                                                                        
+                                                                            <label for='Personales_soc_respons'>Responsabilidad en las tareas</label>
+                                                                            <input type='text' name='Personales_soc_respons' value= '" . $row2['Personales_soc_respons'] . "'></input>
+                                                                        
+                                                                            <label for='Personales_soc_acompañ'>Acompañamiento familiar</label>
+                                                                            <input type='text' name='Personales_soc_acompañ' value= '" . $row2['Personales_soc_acompañ'] . "'></input>
+                                                                            </div>
+                                                                            <h2>Interversion del equipo</h2>
+                                                                            </div><div> 
+                                                                            <label for='Int_equipo_psicologo'>Psicólogo</label>
+                                                                            <input type='text' name='Int_equipo_psicologo' value= '" . $row2['Int_equipo_psicologo'] . "'></input>
+                                                                        
+                                                                            <label for='Int_equipo_psicopedagogo'>Psicopedagogo</label>
+                                                                            <input type='text' name='Int_equipo_psicopedagogo' value= '" . $row2['Int_equipo_psicopedagogo'] . "'></input>
+
+                                                                            </div><div > 
+                                                                            <label for='Observaciones_generales'>Observaciones Generales</label>
+                                                                            <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
+                                                                            </div>
+                                                                        </div> 
+                                                                                <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+                                                                                <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>";
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>
+                                                <a href='#' onclick=\"openModal23('" . $row2['DNI'] . "')\">";
+                                                        if ($row2['Trimestre'] == 'Segundo trimestre') {
+
+                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/listo.png'>";
+                                                        } else {
+                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/no-listo.png'>";
+                                                        }
+                                                        echo "<img src='/Proyecto-master/Proyecto-master/img/carpeta.png'></a>";
+
+
+                                                        echo "</td>
+                                                <div class='w3-container'>
+                                                <div id='id-modal23-" . $row2['DNI'] . "' class='w3-modal'>
+                                                    <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:800px'>
+                                                        <header class='w3-container w3-white'> 
+                                                            <span onclick=\"closeModal2('id-modal23-" . $row2['DNI'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                                                            <h2 style='text-align:center;'>INFORME PEDAGOGICO TRIMESTRAL</h2>
+                                                        </header>
+                                                        <div id='-" . $row2['DNI'] . "' class='w3-container'>
+                                                            <div class='container'>
+
+                                                                <form id='msform' action='agregar_notas.php' method='post'>";
+
+
+
+                                                        echo "<div class='campo'>";
+                                                        if ($row2['AÑO']) {
+                                                        ?><input type='text' name='AÑO' value='<?php echo $row2['AÑO']; ?>' style='background-color: #6c757d; color: white;' readonly>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <label for='AÑO'>AÑO</label>
+                                                            <input type='text' name='AÑO'>
+
+                                                        <?php }
+                                                        if ($row2['Trimestre']) {
+                                                        ?><input type='text' name='Trimestre' value='<?php echo $row2['Trimestre']; ?>' style='background-color: #6c757d; color: white;' readonly>
+
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <label for='Trimestre'>Trimestre</label>
+                                                            <input type='text' name='Trimestre'>
+
+                                                        <?php }
+                                                        echo "<input type='text' name='DNI' value= '" . $row2['DNI'] . "' style='background-color: #6c757d; color: white;' readonly>
+                                                                </div><br>
+                                                            
+                                                                <div class='campo'>
+                                                                <div class='fila'>
+                                                                    <label for='Lengua_cal'>Lengua Calificación</label>
+                                                                    <input type='text' name='Lengua_cal'  value= '" . $row2['Lengua_cal'] . "' required>
+
+
+                                                                    <label for='Lengua_observaciones'>Observaciones</label>
+                                                                    <input type='text' name='Lengua_observaciones' value= '" . $row2['Lengua_observaciones'] . "' required>
+                                                                </div><div class='fila'>                                   
+                                                                
+                                                                    <label for='Matematica_cal'>Matemática Calificación</label>
+                                                                    <input type='text' name='Matematica_cal' value= '" . $row2['Matematica_cal'] . "' required>
+                                                                
+                                                                    <label for='Matematica_observaciones'>Observaciones</label>
+                                                                    <input type='text' name='Matematica_observaciones' value= '" . $row2['Matematica_observaciones'] . "'></input>
+
+                                                                    </div><div class='fila'>   
+                                                                    <label for='Sociales_cal'>Sociales Calificación</label>
+                                                                    <input type='text' name='Sociales_cal' value= '" . $row2['Sociales_cal'] . "' required>
+                                                                    <label for='Sociales_observaciones'>Observaciones</label>
+                                                                    <input type='text' name='Sociales_observaciones' value= '" . $row2['Sociales_observaciones'] . "'></input>
+
+                                                                    </div><div class='fila'>   
+                                                                    <label for='Tecnologia_cal'>Tecnología Calificación</label>
+                                                                    <input type='text' name='Tecnologia_cal' value= '" . $row2['Tecnologia_cal'] . "' required>
+                                                                    <label for='Tecnologia_observaciones'>Observaciones</label>
+                                                                    <input type='text' name='Tecnologia_observaciones' value= '" . $row2['Tecnologia_observaciones'] . "'></input>
+                                                                    </div><div class='fila'>   
+                                                                    <label for='Musica_cal'>Música Calificación</label>
+                                                                    <input type='text' name='Musica_cal' value= '" . $row2['Musica_cal'] . "' required>
+                                                                
+                                                                    <label for='Musica_observaciones'>Observaciones</label>
+                                                                    <input type='text' name='Musica_observaciones' value= '" . $row2['Musica_observaciones'] . "'></input>
+                                                                    </div><div class='fila'>   
+                                                                    <label for='Plastica_cal'>Plástica Calificación</label>
+                                                                    <input type='text' name='Plastica_cal' value= '" . $row2['Plastica_cal'] . "' required>
+                                                                
+                                                                    <label for='Plastica_observaciones'>Observaciones</label>
+                                                                    <input type='text' name='Plastica_observaciones' value= '" . $row2['Plastica_observaciones'] . "'></input>
+                                                                    </div><div class='fila'>   
+                                                                    <label for='EticayCiudadana_cal'>Ética y Ciud. Calificación</label>
+                                                                    <input type='text' name='EticayCiudadana_cal' value= '" . $row2['EticayCiudadana_cal'] . "' required>
+                                                                
+                                                                    <label for='EticayCiudadana_observaciones'>Observaciones</label>
+                                                                    <input type='text' name='EticayCiudadana_observaciones' value= '" . $row2['EticayCiudadana_observaciones'] . "'></input>
+                                                                    </div></div>
+                                                                    <h2>Intelectuales y Practicas</h2>
+                                                                    
+                                                                    <div>
+                                                                    <label for='Int_pract_destaca'>Se destacada en</label>
+                                                                    <input type='text' name='Int_pract_destaca' value= '" . $row2['Int_pract_destaca'] . "'></input>
+                                                                    <label for='Int_pract_trabaja'>Trabaja bien en</label>
+                                                                    <input type='text' name='Int_pract_trabaja' value= '" . $row2['Int_pract_trabaja'] . "'></input>
+                                                                    <label for='Int_pract_mejorar'>Debe Mejorar en</label>
+                                                                    <input type='text' name='Int_pract_mejorar' value= '" . $row2['Int_pract_mejorar'] . "'></input>
+                                                                    </div>
+                                                                    <h2>Personales y Sociales</h2>
+                                                                    <div> 
+
+                                                                    <label for='Personales_soc_motiv'>Motivacion para la actividad escolar</label>
+                                                                    <input type='text' name='Personales_soc_motiv' value= '" . $row2['Personales_soc_motiv'] . "'></input>
+                                                                
+                                                                    <label for='Personales_soc_trabajo'>Habitos de trabajo</label>
+                                                                    <input type='text' name='Personales_soc_trabajo' value= '" . $row2['Personales_soc_trabajo'] . "'></input>
+                                                                
+                                                                    <label for='Personales_soc_respons'>Responsabilidad en las tareas</label>
+                                                                    <input type='text' name='Personales_soc_respons' value= '" . $row2['Personales_soc_respons'] . "'></input>
+                                                                
+                                                                    <label for='Personales_soc_acompañ'>Acompañamiento familiar</label>
+                                                                    <input type='text' name='Personales_soc_acompañ' value= '" . $row2['Personales_soc_acompañ'] . "'></input>
+                                                                    </div>
+                                                                    <h2>Interversion del equipo</h2>
+                                                                    </div><div> 
+                                                                    <label for='Int_equipo_psicologo'>Psicólogo</label>
+                                                                    <input type='text' name='Int_equipo_psicologo' value= '" . $row2['Int_equipo_psicologo'] . "'></input>
+                                                                
+                                                                    <label for='Int_equipo_psicopedagogo'>Psicopedagogo</label>
+                                                                    <input type='text' name='Int_equipo_psicopedagogo' value= '" . $row2['Int_equipo_psicopedagogo'] . "'></input>
+
+                                                                    </div><div > 
+                                                                    <label for='Observaciones_generales'>Observaciones Generales</label>
+                                                                    <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
+                                                                    </div>
+                                                                </div> 
+                                                                        <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+                                                                        <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>";
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>
+                                        <a href='#' onclick=\"openModal24('" . $row2['DNI'] . "')\">";
+                                                        if ($row2['Trimestre'] == 'Tercer trimestre') {
+
+                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/listo.png'>";
+                                                        } else {
+                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/no-listo.png'>";
+                                                        }
+                                                        echo "<img src='/Proyecto-master/Proyecto-master/img/carpeta.png'></a>";
+                                                        echo "</td>
+                                        <div class='w3-container'>
+                                        <div id='id-modal24-" . $row2['DNI'] . "' class='w3-modal'>
+                                            <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:800px'>
+                                                <header class='w3-container w3-white'> 
+                                                    <span onclick=\"closeModal2('id-modal24-" . $row2['DNI'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                                                    <h2 style='text-align:center;'>INFORME PEDAGOGICO TRIMESTRAL</h2>
+                                                </header>
+                                                <div id='-" . $row2['DNI'] . "' class='w3-container'>
+                                                    <div class='container'>
+
+                                                        <form id='msform' action='agregar_notas.php' method='post'>";
+
+
+
+                                                        echo "<div class='campo'>";
+                                                        if ($row2['AÑO']) {
+                                                        ?><input type='text' name='AÑO' value='<?php echo $row2['AÑO']; ?>' style='background-color: #6c757d; color: white;' readonly>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <label for='AÑO'>AÑO</label>
+                                                            <input type='text' name='AÑO'>
+
+                                                        <?php }
+                                                        if ($row2['Trimestre']) {
+                                                        ?><input type='text' name='Trimestre' value='<?php echo $row2['Trimestre']; ?>' style='background-color: #6c757d; color: white;' readonly>
+
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <label for='Trimestre'>Trimestre</label>
+                                                            <input type='text' name='Trimestre'>
+
+                                            <?php }
+                                                        echo "<input type='text' name='DNI' value= '" . $row2['DNI'] . "' style='background-color: #6c757d; color: white;' readonly>
+                                                        </div><br>
+                                                    
+                                                        <div class='campo'>
+                                                        <div class='fila'>
+                                                            <label for='Lengua_cal'>Lengua Calificación</label>
+                                                            <input type='text' name='Lengua_cal'  value= '" . $row2['Lengua_cal'] . "' required>
+
+
+                                                            <label for='Lengua_observaciones'>Observaciones</label>
+                                                            <input type='text' name='Lengua_observaciones' value= '" . $row2['Lengua_observaciones'] . "' required>
+                                                        </div><div class='fila'>                                   
+                                                        
+                                                            <label for='Matematica_cal'>Matemática Calificación</label>
+                                                            <input type='text' name='Matematica_cal' value= '" . $row2['Matematica_cal'] . "' required>
+                                                        
+                                                            <label for='Matematica_observaciones'>Observaciones</label>
+                                                            <input type='text' name='Matematica_observaciones' value= '" . $row2['Matematica_observaciones'] . "'></input>
+
+                                                            </div><div class='fila'>   
+                                                            <label for='Sociales_cal'>Sociales Calificación</label>
+                                                            <input type='text' name='Sociales_cal' value= '" . $row2['Sociales_cal'] . "' required>
+                                                            <label for='Sociales_observaciones'>Observaciones</label>
+                                                            <input type='text' name='Sociales_observaciones' value= '" . $row2['Sociales_observaciones'] . "'></input>
+
+                                                            </div><div class='fila'>   
+                                                            <label for='Tecnologia_cal'>Tecnología Calificación</label>
+                                                            <input type='text' name='Tecnologia_cal' value= '" . $row2['Tecnologia_cal'] . "' required>
+                                                            <label for='Tecnologia_observaciones'>Observaciones</label>
+                                                            <input type='text' name='Tecnologia_observaciones' value= '" . $row2['Tecnologia_observaciones'] . "'></input>
+                                                            </div><div class='fila'>   
+                                                            <label for='Musica_cal'>Música Calificación</label>
+                                                            <input type='text' name='Musica_cal' value= '" . $row2['Musica_cal'] . "' required>
+                                                        
+                                                            <label for='Musica_observaciones'>Observaciones</label>
+                                                            <input type='text' name='Musica_observaciones' value= '" . $row2['Musica_observaciones'] . "'></input>
+                                                            </div><div class='fila'>   
+                                                            <label for='Plastica_cal'>Plástica Calificación</label>
+                                                            <input type='text' name='Plastica_cal' value= '" . $row2['Plastica_cal'] . "' required>
+                                                        
+                                                            <label for='Plastica_observaciones'>Observaciones</label>
+                                                            <input type='text' name='Plastica_observaciones' value= '" . $row2['Plastica_observaciones'] . "'></input>
+                                                            </div><div class='fila'>   
+                                                            <label for='EticayCiudadana_cal'>Ética y Ciud. Calificación</label>
+                                                            <input type='text' name='EticayCiudadana_cal' value= '" . $row2['EticayCiudadana_cal'] . "' required>
+                                                        
+                                                            <label for='EticayCiudadana_observaciones'>Observaciones</label>
+                                                            <input type='text' name='EticayCiudadana_observaciones' value= '" . $row2['EticayCiudadana_observaciones'] . "'></input>
+                                                            </div></div>
+                                                            <h2>Intelectuales y Practicas</h2>
+                                                            
+                                                            <div>
+                                                            <label for='Int_pract_destaca'>Se destacada en</label>
+                                                            <input type='text' name='Int_pract_destaca' value= '" . $row2['Int_pract_destaca'] . "'></input>
+                                                            <label for='Int_pract_trabaja'>Trabaja bien en</label>
+                                                            <input type='text' name='Int_pract_trabaja' value= '" . $row2['Int_pract_trabaja'] . "'></input>
+                                                            <label for='Int_pract_mejorar'>Debe Mejorar en</label>
+                                                            <input type='text' name='Int_pract_mejorar' value= '" . $row2['Int_pract_mejorar'] . "'></input>
+                                                            </div>
+                                                            <h2>Personales y Sociales</h2>
+                                                            <div> 
+
+                                                            <label for='Personales_soc_motiv'>Motivacion para la actividad escolar</label>
+                                                            <input type='text' name='Personales_soc_motiv' value= '" . $row2['Personales_soc_motiv'] . "'></input>
+                                                        
+                                                            <label for='Personales_soc_trabajo'>Habitos de trabajo</label>
+                                                            <input type='text' name='Personales_soc_trabajo' value= '" . $row2['Personales_soc_trabajo'] . "'></input>
+                                                        
+                                                            <label for='Personales_soc_respons'>Responsabilidad en las tareas</label>
+                                                            <input type='text' name='Personales_soc_respons' value= '" . $row2['Personales_soc_respons'] . "'></input>
+                                                        
+                                                            <label for='Personales_soc_acompañ'>Acompañamiento familiar</label>
+                                                            <input type='text' name='Personales_soc_acompañ' value= '" . $row2['Personales_soc_acompañ'] . "'></input>
+                                                            </div>
+                                                            <h2>Interversion del equipo</h2>
+                                                            </div><div> 
+                                                            <label for='Int_equipo_psicologo'>Psicólogo</label>
+                                                            <input type='text' name='Int_equipo_psicologo' value= '" . $row2['Int_equipo_psicologo'] . "'></input>
+                                                        
+                                                            <label for='Int_equipo_psicopedagogo'>Psicopedagogo</label>
+                                                            <input type='text' name='Int_equipo_psicopedagogo' value= '" . $row2['Int_equipo_psicopedagogo'] . "'></input>
+
+                                                            </div><div > 
+                                                            <label for='Observaciones_generales'>Observaciones Generales</label>
+                                                            <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
+                                                            </div>
+                                                        </div> 
+                                                                <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+                                                                <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>";
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>
+            <a href='#' onclick=\"openModal5('" . $row['DNI'] . "')\">
+                <img src='/Proyecto-master/Proyecto-master/img/pdf.png' alt='Descargar PDF'>
+            </a>
+            <div class='w3-container'>
+                <div id='id-modal5-" . $row['DNI'] . "' class='w3-modal'>
+                    <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
+                        <header class='w3-container w3-white'> 
+                            <span onclick=\"closeModal2('id-modal5-" . $row['DNI'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                            <h2 style='text-align:center;'>Descargar PDF</h2>
+                        </header>
+                        <div id='-" . $row['DNI'] . "' class='w3-container'>
+                            <div class='container'>
+                                <form id='msform' action='generar_pdf.php' method='post'>
+                                    <div class='form-card bg-white'>
+                                        <div class='row'>
+
+
+                                                    
+                                        </div>
+                                    </div> 
+                                    <input type='hidden' name='DNI' value='" . $row['DNI'] . "'>
+                                    <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+                                    <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />  
+                                </form>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>";
+
+
+
+                                                        echo "<td style='text-align: center; vertical-align: middle;'></td>";
+                                                    }
+                                                }
+                                                echo "</tr>";
+
+                                                echo "</tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </td>";
+
 
 
                                             endif;
@@ -1146,7 +1687,7 @@ $mesesEnEspanol = array(
 
 
 
-                                    ?>
+                                            ?>
 
 
 
@@ -3874,7 +4415,7 @@ $mesesEnEspanol = array(
                         <div class='modal-footer justify-content-between'>
                             <button type='button' class='boton-anam rojo' data-dismiss='modal'>Cerrar</button>
                             <a href='generarPDF-amne.php?id=<?php echo $row['Dni']; ?>'>
-                            <button type='submit' class='boton-anam celeste'>Imprimir PDF</button></a>
+                                <button type='submit' class='boton-anam celeste'>Imprimir PDF</button></a>
                         </div>
                     </div>
                     <!-- /.modal-content -->

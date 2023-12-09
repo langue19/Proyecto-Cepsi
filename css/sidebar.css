@@ -421,6 +421,13 @@ transform: translate(2em, 2em) rotate(-15deg);
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
 }
+.campo {
+  display: flex;
+  flex-direction: column;
+  align-items:end; /* Para centrar horizontalmente */
+  /* O bien puedes usar:
+  justify-content: flex-end; /* Para alinear a la derecha */
+}
 /* Estilos para los contenedores de familiares */
 .campo-familia {
   border: 1px solid #ccc;
@@ -429,6 +436,11 @@ transform: translate(2em, 2em) rotate(-15deg);
   background-color: #f5f5f5;
 }
 
+.campo label{
+  display: flex;
+  flex-direction: column;
+  align-items:start;
+}
 /* Estilos para las filas */
 .fila {
   display: flex;
@@ -559,5 +571,3 @@ h1 {
   background-color: #f7f7f7;
   text-align: center;
 }
-
-
