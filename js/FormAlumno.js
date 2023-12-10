@@ -225,6 +225,20 @@ function closeModal(modalId) {
 
 }
 
+function openModal25(dni) {
+
+  var modal = document.getElementById('id-modal25-' + dni);
+
+  modal.style.display = 'block';
+}
+function closeModal(modalId) {
+
+  var modal = document.getElementById(modalId);
+
+  modal.style.display = 'none';
+
+}
+
 
 
 function closeModal1(modalId) {

@@ -118,7 +118,7 @@ session_start();
                                     $sql = "SELECT COUNT(*) AS Cantidad
                                     FROM (
                                         SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-                                        FROM Datos_pedagogicos dp
+                                        FROM datos_pedagogicos dp
                                         INNER JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
                                         WHERE pf.Estado = 'Domiciliario'
                                         GROUP BY dp.Dni
@@ -147,7 +147,7 @@ session_start();
                                     $sql = "SELECT COUNT(*)
                                     FROM (
                                         SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-                                        FROM Datos_pedagogicos dp
+                                        FROM datos_pedagogicos dp
                                         INNER JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
                                         WHERE dp.Grado <> 'Sin escolaridad' AND dp.Grado <> 'Sin especificar' AND pf.Estado = 'Domiciliario'
                                         GROUP BY dp.Dni
@@ -178,7 +178,7 @@ session_start();
                                     <?php
                                     $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-      FROM Datos_pedagogicos dp
+      FROM datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
       WHERE dp.Grado = 'Sin escolaridad' AND pf.Estado = 'Domiciliario'
       GROUP BY dp.Dni) AS SinEscolaridad;";
@@ -221,7 +221,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-      FROM Datos_pedagogicos dp
+      FROM datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
       WHERE dp.Grado = 'Sala 3' AND pf.Estado = 'Domiciliario'
       GROUP BY dp.Dni) AS Sala3;";
@@ -264,7 +264,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-      FROM Datos_pedagogicos dp
+      FROM datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
       WHERE dp.Grado = 'Sala 4' AND pf.Estado = 'Domiciliario'
       GROUP BY dp.Dni) AS Sala4;";
@@ -307,7 +307,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-      FROM Datos_pedagogicos dp
+      FROM datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
       WHERE dp.Grado = 'Sala 5' AND pf.Estado = 'Domiciliario'
       GROUP BY dp.Dni) AS Sala5;";
@@ -370,7 +370,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-                                      FROM Datos_pedagogicos dp
+                                      FROM datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
                                       WHERE dp.Grado = '1° grado' AND pf.Estado = 'Domiciliario'
                                       GROUP BY dp.Dni) AS PrimerGrado;";
@@ -413,7 +413,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-      FROM Datos_pedagogicos dp
+      FROM datos_pedagogicos dp
       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
       WHERE dp.Grado = '2° grado' AND pf.Estado = 'Domiciliario'
       GROUP BY dp.Dni) AS SegundoGrado;";
@@ -456,7 +456,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-                                      FROM Datos_pedagogicos dp
+                                      FROM datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
                                       WHERE dp.Grado = '3° grado' AND pf.Estado = 'Domiciliario'
                                       GROUP BY dp.Dni) AS TercerGrado;";
@@ -499,7 +499,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-                                      FROM Datos_pedagogicos dp
+                                      FROM datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
                                       WHERE dp.Grado = '4° grado' AND pf.Estado = 'Domiciliario'
                                       GROUP BY dp.Dni) AS CuartoGrado;";
@@ -542,7 +542,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-                                      FROM Datos_pedagogicos dp
+                                      FROM datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
                                       WHERE dp.Grado = '5° grado' AND pf.Estado = 'Domiciliario'
                                       GROUP BY dp.Dni) AS QuintoGrado;";
@@ -585,7 +585,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-                                      FROM Datos_pedagogicos dp
+                                      FROM datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
                                       WHERE dp.Grado = '6° grado' AND pf.Estado = 'Domiciliario'
                                       GROUP BY dp.Dni) AS SextoGrado;";
@@ -628,7 +628,7 @@ FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
 
                                 $sql = "SELECT COUNT(*) 
                                 FROM (SELECT dp.Dni, MAX(dp.Fecha_registro) AS Fecha_registro
-                                      FROM Datos_pedagogicos dp
+                                      FROM datos_pedagogicos dp
                                       JOIN personales_fechas pf ON dp.Dni = pf.Dni AND dp.Fecha_registro = pf.Fecha_registro
                                       WHERE dp.Grado = '7° grado' AND pf.Estado = 'Domiciliario'
                                       GROUP BY dp.Dni) AS SeptimoGrado;";

@@ -875,7 +875,7 @@ function searchByDNI() {
                                                         echo "<a href='#' onclick=\"openModal21('" . $row2['DNI'] . $row2['AÑO'] . "')\">
                                         <img src='/Proyecto-master/Proyecto-master/img/cuaderno.png'>";
                                                     } else {
-                                                        echo "<a href='agregar_notas.php?id=" . $row2['DNI'] . "'>
+                                                        echo "<a href='agregar_notas.php?id=" . $row['Dni'] . "'>
                                         <img src='/Proyecto-master/Proyecto-master/img/cuaderno.png' class='imagen-espaciada'>
                                         ";
                                                     }
@@ -1056,7 +1056,7 @@ function searchByDNI() {
                                                                             <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
                                                                             </div>
                                                                         </div> 
-                                                                                <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+                                                                                <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=\"closeModal6('id-modal22-" . $row2['DNI'] . $row2['AÑO'] . "')\">
                                                                                 <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
                                                                         </form>
                                                                     </div>
@@ -1196,7 +1196,7 @@ function searchByDNI() {
                                                                                 <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
                                                                                 </div>
                                                                             </div> 
-                                                                                    <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+                                                                                    <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=\"closeModal6('id-modal23-" . $row2['DNI'] . $row2['AÑO'] . "')\">
                                                                                     <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
                                                                             </form>
                                                                         </div>
@@ -1339,7 +1339,7 @@ function searchByDNI() {
                                                                             <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
                                                                             </div>
                                                                         </div> 
-                                                                                <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+                                                                                <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=\"closeModal6('id-modal24-" . $row2['DNI'] . $row2['AÑO'] . "')\">
                                                                                 <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
                                                                         </form>
                                                                     </div>
@@ -1351,17 +1351,17 @@ function searchByDNI() {
                                                         }
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>
-            <a href='#' onclick=\"openModal5('" . $row['DNI'] . "')\">
+            <a href='#' onclick=\"openModal25('" . $row['Dni'] . "')\">
                 <img src='/Proyecto-master/Proyecto-master/img/pdf.png' alt='Descargar PDF'>
             </a>
             <div class='w3-container'>
-                <div id='id-modal5-" . $row['DNI'] . "' class='w3-modal'>
+                <div id='id-modal25-" . $row['Dni'] . "' class='w3-modal'>
                     <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
                         <header class='w3-container w3-white'> 
-                            <span onclick=\"closeModal2('id-modal5-" . $row['DNI'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
+                            <span onclick=\"closeModal2('id-modal25-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
                             <h2 style='text-align:center;'>Descargar PDF</h2>
                         </header>
-                        <div id='-" . $row['DNI'] . "' class='w3-container'>
+                        <div id='-" . $row['Dni'] . "' class='w3-container'>
                             <div class='container'>
                                 <form id='msform' action='generar_pdf.php' method='post'>
                                     <div class='form-card bg-white'>
@@ -1371,7 +1371,7 @@ function searchByDNI() {
                                                     
                                         </div>
                                     </div> 
-                                    <input type='hidden' name='DNI' value='" . $row['DNI'] . "'>
+                                    <input type='hidden' name='Dni' value='" . $row['Dni'] . "'>
                                     <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
                                     <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />  
                                 </form>    

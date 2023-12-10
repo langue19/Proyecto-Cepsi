@@ -364,7 +364,7 @@ if ($posicion == 'Usuario') {
 
                           <option style="color:black; background-color:rgb(241, 241, 241);" value="Administrador" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Administrador' ? 'selected' : ''; ?>>Administrador</option>
 
-                          <option style="color:black; background-color:rgb(241, 241, 241);" value="Usuario" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Usuario' ? 'selected' : ''; ?>>Docente</option>
+                          <option style="color:black; background-color:rgb(241, 241, 241);" value="Docente" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Docente' ? 'selected' : ''; ?>>Docente</option>
 
                           <option style="color:black; background-color:rgb(241, 241, 241);" value="Gabinete" <?php echo isset($row2['Posicion']) && $row2['Posicion'] == 'Gabinete' ? 'selected' : ''; ?>>Gabinete</option>
 
