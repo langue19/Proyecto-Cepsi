@@ -560,6 +560,66 @@ h1 {
   color: #fff;
 }
 
+.buscar{
+  display: inline-block;
+  justify-content:center;
+  padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: #81cbfc;
+  color: #fff;
+  width: 90px; /* Ancho fijo para ambos botones */
+
+}
+
+.trimestre1{
+  display: inline-block;
+  justify-content:center;
+  padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: #0099ff;
+  color: #fff;
+  width: 500px; /* Ancho fijo para ambos botones */
+}
+
+.trimestre2{
+  display: inline-block;
+  justify-content:center;
+  padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: #00406b;
+  color: #fff;
+  width: 500px; /* Ancho fijo para ambos botones */
+}
+
+.trimestre3{
+  display: inline-block;
+  justify-content:center;
+  padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: #000000;
+  color: #fff;
+  width: 500px; /* Ancho fijo para ambos botones */
+}
 
 .campo .fila input,
 .fila textarea {

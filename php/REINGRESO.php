@@ -84,7 +84,7 @@ session_start();
 
                     <div class="col-md-8">
 
-                        <form action="agregarTodo.php" method="post" id="regForm">
+                        <form action="AgregarTodo.php" method="post" id="regForm">
 
                             <h2 style="text-align: center;">Agregar alumno</h2>
 
@@ -108,150 +108,159 @@ session_start();
 
 
                                     <div class="row">
-                                        <?php 
+                                        <?php
                                         if (isset($_GET['dni'])) {
                                             $dni = $_GET['dni'];
                                         } ?>
 
                                         <input name="documento" type="hidden" value="<?php echo $dni; ?>">
-                                        
+
                                         <input name="pasa" type="hidden" value="reingreso">
 
 
-                                        <label for="fechaing">Fecha de Registro</label>
+                                        <div class="row">
 
-                                        <input name="fecha_ingreso" type="date" class="fieldlabels" id="fechaing" placeholder="Fecha de Ingreso" required>
+                                            <label for="fechaing">Fecha de Registro</label>
 
-                                    </div>
+                                            <input name="fecha_ingreso" type="date" class="fieldlabels" id="fechaing" placeholder="Fecha de Ingreso" required>
 
-                                    <div class="row">
+                                        </div>
 
-                                        <label for="escr">Escuela de referencia</label>
+                                        <div class="row">
 
-                                        <input name="escRef" type="text" class="form-control" id="escr" placeholder="Escuela referencia">
+                                            <label for="escr">Escuela de referencia</label>
 
-                                        <label for="">Grado</label>
+                                            <input name="escRef" type="text" class="form-control" id="escr" placeholder="Escuela referencia">
 
-                                        <select name="grado">
+                                            <label for="">Grado</label>
 
-                                            <option value="Sin especificar">Seleccionar</option>
+                                            <select name="grado">
 
-                                            <option value="Sala 3">Sala 3</option>
+                                                <option value="Sin especificar">Seleccionar</option>
 
-                                            <option value="Sala 4">Sala 4</option>
+                                                <option value="Sala 3">Sala 3</option>
 
-                                            <option value="Sala 5">Sala 5</option>
+                                                <option value="Sala 4">Sala 4</option>
 
-                                            <option value="1° grado">1° grado</option>
+                                                <option value="Sala 5">Sala 5</option>
 
-                                            <option value="2° grado">2° grado</option>
+                                                <option value="1° grado">1° grado</option>
 
-                                            <option value="3° grado">3° grado</option>
+                                                <option value="2° grado">2° grado</option>
 
-                                            <option value="4° grado">4° grado</option>
+                                                <option value="3° grado">3° grado</option>
 
-                                            <option value="5° grado">5° grado</option>
+                                                <option value="4° grado">4° grado</option>
 
-                                            <option value="6° grado">6° grado</option>
+                                                <option value="5° grado">5° grado</option>
 
-                                            <option value="7° grado">7° grado</option>
+                                                <option value="6° grado">6° grado</option>
 
-                                            <option value="Sin escolaridad">Sin escolaridad</option>
+                                                <option value="7° grado">7° grado</option>
 
-                                        </select>
+                                                <option value="Sin escolaridad">Sin escolaridad</option>
 
-                                    </div>
+                                            </select>
 
-                                    <div class="row">
+                                        </div>
 
-                                        <label for="">Posee Escolaridad?</label>
+                                        <div class="row">
 
-                                        <select name="posE">
+                                            <label for="">Posee Escolaridad?</label>
 
-                                            <option value="Sin especificar">Seleccionar</option>
+                                            <select name="posE">
 
-                                            <option value="Si">Si</option>
+                                                <option value="Sin especificar">Seleccionar</option>
 
-                                            <option value="No">No</option>
+                                                <option value="Si">Si</option>
 
-                                            <option value="N/S">N/S</option>
+                                                <option value="No">No</option>
 
-                                        </select>
+                                                <option value="N/S">N/S</option>
 
-                                        <label for="">Escuela comun?</label>
+                                            </select>
 
-                                        <select name="escC">
+                                            <label for="">Escuela comun?</label>
 
-                                            <option value="Sin especificar">Seleccionar</option>
+                                            <select name="escC">
 
-                                            <option value="Comun">Comun</option>
+                                                <option value="Sin especificar">Seleccionar</option>
 
-                                            <option value="Especial">Especial</option>
+                                                <option value="Comun">Comun</option>
 
-                                            <option value="N/S">N/S</option>
+                                                <option value="Especial">Especial</option>
 
+                                                <option value="N/S">N/S</option>
 
-                                        </select>
 
-                                        <label for="">Lectura continua?</label>
+                                            </select>
 
-                                        <select name="lectC">
+                                            <label for="">Lectura continua?</label>
 
-                                            <option value="Sin especificar">Seleccionar</option>
+                                            <select name="lectC">
 
-                                            <option value="Si">Si</option>
+                                                <option value="Sin especificar">Seleccionar</option>
 
-                                            <option value="No">No</option>
+                                                <option value="Si">Si</option>
 
-                                            <option value="N/S">N/S</option>
+                                                <option value="No">No</option>
 
-                                        </select>
+                                                <option value="En proceso">En proceso</option>
 
-                                    </div>
+                                            </select>
+                                            <label for="">Observaciones</label>
+                                            <input name="obs_lectC" placeholder="Observaciones...">
 
-                                    <div class="row">
+                                        </div>
 
-                                        <label for="">Interpreta textos?</label>
+                                        <div class="row">
 
-                                        <select name="interpT">
+                                            <label for="">Interpreta textos?</label>
 
-                                            <option value="Sin especificar">Seleccionar</option>
+                                            <select name="interpT">
 
-                                            <option value="Si">Si</option>
+                                                <option value="Sin especificar">Seleccionar</option>
 
-                                            <option value="No">No</option>
+                                                <option value="Si">Si</option>
 
-                                            <option value="N/S">N/S</option>
+                                                <option value="No">No</option>
 
-                                        </select>
+                                                <option value="En proceso">En proceso</option>
 
-                                        <label for="">Resuelve Operaciones Basicas?</label>
+                                            </select>
+                                            <label for="">Observaciones</label>
+                                            <input name="obs_interpT" placeholder="Observaciones...">
 
-                                        <select name="resuelvOpBas">
+                                            <label for="">Resuelve Operaciones Basicas?</label>
 
-                                            <option value="Sin especificar">Seleccionar</option>
+                                            <select name="resuelvOpBas">
 
-                                            <option value="Si">Si</option>
+                                                <option value="Sin especificar">Seleccionar</option>
 
-                                            <option value="No">No</option>
+                                                <option value="Si">Si</option>
 
-                                            <option value="N/S">N/S</option>
+                                                <option value="No">No</option>
 
-                                        </select>
+                                                <option value="N/S">N/S</option>
 
-                                        <label for="">Lectura y escritura?</label>
+                                            </select>
+                                            <label for="">Observaciones</label>
+                                            <input name="obs_resuelvOpBas" placeholder="Observaciones...">
 
-                                        <select name="LectyEsc">
+                                            <label for="">Lectura y escritura?</label>
+                                            <select name="LectyEsc">
 
-                                            <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Sin especificar">Seleccionar</option>
+                                                <option value="Si">Si</option>
+                                                <option value="No">No</option>
+                                                <option value="En proceso">En proceso</option>
 
-                                            <option value="Si">Si</option>
+                                            </select>
+                                            <label for="">Observaciones</label>
+                                            <input name="obs_LectyEsc" placeholder="Observaciones...">
+                                        </div>
 
-                                            <option value="No">No</option>
 
-                                            <option value="N/S">N/S</option>
-
-                                        </select>
 
                                     </div>
 

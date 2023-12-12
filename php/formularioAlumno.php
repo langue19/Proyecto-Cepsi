@@ -309,21 +309,32 @@ $mesesEnEspanol = array(
 
 
                         <div class="form-contro">
-                            <input class="table-filter" type="search" data-table="advanced-web-table" placeholder="Buscar..." id="search-input">
-                            <button onclick="searchByDNI()">Buscar</button>
+                            <input class="table-filter" type="search" data-table="advanced-web-table" placeholder="Buscar DNI..." id="search-input">
+                            <button class="buscar" onclick="searchByDNI()">Buscar</button>
                         </div>
-                        <script>
-// Función para realizar la búsqueda por DNI
-function searchByDNI() {
-    // Obtener el valor del campo de búsqueda
-    var dni = document.getElementById('search-input').value;
 
-    // Puedes hacer algo con el valor del DNI, como redirigir a otra página
-    if (dni) {
-        window.location.href = 'formularioAlumno.php?dni=' + dni;
-    }
-}
-</script>
+                        <script>
+                            // Función para realizar la búsqueda por DNI
+                            function searchByDNI() {
+                                // Obtener el valor del campo de búsqueda
+                                var dni = document.getElementById('search-input').value;
+
+                                // Puedes hacer algo con el valor del DNI, como redirigir a otra página
+                                if (dni) {
+                                    window.location.href = 'formularioAlumno.php?dni=' + dni;
+                                }
+                            }
+
+                            // Agregar event listener para el evento 'keydown' en el campo de búsqueda
+                            document.getElementById('search-input').addEventListener('keydown', function(event) {
+                                // Verificar si la tecla presionada es 'Enter'
+                                if (event.key === 'Enter') {
+                                    // Llamar a la función searchByDNI al presionar 'Enter'
+                                    searchByDNI();
+                                }
+                            });
+                        </script>
+
 
 
                         <!-- Table -->
@@ -351,12 +362,12 @@ function searchByDNI() {
 
                                             <th style="text-align: center; vertical-align: middle;">Obs</th>
 
-                                            <th style="text-align: center; vertical-align: middle;">Notas</th>
+
 
 
                                         <?php endif; ?>
 
-
+                                        <th style="text-align: center; vertical-align: middle;">Notas</th>
                                         <?php if ($mostrarColumnaAccion || $mostrarColumnaAccion2) : ?>
 
 
@@ -482,9 +493,9 @@ function searchByDNI() {
                                     $inicio = ($paginaActual - 1) * $itemsPorPagina;
 
 
-                                    if(isset($_GET['dni'])) {
+                                    if (isset($_GET['dni'])) {
                                         $dni = $_GET['dni'];
-                                       }
+                                    }
 
 
 
@@ -528,9 +539,9 @@ function searchByDNI() {
          LEFT JOIN personales_fechas pf2 ON dp.Dni = pf2.Dni AND pf2.Fecha_registro > pf.Fecha_registro
          WHERE pf2.Dni IS NULL
          LIMIT $inicio, $itemsPorPagina;";
-                                    } elseif($dni != NULL) {
+                                    } elseif ($dni != NULL) {
                                         $sql1 = "SELECT * FROM datos_personales WHERE DNI = $dni;";
-                                    }else{
+                                    } else {
                                         $sql1 = "SELECT * FROM datos_personales ORDER BY fecha_act DESC LIMIT $inicio, $itemsPorPagina;";
                                     }
 
@@ -906,11 +917,8 @@ function searchByDNI() {
                                                                                     <thead>
                                                                                         <tr>
                                                                                             <th style='text-align: center; vertical-align: middle;'>Año</th>
-                                                                                            <th style='text-align: center; vertical-align: middle;'>1er trimestre</th>
-                                                                                            <th style='text-align: center; vertical-align: middle;'>2do trimestre</th>                                                                                       
-                                                                                            <th style='text-align: center; vertical-align: middle;'>3er trimestre</th>
+                                                                                            <th style='text-align: center; vertical-align: middle;'>Trimestre</th>
                                                                                             <th style='text-align: center; vertical-align: middle;'>Acciones</th>
-
                                                                                             <th style='text-align: center; vertical-align: middle;'><a href='agregar_notas.php?id=" . $row2['DNI'] . "'>
                                                                                             <img src='/Proyecto-master/Proyecto-master/img/mas.png' class='imagen-espaciada'>
                                                                                         </a>
@@ -919,22 +927,30 @@ function searchByDNI() {
                                                                                     <tbody>";
                                                 $idviejo = $row2['DNI'];
                                                 $sql2 = "SELECT *
-                     FROM datos_notas
-                     WHERE DNI = :idviejo
-                     ORDER BY AÑO DESC;
-            ";
+                                                                                             FROM datos_notas
+                                                                                             WHERE DNI = :idviejo
+                                                                                             ORDER BY AÑO DESC, Trimestre;";
+
+
+
                                                 $consulta2 = $conn->prepare($sql2);
                                                 $consulta2->bindParam(':idviejo', $idviejo, PDO::PARAM_INT); // Asignamos el valor de idviejo como entero
-
+                                                $se_ingreso = 0;
                                                 if ($consulta2->execute()) {
                                                     while ($row2 = $consulta2->fetch()) {
 
                                                         echo "<tr>";
-                                                        echo "<td style='text-align: center; vertical-align: middle;' >" . $row2['AÑO'] . "</td>";
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>
-                                                        <a href='#' onclick=\"openModal22('" . $row2['DNI'] . $row2['AÑO'] . "')\">";
+                                                        if ($row2['AÑO'] != $se_ingreso) {
+                                                            echo "<td style='text-align: center; vertical-align: middle;' >" . $row2['AÑO'] . "</td>";
+                                                            $se_ingreso = $row2['AÑO'];
+                                                        } else {
+                                                            echo "<td style='text-align: center; vertical-align: middle;' ></td>";
+                                                        }
+
                                                         if ($row2['Trimestre'] == 'Primer trimestre') {
-                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/listo.png'>";
+                                                            echo "<td style='text-align: center; vertical-align: middle;'>
+                                                        <a href='#' onclick=\"openModal22('" . $row2['DNI'] . $row2['AÑO'] . "')\">";
+                                                            echo "<button class='trimestre1'>PRIMER TRIMESTRE</button>";
                                                             echo "</a>";
                                                             echo "</td>";
                                                             echo "<div class='w3-container'>
@@ -947,7 +963,9 @@ function searchByDNI() {
                                                                 <div id='-" . $row2['DNI'] . $row2['AÑO'] . "' class='w3-container'>
                                                                     <div class='container'>
 
-                                                                        <form id='msform' action='agregar_notas.php' method='post'>";
+                                                                        <form id='msform' action='a_NOTAS.php' method='post'>";
+                                                            echo "<input type='hidden' name='editar' value='editar'>";
+                                                            echo "<input type='hidden' name='DNI' value='" . $row2['DNI'] . "'>";
 
 
 
@@ -993,6 +1011,11 @@ function searchByDNI() {
                                                                             <input type='text' name='Sociales_cal' value= '" . $row2['Sociales_cal'] . "' required>
                                                                             <label for='Sociales_observaciones'>Observaciones</label>
                                                                             <input type='text' name='Sociales_observaciones' value= '" . $row2['Sociales_observaciones'] . "'></input>
+                                                                            </div><div class='fila'>   
+                                                                            <label for='Naturales_cal'>Naturales Calificación</label>
+                                                                            <input type='text' name='Naturales_cal' value= '" . $row2['Naturales_cal'] . "' required>
+                                                                            <label for='Naturales_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='Naturales_observaciones' value= '" . $row2['Naturales_observaciones'] . "'></input>
 
                                                                             </div><div class='fila'>   
                                                                             <label for='Tecnologia_cal'>Tecnología Calificación</label>
@@ -1054,12 +1077,36 @@ function searchByDNI() {
                                                                             </div><div > 
                                                                             <label for='Observaciones_generales'>Observaciones Generales</label>
                                                                             <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
-                                                                            </div>
+                                                                            </div><br>
                                                                         </div> 
-                                                                                <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=\"closeModal6('id-modal22-" . $row2['DNI'] . $row2['AÑO'] . "')\">
-                                                                                <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
+                                                                        <input type='button' style='display: inline-block;
+                                                                        justify-content:center;
+                                                                        padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+                                                                        font-size: 15px;
+                                                                        text-align: center;
+                                                                        text-decoration: none;
+                                                                        cursor: pointer;
+                                                                        border: none;
+                                                                        border-radius: 3px;
+                                                                        background-color: rgb(255, 56, 56);
+                                                                        color: #fff;
+                                                                        width: 300px; /* Ancho fijo para ambos botones */' value='Cancelar' onclick=\"closeModal6('id-modal22-" . $row2['DNI'] . $row2['AÑO'] . "')\">
+                                                                        
+                                                                        
+                                                                        <input type='submit' name='next'  style='display: inline-block;
+                                                                        justify-content:center;
+                                                                        padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+                                                                        font-size: 15px;
+                                                                        text-align: center;
+                                                                        text-decoration: none;
+                                                                        cursor: pointer;
+                                                                        border: none;
+                                                                        border-radius: 3px;
+                                                                        background-color: rgb(13, 155, 0);
+                                                                        color: #fff;
+                                                                        width: 300px; /* Ancho fijo para ambos botones */' value='Editar' />
                                                                         </form>
-                                                                    </div>
+                                                                    </div><br>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1069,10 +1116,11 @@ function searchByDNI() {
 
 
 
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>
-                                                <a href='#' onclick=\"openModal23('" . $row2['DNI'] . $row2['AÑO'] . "')\">";
+
                                                         if ($row2['Trimestre'] == 'Segundo trimestre') {
-                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/listo.png'>";
+                                                            echo "<td style='text-align: center; vertical-align: middle;'>
+                                                <a href='#' onclick=\"openModal23('" . $row2['DNI'] . $row2['AÑO'] . "')\">";
+                                                            echo "<button class='trimestre2'>SEGUNDO TRIMESTRE</button>";
                                                             echo "</a>";
                                                             echo "</td>";
                                                             echo "<div class='w3-container'>
@@ -1085,7 +1133,9 @@ function searchByDNI() {
                                                                     <div id='-" . $row2['DNI'] . $row2['AÑO'] . "' class='w3-container'>
                                                                         <div class='container'>
             
-                                                                            <form id='msform' action='agregar_notas.php' method='post'>";
+                                                                            <form id='msform' action='a_NOTAS.php' method='post'>";
+                                                            echo "<input type='hidden' name='editar' value='editar'>";
+                                                            echo "<input type='hidden' name='DNI' value='" . $row2['DNI'] . "'>";
 
 
 
@@ -1133,8 +1183,13 @@ function searchByDNI() {
                                                                                 <input type='text' name='Sociales_cal' value= '" . $row2['Sociales_cal'] . "' required>
                                                                                 <label for='Sociales_observaciones'>Observaciones</label>
                                                                                 <input type='text' name='Sociales_observaciones' value= '" . $row2['Sociales_observaciones'] . "'></input>
-            
                                                                                 </div><div class='fila'>   
+                                                                                <label for='Naturales_cal'>Naturales Calificación</label>
+                                                                                <input type='text' name='Naturales_cal' value= '" . $row2['Naturales_cal'] . "' required>
+                                                                                <label for='Naturales_observaciones'>Observaciones</label>
+                                                                                <input type='text' name='Naturales_observaciones' value= '" . $row2['Naturales_observaciones'] . "'></input>
+    
+                                                                                </div><div class='fila'> 
                                                                                 <label for='Tecnologia_cal'>Tecnología Calificación</label>
                                                                                 <input type='text' name='Tecnologia_cal' value= '" . $row2['Tecnologia_cal'] . "' required>
                                                                                 <label for='Tecnologia_observaciones'>Observaciones</label>
@@ -1194,12 +1249,36 @@ function searchByDNI() {
                                                                                 </div><div > 
                                                                                 <label for='Observaciones_generales'>Observaciones Generales</label>
                                                                                 <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
-                                                                                </div>
+                                                                                </div><br>
                                                                             </div> 
-                                                                                    <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=\"closeModal6('id-modal23-" . $row2['DNI'] . $row2['AÑO'] . "')\">
-                                                                                    <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
+                                                                            <input type='button' style='display: inline-block;
+                                                                            justify-content:center;
+                                                                            padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+                                                                            font-size: 15px;
+                                                                            text-align: center;
+                                                                            text-decoration: none;
+                                                                            cursor: pointer;
+                                                                            border: none;
+                                                                            border-radius: 3px;
+                                                                            background-color: rgb(255, 56, 56);
+                                                                            color: #fff;
+                                                                            width: 300px; /* Ancho fijo para ambos botones */' value='Cancelar' onclick=\"closeModal2('id-modal23-" . $row2['DNI'] . $row2['AÑO'] . "')\">
+                                                                            
+                                                                            
+                                                                            <input type='submit' name='next'  style='display: inline-block;
+                                                                            justify-content:center;
+                                                                            padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+                                                                            font-size: 15px;
+                                                                            text-align: center;
+                                                                            text-decoration: none;
+                                                                            cursor: pointer;
+                                                                            border: none;
+                                                                            border-radius: 3px;
+                                                                            background-color: rgb(13, 155, 0);
+                                                                            color: #fff;
+                                                                            width: 300px; /* Ancho fijo para ambos botones */' value='Editar' />
                                                                             </form>
-                                                                        </div>
+                                                                        </div><br>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1210,11 +1289,11 @@ function searchByDNI() {
 
 
 
-                                                        echo "<td style='text-align: center; vertical-align: middle;'>
-                                        <a href='#' onclick=\"openModal24('" . $row2['DNI'] . $row2['AÑO'] . "')\">";
-                                                        if ($row2['Trimestre'] == 'Tercer trimestre') {
 
-                                                            echo "<img src='/Proyecto-master/Proyecto-master/img/listo.png'>";
+                                                        if ($row2['Trimestre'] == 'Tercer trimestre') {
+                                                            echo "<td style='text-align: center; vertical-align: middle;'>
+                                                            <a href='#' onclick=\"openModal24('" . $row2['DNI'] . $row2['AÑO'] . "')\">";
+                                                            echo "<button class='trimestre3'>TERCER TRIMESTRE</button>";
                                                             echo "</a>";
                                                             echo "</td>";
 
@@ -1228,7 +1307,9 @@ function searchByDNI() {
                                                                 <div id='-" . $row2['DNI'] . $row2['AÑO'] . "' class='w3-container'>
                                                                     <div class='container'>
                 
-                                                                        <form id='msform' action='agregar_notas.php' method='post'>";
+                                                                        <form id='msform' action='a_NOTAS.php' method='post'>";
+                                                            echo "<input type='hidden' name='editar' value='editar'>";
+                                                            echo "<input type='hidden' name='DNI' value='" . $row2['DNI'] . "'>";
 
 
 
@@ -1276,8 +1357,13 @@ function searchByDNI() {
                                                                             <input type='text' name='Sociales_cal' value= '" . $row2['Sociales_cal'] . "' required>
                                                                             <label for='Sociales_observaciones'>Observaciones</label>
                                                                             <input type='text' name='Sociales_observaciones' value= '" . $row2['Sociales_observaciones'] . "'></input>
-                
                                                                             </div><div class='fila'>   
+                                                                            <label for='Naturales_cal'>Naturales Calificación</label>
+                                                                            <input type='text' name='Naturales_cal' value= '" . $row2['Naturales_cal'] . "' required>
+                                                                            <label for='Naturales_observaciones'>Observaciones</label>
+                                                                            <input type='text' name='Naturales_observaciones' value= '" . $row2['Naturales_observaciones'] . "'></input>
+
+                                                                            </div><div class='fila'> 
                                                                             <label for='Tecnologia_cal'>Tecnología Calificación</label>
                                                                             <input type='text' name='Tecnologia_cal' value= '" . $row2['Tecnologia_cal'] . "' required>
                                                                             <label for='Tecnologia_observaciones'>Observaciones</label>
@@ -1337,12 +1423,36 @@ function searchByDNI() {
                                                                             </div><div > 
                                                                             <label for='Observaciones_generales'>Observaciones Generales</label>
                                                                             <input type='text' name='Observaciones_generales' value= '" . $row2['Observaciones_generales'] . "'></input>
-                                                                            </div>
+                                                                            </div><br>
                                                                         </div> 
-                                                                                <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=\"closeModal6('id-modal24-" . $row2['DNI'] . $row2['AÑO'] . "')\">
-                                                                                <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
+                                                                                <input type='button' style='display: inline-block;
+                                                                                justify-content:center;
+                                                                                padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+                                                                                font-size: 15px;
+                                                                                text-align: center;
+                                                                                text-decoration: none;
+                                                                                cursor: pointer;
+                                                                                border: none;
+                                                                                border-radius: 3px;
+                                                                                background-color: rgb(255, 56, 56);
+                                                                                color: #fff;
+                                                                                width: 300px; /* Ancho fijo para ambos botones */' value='Cancelar' onclick=\"closeModal6('id-modal24-" . $row2['DNI'] . $row2['AÑO'] . "')\">
+                                                                                
+                                                                                
+                                                                                <input type='submit' name='next'  style='display: inline-block;
+                                                                                justify-content:center;
+                                                                                padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+                                                                                font-size: 15px;
+                                                                                text-align: center;
+                                                                                text-decoration: none;
+                                                                                cursor: pointer;
+                                                                                border: none;
+                                                                                border-radius: 3px;
+                                                                                background-color: rgb(13, 155, 0);
+                                                                                color: #fff;
+                                                                                width: 300px; /* Ancho fijo para ambos botones */' value='Editar' />
                                                                         </form>
-                                                                    </div>
+                                                                    </div><br>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1351,36 +1461,28 @@ function searchByDNI() {
                                                         }
 
                                                         echo "<td style='text-align: center; vertical-align: middle;'>
-            <a href='#' onclick=\"openModal25('" . $row['Dni'] . "')\">
-                <img src='/Proyecto-master/Proyecto-master/img/pdf.png' alt='Descargar PDF'>
-            </a>
-            <div class='w3-container'>
-                <div id='id-modal25-" . $row['Dni'] . "' class='w3-modal'>
-                    <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='max-width:600px'>
-                        <header class='w3-container w3-white'> 
-                            <span onclick=\"closeModal2('id-modal25-" . $row['Dni'] . "')\" class='w3-button w3-white w3-display-topright'>&times;</span>
-                            <h2 style='text-align:center;'>Descargar PDF</h2>
-                        </header>
-                        <div id='-" . $row['Dni'] . "' class='w3-container'>
-                            <div class='container'>
-                                <form id='msform' action='generar_pdf.php' method='post'>
-                                    <div class='form-card bg-white'>
-                                        <div class='row'>
+
+                                                        <form id='msform' action='generar_pdf_notas.php' method='post'>
+    <input type='hidden' name='DNI' value='" . $row2['DNI'] . "'>
+    <input type='hidden' name='AÑO' value='" . $row2['AÑO'] . "'>
+    <input type='hidden' name='Trimestre' value='" . $row2['Trimestre'] . "'>
+
+    <input type='submit' name='next' class='next action-button' style='  display: inline-block;
+    justify-content:center;
+    padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;  color: #fff;
+
+    width: 150px; background-color:green; margin-top:15px' value='Generar PDF!' />
 
 
-                                                    
-                                        </div>
-                                    </div> 
-                                    <input type='hidden' name='Dni' value='" . $row['Dni'] . "'>
-                                    <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
-                                    <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />  
-                                </form>    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>";
+</form>
+
+                                                        </td>";
 
 
 
@@ -2681,8 +2783,8 @@ function searchByDNI() {
 
                                 <th style='text-align: center; vertical-align: middle;'>Diagnostico</th>
 
-
-
+                                <th style='text-align: center; vertical-align: middle;'>Fecha de alta</th>
+                                <th style='text-align: center; vertical-align: middle;'>Motivo</th>
                                 <th style='text-align: center; vertical-align: middle;'>Acciones</th>
 
 
@@ -2724,18 +2826,12 @@ function searchByDNI() {
 
 
                                                 $sql2 = "SELECT *
-
-
-
-                                    FROM datos_internacion
-
-
-
-                                    WHERE Dni = $dniviejo
-
-
-
-                                    ORDER BY Fecha_registro DESC";
+                                                FROM personales_fechas
+                                                INNER JOIN datos_internacion ON personales_fechas.Dni = datos_internacion.Dni
+                                                                           AND personales_fechas.Fecha_registro = datos_internacion.Fecha_registro
+                                                WHERE personales_fechas.Dni = $dniviejo
+                                                ORDER BY personales_fechas.Fecha_registro DESC;
+                                                ";
 
 
 
@@ -2857,11 +2953,48 @@ function searchByDNI() {
 
 
 
-                    </button>
+                    </button>";
+                                                        $fechaOriginalAlta = $row2['Fecha_alta'];
 
 
 
-                  </td>";
+                                                        $parts = explode('-', $fechaOriginalAlta);
+
+
+
+                                                        $dia = intval($parts[2]);
+
+
+
+                                                        $mes = intval($parts[1]);
+
+
+
+                                                        $anio = intval($parts[0]);
+
+
+
+
+
+
+
+                                                        $fechaFormateadaAlta = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+
+
+
+
+
+
+                                                        if ($row2['Fecha_alta'] == NULL) {
+                                                            echo "<td style='text-align: center; vertical-align: middle;'></td>";
+                                                        } else {
+                                                            echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaFormateadaAlta . "</td>";
+                                                        }
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Motivo'] . "</td>";
+
+
+
+                                                        echo " </td>";
 
 
 
@@ -3159,7 +3292,8 @@ function searchByDNI() {
 
                                 <th style='text-align: center; vertical-align: middle;'>Diagnostico</th>
 
-
+                                <th style='text-align: center; vertical-align: middle;'>Fecha de alta</th>
+                                <th style='text-align: center; vertical-align: middle;'>Motivo</th>
 
                                
 
@@ -3205,14 +3339,12 @@ function searchByDNI() {
 
 
                                                 $sql2 = "SELECT *
-
-
-
-                                    FROM datos_domiciliario WHERE $dniviejo = Dni 
-
-
-
-                                    ORDER BY Fecha_registro DESC";
+                                                FROM personales_fechas
+                                                INNER JOIN datos_domiciliario ON personales_fechas.Dni = datos_domiciliario.Dni
+                                                                            AND personales_fechas.Fecha_registro = datos_domiciliario.Fecha_registro
+                                                WHERE personales_fechas.Dni = $dniviejo
+                                                ORDER BY personales_fechas.Fecha_registro DESC;
+                                                ";
 
 
 
@@ -3330,11 +3462,48 @@ function searchByDNI() {
 
 
 
-                    </button>
+                    </button>";
+
+                                                        $fechaOriginalAlta = $row2['Fecha_alta'];
 
 
 
-                  </td>";
+                                                        $parts = explode('-', $fechaOriginalAlta);
+
+
+
+                                                        $dia = intval($parts[2]);
+
+
+
+                                                        $mes = intval($parts[1]);
+
+
+
+                                                        $anio = intval($parts[0]);
+
+
+
+
+
+
+
+                                                        $fechaFormateadaAlta = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
+
+
+
+
+
+
+                                                        if ($row2['Fecha_alta'] == NULL) {
+                                                            echo "<td style='text-align: center; vertical-align: middle;'></td>";
+                                                        } else {
+                                                            echo "<td style='text-align: center; vertical-align: middle;'>" . $fechaFormateadaAlta . "</td>";
+                                                        }
+                                                        echo "<td style='text-align: center; vertical-align: middle;'>" . $row2['Motivo'] . "</td>";
+
+
+                                                        echo "</td>";
 
 
 
@@ -4037,64 +4206,19 @@ function searchByDNI() {
 
 
                                                                 $parts = explode('-', $fechaOriginal1);
-
-
-
                                                                 if (count($parts) === 3) {
-
-
-
                                                                     $dia = intval($parts[2]);
-
-
-
                                                                     $mes = intval($parts[1]);
-
-
-
                                                                     $anio = intval($parts[0]);
-
-
-
-
-
-
-
                                                                     $fechaOriginal1 = "$dia de " . $mesesEnEspanol[$mes] . " del $anio";
                                                                 }
-
-
-
                                                                 echo "<option style='text-align:center;' value='" . $row2['Fecha'] . "'>" . $fechaOriginal1 . "</option>";
                                                             }
                                                         }
-
-
-
                                                         echo "</select>";
-
-
-
-
-
-
-
                                                         echo "
-
-
-
-                                                            
-
-
-
                                     </div>
-
-
-
                                     </div> 
-
-
-
                                     <input type='hidden' name='dni' value='" . $row['Dni'] . "'>
 
           <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
@@ -4148,11 +4272,26 @@ function searchByDNI() {
 
                                                         echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
                                                         <a href='AgregarAnamnesis.php?id=" . $row['Dni'] . "'><button class='boton agregar'>AGREGAR</button></a>
+";
 
-        <a href='#' onclick=\"openModal20('" . $row['Dni'] . "')\">
-        <button class='boton ver'>MOSTRAR</button>
-    </a>
-    </td>
+                                                        $dni_1 = $row['Dni'];
+                                                        $sql3 = "SELECT datos_persona.*, datos_estudiante.*
+         FROM datos_persona
+         INNER JOIN datos_estudiante ON datos_persona.DNI = datos_estudiante.DNI
+                                    AND datos_persona.Fecha_registro = datos_estudiante.Fecha_registro
+         WHERE datos_persona.DNI = $dni_1";
+                                                        $consulta3 = $conn->prepare($sql3);
+                                                        if ($consulta3->execute()) {
+                                                            $contador = 0;
+                                                            if ($row3 = $consulta3->fetch()) {
+                                                                if ($row3['nombre'] != NULL) {
+                                                                    echo "      <a href='#' onclick=\"openModal20('" . $row['Dni'] . "')\">
+    <button class='boton ver'>MOSTRAR</button>
+</a>";
+                                                                }
+                                                            }
+                                                        }
+                                                        echo "</td>
     <div class='w3-container' >
         <div id='id-modal20-" . $row['Dni'] . "' class='w3-modal' >
             <div class='w3-modal-content w3-card-4 w3-animate-zoom' style='width:1000px;' >

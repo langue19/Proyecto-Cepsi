@@ -139,6 +139,8 @@ CREATE TABLE datos_notas (
     Matematica_observaciones TEXT,
     Sociales_cal FLOAT,
     Sociales_observaciones TEXT,
+    Naturales_cal FLOAT,
+    Naturales_observaciones TEXT,
     Tecnologia_cal FLOAT,
     Tecnologia_observaciones TEXT,
     Musica_cal FLOAT,

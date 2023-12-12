@@ -101,7 +101,9 @@ session_start();
                                     <div class='container'>
                                         <div class='row'>
                                         <input type='hidden' id="DNI" name="DNI" value="<?php echo $id; ?>">
-                                            <label for='Año'>Año</label>
+                                        <input type='hidden' id="editar" name="editar" value="nada">
+
+                                        <label for='Año'>Año</label>
 
                                             <select name="AÑO">
                                                 <option value="">Seleccionar un año</option>
@@ -140,6 +142,13 @@ session_start();
                                             <input type='text' name='Sociales_cal' required>
                                             <label for='Sociales_observaciones'>Observaciones</label>
                                             <input type='text' name='Sociales_observaciones'></input>
+
+                                        </div>
+                                        <div class='row'>
+                                            <label for='Naturales_cal'>Naturales Calificación</label>
+                                            <input type='text' name='Naturales_cal' required>
+                                            <label for='Naturales_observaciones'>Observaciones</label>
+                                            <input type='text' name='Naturales_observaciones'></input>
 
                                         </div>
                                         <div class='row'>

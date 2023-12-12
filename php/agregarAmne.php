@@ -101,11 +101,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $observaciones7 = $_POST["observaciones7"];
 
     $obs = $_POST["obs"];
-
-    $tipo = implode(", ", $_POST['tipo']);
-    $construccion = implode(", ", $_POST['construccion']);
-    $tenencia = implode(", ", $_POST['tenencia']);
-    $servicios = implode(", ", $_POST['servicios']);
+    
+    $tipo = isset($_POST['tipo']) ? implode(", ", $_POST['tipo']) : '';
+    $construccion = isset($_POST['construccion']) ? implode(", ", $_POST['construccion']) : '';
+    $tenencia = isset($_POST['tenencia']) ? implode(", ", $_POST['tenencia']) : '';
+    $servicios = isset($_POST['servicios']) ? implode(", ", $_POST['servicios']) : '';
+    
 
 
     $numconvi = $_POST["numconvi"];

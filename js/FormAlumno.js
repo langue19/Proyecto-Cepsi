@@ -231,6 +231,16 @@ function openModal25(dni) {
 
   modal.style.display = 'block';
 }
+
+function openModal26(dni) {
+
+  var modal = document.getElementById('id-modal26-' + dni);
+
+  modal.style.display = 'block';
+}
+
+
+
 function closeModal(modalId) {
 
   var modal = document.getElementById(modalId);

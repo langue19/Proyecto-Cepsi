@@ -12,17 +12,7 @@ include 'crearTabla.php';
 
 $dni = $_POST['documento'];
 
-$nomb = $_POST['nombre'];
 
-$ape = $_POST['apellido'];
-
-$genero = $_POST['genero'];
-
-$dom = $_POST['domicilio'];
-
-$fecha_nac = $_POST['fecha_nacimiento'];
-
-$nombTutor = $_POST['nombre_tutor'];
 
 $reingreso = $_POST['pasa'];
 
@@ -34,7 +24,18 @@ $conn->exec("USE $dbname");
 
 if($reingreso != "reingreso"){
 
+    $nomb = $_POST['nombre'];
 
+    $ape = $_POST['apellido'];
+    
+    $genero = $_POST['genero'];
+    
+    $dom = $_POST['domicilio'];
+    
+    $fecha_nac = $_POST['fecha_nacimiento'];
+    
+    $nombTutor = $_POST['nombre_tutor'];
+    
     $sql = "SELECT * FROM Datos_personales WHERE Dni = :dni"; // Usar marcador de posición
 
     $consulta = $conn->prepare($sql);
