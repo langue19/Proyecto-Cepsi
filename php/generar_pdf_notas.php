@@ -413,7 +413,7 @@ $pdf_content = $pdf->output();
 
 header('Content-Type: application/pdf');
 
-header('Content-Disposition: attachment; filename="prueba.pdf"');
+header('Content-Disposition: attachment; filename="INFORME-PEDAGOGICO-'.$result['Apellido'].'.pdf"');
 
 header('Content-Length: ' . strlen($pdf_content));
 
