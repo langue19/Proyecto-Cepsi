@@ -1740,11 +1740,11 @@ $mesesEnEspanol = array(
             
             
             
-                                                                    <a href='#?id=" . $row2['ID'] . "&dni=" . $row2['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
+                                                                    ";//<a href='#?id=" . $row2['ID'] . "&dni=" . $row2['Dni'] . "'><img src='/Proyecto-master/Proyecto-master/img/lapiz.png' class='imagen-espaciada'></a>
             
             
             
-                                                                    </td>";
+                                                                    echo"</td>";
 
 
 
@@ -4271,24 +4271,23 @@ $mesesEnEspanol = array(
 
 
                                                         echo "<td class='acciones' style='text-align: center; vertical-align: middle;'>
-                                                        <a href='AgregarAnamnesis.php?id=" . $row['Dni'] . "'><button class='boton agregar'>AGREGAR</button></a>
-";
+                                                        <a href='AgregarAnamnesis.php?id=" . $row['Dni'] . "'>
+                                                        <button class='boton agregar'>AGREGAR</button></a>";
 
-                                                        $dni_1 = $row['Dni'];
+                                                        $dni_2 = $row['Dni'];
                                                         $sql3 = "SELECT datos_persona.*, datos_estudiante.*
          FROM datos_persona
          INNER JOIN datos_estudiante ON datos_persona.DNI = datos_estudiante.DNI
                                     AND datos_persona.Fecha_registro = datos_estudiante.Fecha_registro
-         WHERE datos_persona.DNI = $dni_1";
+         WHERE datos_persona.DNI = $dni_2 ";
                                                         $consulta3 = $conn->prepare($sql3);
                                                         if ($consulta3->execute()) {
                                                             $contador = 0;
                                                             if ($row3 = $consulta3->fetch()) {
-                                                                if ($row3['nombre'] != NULL) {
                                                                     echo "      <a href='#' onclick=\"openModal20('" . $row3['DNI'] . "')\">
     <button class='boton ver'>MOSTRAR</button>
 </a>";
-                                                                }
+                                                                
                                                             }
                                                         }
                                                         echo "</td>
