@@ -84,7 +84,7 @@ session_start();
 
                     <div class="col-md-8">
 
-                        <form action="agregarTodo.php" method="post" id="regForm">
+                        <form action="AgregarTodo.php" method="post" id="regForm">
 
                             <h2 style="text-align: center;">Agregar alumno</h2>
 
@@ -107,6 +107,7 @@ session_start();
                                     <input type="hidden" id="currentTab" value="0">
 
                                     <div class="row">
+                                        <input name="pasa" type="hidden" value="mp">
 
                                         <label for="ape">Apellido:</label>
 

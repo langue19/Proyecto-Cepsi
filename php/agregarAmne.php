@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nombre1 = isset($_POST["nombre1"]) ? $_POST["nombre1"] : "-";
 $apellido1 = isset($_POST["apellido1"]) ? $_POST["apellido1"] : "-";
-$edad1 = isset($_POST["edad1"]) ? $_POST["edad1"] : "-";
+$edad1 = isset($_POST["edad1"]) ? $_POST["edad1"] : "0";
 $rol1 = isset($_POST["rol1"]) ? $_POST["rol1"] : "-";
 $ocupacion1 = isset($_POST["ocupacion1"]) ? $_POST["ocupacion1"] : "-";
 $escolaridad1 = isset($_POST["escolaridad1"]) ? $_POST["escolaridad1"] : "-";
@@ -44,7 +44,7 @@ $observaciones1 = isset($_POST["observaciones1"]) ? $_POST["observaciones1"] : "
 
 $nombre2 = isset($_POST["nombre2"]) ? $_POST["nombre2"] : "-";
 $apellido2 = isset($_POST["apellido2"]) ? $_POST["apellido2"] : "-";
-$edad2 = isset($_POST["edad2"]) ? $_POST["edad2"] : "-";
+$edad2 = isset($_POST["edad2"]) ? $_POST["edad2"] : "0";
 $rol2 = isset($_POST["rol2"]) ? $_POST["rol2"] : "-";
 $ocupacion2 = isset($_POST["ocupacion2"]) ? $_POST["ocupacion2"] : "-";
 $escolaridad2 = isset($_POST["escolaridad2"]) ? $_POST["escolaridad2"] : "-";
@@ -54,7 +54,7 @@ $observaciones2 = isset($_POST["observaciones2"]) ? $_POST["observaciones2"] : "
 
 $nombre3 = isset($_POST["nombre3"]) ? $_POST["nombre3"] : "-";
 $apellido3 = isset($_POST["apellido3"]) ? $_POST["apellido3"] : "-";
-$edad3 = isset($_POST["edad3"]) ? $_POST["edad3"] : "-";
+$edad3 = isset($_POST["edad3"]) ? $_POST["edad3"] : "0";
 $rol3 = isset($_POST["rol3"]) ? $_POST["rol3"] : "-";
 $ocupacion3 = isset($_POST["ocupacion3"]) ? $_POST["ocupacion3"] : "-";
 $escolaridad3 = isset($_POST["escolaridad3"]) ? $_POST["escolaridad3"] : "-";
@@ -64,7 +64,7 @@ $observaciones3 = isset($_POST["observaciones3"]) ? $_POST["observaciones3"] : "
 
 $nombre4 = isset($_POST["nombre4"]) ? $_POST["nombre4"] : "-";
 $apellido4 = isset($_POST["apellido4"]) ? $_POST["apellido4"] : "-";
-$edad4 = isset($_POST["edad4"]) ? $_POST["edad4"] : "-";
+$edad4 = isset($_POST["edad4"]) ? $_POST["edad4"] : "0";
 $rol4 = isset($_POST["rol4"]) ? $_POST["rol4"] : "-";
 $ocupacion4 = isset($_POST["ocupacion4"]) ? $_POST["ocupacion4"] : "-";
 $escolaridad4 = isset($_POST["escolaridad4"]) ? $_POST["escolaridad4"] : "-";
@@ -74,7 +74,7 @@ $observaciones4 = isset($_POST["observaciones4"]) ? $_POST["observaciones4"] : "
 
 $nombre5 = isset($_POST["nombre5"]) ? $_POST["nombre5"] : "-";
 $apellido5 = isset($_POST["apellido5"]) ? $_POST["apellido5"] : "-";
-$edad5 = isset($_POST["edad5"]) ? $_POST["edad5"] : "-";
+$edad5 = isset($_POST["edad5"]) ? $_POST["edad5"] : "0";
 $rol5 = isset($_POST["rol5"]) ? $_POST["rol5"] : "-";
 $ocupacion5 = isset($_POST["ocupacion5"]) ? $_POST["ocupacion5"] : "-";
 $escolaridad5 = isset($_POST["escolaridad5"]) ? $_POST["escolaridad5"] : "-";
@@ -84,7 +84,7 @@ $observaciones5 = isset($_POST["observaciones5"]) ? $_POST["observaciones5"] : "
 
 $nombre6 = isset($_POST["nombre6"]) ? $_POST["nombre6"] : "-";
 $apellido6 = isset($_POST["apellido6"]) ? $_POST["apellido6"] : "-";
-$edad6 = isset($_POST["edad6"]) ? $_POST["edad6"] : "-";
+$edad6 = isset($_POST["edad6"]) ? $_POST["edad6"] : "0";
 $rol6 = isset($_POST["rol6"]) ? $_POST["rol6"] : "-";
 $ocupacion6 = isset($_POST["ocupacion6"]) ? $_POST["ocupacion6"] : "-";
 $escolaridad6 = isset($_POST["escolaridad6"]) ? $_POST["escolaridad6"] : "-";
@@ -94,7 +94,7 @@ $observaciones6 = isset($_POST["observaciones6"]) ? $_POST["observaciones6"] : "
 
 $nombre7 = isset($_POST["nombre7"]) ? $_POST["nombre7"] : "-";
 $apellido7 = isset($_POST["apellido7"]) ? $_POST["apellido7"] : "-";
-$edad7 = isset($_POST["edad7"]) ? $_POST["edad7"] : "-";
+$edad7 = isset($_POST["edad7"]) ? $_POST["edad7"] : "0";
 $rol7 = isset($_POST["rol7"]) ? $_POST["rol7"] : "-";
 $ocupacion7 = isset($_POST["ocupacion7"]) ? $_POST["ocupacion7"] : "-";
 $escolaridad7 = isset($_POST["escolaridad7"]) ? $_POST["escolaridad7"] : "-";
@@ -112,8 +112,8 @@ $servicios = isset($_POST['servicios']) ? implode(", ", $_POST['servicios']) : '
     
 
 
-$numconvi = isset($_POST["numconvi"]) ? $_POST["numconvi"] : "-";
-$numhabit = isset($_POST["numhabit"]) ? $_POST["numhabit"] : "-";
+$numconvi = isset($_POST["numconvi"]) ? $_POST["numconvi"] : "1";
+$numhabit = isset($_POST["numhabit"]) ? $_POST["numhabit"] : "1";
 $obsG = isset($_POST["obsG"]) ? $_POST["obsG"] : "-";
 $mediosT = isset($_POST["mediosT"]) ? $_POST["mediosT"] : "-";
 
@@ -172,11 +172,7 @@ $observaciones_generales = isset($_POST["observaciones_generales"]) ? $_POST["ob
     $sql = "INSERT INTO datos_estudiante (DNI,Fecha_registro,tipo,construccion,tenencia,servicios, obs, numconvi, numhabit, obsG, mediosT, diagnostico, medico_cabecera, tratamiento, medicacion, tiempo_internacion, tiempo, pronostico, observaciones, manifestaciones, enfermedades_previas, medicacion_incidir, tratamientos_terapeutica, nivel_inicial_sala, nivel_inicial_asistio, nivel_inicial_institucion, obsE, nivel_primario_grado, nivel_primario_tutor, promocion_automatica, observaciones_promocion, cambios_escuela, institucion_cambios, repitencia, grado_repitencia, veces_repitencia, ausentismo, observaciones_ausentismo, desercion, observaciones_desercion, derivacion, intervencion_equipo, ppi, caracter_anterior, caracter_actual, nombre_caracter, educacion_anterior, institucion_educacion, grado_educacion, docente_educacion, tiempo_intervencion, observaciones_generales) 
 
         VALUES (:dni,:fecha_registro,:tipo,:construccion,:tenencia,:servicios,:obs, :numconvi, :numhabit, :obsG, :mediosT, :diagnostico, :medico_cabecera, :tratamiento, :medicacion, :tiempo_internacion, :tiempo, :pronostico, :observaciones, :manifestaciones, :enfermedades_previas, :medicacion_incidir, :tratamientos_terapeutica, :nivel_inicial_sala, :nivel_inicial_asistio, :nivel_inicial_institucion, :obsE, :nivel_primario_grado, :nivel_primario_tutor, :promocion_automatica, :observaciones_promocion, :cambios_escuela, :institucion_cambios, :repitencia, :grado_repitencia, :veces_repitencia, :ausentismo, :observaciones_ausentismo, :desercion, :observaciones_desercion, :derivacion, :intervencion_equipo, :ppi, :caracter_anterior, :caracter_actual, :nombre_caracter, :educacion_anterior, :institucion_educacion, :grado_educacion, :docente_educacion, :tiempo_intervencion, :observaciones_generales)";
-
-
-
     $consulta = $conn->prepare($sql);
-
     $consulta->bindParam(':dni', $dni);
     $consulta->bindParam(':fecha_registro', $fecha_actual);
     $consulta->bindParam(':tipo', $tipo);
@@ -238,8 +234,6 @@ $observaciones_generales = isset($_POST["observaciones_generales"]) ? $_POST["ob
     $consulta->bindParam(':tiempo_intervencion', $tiempo_intervencion);
 
     $consulta->bindParam(':observaciones_generales', $observaciones_generales);
-
-
     $consulta->execute();
 
 
@@ -382,10 +376,7 @@ $observaciones_generales = isset($_POST["observaciones_generales"]) ? $_POST["ob
 
         $consulta7->execute();
     } 
+    header("location: formularioAlumno.php");
 }
-
-
-
-
-
 header("location: formularioAlumno.php");
+?>
