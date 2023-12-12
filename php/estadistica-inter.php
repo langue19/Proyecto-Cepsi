@@ -66,6 +66,8 @@ session_start();
 
     <div class="wrapper">
 
+    
+
 
 
 
@@ -104,8 +106,7 @@ session_start();
 
 
 
-<div class="">
-
+<div class=""><h2 style="text-align: center; vertical-align: middle;">ESTADISTICAS DE INTERNACION</h2>
 
 
     <div class="row" style="display: flex; justify-content: space-between;">

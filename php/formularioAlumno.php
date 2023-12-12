@@ -4221,7 +4221,7 @@ $mesesEnEspanol = array(
                                     </div> 
                                     <input type='hidden' name='dni' value='" . $row['Dni'] . "'>
 
-          <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=closeModal1('id-modal3-" . $row2['Fecha_registro'] .  "') />
+          <input type='button' class='action-button' style='color:white; width: 100%; background-color: red; margin-top: 15px;' value='Cancelar' onclick=\"closeModal2('id-modal5-" . $row['Dni'] . "')\" >
 
           <input type='submit' name='next' class='next action-button' style='color:white;width: 100%; background-color:green; margin-top:15px' value='Generar PDF!' />
 
@@ -4285,7 +4285,7 @@ $mesesEnEspanol = array(
                                                             $contador = 0;
                                                             if ($row3 = $consulta3->fetch()) {
                                                                 if ($row3['nombre'] != NULL) {
-                                                                    echo "      <a href='#' onclick=\"openModal20('" . $row['Dni'] . "')\">
+                                                                    echo "      <a href='#' onclick=\"openModal20('" . $row3['DNI'] . "')\">
     <button class='boton ver'>MOSTRAR</button>
 </a>";
                                                                 }
@@ -4554,19 +4554,50 @@ $mesesEnEspanol = array(
                                                                         </div>
                                                                     </section>
                                                                 </div>
-                                                        <?php }
+                                                        
+                        </div>
+                        <div class='modal-footer justify-content-between'><?php echo"<input type='button' style='display: inline-block;
+                                                                        justify-content:center;
+                                                                        padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+                                                                        font-size: 15px;
+                                                                        text-align: center;
+                                                                        text-decoration: none;
+                                                                        cursor: pointer;
+                                                                        border: none;
+                                                                        border-radius: 3px;
+                                                                        background-color: rgb(255, 56, 56);
+                                                                        color: #fff;
+                                                                        width: 300px; /* Ancho fijo para ambos botones */' value='Cerrar' onclick=\"closeModal('id-modal20-" . $row['Dni'] . "')\">
+                                                                        ";
+                            echo "
+
+                                <form id='msform' action='generarPDF-amne.php' method='post'>
+                                    <input 
+                                    type='hidden' name='DNI' value='" . $row['Dni'] . "'>
+
+    <input type='submit' name='next' class='next action-button' style='display: inline-block;
+    justify-content:center;
+    padding: 8px 10px; /* Ajusta este padding según tus necesidades */
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    background-color: green;
+    color: #fff;
+    width: 300px; /* Ancho fijo para ambos botones */' value='Generar PDF!' />
+
+
+</form>
+
+                                                        ";?> </div>
+                        </div><?php }
                                                         } ?>
-                        </div>
-                        <div class='modal-footer justify-content-between'>
-                            <button type='button' class='boton-anam rojo' data-dismiss='modal'>Cerrar</button>
-                            <a href='generarPDF-amne.php?id=<?php echo $row['Dni']; ?>'>
-                                <button type='submit' class='boton-anam celeste'>Imprimir PDF</button></a>
-                        </div>
+                        <!-- /.modal-content -->
                     </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div><?php
+                    <!-- /.modal-dialog -->
+                </div><?php
 
                                                     endif;
 
@@ -4661,7 +4692,7 @@ $mesesEnEspanol = array(
 
 
 
-                    ?>
+                        ?>
 
 
 
@@ -4669,27 +4700,27 @@ $mesesEnEspanol = array(
 
 
 
-</tbody>
+    </tbody>
 
 
 
-</table>
+    </table>
 
 
 
-<?php
+    <?php
 
 
 
-$totalFilas = 500; // Cambiar al total real de filas en la tabla
+    $totalFilas = 500; // Cambiar al total real de filas en la tabla
 
 
 
-$itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
+    $itemsPorPagina = 10; // Cambiar a la cantidad deseada de ítems por página
 
 
 
-$totalPaginas = ceil($totalFilas / $itemsPorPagina);
+    $totalPaginas = ceil($totalFilas / $itemsPorPagina);
 
 
 
@@ -4697,7 +4728,7 @@ $totalPaginas = ceil($totalFilas / $itemsPorPagina);
 
 
 
-$enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la paginación
+    $enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la paginación
 
 
 
@@ -4705,19 +4736,19 @@ $enlacesMostrados = 5; // Cambiar al número deseado de enlaces mostrados en la 
 
 
 
-$mitadEnlaces = floor($enlacesMostrados / 2);
+    $mitadEnlaces = floor($enlacesMostrados / 2);
 
 
 
-$inicioRango = max(1, $paginaActual - $mitadEnlaces);
+    $inicioRango = max(1, $paginaActual - $mitadEnlaces);
 
 
 
-$finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
+    $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
 
 
 
-?>
+    ?>
 
 
 
@@ -4725,39 +4756,15 @@ $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
 
 
 
-<div class="pagination">
+    <div class="pagination">
 
 
 
-    <?php if ($paginaActual > 1) : ?>
+        <?php if ($paginaActual > 1) : ?>
 
 
 
-        <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
-
-
-
-    <?php endif; ?>
-
-
-
-
-
-
-
-    <?php if ($inicioRango > 1) : ?>
-
-
-
-        <a href='formularioAlumno.php?pagina=1'>1</a>
-
-
-
-        <?php if ($inicioRango > 2) : ?>
-
-
-
-            <a class="pagination-dots">...</a>
+            <a href='formularioAlumno.php?pagina=<?php echo $paginaActual - 1; ?>'>&lt; Anterior</a>
 
 
 
@@ -4765,43 +4772,27 @@ $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
 
 
 
-    <?php endif; ?>
 
 
 
 
+        <?php if ($inicioRango > 1) : ?>
 
 
 
-    <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
+            <a href='formularioAlumno.php?pagina=1'>1</a>
 
 
 
-        <?php $active1 = ($i == $paginaActual) ? 'active1' : ''; ?>
+            <?php if ($inicioRango > 2) : ?>
 
 
 
-        <a class='<?php echo $active1; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
+                <a class="pagination-dots">...</a>
 
 
 
-    <?php endfor; ?>
-
-
-
-
-
-
-
-    <?php if ($finRango < $totalPaginas) : ?>
-
-
-
-        <?php if ($finRango < $totalPaginas - 1) : ?>
-
-
-
-            <a class="pagination-dots">...</a>
+            <?php endif; ?>
 
 
 
@@ -4809,35 +4800,23 @@ $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
 
 
 
-        <a href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
-
-
-
-    <?php endif; ?>
 
 
 
 
+        <?php for ($i = $inicioRango; $i <= $finRango; $i++) : ?>
 
 
 
-    <?php if ($paginaActual < $totalPaginas) : ?>
+            <?php $active1 = ($i == $paginaActual) ? 'active1' : ''; ?>
 
 
 
-        <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
+            <a class='<?php echo $active1; ?>' href='formularioAlumno.php?pagina=<?php echo $i; ?>'><?php echo $i; ?></a>
 
 
 
-            &gt;</a>
-
-
-
-    <?php endif; ?>
-
-
-
-</div>
+        <?php endfor; ?>
 
 
 
@@ -4845,6 +4824,27 @@ $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
 
 
 
+        <?php if ($finRango < $totalPaginas) : ?>
+
+
+
+            <?php if ($finRango < $totalPaginas - 1) : ?>
+
+
+
+                <a class="pagination-dots">...</a>
+
+
+
+            <?php endif; ?>
+
+
+
+            <a href='formularioAlumno.php?pagina=<?php echo $totalPaginas; ?>'><?php echo $totalPaginas; ?></a>
+
+
+
+        <?php endif; ?>
 
 
 
@@ -4852,32 +4852,63 @@ $finRango = min($totalPaginas, $paginaActual + $mitadEnlaces);
 
 
 
-
-<?php
-
+        <?php if ($paginaActual < $totalPaginas) : ?>
 
 
 
+            <a href='formularioAlumno.php?pagina=<?php echo $paginaActual + 1; ?>'>Siguiente
 
 
 
-echo "</div>";
+                &gt;</a>
 
 
 
-?>
-
-
-
-
-
-
-
-        </div>
+        <?php endif; ?>
 
 
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <?php
+
+
+
+
+
+
+
+    echo "</div>";
+
+
+
+    ?>
+
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
 
 
 

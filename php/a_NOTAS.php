@@ -8,33 +8,100 @@ include 'crearTabla.php';
 
 $dni = $_POST['DNI'];
 $ano = $_POST['AÑO'];
-$trimestre = $_POST['Trimestre'];
-$lengua_cal = $_POST['Lengua_cal'];
-$lengua_observaciones = $_POST['Lengua_observaciones'];
-$matematica_cal = $_POST['Matematica_cal'];
-$matematica_observaciones = $_POST['Matematica_observaciones'];
-$sociales_cal = $_POST['Sociales_cal'];
-$sociales_observaciones = $_POST['Sociales_observaciones'];
-$naturales_cal = $_POST['Naturales_cal'];
-$naturales_observaciones = $_POST['Naturales_observaciones'];
-$tecnologia_cal = $_POST['Tecnologia_cal'];
-$tecnologia_observaciones = $_POST['Tecnologia_observaciones'];
-$musica_cal = $_POST['Musica_cal'];
-$musica_observaciones = $_POST['Musica_observaciones'];
-$plastica_cal = $_POST['Plastica_cal'];
-$plastica_observaciones = $_POST['Plastica_observaciones'];
-$etica_cal = $_POST['EticayCiudadana_cal'];
-$etica_observaciones = $_POST['EticayCiudadana_observaciones'];
-$int_destaca = $_POST['Int_pract_destaca'];
-$int_trabaja = $_POST['Int_pract_trabaja'];
-$int_mejorar = $_POST['Int_pract_mejorar'];
-$motivacion = $_POST['Personales_soc_motiv'];
-$habitos_trabajo = $_POST['Personales_soc_trabajo'];
-$responsabilidad = $_POST['Personales_soc_respons'];
-$acompanamiento = $_POST['Personales_soc_acompañ'];
-$psicologo = $_POST['Int_equipo_psicologo'];
-$psicopedagogo = $_POST['Int_equipo_psicopedagogo'];
-$observaciones_generales = $_POST['Observaciones_generales'];
+
+if (
+    isset(
+        $_POST['Trimestre'],
+        $_POST['Lengua_cal'],
+        $_POST['Lengua_observaciones'],
+        $_POST['Matematica_cal'],
+        $_POST['Matematica_observaciones'],
+        $_POST['Sociales_cal'],
+        $_POST['Sociales_observaciones'],
+        $_POST['Naturales_cal'],
+        $_POST['Naturales_observaciones'],
+        $_POST['Tecnologia_cal'],
+        $_POST['Tecnologia_observaciones'],
+        $_POST['Musica_cal'],
+        $_POST['Musica_observaciones'],
+        $_POST['Plastica_cal'],
+        $_POST['Plastica_observaciones'],
+        $_POST['EticayCiudadana_cal'],
+        $_POST['EticayCiudadana_observaciones'],
+        $_POST['Int_pract_destaca'],
+        $_POST['Int_pract_trabaja'],
+        $_POST['Int_pract_mejorar'],
+        $_POST['Personales_soc_motiv'],
+        $_POST['Personales_soc_trabajo'],
+        $_POST['Personales_soc_respons'],
+        $_POST['Personales_soc_acompañ'],
+        $_POST['Int_equipo_psicologo'],
+        $_POST['Int_equipo_psicopedagogo'],
+        $_POST['Observaciones_generales']
+    ) &&
+    !empty($_POST['Trimestre']) &&
+    !empty($_POST['Lengua_cal']) &&
+    !empty($_POST['Lengua_observaciones']) &&
+    !empty($_POST['Matematica_cal']) &&
+    !empty($_POST['Matematica_observaciones']) &&
+    !empty($_POST['Sociales_cal']) &&
+    !empty($_POST['Sociales_observaciones']) &&
+    !empty($_POST['Naturales_cal']) &&
+    !empty($_POST['Naturales_observaciones']) &&
+    !empty($_POST['Tecnologia_cal']) &&
+    !empty($_POST['Tecnologia_observaciones']) &&
+    !empty($_POST['Musica_cal']) &&
+    !empty($_POST['Musica_observaciones']) &&
+    !empty($_POST['Plastica_cal']) &&
+    !empty($_POST['Plastica_observaciones']) &&
+    !empty($_POST['EticayCiudadana_cal']) &&
+    !empty($_POST['EticayCiudadana_observaciones']) &&
+    !empty($_POST['Int_pract_destaca']) &&
+    !empty($_POST['Int_pract_trabaja']) &&
+    !empty($_POST['Int_pract_mejorar']) &&
+    !empty($_POST['Personales_soc_motiv']) &&
+    !empty($_POST['Personales_soc_trabajo']) &&
+    !empty($_POST['Personales_soc_respons']) &&
+    !empty($_POST['Personales_soc_acompañ']) &&
+    !empty($_POST['Int_equipo_psicologo']) &&
+    !empty($_POST['Int_equipo_psicopedagogo']) &&
+    !empty($_POST['Observaciones_generales'])
+) {
+    // Procede con el procesamiento de datos
+    $trimestre = $_POST['Trimestre'];
+    $lengua_cal = $_POST['Lengua_cal'];
+    $lengua_observaciones = $_POST['Lengua_observaciones'];
+    $matematica_cal = $_POST['Matematica_cal'];
+    $matematica_observaciones = $_POST['Matematica_observaciones'];
+    $sociales_cal = $_POST['Sociales_cal'];
+    $sociales_observaciones = $_POST['Sociales_observaciones'];
+    $naturales_cal = $_POST['Naturales_cal'];
+    $naturales_observaciones = $_POST['Naturales_observaciones'];
+    $tecnologia_cal = $_POST['Tecnologia_cal'];
+    $tecnologia_observaciones = $_POST['Tecnologia_observaciones'];
+    $musica_cal = $_POST['Musica_cal'];
+    $musica_observaciones = $_POST['Musica_observaciones'];
+    $plastica_cal = $_POST['Plastica_cal'];
+    $plastica_observaciones = $_POST['Plastica_observaciones'];
+    $etica_cal = $_POST['EticayCiudadana_cal'];
+    $etica_observaciones = $_POST['EticayCiudadana_observaciones'];
+    $int_destaca = $_POST['Int_pract_destaca'];
+    $int_trabaja = $_POST['Int_pract_trabaja'];
+    $int_mejorar = $_POST['Int_pract_mejorar'];
+    $motivacion = $_POST['Personales_soc_motiv'];
+    $habitos_trabajo = $_POST['Personales_soc_trabajo'];
+    $responsabilidad = $_POST['Personales_soc_respons'];
+    $acompanamiento = $_POST['Personales_soc_acompañ'];
+    $psicologo = $_POST['Int_equipo_psicologo'];
+    $psicopedagogo = $_POST['Int_equipo_psicopedagogo'];
+    $observaciones_generales = $_POST['Observaciones_generales'];
+
+    // Aquí puedes realizar las operaciones necesarias con los datos recibidos
+} else {
+    $mensaje = "Debe completar todos los campos.";
+
+    // Generar código JavaScript para mostrar el mensaje
+    echo "<script>alert('$mensaje'); window.history.back();</script>";}
 
 $conn->exec("USE $dbname");
 
@@ -48,15 +115,15 @@ if ($editar == "nada") {
     $consulta->bindParam(':trimestre', $trimestre);
     $consulta->execute();
 
-    $stmt = $conn->prepare("INSERT INTO datos_notas (DNI, AÑO, Trimestre, Lengua_cal, Lengua_observaciones, Matematica_cal, Matematica_observaciones, Sociales_cal, Sociales_observaciones,Naturales_cal, Naturales_observaciones, Tecnologia_cal, Tecnologia_observaciones, Musica_cal, Musica_observaciones, Plastica_cal, Plastica_observaciones, EticayCiudadana_cal, EticayCiudadana_observaciones, Int_pract_destaca, Int_pract_trabaja, Int_pract_mejorar, Personales_soc_motiv, Personales_soc_trabajo, Personales_soc_respons, Personales_soc_acompañ, Int_equipo_psicologo, Int_equipo_psicopedagogo, Observaciones_generales) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$dni, $ano, $trimestre, $lengua_cal, $lengua_observaciones, $matematica_cal, $matematica_observaciones, $sociales_cal, $sociales_observaciones, $tecnologia_cal, $tecnologia_observaciones, $musica_cal, $musica_observaciones, $plastica_cal, $plastica_observaciones, $etica_cal, $etica_observaciones, $int_destaca, $int_trabaja, $int_mejorar, $motivacion, $habitos_trabajo, $responsabilidad, $acompanamiento, $psicologo, $psicopedagogo, $observaciones_generales]);
+    $stmt = $conn->prepare("INSERT INTO datos_notas (DNI, AÑO, Trimestre, Lengua_cal, Lengua_observaciones, Matematica_cal, Matematica_observaciones, Sociales_cal, Sociales_observaciones, Naturales_cal, Naturales_observaciones, Tecnologia_cal, Tecnologia_observaciones, Musica_cal, Musica_observaciones, Plastica_cal, Plastica_observaciones, EticayCiudadana_cal, EticayCiudadana_observaciones, Int_pract_destaca, Int_pract_trabaja, Int_pract_mejorar, Personales_soc_motiv, Personales_soc_trabajo, Personales_soc_respons, Personales_soc_acompañ, Int_equipo_psicologo, Int_equipo_psicopedagogo, Observaciones_generales) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$dni, $ano, $trimestre, $lengua_cal, $lengua_observaciones, $matematica_cal, $matematica_observaciones, $sociales_cal, $sociales_observaciones,$naturales_cal, $naturales_observaciones, $tecnologia_cal, $tecnologia_observaciones, $musica_cal, $musica_observaciones, $plastica_cal, $plastica_observaciones, $etica_cal, $etica_observaciones, $int_destaca, $int_trabaja, $int_mejorar, $motivacion, $habitos_trabajo, $responsabilidad, $acompanamiento, $psicologo, $psicopedagogo, $observaciones_generales]);
     header("location: formularioAlumno.php"); // Ajusta la ruta según tu estructura de carpetas
 
 } else {
     $sql_update = "UPDATE datos_notas 
                    SET Lengua_cal = :lengua_cal, Lengua_observaciones = :lengua_observaciones,
                        Matematica_cal = :matematica_cal, Matematica_observaciones = :matematica_observaciones,
-                       Sociales_cal = :sociales_cal, Sociales_observaciones = :sociales_observaciones,Naturales_observaciones = :naturales_observaciones,
+                       Sociales_cal = :sociales_cal, Sociales_observaciones = :sociales_observaciones,Naturales_cal = :naturales_cal,Naturales_observaciones = :naturales_observaciones,
                        Tecnologia_cal = :tecnologia_cal, Tecnologia_observaciones = :tecnologia_observaciones,
                        Musica_cal = :musica_cal, Musica_observaciones = :musica_observaciones,
                        Plastica_cal = :plastica_cal, Plastica_observaciones = :plastica_observaciones,

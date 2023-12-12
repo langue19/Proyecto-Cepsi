@@ -104,7 +104,7 @@ session_start();
 
 
 
-            <div class="">
+            <div class=""><h2 style="text-align: center; vertical-align: middle;">ESTADISTICAS DE DOMICILIARIO</h2>
 
 
 

@@ -36,7 +36,7 @@ if($reingreso != "reingreso"){
     
     $nombTutor = $_POST['nombre_tutor'];
     
-    $sql = "SELECT * FROM Datos_personales WHERE Dni = :dni"; // Usar marcador de posición
+    $sql = "SELECT * FROM datos_personales WHERE Dni = :dni"; // Usar marcador de posición
 
     $consulta = $conn->prepare($sql);
     
@@ -64,7 +64,7 @@ if($reingreso != "reingreso"){
     
     }
     
-    $stmt = $conn->prepare("INSERT INTO Datos_personales(Dni, Nombre, Apellido, Sexo, Domicilio, Fecha_nacimiento, Nombre_del_tutor) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO datos_personales(Dni, Nombre, Apellido, Sexo, Domicilio, Fecha_nacimiento, Nombre_del_tutor) VALUES (?, ?, ?, ?, ?, ?, ?)");
     
     $stmt->execute([$dni, $nomb, $ape, $genero, $dom, $fecha_nac, $nombTutor]);
     
@@ -109,7 +109,7 @@ if ($fecha_ing != "") {
 
 
 
-    $stmt = $conn->prepare("INSERT INTO Datos_pedagogicos(Dni, Fecha_registro, escRef, Grado, poseeEsc, escComun, lectContinua,obs_lectC, interpTextos,obs_interpT, resuelvOpBas,obs_resuelvOpBas, lectyescri,obs_LectyEsc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO datos_pedagogicos(Dni, Fecha_registro, escRef, Grado, poseeEsc, escComun, lectContinua,obs_lectC, interpTextos,obs_interpT, resuelvOpBas,obs_resuelvOpBas, lectyescri,obs_LectyEsc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     $stmt->execute([$dni, $fecha_ing, $escRef, $grado, $poseEsc, $escComun, $LecturaCont,$obs_lectC, $InterpText,$obs_interpT, $opBasicas,$obs_resuelvOpBas, $lectYesct,$obs_LectyEsc]);
 
@@ -142,7 +142,7 @@ if ($estado == "Internacion") {
 
     $diag1 = $_POST['diag1'];
 
-    $stmt = $conn->prepare("INSERT INTO Datos_internacion(Dni, Fecha_registro, Sala, Habitacion, Cama, Discapacidad, Observacion, Diagnostico, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO datos_internacion(Dni, Fecha_registro, Sala, Habitacion, Cama, Discapacidad, Observacion, Diagnostico, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 
 
@@ -162,7 +162,7 @@ if ($estado == "Domiciliario") {
 
 
 
-    $stmt = $conn->prepare("INSERT INTO Datos_domiciliario(Dni, Fecha_registro, Direccion, Discapacidad, Observacion, Diagnostico, Estado) VALUES (?,?,?,?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO datos_domiciliario(Dni, Fecha_registro, Direccion, Discapacidad, Observacion, Diagnostico, Estado) VALUES (?,?,?,?,?,?,?)");
 
 
 

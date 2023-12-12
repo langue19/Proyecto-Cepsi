@@ -124,14 +124,14 @@ session_start();
                                             </select>
 
                                             <label for='Lengua_cal'>Lengua Calificación</label>
-                                            <input type='text' name='Lengua_cal' required>
+                                            <input type='text' name='Lengua_cal'>
                                             <label for='Lengua_observaciones'>Observaciones</label>
-                                            <input type='text' name='Lengua_observaciones' required>
+                                            <input type='text' name='Lengua_observaciones'>
                                         </div>
                                         <div class='row'>
 
                                             <label for='Matematica_cal'>Matemática Calificación</label>
-                                            <input type='text' name='Matematica_cal' required>
+                                            <input type='text' name='Matematica_cal'>
 
                                             <label for='Matematica_observaciones'>Observaciones</label>
                                             <input type='text' name='Matematica_observaciones'></input>
@@ -139,41 +139,41 @@ session_start();
                                         </div>
                                         <div class='row'>
                                             <label for='Sociales_cal'>Sociales Calificación</label>
-                                            <input type='text' name='Sociales_cal' required>
+                                            <input type='text' name='Sociales_cal'>
                                             <label for='Sociales_observaciones'>Observaciones</label>
                                             <input type='text' name='Sociales_observaciones'></input>
 
                                         </div>
                                         <div class='row'>
                                             <label for='Naturales_cal'>Naturales Calificación</label>
-                                            <input type='text' name='Naturales_cal' required>
+                                            <input type='text' name='Naturales_cal'>
                                             <label for='Naturales_observaciones'>Observaciones</label>
                                             <input type='text' name='Naturales_observaciones'></input>
 
                                         </div>
                                         <div class='row'>
                                             <label for='Tecnologia_cal'>Tecnología Calificación</label>
-                                            <input type='text' name='Tecnologia_cal' required>
+                                            <input type='text' name='Tecnologia_cal'>
                                             <label for='Tecnologia_observaciones'>Observaciones</label>
                                             <input type='text' name='Tecnologia_observaciones'></input>
                                         </div>
                                         <div class='row'>
                                             <label for='Musica_cal'>Música Calificación</label>
-                                            <input type='text' name='Musica_cal' required>
+                                            <input type='text' name='Musica_cal'>
 
                                             <label for='Musica_observaciones'>Observaciones</label>
                                             <input type='text' name='Musica_observaciones'></input>
                                         </div>
                                         <div class='row'>
                                             <label for='Plastica_cal'>Plástica Calificación</label>
-                                            <input type='text' name='Plastica_cal' required>
+                                            <input type='text' name='Plastica_cal'>
 
                                             <label for='Plastica_observaciones'>Observaciones</label>
                                             <input type='text' name='Plastica_observaciones'></input>
                                         </div>
                                         <div class='row'>
                                             <label for='EticayCiudadana_cal'>Ética y Ciud. Calificación</label>
-                                            <input type='text' name='EticayCiudadana_cal' required>
+                                            <input type='text' name='EticayCiudadana_cal'>
                                             <label for='EticayCiudadana_observaciones'>Observaciones</label>
                                             <input type='text' name='EticayCiudadana_observaciones'></input>
                                         </div>
